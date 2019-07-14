@@ -33,6 +33,7 @@ namespace SchoolManagementSystem.Class
                 }
                 else if (control is CheckBox)
                 {
+                    Console.WriteLine("Checkbox");
                     CheckBox checkBox = (CheckBox)control;
                     checkBox.Checked = false;
                 }
@@ -49,7 +50,16 @@ namespace SchoolManagementSystem.Class
                 else if (control is DateTimePicker)
                 {
                     DateTimePicker dateTimePicker = (DateTimePicker)control;
-                    dateTimePicker.Value = DateTime.Now; 
+                    if(dateTimePicker.Checked)
+                    {
+                        dateTimePicker.Value = DateTime.Now.Date;
+                    }
+
+                    if (dateTimePicker.ShowCheckBox)
+                    {
+                        dateTimePicker.Checked = false;
+                    }
+
                 }
             }
         }

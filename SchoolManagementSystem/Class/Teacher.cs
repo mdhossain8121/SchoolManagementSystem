@@ -11,6 +11,8 @@ namespace SchoolManagementSystem.Class
     {
         public int Id { get; set; }
 
+        public byte[] Image { get; set; }
+
         public string TeacherName { get; set; }
 
         public string Mobile { get; set; }
@@ -27,12 +29,13 @@ namespace SchoolManagementSystem.Class
 
         public Boolean Insert()
         {
-            Command = CommandBuilder("insert into " + table + " (TEACHER_NAME,MOBILE,ADDRESS,JOINING_DATE,END_DATE) values(@teacherName,@mobile,@address,@joiningDate,@endDate)");
+            Command = CommandBuilder("insert into " + table + " (TEACHER_NAME,MOBILE,ADDRESS,JOINING_DATE,END_DATE,IMAGE) values(@teacherName,@mobile,@address,@joiningDate,@endDate,@image)");
             Command.Parameters.AddWithValue("@teacherName", TeacherName);
             Command.Parameters.AddWithValue("@mobile", Mobile);
             Command.Parameters.AddWithValue("@address", Address);
             Command.Parameters.AddWithValue("@joiningDate", JoiningDate);
             Command.Parameters.AddWithValue("@endDate", EndDate);
+            Command.Parameters.AddWithValue("@image", Image);
             return Execute(Command);
         }
 
