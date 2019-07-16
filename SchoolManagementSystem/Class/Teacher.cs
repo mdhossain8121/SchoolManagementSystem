@@ -41,22 +41,24 @@ namespace SchoolManagementSystem.Class
 
         public bool Update()
         {
-            Command = CommandBuilder("update " + table + " set TEACHER_NAME = @teacherName, MOBILE = @mobile, ADDRESS = @address, JOINING_DATE = @joiningDate, END_DATE = @endDate  where ID = @id");
+            Command = CommandBuilder("update " + table + " set IMAGE = @image, TEACHER_NAME = @teacherName, MOBILE = @mobile, ADDRESS = @address, JOINING_DATE = @joiningDate, END_DATE = @endDate  where ID = @id");
             Command.Parameters.AddWithValue("@id", Id);
             Command.Parameters.AddWithValue("@teacherName", TeacherName);
             Command.Parameters.AddWithValue("@mobile", Mobile);
             Command.Parameters.AddWithValue("@address", Address);
             Command.Parameters.AddWithValue("@joiningDate", JoiningDate);
             Command.Parameters.AddWithValue("@endDate", EndDate);
+            Command.Parameters.AddWithValue("@image", Image);
             return Execute(Command);
         }
 
         public bool Delete()
         {
-            Command = CommandBuilder("update " + table + " set ACTIVE_STATUS = @activeStatus where ID = @id");
+            Command = CommandBuilder("update " + table + " set ACTIVE_STATUS = @activeStatus and END_DATE = @endDate where ID = @id");
             //Command = CommandBuilder("delete from " + table + " where ID = @id");
             Command.Parameters.AddWithValue("@id", Id);
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
+            Command.Parameters.AddWithValue("@endDate", EndDate);
             return Execute(Command);
         }
 

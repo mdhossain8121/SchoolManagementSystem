@@ -15,11 +15,11 @@ namespace SchoolManagementSystem.ClassManager
         {
             if (aTeacher.Insert())
             {
-                return "New role has been inserted";
+                return "New Teacher has been inserted";
             }
             else
             {
-                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Inserting Role " + Environment.NewLine);
+                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Inserting Teacher " + Environment.NewLine);
                 File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: " + aTeacher.Error + Environment.NewLine);
                 return aTeacher.Error;
             }

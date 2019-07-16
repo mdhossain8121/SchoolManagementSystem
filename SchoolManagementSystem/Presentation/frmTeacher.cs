@@ -82,6 +82,7 @@ namespace SchoolManagementSystem.Presentation
             Teacher teacher = new Teacher();
             teacher.Id = (int)btn.Tag;
             teacher.ActiveStatus = 0;
+            teacher.EndDate = DateTime.Now;
             String Message = aTeacherManager.DeleteTeacher(teacher);
             MessageBox.Show(Message);
             resetControls();
