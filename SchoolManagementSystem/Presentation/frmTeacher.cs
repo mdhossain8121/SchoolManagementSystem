@@ -15,12 +15,7 @@ namespace SchoolManagementSystem.Presentation
 {
     public partial class frmTeacher : Form
     {
-
-        OpenFileDialog ofd = new OpenFileDialog();
-        FileStream fsObj = null;
-        BinaryReader binRdr = null;
         TeacherManager aTeacherManager = new TeacherManager();
-        ImageConverter ic = new ImageConverter();
         public frmTeacher()
         {
             InitializeComponent();
@@ -40,7 +35,14 @@ namespace SchoolManagementSystem.Presentation
                 MessageBox.Show(aTeacher.Error);
                 return;
             }
-            dgvData.DataSource = dt;
+            try
+            {
+                dgvData.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Catch = "+ex.Message);
+            }
         }
 
         private void resetControls()
@@ -52,13 +54,13 @@ namespace SchoolManagementSystem.Presentation
 
         private void llImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "JPEG|*.jpg|PNG|*.png|GIF|*.gif";
             ofd.ShowDialog();
 
             if (ofd.FileName == null || ofd.FileName == "")
                 return;
-            pbImage.Image = Image.FromFile(ofd.FileName);
+            pbImage.BackgroundImage = Image.FromFile(ofd.FileName);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -88,23 +90,10 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(ofd.FileName);
-            fsObj = File.OpenRead(ofd.FileName);
-            byte[] imgContent = new byte[fsObj.Length];
-            binRdr = new BinaryReader(fsObj);
-            imgContent = binRdr.ReadBytes((int)fsObj.Length);
-
-
-
-            return;
             if (Utilities.EmptyRequiredField(tabBasicInformation))
                 return;
-
-            
-
-
             Teacher aTeacher = new Teacher();
-            aTeacher.Image = imgContent;
+            aTeacher.Image = FileImage.ImageToByte(pbImage.BackgroundImage);
             aTeacher.TeacherName = txtTeacherName.Text;
             aTeacher.Mobile = txtMobile.Text;
             aTeacher.Address = txtAddress.Text;
@@ -145,6 +134,7 @@ namespace SchoolManagementSystem.Presentation
         {
             if (dgvData.SelectedRows.Count <= 0)
                 return;
+            pbImage.BackgroundImage = FileImage.ImageFromByte((Byte[])dgvData.SelectedRows[0].Cells["colImage"].Value);
             txtTeacherName.Text = dgvData.SelectedRows[0].Cells["colTeacherName"].Value.ToString();
             txtMobile.Text = dgvData.SelectedRows[0].Cells["colMobile"].Value.ToString();
             dtpJoiningDate.Value = (DateTime) dgvData.SelectedRows[0].Cells["colJoiningDate"].Value;

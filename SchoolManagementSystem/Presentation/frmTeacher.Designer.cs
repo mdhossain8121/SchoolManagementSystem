@@ -366,7 +366,7 @@
             // 
             this.colImage.DataPropertyName = "IMAGE";
             this.colImage.HeaderText = "Image";
-            this.colImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.colImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.colImage.Name = "colImage";
             this.colImage.ReadOnly = true;
             this.colImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;

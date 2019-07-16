@@ -79,7 +79,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet Select()
         {
-            Command = CommandBuilder("select ID, TEACHER_NAME,MOBILE,ADDRESS,JOINING_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");
+            Command = CommandBuilder("select ID, TEACHER_NAME,IMAGE,MOBILE,ADDRESS,JOINING_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             if (TeacherName != null && !TeacherName.Trim().Equals(""))
             {

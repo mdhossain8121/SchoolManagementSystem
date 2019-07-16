@@ -61,6 +61,7 @@
     <Compile Include="Class\Base.cs" />
     <Compile Include="Class\ClassWiseSection.cs" />
     <Compile Include="Class\ClassWiseSubject.cs" />
+    <Compile Include="Class\FileImage.cs" />
     <Compile Include="Class\Role.cs" />
     <Compile Include="Class\ClassSetup.cs" />
     <Compile Include="Class\Section.cs" />
