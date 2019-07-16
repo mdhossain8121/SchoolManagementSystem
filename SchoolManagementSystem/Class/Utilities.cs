@@ -45,7 +45,7 @@ namespace SchoolManagementSystem.Class
                 else if (control is PictureBox)
                 {
                     PictureBox pictureBox = (PictureBox)control;
-                    pictureBox.Image = null;
+                    pictureBox.BackgroundImage = null;
                 }
                 else if (control is DateTimePicker)
                 {
@@ -90,6 +90,14 @@ namespace SchoolManagementSystem.Class
                 else if (c is ComboBox)
                 {
                     if (((ComboBox)c).SelectedIndex < 0)
+                    {
+                        ep.SetError(c, "Required");
+                        Empty = true;
+                    }
+                }
+                if (c is PictureBox)
+                {
+                    if (c.BackgroundImage.ToString().Trim().Equals("") && c.Tag != null && c.Tag.ToString().Trim().Equals("Required"))
                     {
                         ep.SetError(c, "Required");
                         Empty = true;

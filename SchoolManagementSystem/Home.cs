@@ -22,6 +22,7 @@ namespace SchoolManagementSystem
         frmClassWiseSection cws = new frmClassWiseSection();
         frmAttedndance attendance = new frmAttedndance();
         frmTeacher teacher = new frmTeacher();
+        frmStudent student = new frmStudent();
 
         public frmHome()
         {
@@ -99,6 +100,13 @@ namespace SchoolManagementSystem
             if (teacher.IsDisposed)
                 teacher = new frmTeacher();
             menuClick(teacher);
+        }
+
+        private void studentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (student.IsDisposed)
+                student = new frmStudent();
+            menuClick(student);
         }
     }
 }

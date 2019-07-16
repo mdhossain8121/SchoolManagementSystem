@@ -55,6 +55,7 @@
     <Compile Include="ClassManager\ClassSetupManager.cs" />
     <Compile Include="ClassManager\RoleManager.cs" />
     <Compile Include="ClassManager\SectionManager.cs" />
+    <Compile Include="ClassManager\StudentManager.cs" />
     <Compile Include="ClassManager\SubjectManager.cs" />
     <Compile Include="ClassManager\TeacherManager.cs" />
     <Compile Include="ClassManager\UserManager.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Class\Role.cs" />
     <Compile Include="Class\ClassSetup.cs" />
     <Compile Include="Class\Section.cs" />
+    <Compile Include="Class\Student.cs" />
     <Compile Include="Class\Subject.cs" />
     <Compile Include="Class\Teacher.cs" />
     <Compile Include="Class\User.cs" />
@@ -111,6 +113,12 @@
     <Compile Include="Presentation\frmSection.Designer.cs">
       <DependentUpon>frmSection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\frmStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmStudent.Designer.cs">
+      <DependentUpon>frmStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\frmSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmSection.resx">
       <DependentUpon>frmSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmStudent.resx">
+      <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmSubject.resx">
       <DependentUpon>frmSubject.cs</DependentUpon>
