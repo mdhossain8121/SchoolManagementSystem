@@ -60,6 +60,7 @@
     <Compile Include="ClassManager\TeacherManager.cs" />
     <Compile Include="ClassManager\UserManager.cs" />
     <Compile Include="Class\Base.cs" />
+    <Compile Include="Class\ClassSectionWiseStudent.cs" />
     <Compile Include="Class\ClassWiseSection.cs" />
     <Compile Include="Class\ClassWiseSubject.cs" />
     <Compile Include="Class\FileImage.cs" />
@@ -94,6 +95,12 @@
     </Compile>
     <Compile Include="Presentation\frmClassWiseSection.Designer.cs">
       <DependentUpon>frmClassWiseSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmClassWiseStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmClassWiseStudent.Designer.cs">
+      <DependentUpon>frmClassWiseStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\frmClassWiseSubjectList.cs">
       <SubType>Form</SubType>
@@ -150,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmClassWiseSection.resx">
       <DependentUpon>frmClassWiseSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmClassWiseStudent.resx">
+      <DependentUpon>frmClassWiseStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmClassWiseSubjectList.resx">
       <DependentUpon>frmClassWiseSubjectList.cs</DependentUpon>

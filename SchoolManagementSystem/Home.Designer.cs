@@ -46,6 +46,7 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parentStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.classWiseStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.parentStatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -90,14 +91,14 @@
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.studentToolStripMenuItem.Text = "&Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.teacherToolStripMenuItem.Text = "&Teacher";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherToolStripMenuItem_Click);
             // 
@@ -109,7 +110,8 @@
             this.classWiseSubjectToolStripMenuItem,
             this.sectionToolStripMenuItem,
             this.classWiseSectionToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.classWiseStudentToolStripMenuItem});
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             this.setupToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.setupToolStripMenuItem.Text = "&Setup";
@@ -117,42 +119,42 @@
             // classToolStripMenuItem
             // 
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.classToolStripMenuItem.Text = "&Class";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
             // subjectToolStripMenuItem
             // 
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
-            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.subjectToolStripMenuItem.Text = "&Subject";
             this.subjectToolStripMenuItem.Click += new System.EventHandler(this.subjectToolStripMenuItem_Click);
             // 
             // classWiseSubjectToolStripMenuItem
             // 
             this.classWiseSubjectToolStripMenuItem.Name = "classWiseSubjectToolStripMenuItem";
-            this.classWiseSubjectToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.classWiseSubjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.classWiseSubjectToolStripMenuItem.Text = "&Class Wise Subject";
             this.classWiseSubjectToolStripMenuItem.Click += new System.EventHandler(this.classWiseSubjectToolStripMenuItem_Click);
             // 
             // sectionToolStripMenuItem
             // 
             this.sectionToolStripMenuItem.Name = "sectionToolStripMenuItem";
-            this.sectionToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.sectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sectionToolStripMenuItem.Text = "&Section";
             this.sectionToolStripMenuItem.Click += new System.EventHandler(this.sectionToolStripMenuItem_Click);
             // 
             // classWiseSectionToolStripMenuItem
             // 
             this.classWiseSectionToolStripMenuItem.Name = "classWiseSectionToolStripMenuItem";
-            this.classWiseSectionToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.classWiseSectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.classWiseSectionToolStripMenuItem.Text = "&Class Wise Section";
             this.classWiseSectionToolStripMenuItem.Click += new System.EventHandler(this.classWiseSectionToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "&Others";
             // 
             // settingsToolStripMenuItem1
@@ -194,6 +196,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // classWiseStudentToolStripMenuItem
+            // 
+            this.classWiseStudentToolStripMenuItem.Name = "classWiseStudentToolStripMenuItem";
+            this.classWiseStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.classWiseStudentToolStripMenuItem.Text = "&Class Wise Student";
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +213,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
@@ -236,6 +245,7 @@
         private System.Windows.Forms.ToolStripMenuItem sectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem classWiseSectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem attendanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem classWiseStudentToolStripMenuItem;
     }
 }
 
