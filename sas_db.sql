@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `class_section_wise_student_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASSSECTION_ID` int(11) NOT NULL,
   `STUDENT_ID` int(11) NOT NULL,
+  `ROLL` int(11) NOT NULL,
   `YEAR` year(4) NOT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
   `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -250,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `student_setup_tbl` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table sas_db.student_setup_tbl: ~1 rows (approximately)
+-- Dumping data for table sas_db.student_setup_tbl: ~0 rows (approximately)
 DELETE FROM `student_setup_tbl`;
 /*!40000 ALTER TABLE `student_setup_tbl` DISABLE KEYS */;
 INSERT INTO `student_setup_tbl` (`ID`, `STUDENT_NAME`, `IMAGE`, `MOBILE`, `ADDRESS`, `START_DATE`, `END_DATE`, `CRT_BY`, `CRT_DATE`, `UPD_BY`, `UPD_DATE`, `ACTIVE_STATUS`) VALUES
