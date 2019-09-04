@@ -11,7 +11,7 @@ namespace SchoolManagementSystem.ClassManager
 {
     class ClassSectionWiseStudentManager
     {
-        public string SaveClass(ClassSectionWiseStudent aClassSectionWiseStudent)
+        public string SaveClassSectionWiseStudent(ClassSectionWiseStudent aClassSectionWiseStudent)
         {
             if (aClassSectionWiseStudent.Insert())
             {
@@ -25,7 +25,7 @@ namespace SchoolManagementSystem.ClassManager
             }
         }
 
-        public String UpdateClass(ClassSectionWiseStudent aClassSectionWiseStudent)
+        public String UpdateClassSectionWiseStudent(ClassSectionWiseStudent aClassSectionWiseStudent)
         {
             if (aClassSectionWiseStudent.Update())
             {
@@ -39,7 +39,7 @@ namespace SchoolManagementSystem.ClassManager
             }
         }
 
-        public string DeleteClass(ClassSectionWiseStudent aClassSectionWiseStudent)
+        public string DeleteClassSectionWiseStudent(ClassSectionWiseStudent aClassSectionWiseStudent)
         {
             if (aClassSectionWiseStudent.Delete())
             {
@@ -53,7 +53,7 @@ namespace SchoolManagementSystem.ClassManager
             }
         }
 
-        public DataTable GetAllClassData(ClassSectionWiseStudent aClassSectionWiseStudent)
+        public DataTable GetAllClassSectionWiseStudentData(ClassSectionWiseStudent aClassSectionWiseStudent)
         {
             DataSet ds = aClassSectionWiseStudent.Select();
             if (ds == null)

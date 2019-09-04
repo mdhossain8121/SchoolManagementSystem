@@ -40,85 +40,86 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabStudentInformation = new System.Windows.Forms.TabControl();
             this.tabBasicInformation = new System.Windows.Forms.TabPage();
-            this.llImage = new System.Windows.Forms.LinkLabel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpJoiningDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtMobile = new System.Windows.Forms.TextBox();
-            this.txtStudentName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.llImage = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpJoiningDate = new System.Windows.Forms.DateTimePicker();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtStudentName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMobile = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvStudentBasicInfo = new System.Windows.Forms.DataGridView();
             this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.colStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.cmbClass = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboStudent = new System.Windows.Forms.ComboBox();
             this.comboSection = new System.Windows.Forms.ComboBox();
-            this.txtClassName = new System.Windows.Forms.TextBox();
+            this.btnDeleteClassInfo = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnResetClassInfo = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSaveClassInfo = new System.Windows.Forms.Button();
+            this.txtClassName = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnDeleteClassInfo = new System.Windows.Forms.Button();
-            this.btnResetClassInfo = new System.Windows.Forms.Button();
-            this.btnSaveClassInfo = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboStudent = new System.Windows.Forms.ComboBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dgvClassInfo = new System.Windows.Forms.DataGridView();
             this.cscolId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cscolStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cscolClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cscolSection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cscolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.tabStudentInformation.SuspendLayout();
             this.tabBasicInformation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentBasicInfo)).BeginInit();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClassInfo)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabStudentInformation
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabStudentInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabBasicInformation);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(4, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1209, 627);
-            this.tabControl1.TabIndex = 21;
+            this.tabStudentInformation.Controls.Add(this.tabBasicInformation);
+            this.tabStudentInformation.Controls.Add(this.tabPage1);
+            this.tabStudentInformation.Location = new System.Drawing.Point(4, 12);
+            this.tabStudentInformation.Name = "tabStudentInformation";
+            this.tabStudentInformation.SelectedIndex = 0;
+            this.tabStudentInformation.Size = new System.Drawing.Size(1209, 627);
+            this.tabStudentInformation.TabIndex = 21;
+            this.tabStudentInformation.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabStudentBasicInfo_Selected);
             // 
             // tabBasicInformation
             // 
@@ -131,6 +132,54 @@
             this.tabBasicInformation.TabIndex = 0;
             this.tabBasicInformation.Text = "Student Basic Information";
             this.tabBasicInformation.UseVisualStyleBackColor = true;
+            this.tabBasicInformation.Enter += new System.EventHandler(this.tabBasicInformation_Enter);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.txtAddress);
+            this.splitContainer1.Panel1.Controls.Add(this.llImage);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSave);
+            this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
+            this.splitContainer1.Panel1.Controls.Add(this.btnReset);
+            this.splitContainer1.Panel1.Controls.Add(this.dtpEndDate);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.dtpJoiningDate);
+            this.splitContainer1.Panel1.Controls.Add(this.pbImage);
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
+            this.splitContainer1.Panel1.Controls.Add(this.txtStudentName);
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
+            this.splitContainer1.Panel1.Controls.Add(this.txtMobile);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dgvStudentBasicInfo);
+            this.splitContainer1.Panel2.Controls.Add(this.txtSearch);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSearch);
+            this.splitContainer1.Size = new System.Drawing.Size(1193, 593);
+            this.splitContainer1.SplitterDistance = 234;
+            this.splitContainer1.TabIndex = 46;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(150, 104);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(779, 92);
+            this.txtAddress.TabIndex = 37;
+            this.txtAddress.Tag = "Required";
             // 
             // llImage
             // 
@@ -144,6 +193,17 @@
             this.llImage.Text = "Browse";
             this.llImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llImage_LinkClicked);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 20);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Student Name : ";
+            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -154,6 +214,18 @@
             this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 44;
             this.label4.Text = "Image :";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(677, 202);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 27);
+            this.btnSave.TabIndex = 31;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
@@ -166,6 +238,18 @@
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(766, 202);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 27);
+            this.btnReset.TabIndex = 32;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // dtpEndDate
             // 
@@ -181,6 +265,17 @@
             this.dtpEndDate.TabIndex = 42;
             this.dtpEndDate.Value = new System.DateTime(2019, 7, 8, 11, 31, 16, 0);
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(533, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 20);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Mobile : ";
+            // 
             // dtpJoiningDate
             // 
             this.dtpJoiningDate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -194,6 +289,18 @@
             this.dtpJoiningDate.Value = new System.DateTime(2019, 7, 8, 16, 27, 16, 0);
             this.dtpJoiningDate.ValueChanged += new System.EventHandler(this.dtpJoiningDate_ValueChanged);
             // 
+            // pbImage
+            // 
+            this.pbImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbImage.BackColor = System.Drawing.Color.LightGray;
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbImage.Location = new System.Drawing.Point(973, 38);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(195, 189);
+            this.pbImage.TabIndex = 36;
+            this.pbImage.TabStop = false;
+            this.pbImage.Tag = "Required";
+            // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -204,6 +311,16 @@
             this.label6.Size = new System.Drawing.Size(89, 20);
             this.label6.TabIndex = 40;
             this.label6.Text = "End Date : ";
+            // 
+            // txtStudentName
+            // 
+            this.txtStudentName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentName.Location = new System.Drawing.Point(150, 14);
+            this.txtStudentName.Name = "txtStudentName";
+            this.txtStudentName.Size = new System.Drawing.Size(301, 26);
+            this.txtStudentName.TabIndex = 30;
+            this.txtStudentName.Tag = "Required";
             // 
             // label5
             // 
@@ -216,6 +333,16 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "Joining Date : ";
             // 
+            // txtMobile
+            // 
+            this.txtMobile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile.Location = new System.Drawing.Point(628, 14);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(301, 26);
+            this.txtMobile.TabIndex = 35;
+            this.txtMobile.Tag = "Required";
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -227,113 +354,15 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Address : ";
             // 
-            // txtAddress
+            // dgvStudentBasicInfo
             // 
-            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(150, 104);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(779, 92);
-            this.txtAddress.TabIndex = 37;
-            this.txtAddress.Tag = "Required";
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile.Location = new System.Drawing.Point(628, 14);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(301, 26);
-            this.txtMobile.TabIndex = 35;
-            this.txtMobile.Tag = "Required";
-            // 
-            // txtStudentName
-            // 
-            this.txtStudentName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentName.Location = new System.Drawing.Point(150, 14);
-            this.txtStudentName.Name = "txtStudentName";
-            this.txtStudentName.Size = new System.Drawing.Size(301, 26);
-            this.txtStudentName.TabIndex = 30;
-            this.txtStudentName.Tag = "Required";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(533, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Mobile : ";
-            // 
-            // btnReset
-            // 
-            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(766, 202);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 27);
-            this.btnReset.TabIndex = 32;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(677, 202);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 27);
-            this.btnSave.TabIndex = 31;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 20);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Student Name : ";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(1107, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(74, 27);
-            this.btnSearch.TabIndex = 19;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(892, 12);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(209, 26);
-            this.txtSearch.TabIndex = 18;
-            // 
-            // dgvData
-            // 
-            this.dgvData.AllowUserToAddRows = false;
-            this.dgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvStudentBasicInfo.AllowUserToAddRows = false;
+            this.dgvStudentBasicInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvData.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvStudentBasicInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStudentBasicInfo.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvStudentBasicInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -341,9 +370,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvStudentBasicInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvStudentBasicInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudentBasicInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colImage,
             this.colStudentName,
             this.colMobile,
@@ -357,13 +386,13 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvData.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvData.Location = new System.Drawing.Point(14, 45);
-            this.dgvData.MultiSelect = false;
-            this.dgvData.Name = "dgvData";
-            this.dgvData.ReadOnly = true;
-            this.dgvData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvStudentBasicInfo.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvStudentBasicInfo.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvStudentBasicInfo.Location = new System.Drawing.Point(14, 45);
+            this.dgvStudentBasicInfo.MultiSelect = false;
+            this.dgvStudentBasicInfo.Name = "dgvStudentBasicInfo";
+            this.dgvStudentBasicInfo.ReadOnly = true;
+            this.dgvStudentBasicInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -371,12 +400,12 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvData.RowTemplate.Height = 60;
-            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(1167, 296);
-            this.dgvData.TabIndex = 20;
-            this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
+            this.dgvStudentBasicInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvStudentBasicInfo.RowTemplate.Height = 60;
+            this.dgvStudentBasicInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStudentBasicInfo.Size = new System.Drawing.Size(1167, 296);
+            this.dgvStudentBasicInfo.TabIndex = 20;
+            this.dgvStudentBasicInfo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
             // 
             // colImage
             // 
@@ -433,6 +462,27 @@
             this.colid.ReadOnly = true;
             this.colid.Visible = false;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(892, 12);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(209, 26);
+            this.txtSearch.TabIndex = 18;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(1107, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(74, 27);
+            this.btnSearch.TabIndex = 19;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.splitContainer2);
@@ -443,196 +493,6 @@
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Class Information";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(220, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 20);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Class : ";
-            // 
-            // cmbClass
-            // 
-            this.cmbClass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(301, 76);
-            this.cmbClass.Name = "cmbClass";
-            this.cmbClass.Size = new System.Drawing.Size(234, 28);
-            this.cmbClass.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(220, 131);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 20);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Section : ";
-            // 
-            // comboSection
-            // 
-            this.comboSection.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboSection.FormattingEnabled = true;
-            this.comboSection.Location = new System.Drawing.Point(301, 128);
-            this.comboSection.Name = "comboSection";
-            this.comboSection.Size = new System.Drawing.Size(234, 28);
-            this.comboSection.TabIndex = 9;
-            // 
-            // txtClassName
-            // 
-            this.txtClassName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtClassName.Location = new System.Drawing.Point(713, 30);
-            this.txtClassName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtClassName.Name = "txtClassName";
-            this.txtClassName.Size = new System.Drawing.Size(234, 26);
-            this.txtClassName.TabIndex = 11;
-            this.txtClassName.Tag = "Required";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label9.Location = new System.Drawing.Point(641, 33);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 20);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Roll : ";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(713, 82);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 26);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Tag = "Required";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(641, 85);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 20);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Year : ";
-            // 
-            // btnDeleteClassInfo
-            // 
-            this.btnDeleteClassInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDeleteClassInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteClassInfo.Location = new System.Drawing.Point(872, 177);
-            this.btnDeleteClassInfo.Name = "btnDeleteClassInfo";
-            this.btnDeleteClassInfo.Size = new System.Drawing.Size(75, 27);
-            this.btnDeleteClassInfo.TabIndex = 46;
-            this.btnDeleteClassInfo.Text = "Delete";
-            this.btnDeleteClassInfo.UseVisualStyleBackColor = true;
-            // 
-            // btnResetClassInfo
-            // 
-            this.btnResetClassInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnResetClassInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetClassInfo.Location = new System.Drawing.Point(783, 177);
-            this.btnResetClassInfo.Name = "btnResetClassInfo";
-            this.btnResetClassInfo.Size = new System.Drawing.Size(75, 27);
-            this.btnResetClassInfo.TabIndex = 45;
-            this.btnResetClassInfo.Text = "Reset";
-            this.btnResetClassInfo.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveClassInfo
-            // 
-            this.btnSaveClassInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSaveClassInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveClassInfo.Location = new System.Drawing.Point(694, 177);
-            this.btnSaveClassInfo.Name = "btnSaveClassInfo";
-            this.btnSaveClassInfo.Size = new System.Drawing.Size(75, 27);
-            this.btnSaveClassInfo.TabIndex = 44;
-            this.btnSaveClassInfo.Text = "Save";
-            this.btnSaveClassInfo.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label11.Location = new System.Drawing.Point(219, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 20);
-            this.label11.TabIndex = 48;
-            this.label11.Text = "Student : ";
-            // 
-            // comboStudent
-            // 
-            this.comboStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboStudent.FormattingEnabled = true;
-            this.comboStudent.Location = new System.Drawing.Point(301, 28);
-            this.comboStudent.Name = "comboStudent";
-            this.comboStudent.Size = new System.Drawing.Size(234, 28);
-            this.comboStudent.TabIndex = 47;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.txtAddress);
-            this.splitContainer1.Panel1.Controls.Add(this.llImage);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.btnSave);
-            this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
-            this.splitContainer1.Panel1.Controls.Add(this.btnReset);
-            this.splitContainer1.Panel1.Controls.Add(this.dtpEndDate);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.dtpJoiningDate);
-            this.splitContainer1.Panel1.Controls.Add(this.pbImage);
-            this.splitContainer1.Panel1.Controls.Add(this.label6);
-            this.splitContainer1.Panel1.Controls.Add(this.txtStudentName);
-            this.splitContainer1.Panel1.Controls.Add(this.label5);
-            this.splitContainer1.Panel1.Controls.Add(this.txtMobile);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgvData);
-            this.splitContainer1.Panel2.Controls.Add(this.txtSearch);
-            this.splitContainer1.Panel2.Controls.Add(this.btnSearch);
-            this.splitContainer1.Size = new System.Drawing.Size(1193, 593);
-            this.splitContainer1.SplitterDistance = 234;
-            this.splitContainer1.TabIndex = 46;
-            // 
-            // pbImage
-            // 
-            this.pbImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbImage.BackColor = System.Drawing.Color.LightGray;
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImage.Location = new System.Drawing.Point(973, 38);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(195, 189);
-            this.pbImage.TabIndex = 36;
-            this.pbImage.TabStop = false;
-            this.pbImage.Tag = "Required";
             // 
             // splitContainer2
             // 
@@ -660,22 +520,165 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer2.Panel2.Controls.Add(this.dgvClassInfo);
             this.splitContainer2.Panel2.Controls.Add(this.textBox2);
             this.splitContainer2.Panel2.Controls.Add(this.button4);
             this.splitContainer2.Size = new System.Drawing.Size(1195, 595);
             this.splitContainer2.SplitterDistance = 220;
             this.splitContainer2.TabIndex = 49;
             // 
-            // dataGridView1
+            // cmbClass
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cmbClass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cmbClass.FormattingEnabled = true;
+            this.cmbClass.Location = new System.Drawing.Point(301, 76);
+            this.cmbClass.Name = "cmbClass";
+            this.cmbClass.Size = new System.Drawing.Size(234, 28);
+            this.cmbClass.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(219, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(78, 20);
+            this.label11.TabIndex = 48;
+            this.label11.Text = "Student : ";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(220, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 20);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Class : ";
+            // 
+            // comboStudent
+            // 
+            this.comboStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboStudent.FormattingEnabled = true;
+            this.comboStudent.Location = new System.Drawing.Point(301, 28);
+            this.comboStudent.Name = "comboStudent";
+            this.comboStudent.Size = new System.Drawing.Size(234, 28);
+            this.comboStudent.TabIndex = 47;
+            // 
+            // comboSection
+            // 
+            this.comboSection.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboSection.FormattingEnabled = true;
+            this.comboSection.Location = new System.Drawing.Point(301, 128);
+            this.comboSection.Name = "comboSection";
+            this.comboSection.Size = new System.Drawing.Size(234, 28);
+            this.comboSection.TabIndex = 9;
+            // 
+            // btnDeleteClassInfo
+            // 
+            this.btnDeleteClassInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDeleteClassInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteClassInfo.Location = new System.Drawing.Point(872, 177);
+            this.btnDeleteClassInfo.Name = "btnDeleteClassInfo";
+            this.btnDeleteClassInfo.Size = new System.Drawing.Size(75, 27);
+            this.btnDeleteClassInfo.TabIndex = 46;
+            this.btnDeleteClassInfo.Text = "Delete";
+            this.btnDeleteClassInfo.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(220, 131);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 20);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Section : ";
+            // 
+            // btnResetClassInfo
+            // 
+            this.btnResetClassInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnResetClassInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetClassInfo.Location = new System.Drawing.Point(783, 177);
+            this.btnResetClassInfo.Name = "btnResetClassInfo";
+            this.btnResetClassInfo.Size = new System.Drawing.Size(75, 27);
+            this.btnResetClassInfo.TabIndex = 45;
+            this.btnResetClassInfo.Text = "Reset";
+            this.btnResetClassInfo.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(641, 33);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 20);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Roll : ";
+            // 
+            // btnSaveClassInfo
+            // 
+            this.btnSaveClassInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSaveClassInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveClassInfo.Location = new System.Drawing.Point(694, 177);
+            this.btnSaveClassInfo.Name = "btnSaveClassInfo";
+            this.btnSaveClassInfo.Size = new System.Drawing.Size(75, 27);
+            this.btnSaveClassInfo.TabIndex = 44;
+            this.btnSaveClassInfo.Text = "Save";
+            this.btnSaveClassInfo.UseVisualStyleBackColor = true;
+            this.btnSaveClassInfo.Click += new System.EventHandler(this.btnSaveClassInfo_Click);
+            // 
+            // txtClassName
+            // 
+            this.txtClassName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtClassName.Location = new System.Drawing.Point(713, 30);
+            this.txtClassName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtClassName.Name = "txtClassName";
+            this.txtClassName.Size = new System.Drawing.Size(234, 26);
+            this.txtClassName.TabIndex = 11;
+            this.txtClassName.Tag = "Required";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(713, 82);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(234, 26);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.Tag = "Required";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label10.Location = new System.Drawing.Point(641, 85);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 20);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Year : ";
+            // 
+            // dgvClassInfo
+            // 
+            this.dgvClassInfo.AllowUserToAddRows = false;
+            this.dgvClassInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvClassInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClassInfo.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvClassInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -683,9 +686,9 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClassInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvClassInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClassInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cscolId,
             this.cscolStudentName,
             this.cscolClass,
@@ -698,13 +701,13 @@
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 53);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvClassInfo.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvClassInfo.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvClassInfo.Location = new System.Drawing.Point(13, 53);
+            this.dgvClassInfo.MultiSelect = false;
+            this.dgvClassInfo.Name = "dgvClassInfo";
+            this.dgvClassInfo.ReadOnly = true;
+            this.dgvClassInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -712,31 +715,11 @@
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridView1.RowTemplate.Height = 60;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1167, 296);
-            this.dataGridView1.TabIndex = 23;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(891, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 26);
-            this.textBox2.TabIndex = 21;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1106, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(74, 27);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Search";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dgvClassInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvClassInfo.RowTemplate.Height = 60;
+            this.dgvClassInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClassInfo.Size = new System.Drawing.Size(1167, 296);
+            this.dgvClassInfo.TabIndex = 23;
             // 
             // cscolId
             // 
@@ -783,19 +766,37 @@
             this.cscolYear.Name = "cscolYear";
             this.cscolYear.ReadOnly = true;
             // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(891, 20);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(209, 26);
+            this.textBox2.TabIndex = 21;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(1106, 20);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(74, 27);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "Search";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // frmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 641);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabStudentInformation);
             this.Name = "frmStudent";
             this.Text = "frmStudent";
             this.Load += new System.EventHandler(this.frmStudent_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabStudentInformation.ResumeLayout(false);
             this.tabBasicInformation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -803,20 +804,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentBasicInfo)).EndInit();
+            this.tabPage1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClassInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabStudentInformation;
         private System.Windows.Forms.TabPage tabBasicInformation;
         private System.Windows.Forms.LinkLabel llImage;
         private System.Windows.Forms.Label label4;
@@ -836,7 +839,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.DataGridView dgvStudentBasicInfo;
         private System.Windows.Forms.DataGridViewImageColumn colImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMobile;
@@ -859,7 +862,7 @@
         private System.Windows.Forms.ComboBox comboStudent;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClassInfo;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn cscolId;

@@ -15,6 +15,7 @@ namespace SchoolManagementSystem.Presentation
     public partial class frmStudent : Form
     {
         StudentManager aStudentManager = new StudentManager();
+        ClassSectionWiseStudentManager aClassSectionWiseStudentManager = new ClassSectionWiseStudentManager();
         public frmStudent()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace SchoolManagementSystem.Presentation
             dtpEndDate.MaxDate = DateTime.Now;
         }
 
-        private void loadDatagridview()
+        private void loadStudentBasicInfoDatagridview()
         {
             Student aStudent = new Student();
             aStudent.ActiveStatus = 1;
@@ -36,7 +37,7 @@ namespace SchoolManagementSystem.Presentation
             }
             try
             {
-                dgvData.DataSource = dt;
+                dgvStudentBasicInfo.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -44,7 +45,28 @@ namespace SchoolManagementSystem.Presentation
             }
         }
 
-        private void resetControls()
+        private void loadClassInfoDatagridview()
+        {
+            ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
+            aClassSectionWiseStudent.ActiveStatus = 1;
+            //aStudent.StudentName = txtSearch.Text;
+            DataTable dt = aClassSectionWiseStudentManager.GetAllClassSectionWiseStudentData(aClassSectionWiseStudent);
+            if (dt == null)
+            {
+                MessageBox.Show(aClassSectionWiseStudent.Error);
+                return;
+            }
+            try
+            {
+                dgvStudentBasicInfo.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Catch = " + ex.Message);
+            }
+        }
+
+        private void resetStudentBasicInfoControls()
         {
             Utilities.ResetAllControls(tabBasicInformation);
             btnDelete.Enabled = false;
@@ -64,7 +86,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            loadDatagridview();
+            loadStudentBasicInfoDatagridview();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -84,8 +106,8 @@ namespace SchoolManagementSystem.Presentation
             student.EndDate = DateTime.Now;
             String Message = aStudentManager.DeleteStudent(student);
             MessageBox.Show(Message);
-            resetControls();
-            loadDatagridview();
+            resetStudentBasicInfoControls();
+            loadStudentBasicInfoDatagridview();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -116,31 +138,31 @@ namespace SchoolManagementSystem.Presentation
             }
 
             MessageBox.Show(message);
-            resetControls();
-            loadDatagridview();
+            resetStudentBasicInfoControls();
+            loadStudentBasicInfoDatagridview();
         }
 
         private void frmStudent_Load(object sender, EventArgs e)
         {
-            loadDatagridview();
+            loadStudentBasicInfoDatagridview();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            resetControls();
+            resetStudentBasicInfoControls();
         }
 
         private void dgvData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvData.SelectedRows.Count <= 0)
+            if (dgvStudentBasicInfo.SelectedRows.Count <= 0)
                 return;
-            pbImage.BackgroundImage = FileImage.ImageFromByte((Byte[])dgvData.SelectedRows[0].Cells["colImage"].Value);
-            txtStudentName.Text = dgvData.SelectedRows[0].Cells["colStudentName"].Value.ToString();
-            txtMobile.Text = dgvData.SelectedRows[0].Cells["colMobile"].Value.ToString();
-            dtpJoiningDate.Value = (DateTime)dgvData.SelectedRows[0].Cells["colStartDate"].Value;
-            txtAddress.Text = dgvData.SelectedRows[0].Cells["colAddress"].Value.ToString();
-            btnSave.Tag = dgvData.SelectedRows[0].Cells["colid"].Value;
-            btnDelete.Tag = dgvData.SelectedRows[0].Cells["colid"].Value;
+            pbImage.BackgroundImage = FileImage.ImageFromByte((Byte[])dgvStudentBasicInfo.SelectedRows[0].Cells["colImage"].Value);
+            txtStudentName.Text = dgvStudentBasicInfo.SelectedRows[0].Cells["colStudentName"].Value.ToString();
+            txtMobile.Text = dgvStudentBasicInfo.SelectedRows[0].Cells["colMobile"].Value.ToString();
+            dtpJoiningDate.Value = (DateTime)dgvStudentBasicInfo.SelectedRows[0].Cells["colStartDate"].Value;
+            txtAddress.Text = dgvStudentBasicInfo.SelectedRows[0].Cells["colAddress"].Value.ToString();
+            btnSave.Tag = dgvStudentBasicInfo.SelectedRows[0].Cells["colid"].Value;
+            btnDelete.Tag = dgvStudentBasicInfo.SelectedRows[0].Cells["colid"].Value;
             btnSave.Text = "Update";
             btnDelete.Enabled = true;
         }
@@ -149,6 +171,21 @@ namespace SchoolManagementSystem.Presentation
         {
             dtpEndDate.MinDate = dtpJoiningDate.Value;
             dtpEndDate.Checked = false;
+        }
+
+        private void btnSaveClassInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabStudentBasicInfo_Selected(object sender, TabControlEventArgs e)
+        {
+            
+        }
+
+        private void tabBasicInformation_Enter(object sender, EventArgs e)
+        {
+            loadStudentBasicInfoDatagridview();
         }
     }
 }
