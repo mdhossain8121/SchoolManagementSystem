@@ -41,7 +41,7 @@ namespace SchoolManagementSystem.Class
                 File.AppendAllText("logs.txt", " ------------------------------------------ " + Environment.NewLine);
                 File.AppendAllText("logs.txt", ex.Message + Environment.NewLine);
                 File.AppendAllText("logs.txt", ex.StackTrace + Environment.NewLine);
-                Error = ex.StackTrace;
+                Error = ex.Message;
                 return false;
             }
         }
