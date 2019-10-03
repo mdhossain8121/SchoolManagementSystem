@@ -68,7 +68,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void resetStudentBasicInfoControls()
         {
-            Utilities.ResetAllControls(tabBasicInformation);
+            Utilities.EmptyAllControls(tabBasicInformation);
             btnDelete.Enabled = false;
             btnSave.Text = "Save";
         }
@@ -76,7 +76,8 @@ namespace SchoolManagementSystem.Presentation
 
         private void resetClassInfoControls()
         {
-            Utilities.ResetAllControls(tabBasicInformation);
+            Utilities.EmptyAllControls(splitContainer2.Panel1);
+            Utilities.ResetComboBox(cmbClassWiseSection);
             btnDelete.Enabled = false;
             btnSave.Text = "Save";
         }
@@ -183,7 +184,29 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnSaveClassInfo_Click(object sender, EventArgs e)
         {
+            if (Utilities.EmptyRequiredField(tabBasicInformation))
+                return;
+            ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
+            aClassSectionWiseStudent.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
+            aClassSectionWiseStudent.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
+            aClassSectionWiseStudent.Roll = Convert.ToInt32(txtRoll.Text.ToString());
+            aClassSectionWiseStudent.Year = Convert.ToInt32(txtYear.Text.ToString());
+            aClassSectionWiseStudent.ActiveStatus = 1;
 
+            string message = "";
+            if (btnSaveClassInfo.Text == "Save")
+            {
+                message = aClassSectionWiseStudentManager.SaveClassSectionWiseStudent(aClassSectionWiseStudent);
+            }
+            else
+            {
+                aClassSectionWiseStudent.Id = (int)btnSaveClassInfo.Tag;
+                message = aClassSectionWiseStudentManager.UpdateClassSectionWiseStudent(aClassSectionWiseStudent);
+            }
+
+            MessageBox.Show(message);
+            resetClassInfoControls();
+            loadClassInfoDatagridview();
         }
 
         private void tabStudentBasicInfo_Selected(object sender, TabControlEventArgs e)
@@ -227,6 +250,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void tabClassInfo_Enter(object sender, EventArgs e)
         {
+            resetClassInfoControls();
             ClassSetup cs = new ClassSetup();
             DataSet dsClass = cs.Select();
             if (dsClass == null)
@@ -245,15 +269,35 @@ namespace SchoolManagementSystem.Presentation
             DataSet dsStudent = aStudet.Select();
             if (dsStudent == null)
             {
-                MessageBox.Show(cs.Error);
+                MessageBox.Show(aStudet.Error);
                 return;
             }
             cmbStudent.DataSource = dsStudent.Tables[0];
             cmbStudent.DisplayMember = "STUDENT_NAME";
             cmbStudent.ValueMember = "ID";
             cmbStudent.SelectedIndex = -1;
+            loadClassInfoDatagridview();
 
+        }
 
+        private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cmbClassWiseSection.DataSource = null;
+            cmbClassWiseSection.Items.Clear();
+            cmbClassWiseSection.IntegralHeight = false;
+            ClassWiseSection aClassWiseSection = new ClassWiseSection();
+            aClassWiseSection.ActiveStatus = 1;
+            aClassWiseSection.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
+            DataSet dsClassWiseSection = aClassWiseSection.SelectByClassId();
+            if (dsClassWiseSection == null)
+            {
+                MessageBox.Show(aClassWiseSection.Error);
+                return;
+            }
+            cmbClassWiseSection.DataSource = dsClassWiseSection.Tables[0];
+            cmbClassWiseSection.DisplayMember = "SECTION_NAME";
+            cmbClassWiseSection.ValueMember = "ID";
+            cmbClassWiseSection.SelectedIndex = -1;
         }
     }
 }

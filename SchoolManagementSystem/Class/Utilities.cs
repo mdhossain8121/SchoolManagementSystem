@@ -12,7 +12,7 @@ namespace SchoolManagementSystem.Class
     {
         private static ErrorProvider ep = new ErrorProvider();
 
-        public static void ResetAllControls(Control form)
+        public static void EmptyAllControls(Control form)
         {
             foreach (Control control in form.Controls)
             {
@@ -62,6 +62,13 @@ namespace SchoolManagementSystem.Class
 
                 }
             }
+        }
+
+        public static void ResetComboBox(ComboBox cmb)
+        {
+            cmb.DataSource = null;
+            cmb.Items.Clear();
+            cmb.IntegralHeight = false;
         }
 
         public static bool EmptyRequiredField(Control form)

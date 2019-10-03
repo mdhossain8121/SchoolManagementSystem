@@ -81,7 +81,7 @@ namespace SchoolManagementSystem.Presentation
         private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ep.Clear();
-            Class.Utilities.ResetAllControls(flowLayoutPanel);
+            Class.Utilities.EmptyAllControls(flowLayoutPanel);
             if (cmbClass.SelectedIndex > -1)
             {
                 Class.ClassWiseSubject cws = new Class.ClassWiseSubject();

@@ -81,12 +81,12 @@ namespace SchoolManagementSystem.Presentation
         private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ep.Clear();
-            Class.Utilities.ResetAllControls(flowLayoutPanel);
+            Class.Utilities.EmptyAllControls(flowLayoutPanel);
             if (cmbClass.SelectedIndex > -1)
             {
                 Class.ClassWiseSection cws = new Class.ClassWiseSection();
                 cws.ClassId = (int)cmbClass.SelectedValue;
-                DataTable dt = cws.SelectBySubjectId().Tables[0];
+                DataTable dt = cws.SelectByClassId().Tables[0];
                 if (dt == null)
                 {
                     MessageBox.Show(cws.Error);

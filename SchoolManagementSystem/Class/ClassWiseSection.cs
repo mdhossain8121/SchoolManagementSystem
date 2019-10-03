@@ -28,9 +28,9 @@ namespace SchoolManagementSystem.Class
             return Execute(Command);
         }
 
-        public DataSet SelectBySubjectId()
+        public DataSet SelectByClassId()
         {
-            Command = CommandBuilder("SELECT SECTION_ID from " + tblClassWiseSection + " WHERE CLASS_ID = @classId AND ACTIVE_STATUS = 1");
+            Command = CommandBuilder("SELECT cs.ID,SECTION_ID,SECTION_NAME from " + tblClassWiseSection + " as cs LEFT JOIN SECTION_SETUP_TBL as s ON cs.SECTION_ID = s.ID WHERE CLASS_ID = @classId AND cs.ACTIVE_STATUS = 1");
             Command.Parameters.AddWithValue("@classId", ClassId);
             return ExecuteDataSet(Command);
         }

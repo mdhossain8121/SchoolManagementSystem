@@ -37,7 +37,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void resetControls()
         {
-            Utilities.ResetAllControls(this.groupBox1);
+            Utilities.EmptyAllControls(this.groupBox1);
             btnDelete.Enabled = false;
             btnSave.Text = "Save";
         }

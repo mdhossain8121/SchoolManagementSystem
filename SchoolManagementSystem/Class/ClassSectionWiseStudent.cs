@@ -23,6 +23,8 @@ namespace SchoolManagementSystem.Class
 
         private static readonly String tblClassSectionWiseStudent = "class_section_wise_student_tbl";
 
+        private static readonly String tblClassSectionWiseStudentView = "view_class_section_wise_student_tbl";
+
 
         public bool Insert()
         {
@@ -66,7 +68,8 @@ namespace SchoolManagementSystem.Class
 
         public DataSet Select()
         {
-            Command = CommandBuilder("select ID, CLASS_NAME from " + tblClassSectionWiseStudent);
+            Command = CommandBuilder("select ID, STUDENT_NAME, CLASS_NAME, SECTION_NAME,ROLL,YEAR from " + tblClassSectionWiseStudentView + " where ACTIVE_STATUS = @activeStatus");
+            Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             //if (ClassName != null && !ClassName.Trim().Equals(""))
             //{
             //    Command.CommandText += " Where CLASS_NAME like @search";

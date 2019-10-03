@@ -47,7 +47,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void resetControls()
         {
-            Utilities.ResetAllControls(tabBasicInformation);
+            Utilities.EmptyAllControls(tabBasicInformation);
             btnDelete.Enabled = false;
             btnSave.Text = "Save";
         }
