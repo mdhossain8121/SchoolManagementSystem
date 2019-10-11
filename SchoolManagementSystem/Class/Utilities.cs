@@ -11,11 +11,14 @@ namespace SchoolManagementSystem.Class
     class Utilities
     {
         private static ErrorProvider ep = new ErrorProvider();
-
         public static void EmptyAllControls(Control form)
         {
             foreach (Control control in form.Controls)
             {
+                if (control.HasChildren)
+                {
+                    EmptyAllControls(control);
+                }
                 if (control is TextBox)
                 {
                     TextBox textBox = (TextBox)control;

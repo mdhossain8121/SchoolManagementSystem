@@ -76,10 +76,10 @@ namespace SchoolManagementSystem.Presentation
 
         private void resetClassInfoControls()
         {
-            Utilities.EmptyAllControls(splitContainer2.Panel1);
+            Utilities.EmptyAllControls(tabClassInfo);
             Utilities.ResetComboBox(cmbClassWiseSection);
-            btnDelete.Enabled = false;
-            btnSave.Text = "Save";
+            btnDeleteClassInfo.Enabled = false;
+            btnSaveClassInfo.Text = "Save";
         }
 
         private void llImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -192,7 +192,11 @@ namespace SchoolManagementSystem.Presentation
             aClassSectionWiseStudent.Roll = Convert.ToInt32(txtRoll.Text.ToString());
             aClassSectionWiseStudent.Year = Convert.ToInt32(txtYear.Text.ToString());
             aClassSectionWiseStudent.ActiveStatus = 1;
-
+            Console.WriteLine(aClassSectionWiseStudent.StudentId);
+            Console.WriteLine(aClassSectionWiseStudent.ClassSectionId);
+            Console.WriteLine(aClassSectionWiseStudent.Roll);
+            Console.WriteLine(aClassSectionWiseStudent.Year);
+            
             string message = "";
             if (btnSaveClassInfo.Text == "Save")
             {
@@ -244,8 +248,8 @@ namespace SchoolManagementSystem.Presentation
             aClassSectionWiseStudent.ActiveStatus = 0;
             String Message = aClassSectionWiseStudentManager.DeleteClassSectionWiseStudent(aClassSectionWiseStudent);
             MessageBox.Show(Message);
-            resetStudentBasicInfoControls();
-            loadStudentBasicInfoDatagridview();
+            resetClassInfoControls();
+            loadClassInfoDatagridview();
         }
 
         private void tabClassInfo_Enter(object sender, EventArgs e)
@@ -277,7 +281,7 @@ namespace SchoolManagementSystem.Presentation
             cmbStudent.ValueMember = "ID";
             cmbStudent.SelectedIndex = -1;
             loadClassInfoDatagridview();
-
+            
         }
 
         private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
@@ -288,6 +292,48 @@ namespace SchoolManagementSystem.Presentation
             ClassWiseSection aClassWiseSection = new ClassWiseSection();
             aClassWiseSection.ActiveStatus = 1;
             aClassWiseSection.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
+            DataSet dsClassWiseSection = aClassWiseSection.SelectByClassId();
+            if (dsClassWiseSection == null)
+            {
+                MessageBox.Show(aClassWiseSection.Error);
+                return;
+            }
+            cmbClassWiseSection.DataSource = dsClassWiseSection.Tables[0];
+            cmbClassWiseSection.DisplayMember = "SECTION_NAME";
+            cmbClassWiseSection.ValueMember = "ID";
+            cmbClassWiseSection.SelectedIndex = -1;
+        }
+
+        private void dgvClassInfo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvClassInfo.SelectedRows.Count <= 0)
+                return;
+            cmbStudent.Text = dgvClassInfo.SelectedRows[0].Cells["cscolStudentName"].Value.ToString();
+            cmbClass.Text = dgvClassInfo.SelectedRows[0].Cells["cscolClass"].Value.ToString();
+            cmbClassWiseSection.Text = dgvClassInfo.SelectedRows[0].Cells["cscolSection"].Value.ToString();
+            txtRoll.Text = dgvClassInfo.SelectedRows[0].Cells["cscolRoll"].Value.ToString();
+            txtYear.Text = dgvClassInfo.SelectedRows[0].Cells["cscolYear"].Value.ToString();
+            btnSaveClassInfo.Tag = dgvClassInfo.SelectedRows[0].Cells["cscolid"].Value;
+            btnDeleteClassInfo.Tag = dgvClassInfo.SelectedRows[0].Cells["cscolid"].Value;
+            btnSaveClassInfo.Text = "Update";
+            btnDeleteClassInfo.Enabled = true;
+        }
+
+        private void cmbClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbClassWiseSection.DataSource = null;
+            cmbClassWiseSection.Items.Clear();
+            cmbClassWiseSection.IntegralHeight = false;
+            ClassWiseSection aClassWiseSection = new ClassWiseSection();
+            aClassWiseSection.ActiveStatus = 1;
+            try
+            {
+                aClassWiseSection.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
+            }
+            catch (Exception)
+            {
+                return;
+            }
             DataSet dsClassWiseSection = aClassWiseSection.SelectByClassId();
             if (dsClassWiseSection == null)
             {

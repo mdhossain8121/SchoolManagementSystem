@@ -43,6 +43,7 @@ namespace SchoolManagementSystem.Class
             Command.Parameters.AddWithValue("@studentId", StudentId);
             Command.Parameters.AddWithValue("@roll", Roll);
             Command.Parameters.AddWithValue("@year", Year);
+            Command.Parameters.AddWithValue("@id", Id);
             return Execute(Command);
         }
 
