@@ -151,5 +151,16 @@ namespace SchoolManagementSystem.Presentation
             dtpEndDate.MinDate = dtpJoiningDate.Value;
             dtpEndDate.Checked = false;
         }
+
+        private void PopulateTreeView(int parentId, TreeNode parentNode)
+
+        {
+
+        }
+
+        private void tabAssignClassSection_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
