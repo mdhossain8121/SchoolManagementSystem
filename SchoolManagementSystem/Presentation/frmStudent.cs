@@ -192,10 +192,6 @@ namespace SchoolManagementSystem.Presentation
             aClassSectionWiseStudent.Roll = Convert.ToInt32(txtRoll.Text.ToString());
             aClassSectionWiseStudent.Year = Convert.ToInt32(txtYear.Text.ToString());
             aClassSectionWiseStudent.ActiveStatus = 1;
-            Console.WriteLine(aClassSectionWiseStudent.StudentId);
-            Console.WriteLine(aClassSectionWiseStudent.ClassSectionId);
-            Console.WriteLine(aClassSectionWiseStudent.Roll);
-            Console.WriteLine(aClassSectionWiseStudent.Year);
             
             string message = "";
             if (btnSaveClassInfo.Text == "Save")

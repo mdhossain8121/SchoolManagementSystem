@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassManager\ClassSectionWiseTeacherManager.cs" />
     <Compile Include="ClassManager\ClassSectionWiseStudentManager.cs" />
     <Compile Include="ClassManager\ClassSetupManager.cs" />
     <Compile Include="ClassManager\RoleManager.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="ClassManager\TeacherManager.cs" />
     <Compile Include="ClassManager\UserManager.cs" />
     <Compile Include="Class\Base.cs" />
+    <Compile Include="Class\ClassSectionWiseTeacher.cs" />
     <Compile Include="Class\ClassSectionWiseStudent.cs" />
     <Compile Include="Class\ClassWiseSection.cs" />
     <Compile Include="Class\ClassWiseSubject.cs" />

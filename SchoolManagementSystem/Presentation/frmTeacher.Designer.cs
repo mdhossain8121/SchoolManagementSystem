@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
@@ -44,37 +44,42 @@
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabBasicInformation = new System.Windows.Forms.TabPage();
-            this.llImage = new System.Windows.Forms.LinkLabel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpJoiningDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtMobile = new System.Windows.Forms.TextBox();
-            this.txtTeacherName = new System.Windows.Forms.TextBox();
-            this.pbImage = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.llImage = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpJoiningDate = new System.Windows.Forms.DateTimePicker();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTeacherName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMobile = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAssignClassSection = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.tvClassSection = new System.Windows.Forms.TreeView();
+            this.cmbTeacher = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.cmbStudent = new System.Windows.Forms.ComboBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.btnSaveTeacherClassSection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.tabBasicInformation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.tabAssignClassSection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -107,14 +112,14 @@
             this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvData.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colImage,
@@ -123,31 +128,31 @@
             this.colJoiningDate,
             this.colAddress,
             this.colid});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgvData.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvData.Location = new System.Drawing.Point(14, 40);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
             this.dgvData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvData.RowTemplate.Height = 60;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(1153, 291);
+            this.dgvData.Size = new System.Drawing.Size(1153, 295);
             this.dgvData.TabIndex = 16;
             this.dgvData.Tag = "Required";
             this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
@@ -165,8 +170,8 @@
             // colTeacherName
             // 
             this.colTeacherName.DataPropertyName = "TEACHER_NAME";
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTeacherName.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTeacherName.DefaultCellStyle = dataGridViewCellStyle14;
             this.colTeacherName.FillWeight = 98.47716F;
             this.colTeacherName.HeaderText = "Teacher Name";
             this.colTeacherName.Name = "colTeacherName";
@@ -176,8 +181,8 @@
             // 
             this.colMobile.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colMobile.DataPropertyName = "MOBILE";
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMobile.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMobile.DefaultCellStyle = dataGridViewCellStyle15;
             this.colMobile.FillWeight = 101.5228F;
             this.colMobile.HeaderText = "Mobile";
             this.colMobile.Name = "colMobile";
@@ -200,8 +205,8 @@
             // colid
             // 
             this.colid.DataPropertyName = "ID";
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colid.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colid.DefaultCellStyle = dataGridViewCellStyle16;
             this.colid.HeaderText = "ID";
             this.colid.Name = "colid";
             this.colid.ReadOnly = true;
@@ -218,200 +223,6 @@
             this.tabBasicInformation.TabIndex = 0;
             this.tabBasicInformation.Text = "Teacher Basic Information";
             this.tabBasicInformation.UseVisualStyleBackColor = true;
-            // 
-            // llImage
-            // 
-            this.llImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.llImage.AutoSize = true;
-            this.llImage.Location = new System.Drawing.Point(1124, 9);
-            this.llImage.Name = "llImage";
-            this.llImage.Size = new System.Drawing.Size(42, 13);
-            this.llImage.TabIndex = 45;
-            this.llImage.TabStop = true;
-            this.llImage.Text = "Browse";
-            this.llImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llImage_LinkClicked);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(967, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 20);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Image :";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(853, 194);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 27);
-            this.btnDelete.TabIndex = 43;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpEndDate.Checked = false;
-            this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpEndDate.Location = new System.Drawing.Point(626, 52);
-            this.dtpEndDate.MinDate = new System.DateTime(2019, 7, 8, 0, 0, 0, 0);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.ShowCheckBox = true;
-            this.dtpEndDate.Size = new System.Drawing.Size(301, 26);
-            this.dtpEndDate.TabIndex = 42;
-            this.dtpEndDate.Value = new System.DateTime(2019, 7, 8, 11, 31, 16, 0);
-            // 
-            // dtpJoiningDate
-            // 
-            this.dtpJoiningDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpJoiningDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpJoiningDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpJoiningDate.Location = new System.Drawing.Point(148, 52);
-            this.dtpJoiningDate.Name = "dtpJoiningDate";
-            this.dtpJoiningDate.Size = new System.Drawing.Size(301, 26);
-            this.dtpJoiningDate.TabIndex = 41;
-            this.dtpJoiningDate.Tag = "Required";
-            this.dtpJoiningDate.Value = new System.DateTime(2019, 7, 8, 16, 27, 16, 0);
-            this.dtpJoiningDate.ValueChanged += new System.EventHandler(this.dtpJoiningDate_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(531, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 20);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "End Date : ";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 52);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 20);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Joining Date : ";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(51, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 20);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Address : ";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(148, 96);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(779, 92);
-            this.txtAddress.TabIndex = 37;
-            this.txtAddress.Tag = "Required";
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile.Location = new System.Drawing.Point(626, 6);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(301, 26);
-            this.txtMobile.TabIndex = 35;
-            this.txtMobile.Tag = "Required";
-            // 
-            // txtTeacherName
-            // 
-            this.txtTeacherName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTeacherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTeacherName.Location = new System.Drawing.Point(148, 6);
-            this.txtTeacherName.Name = "txtTeacherName";
-            this.txtTeacherName.Size = new System.Drawing.Size(301, 26);
-            this.txtTeacherName.TabIndex = 30;
-            this.txtTeacherName.Tag = "Required";
-            // 
-            // pbImage
-            // 
-            this.pbImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbImage.BackColor = System.Drawing.Color.LightGray;
-            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImage.Location = new System.Drawing.Point(971, 30);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(195, 189);
-            this.pbImage.TabIndex = 36;
-            this.pbImage.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(531, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Mobile : ";
-            // 
-            // btnReset
-            // 
-            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(764, 194);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 27);
-            this.btnReset.TabIndex = 32;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(675, 194);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 27);
-            this.btnSave.TabIndex = 31;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Teacher Name : ";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabBasicInformation);
-            this.tabControl1.Controls.Add(this.tabAssignClassSection);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1196, 615);
-            this.tabControl1.TabIndex = 17;
             // 
             // splitContainer1
             // 
@@ -451,11 +262,203 @@
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 46;
             // 
+            // txtAddress
+            // 
+            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(148, 96);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(779, 92);
+            this.txtAddress.TabIndex = 37;
+            this.txtAddress.Tag = "Required";
+            // 
+            // llImage
+            // 
+            this.llImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.llImage.AutoSize = true;
+            this.llImage.Location = new System.Drawing.Point(1124, 9);
+            this.llImage.Name = "llImage";
+            this.llImage.Size = new System.Drawing.Size(42, 13);
+            this.llImage.TabIndex = 45;
+            this.llImage.TabStop = true;
+            this.llImage.Text = "Browse";
+            this.llImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llImage_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 20);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Teacher Name : ";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(967, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 20);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Image :";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(675, 194);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 27);
+            this.btnSave.TabIndex = 31;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(853, 194);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 27);
+            this.btnDelete.TabIndex = 43;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(764, 194);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 27);
+            this.btnReset.TabIndex = 32;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpEndDate.Checked = false;
+            this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpEndDate.Location = new System.Drawing.Point(626, 52);
+            this.dtpEndDate.MinDate = new System.DateTime(2019, 7, 8, 0, 0, 0, 0);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.ShowCheckBox = true;
+            this.dtpEndDate.Size = new System.Drawing.Size(301, 26);
+            this.dtpEndDate.TabIndex = 42;
+            this.dtpEndDate.Value = new System.DateTime(2019, 7, 8, 11, 31, 16, 0);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(531, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 20);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Mobile : ";
+            // 
+            // dtpJoiningDate
+            // 
+            this.dtpJoiningDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpJoiningDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpJoiningDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpJoiningDate.Location = new System.Drawing.Point(148, 52);
+            this.dtpJoiningDate.Name = "dtpJoiningDate";
+            this.dtpJoiningDate.Size = new System.Drawing.Size(301, 26);
+            this.dtpJoiningDate.TabIndex = 41;
+            this.dtpJoiningDate.Tag = "Required";
+            this.dtpJoiningDate.Value = new System.DateTime(2019, 7, 8, 16, 27, 16, 0);
+            this.dtpJoiningDate.ValueChanged += new System.EventHandler(this.dtpJoiningDate_ValueChanged);
+            // 
+            // pbImage
+            // 
+            this.pbImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbImage.BackColor = System.Drawing.Color.LightGray;
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbImage.Location = new System.Drawing.Point(971, 30);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(195, 189);
+            this.pbImage.TabIndex = 36;
+            this.pbImage.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(531, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 20);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "End Date : ";
+            // 
+            // txtTeacherName
+            // 
+            this.txtTeacherName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTeacherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTeacherName.Location = new System.Drawing.Point(148, 6);
+            this.txtTeacherName.Name = "txtTeacherName";
+            this.txtTeacherName.Size = new System.Drawing.Size(301, 26);
+            this.txtTeacherName.TabIndex = 30;
+            this.txtTeacherName.Tag = "Required";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 20);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Joining Date : ";
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile.Location = new System.Drawing.Point(626, 6);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(301, 26);
+            this.txtMobile.TabIndex = 35;
+            this.txtMobile.Tag = "Required";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(51, 96);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 20);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Address : ";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabBasicInformation);
+            this.tabControl1.Controls.Add(this.tabAssignClassSection);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1196, 615);
+            this.tabControl1.TabIndex = 17;
+            // 
             // tabAssignClassSection
             // 
-            this.tabAssignClassSection.Controls.Add(this.treeView1);
-            this.tabAssignClassSection.Controls.Add(this.label11);
-            this.tabAssignClassSection.Controls.Add(this.cmbStudent);
+            this.tabAssignClassSection.Controls.Add(this.splitContainer2);
             this.tabAssignClassSection.Location = new System.Drawing.Point(4, 22);
             this.tabAssignClassSection.Name = "tabAssignClassSection";
             this.tabAssignClassSection.Padding = new System.Windows.Forms.Padding(3);
@@ -465,34 +468,69 @@
             this.tabAssignClassSection.UseVisualStyleBackColor = true;
             this.tabAssignClassSection.Enter += new System.EventHandler(this.tabAssignClassSection_Enter);
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.btnSaveTeacherClassSection);
+            this.splitContainer2.Panel1.Controls.Add(this.tvClassSection);
+            this.splitContainer2.Panel1.Controls.Add(this.cmbTeacher);
+            this.splitContainer2.Panel1.Controls.Add(this.label11);
+            this.splitContainer2.Size = new System.Drawing.Size(1182, 583);
+            this.splitContainer2.SplitterDistance = 416;
+            this.splitContainer2.SplitterWidth = 2;
+            this.splitContainer2.TabIndex = 49;
+            // 
+            // tvClassSection
+            // 
+            this.tvClassSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tvClassSection.CheckBoxes = true;
+            this.tvClassSection.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tvClassSection.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tvClassSection.FullRowSelect = true;
+            this.tvClassSection.ItemHeight = 20;
+            this.tvClassSection.LineColor = System.Drawing.Color.DarkGreen;
+            this.tvClassSection.Location = new System.Drawing.Point(0, 46);
+            this.tvClassSection.Name = "tvClassSection";
+            this.tvClassSection.Size = new System.Drawing.Size(414, 535);
+            this.tvClassSection.TabIndex = 49;
+            // 
+            // cmbTeacher
+            // 
+            this.cmbTeacher.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cmbTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.cmbTeacher.FormattingEnabled = true;
+            this.cmbTeacher.Location = new System.Drawing.Point(98, 11);
+            this.cmbTeacher.Name = "cmbTeacher";
+            this.cmbTeacher.Size = new System.Drawing.Size(234, 29);
+            this.cmbTeacher.TabIndex = 47;
+            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label11.Location = new System.Drawing.Point(426, 23);
+            this.label11.Location = new System.Drawing.Point(13, 15);
+            this.label11.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 20);
             this.label11.TabIndex = 48;
             this.label11.Text = "Teacher : ";
             // 
-            // cmbStudent
+            // btnSaveTeacherClassSection
             // 
-            this.cmbStudent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cmbStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.cmbStudent.FormattingEnabled = true;
-            this.cmbStudent.Location = new System.Drawing.Point(511, 19);
-            this.cmbStudent.Name = "cmbStudent";
-            this.cmbStudent.Size = new System.Drawing.Size(234, 29);
-            this.cmbStudent.TabIndex = 47;
-            // 
-            // treeView1
-            // 
-            this.treeView1.CheckBoxes = true;
-            this.treeView1.Location = new System.Drawing.Point(8, 57);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(1172, 524);
-            this.treeView1.TabIndex = 49;
+            this.btnSaveTeacherClassSection.Location = new System.Drawing.Point(338, 11);
+            this.btnSaveTeacherClassSection.Name = "btnSaveTeacherClassSection";
+            this.btnSaveTeacherClassSection.Size = new System.Drawing.Size(66, 29);
+            this.btnSaveTeacherClassSection.TabIndex = 50;
+            this.btnSaveTeacherClassSection.Text = "Confirm";
+            this.btnSaveTeacherClassSection.UseVisualStyleBackColor = true;
+            this.btnSaveTeacherClassSection.Click += new System.EventHandler(this.btnSaveTeacherClassSection_Click);
             // 
             // frmTeacher
             // 
@@ -506,16 +544,19 @@
             this.Load += new System.EventHandler(this.frmTeacher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.tabBasicInformation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.tabAssignClassSection.ResumeLayout(false);
-            this.tabAssignClassSection.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -551,7 +592,9 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabPage tabAssignClassSection;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cmbStudent;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ComboBox cmbTeacher;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.TreeView tvClassSection;
+        private System.Windows.Forms.Button btnSaveTeacherClassSection;
     }
 }

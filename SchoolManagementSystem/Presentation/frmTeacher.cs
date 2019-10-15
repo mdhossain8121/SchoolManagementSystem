@@ -16,12 +16,14 @@ namespace SchoolManagementSystem.Presentation
     public partial class frmTeacher : Form
     {
         TeacherManager aTeacherManager = new TeacherManager();
+        ClassSectionWiseTeacherManager aClassSectionWiseTeacherManager = new ClassSectionWiseTeacherManager();
         public frmTeacher()
         {
             InitializeComponent();
             dtpJoiningDate.Value = DateTime.Now;
             dtpEndDate.MinDate = dtpJoiningDate.Value;
             dtpEndDate.MaxDate = DateTime.Now;
+            loadClassSectionTree();
         }
 
         private void loadDatagridview()
@@ -43,6 +45,51 @@ namespace SchoolManagementSystem.Presentation
             {
                 Console.WriteLine("Catch = "+ex.Message);
             }
+        }
+
+
+        private void loadClassSectionTree()
+        {
+            Teacher aTeacher = new Teacher();
+            aTeacher.ActiveStatus = 1;
+            DataSet dsStudent = aTeacher.Select();
+            if (dsStudent == null)
+            {
+                MessageBox.Show(aTeacher.Error);
+                return;
+            }
+            cmbTeacher.DataSource = dsStudent.Tables[0];
+            cmbTeacher.DisplayMember = "TEACHER_NAME";
+            cmbTeacher.ValueMember = "ID";
+            cmbTeacher.SelectedIndex = -1;
+
+
+
+            string aclass = "Class";
+            ClassWiseSection aClassWiseSection = new ClassWiseSection();
+            aClassWiseSection.ActiveStatus = 1;
+            DataTable dtClassWiseSection = aClassWiseSection.Select().Tables[0];
+            if (dtClassWiseSection == null)
+            {
+                MessageBox.Show(aClassWiseSection.Error);
+                return;
+            }
+            tvClassSection.Nodes.Add(aclass, "Class");
+            tvClassSection.ExpandAll();
+            foreach (DataRow row in dtClassWiseSection.Rows)
+            {
+                string id = row["ID"].ToString();
+                string section = row["SECTION_NAME"].ToString();
+                string className = row["CLASS_NAME"].ToString();
+                if (!tvClassSection.Nodes[aclass].Nodes.ContainsKey(className))
+                {
+                    tvClassSection.Nodes[aclass].Nodes.Add(className, className);
+                    tvClassSection.Nodes[aclass].Nodes[className].ExpandAll();
+                }
+                    
+                tvClassSection.Nodes[aclass].Nodes[className].Nodes.Add(id, section);
+                
+            }         
         }
 
         private void resetControls()
@@ -152,15 +199,47 @@ namespace SchoolManagementSystem.Presentation
             dtpEndDate.Checked = false;
         }
 
-        private void PopulateTreeView(int parentId, TreeNode parentNode)
-
+        private void tabAssignClassSection_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void tabAssignClassSection_Enter(object sender, EventArgs e)
+        private void btnSaveTeacherClassSection_Click(object sender, EventArgs e)
         {
 
+            //if (Utilities.EmptyRequiredField(tabBasicInformation))
+            //    return;
+            ClassSectionWiseTeacher aClassSectionWiseTeacher = new ClassSectionWiseTeacher();
+            aClassSectionWiseTeacher.TeacherId = Convert.ToInt32(cmbTeacher.SelectedValue.ToString());
+            //aClassSectionWiseTeacher.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
+            aClassSectionWiseTeacher.ActiveStatus = 1;
+
+            string message = "";
+            if (btnSaveTeacherClassSection.Text == "Confirm")
+            {
+                foreach (TreeNode prNode in tvClassSection.Nodes["Class"].Nodes)
+                {
+                    foreach (TreeNode chdNode in prNode.Nodes)
+                    {
+                        if (chdNode.Checked)
+                        {
+                            aClassSectionWiseTeacher.ClassSectionId = Convert.ToInt32(chdNode.Name);
+                            message = aClassSectionWiseTeacherManager.SaveClassSectionWiseTeacher(aClassSectionWiseTeacher);
+                        }
+                            
+                    }
+                }
+                
+            }
+            else
+            {
+                aClassSectionWiseTeacher.Id = (int)btnSaveTeacherClassSection.Tag;
+                message = aClassSectionWiseTeacherManager.UpdateClassSectionWiseTeacher(aClassSectionWiseTeacher);
+            }
+
+            MessageBox.Show(message);
+            ////resetClassInfoControls();
+            ////loadClassInfoDatagridview();
         }
     }
 }

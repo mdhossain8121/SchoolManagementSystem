@@ -18,6 +18,7 @@ namespace SchoolManagementSystem.Class
         public int ActiveStatus { get; set; }
 
         private static readonly String tblClassWiseSection = "class_wise_section_tbl";
+        private static readonly String tblClassWiseSectionView = "view_class_wise_section_tbl";
 
 
         public bool Insert()
@@ -32,6 +33,18 @@ namespace SchoolManagementSystem.Class
         {
             Command = CommandBuilder("SELECT cs.ID,SECTION_ID,SECTION_NAME from " + tblClassWiseSection + " as cs LEFT JOIN SECTION_SETUP_TBL as s ON cs.SECTION_ID = s.ID WHERE CLASS_ID = @classId AND cs.ACTIVE_STATUS = 1");
             Command.Parameters.AddWithValue("@classId", ClassId);
+            return ExecuteDataSet(Command);
+        }
+
+        public DataSet Select()
+        {
+            Command = CommandBuilder("select ID, CLASS_NAME, SECTION_NAME from " + tblClassWiseSectionView + " where ACTIVE_STATUS = @activeStatus");
+            Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
+            //if (ClassName != null && !ClassName.Trim().Equals(""))
+            //{
+            //    Command.CommandText += " Where CLASS_NAME like @search";
+            //    Command.Parameters.AddWithValue("@search", "%" + ClassName + "%");
+            //}
             return ExecuteDataSet(Command);
         }
     }
