@@ -24,7 +24,7 @@ namespace SchoolManagementSystem.Class
                     TextBox textBox = (TextBox)control;
                     textBox.Text = null;
                 }
-                if (control is Button)
+                else if (control is Button)
                 {
                     Button btn = (Button)control;
                     btn.Tag = null;

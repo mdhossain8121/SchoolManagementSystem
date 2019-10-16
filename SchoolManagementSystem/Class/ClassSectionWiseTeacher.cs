@@ -62,7 +62,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet Select()
         {
-            Command = CommandBuilder("select ID, TEACHER_NAME, CLASS_NAME, SECTION_NAME,ROLL,YEAR from " + tblClassSectionWiseTeacherView + " where ACTIVE_STATUS = @activeStatus");
+            Command = CommandBuilder("select ID, TEACHER_NAME, CLASS_NAME, SECTION_NAME from " + tblClassSectionWiseTeacherView + " where ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             //if (ClassName != null && !ClassName.Trim().Equals(""))
             //{

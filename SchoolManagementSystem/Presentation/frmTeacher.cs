@@ -17,6 +17,8 @@ namespace SchoolManagementSystem.Presentation
     {
         TeacherManager aTeacherManager = new TeacherManager();
         ClassSectionWiseTeacherManager aClassSectionWiseTeacherManager = new ClassSectionWiseTeacherManager();
+
+        DataTable dtTeacherClassInfo;
         public frmTeacher()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace SchoolManagementSystem.Presentation
             dtpEndDate.MinDate = dtpJoiningDate.Value;
             dtpEndDate.MaxDate = DateTime.Now;
             loadClassSectionTree();
+            loadTeacherClassSectionDatagridview();
         }
 
         private void loadDatagridview()
@@ -48,6 +51,20 @@ namespace SchoolManagementSystem.Presentation
         }
 
 
+        private void loadTeacherClassSectionDatagridview()
+        {
+            ClassSectionWiseTeacher aClassSectionWiseTeacher = new ClassSectionWiseTeacher();
+            aClassSectionWiseTeacher.ActiveStatus = 1;
+            dtTeacherClassInfo = aClassSectionWiseTeacherManager.GetAllClassSectionWiseTeacherData(aClassSectionWiseTeacher);
+            if (dtTeacherClassInfo == null)
+            {
+                MessageBox.Show(aClassSectionWiseTeacher.Error);
+                return;
+            }
+            dgvTeacherClassInfo.DataSource = dtTeacherClassInfo;
+        }
+
+
         private void loadClassSectionTree()
         {
             Teacher aTeacher = new Teacher();
@@ -62,8 +79,6 @@ namespace SchoolManagementSystem.Presentation
             cmbTeacher.DisplayMember = "TEACHER_NAME";
             cmbTeacher.ValueMember = "ID";
             cmbTeacher.SelectedIndex = -1;
-
-
 
             string aclass = "Class";
             ClassWiseSection aClassWiseSection = new ClassWiseSection();
@@ -92,10 +107,20 @@ namespace SchoolManagementSystem.Presentation
             }         
         }
 
+        private void uncheckTreeNode(TreeNodeCollection trNodeCollection, bool isCheck)
+        {
+            foreach (TreeNode trNode in trNodeCollection)
+            {
+                trNode.Checked = isCheck;
+                if (trNode.Nodes.Count > 0)
+                    uncheckTreeNode(trNode.Nodes, isCheck);
+            }
+        }
+
         private void resetControls()
         {
             Utilities.EmptyAllControls(tabBasicInformation);
-            btnDelete.Enabled = false;
+            uncheckTreeNode(tvClassSection.Nodes, false);
             btnSave.Text = "Save";
         }
 
@@ -240,6 +265,16 @@ namespace SchoolManagementSystem.Presentation
             MessageBox.Show(message);
             ////resetClassInfoControls();
             ////loadClassInfoDatagridview();
+        }
+
+        private void btnTeacherClassInfoSearch_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnTeacherClassInfoSearch_Click(object sender, EventArgs e)
+        {
+            dtTeacherClassInfo.DefaultView.RowFilter = string.Format("TEACHER_NAME LIKE '%{0}%'", txtTeacherClassInfoSearch.Text);
         }
     }
 }
