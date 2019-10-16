@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.1.36-MariaDB - mariadb.org binary distribution
+-- Server version:               10.1.19-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.5.0.5196
+-- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -13,10 +13,12 @@
 
 
 -- Dumping database structure for sas_db
+DROP DATABASE IF EXISTS `sas_db`;
 CREATE DATABASE IF NOT EXISTS `sas_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `sas_db`;
 
 -- Dumping structure for table sas_db.attendance_tbl
+DROP TABLE IF EXISTS `attendance_tbl`;
 CREATE TABLE IF NOT EXISTS `attendance_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DATE` date NOT NULL,
@@ -35,6 +37,7 @@ DELETE FROM `attendance_tbl`;
 /*!40000 ALTER TABLE `attendance_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.class_section_wise_student_tbl
+DROP TABLE IF EXISTS `class_section_wise_student_tbl`;
 CREATE TABLE IF NOT EXISTS `class_section_wise_student_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASSSECTION_ID` int(11) NOT NULL,
@@ -49,14 +52,40 @@ CREATE TABLE IF NOT EXISTS `class_section_wise_student_tbl` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table sas_db.class_section_wise_student_tbl: ~1 rows (approximately)
+-- Dumping data for table sas_db.class_section_wise_student_tbl: ~0 rows (approximately)
 DELETE FROM `class_section_wise_student_tbl`;
 /*!40000 ALTER TABLE `class_section_wise_student_tbl` DISABLE KEYS */;
 INSERT INTO `class_section_wise_student_tbl` (`ID`, `CLASSSECTION_ID`, `STUDENT_ID`, `ROLL`, `YEAR`, `ACTIVE_STATUS`, `CRT_BY`, `CRT_DATE`, `UPD_BY`, `UPD_DATE`) VALUES
 	(1, 5, 2, 2, '2019', 1, 0, '2019-10-03 23:34:29', 0, '2019-10-03 23:34:29');
 /*!40000 ALTER TABLE `class_section_wise_student_tbl` ENABLE KEYS */;
 
+-- Dumping structure for table sas_db.class_section_wise_teacher_tbl
+DROP TABLE IF EXISTS `class_section_wise_teacher_tbl`;
+CREATE TABLE IF NOT EXISTS `class_section_wise_teacher_tbl` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CLASSSECTION_ID` int(11) NOT NULL,
+  `TEACHER_ID` int(11) NOT NULL,
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
+  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
+  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- Dumping data for table sas_db.class_section_wise_teacher_tbl: ~2 rows (approximately)
+DELETE FROM `class_section_wise_teacher_tbl`;
+/*!40000 ALTER TABLE `class_section_wise_teacher_tbl` DISABLE KEYS */;
+INSERT INTO `class_section_wise_teacher_tbl` (`ID`, `CLASSSECTION_ID`, `TEACHER_ID`, `ACTIVE_STATUS`, `CRT_BY`, `CRT_DATE`, `UPD_BY`, `UPD_DATE`) VALUES
+	(1, 1, 2, 1, 0, '2019-10-16 01:41:52', 0, '2019-10-16 01:41:52'),
+	(2, 2, 2, 1, 0, '2019-10-16 01:41:52', 0, '2019-10-16 01:41:52'),
+	(3, 5, 2, 1, 0, '2019-10-16 01:41:52', 0, '2019-10-16 01:41:52'),
+	(4, 3, 1, 1, 0, '2019-10-17 01:11:58', 0, '2019-10-17 01:11:58'),
+	(5, 4, 1, 1, 0, '2019-10-17 01:11:58', 0, '2019-10-17 01:11:58');
+/*!40000 ALTER TABLE `class_section_wise_teacher_tbl` ENABLE KEYS */;
+
 -- Dumping structure for table sas_db.class_setup_tbl
+DROP TABLE IF EXISTS `class_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `class_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASS_NAME` varchar(50) NOT NULL DEFAULT '0',
@@ -83,6 +112,7 @@ INSERT INTO `class_setup_tbl` (`ID`, `CLASS_NAME`, `ACTIVE_STATUS`, `CRT_BY`, `C
 /*!40000 ALTER TABLE `class_setup_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.class_wise_section_tbl
+DROP TABLE IF EXISTS `class_wise_section_tbl`;
 CREATE TABLE IF NOT EXISTS `class_wise_section_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASS_ID` int(11) NOT NULL,
@@ -104,6 +134,7 @@ INSERT INTO `class_wise_section_tbl` (`ID`, `CLASS_ID`, `SECTION_ID`, `ACTIVE_ST
 /*!40000 ALTER TABLE `class_wise_section_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.class_wise_subject_tbl
+DROP TABLE IF EXISTS `class_wise_subject_tbl`;
 CREATE TABLE IF NOT EXISTS `class_wise_subject_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASS_ID` int(11) NOT NULL,
@@ -132,6 +163,7 @@ INSERT INTO `class_wise_subject_tbl` (`ID`, `CLASS_ID`, `SUBJECT_ID`, `ACTIVE_ST
 /*!40000 ALTER TABLE `class_wise_subject_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.exam_setup_tbl
+DROP TABLE IF EXISTS `exam_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `exam_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(50) NOT NULL,
@@ -145,6 +177,7 @@ DELETE FROM `exam_setup_tbl`;
 /*!40000 ALTER TABLE `exam_setup_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.result_tbl
+DROP TABLE IF EXISTS `result_tbl`;
 CREATE TABLE IF NOT EXISTS `result_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `EXAM_ID` int(11) NOT NULL,
@@ -167,6 +200,7 @@ DELETE FROM `result_tbl`;
 /*!40000 ALTER TABLE `result_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.role_setup_tbl
+DROP TABLE IF EXISTS `role_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `role_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ROLE_NAME` varchar(50) NOT NULL,
@@ -188,6 +222,7 @@ INSERT INTO `role_setup_tbl` (`ID`, `ROLE_NAME`, `DESCRIPTION`, `ACTIVE_STATUS`,
 /*!40000 ALTER TABLE `role_setup_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.section_setup_tbl
+DROP TABLE IF EXISTS `section_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `section_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `SECTION_NAME` varchar(100) NOT NULL,
@@ -212,6 +247,7 @@ INSERT INTO `section_setup_tbl` (`ID`, `SECTION_NAME`, `ACTIVE_STATUS`, `CRT_BY`
 /*!40000 ALTER TABLE `section_setup_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.setup_child_tbl
+DROP TABLE IF EXISTS `setup_child_tbl`;
 CREATE TABLE IF NOT EXISTS `setup_child_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `SETUPMASTERID` int(11) NOT NULL,
@@ -225,6 +261,7 @@ DELETE FROM `setup_child_tbl`;
 /*!40000 ALTER TABLE `setup_child_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.setup_master_tbl
+DROP TABLE IF EXISTS `setup_master_tbl`;
 CREATE TABLE IF NOT EXISTS `setup_master_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(50) NOT NULL,
@@ -238,6 +275,7 @@ DELETE FROM `setup_master_tbl`;
 /*!40000 ALTER TABLE `setup_master_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.student_setup_tbl
+DROP TABLE IF EXISTS `student_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `student_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `STUDENT_NAME` varchar(150) NOT NULL,
@@ -254,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `student_setup_tbl` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table sas_db.student_setup_tbl: ~0 rows (approximately)
+-- Dumping data for table sas_db.student_setup_tbl: ~2 rows (approximately)
 DELETE FROM `student_setup_tbl`;
 /*!40000 ALTER TABLE `student_setup_tbl` DISABLE KEYS */;
 INSERT INTO `student_setup_tbl` (`ID`, `STUDENT_NAME`, `IMAGE`, `MOBILE`, `ADDRESS`, `START_DATE`, `END_DATE`, `CRT_BY`, `CRT_DATE`, `UPD_BY`, `UPD_DATE`, `ACTIVE_STATUS`) VALUES
@@ -264,6 +302,7 @@ INSERT INTO `student_setup_tbl` (`ID`, `STUDENT_NAME`, `IMAGE`, `MOBILE`, `ADDRE
 /*!40000 ALTER TABLE `student_setup_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.subject_setup_tbl
+DROP TABLE IF EXISTS `subject_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `subject_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `SUBJECT_NAME` varchar(150) NOT NULL,
@@ -294,6 +333,7 @@ INSERT INTO `subject_setup_tbl` (`ID`, `SUBJECT_NAME`, `CRT_BY`, `ACTIVE_STATUS`
 /*!40000 ALTER TABLE `subject_setup_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.teacher_setup_tbl
+DROP TABLE IF EXISTS `teacher_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `teacher_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `TEACHER_NAME` varchar(150) NOT NULL,
@@ -321,6 +361,7 @@ INSERT INTO `teacher_setup_tbl` (`ID`, `TEACHER_NAME`, `IMAGE`, `MOBILE`, `ADDRE
 /*!40000 ALTER TABLE `teacher_setup_tbl` ENABLE KEYS */;
 
 -- Dumping structure for table sas_db.user_tbl
+DROP TABLE IF EXISTS `user_tbl`;
 CREATE TABLE IF NOT EXISTS `user_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_NAME` varchar(50) NOT NULL,
@@ -346,6 +387,7 @@ INSERT INTO `user_tbl` (`ID`, `USER_NAME`, `PASSWORD`, `ROLE_ID`, `ACTIVE_STATUS
 /*!40000 ALTER TABLE `user_tbl` ENABLE KEYS */;
 
 -- Dumping structure for view sas_db.view_class_section_wise_student_tbl
+DROP VIEW IF EXISTS `view_class_section_wise_student_tbl`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `view_class_section_wise_student_tbl` (
 	`ID` INT(11) NOT NULL,
@@ -357,13 +399,55 @@ CREATE TABLE `view_class_section_wise_student_tbl` (
 	`ACTIVE_STATUS` INT(1) NOT NULL COMMENT '0 = INACTIVE, 1 = ACTIVE'
 ) ENGINE=MyISAM;
 
+-- Dumping structure for view sas_db.view_class_section_wise_teacher_tbl
+DROP VIEW IF EXISTS `view_class_section_wise_teacher_tbl`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `view_class_section_wise_teacher_tbl` (
+	`ID` INT(11) NOT NULL,
+	`TEACHER_NAME` VARCHAR(150) NULL COLLATE 'utf8_general_ci',
+	`CLASS_NAME` VARCHAR(50) NULL COLLATE 'utf8_general_ci',
+	`SECTION_NAME` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`ACTIVE_STATUS` INT(1) NOT NULL COMMENT '0 = INACTIVE, 1 = ACTIVE'
+) ENGINE=MyISAM;
+
+-- Dumping structure for view sas_db.view_class_wise_section_tbl
+DROP VIEW IF EXISTS `view_class_wise_section_tbl`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `view_class_wise_section_tbl` (
+	`ID` INT(11) NOT NULL,
+	`CLASS_NAME` VARCHAR(50) NULL COLLATE 'utf8_general_ci',
+	`SECTION_NAME` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`ACTIVE_STATUS` INT(1) NOT NULL COMMENT '0 = INACTIVE, 1 = ACTIVE'
+) ENGINE=MyISAM;
+
 -- Dumping structure for view sas_db.view_class_section_wise_student_tbl
+DROP VIEW IF EXISTS `view_class_section_wise_student_tbl`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `view_class_section_wise_student_tbl`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_class_section_wise_student_tbl` AS SELECT csws.ID,sts.STUDENT_NAME,cs.CLASS_NAME,ss.SECTION_NAME,csws.ROLL,csws.YEAR,csws.ACTIVE_STATUS
 FROM `class_section_wise_student_tbl` AS csws
 LEFT JOIN student_setup_tbl sts on sts.ID = csws.STUDENT_ID
 LEFT JOIN class_wise_section_tbl cws on cws.ID = csws.CLASSSECTION_ID
+LEFT JOIN class_setup_tbl cs on cs.ID = cws.CLASS_ID
+LEFT JOIN section_setup_tbl ss on ss.ID = cws.SECTION_ID ;
+
+-- Dumping structure for view sas_db.view_class_section_wise_teacher_tbl
+DROP VIEW IF EXISTS `view_class_section_wise_teacher_tbl`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `view_class_section_wise_teacher_tbl`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_class_section_wise_teacher_tbl` AS SELECT cswt.ID,tst.TEACHER_NAME,cs.CLASS_NAME,ss.SECTION_NAME,cswt.ACTIVE_STATUS
+FROM `class_section_wise_teacher_tbl` AS cswt
+LEFT JOIN teacher_setup_tbl tst on tst.ID = cswt.TEACHER_ID
+LEFT JOIN class_wise_section_tbl cws on cws.ID = cswt.CLASSSECTION_ID
+LEFT JOIN class_setup_tbl cs on cs.ID = cws.CLASS_ID
+LEFT JOIN section_setup_tbl ss on ss.ID = cws.SECTION_ID ;
+
+-- Dumping structure for view sas_db.view_class_wise_section_tbl
+DROP VIEW IF EXISTS `view_class_wise_section_tbl`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `view_class_wise_section_tbl`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_class_wise_section_tbl` AS SELECT cws.ID,cs.CLASS_NAME,ss.SECTION_NAME,cws.ACTIVE_STATUS
+FROM class_wise_section_tbl AS cws
 LEFT JOIN class_setup_tbl cs on cs.ID = cws.CLASS_ID
 LEFT JOIN section_setup_tbl ss on ss.ID = cws.SECTION_ID ;
 
