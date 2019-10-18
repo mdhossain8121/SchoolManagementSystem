@@ -24,7 +24,8 @@ namespace SchoolManagementSystem.Class
 
         public bool Insert()
         {
-            Command = CommandBuilder("insert into " + tblClassSectionWiseTeacher + " (CLASSSECTION_ID, TEACHER_ID) values(@classSectionId, @teacherId)");
+            //Command = CommandBuilder("insert into " + tblClassSectionWiseTeacher + " (CLASSSECTION_ID, TEACHER_ID) values(@classSectionId, @teacherId)");
+            Command = CommandBuilder("insert into " + tblClassSectionWiseTeacher + " (CLASSSECTION_ID, TEACHER_ID) values(@classSectionId, @teacherId) ON DUPLICATE KEY UPDATE ACTIVE_STATUS = (CASE WHEN ACTIVE_STATUS = 1 THEN 0 ELSE 1 END)");
             Command.Parameters.AddWithValue("@classSectionId", ClassSectionId);
             Command.Parameters.AddWithValue("@teacherId", TeacherId);
 
@@ -42,8 +43,8 @@ namespace SchoolManagementSystem.Class
 
         public bool Delete()
         {
-            Command = CommandBuilder("delete from " + tblClassSectionWiseTeacher + " where ID = @id");
-            Command.Parameters.AddWithValue("@id", Id);
+            Command = CommandBuilder("update " + tblClassSectionWiseTeacher + " set ACTIVE_STATUS = @activeStatus where ID = @id");
+            Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             return Execute(Command);
         }
 
@@ -64,6 +65,19 @@ namespace SchoolManagementSystem.Class
         {
             Command = CommandBuilder("select ID, TEACHER_NAME, CLASS_NAME, SECTION_NAME from " + tblClassSectionWiseTeacherView + " where ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
+            //if (ClassName != null && !ClassName.Trim().Equals(""))
+            //{
+            //    Command.CommandText += " Where CLASS_NAME like @search";
+            //    Command.Parameters.AddWithValue("@search", "%" + ClassName + "%");
+            //}
+            return ExecuteDataSet(Command);
+        }
+
+        public DataSet SelectNotAssignedClasses()
+        {
+            Command = CommandBuilder("select ID, CLASS_NAME, SECTION_NAME from view_class_wise_section_tbl where ACTIVE_STATUS = @activeStatus and ID not in (select CLASSSECTION_ID from class_section_wise_teacher_tbl where TEACHER_ID != @teacherId)");
+            Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
+            Command.Parameters.AddWithValue("@teacherId", TeacherId);
             //if (ClassName != null && !ClassName.Trim().Equals(""))
             //{
             //    Command.CommandText += " Where CLASS_NAME like @search";

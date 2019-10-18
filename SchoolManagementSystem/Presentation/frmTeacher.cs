@@ -25,7 +25,6 @@ namespace SchoolManagementSystem.Presentation
             dtpJoiningDate.Value = DateTime.Now;
             dtpEndDate.MinDate = dtpJoiningDate.Value;
             dtpEndDate.MaxDate = DateTime.Now;
-            loadClassSectionTree();
             loadTeacherClassSectionDatagridview();
         }
 
@@ -67,44 +66,34 @@ namespace SchoolManagementSystem.Presentation
 
         private void loadClassSectionTree()
         {
-            Teacher aTeacher = new Teacher();
-            aTeacher.ActiveStatus = 1;
-            DataSet dsStudent = aTeacher.Select();
-            if (dsStudent == null)
-            {
-                MessageBox.Show(aTeacher.Error);
-                return;
-            }
-            cmbTeacher.DataSource = dsStudent.Tables[0];
-            cmbTeacher.DisplayMember = "TEACHER_NAME";
-            cmbTeacher.ValueMember = "ID";
-            cmbTeacher.SelectedIndex = -1;
-
             string aclass = "Class";
-            ClassWiseSection aClassWiseSection = new ClassWiseSection();
-            aClassWiseSection.ActiveStatus = 1;
-            DataTable dtClassWiseSection = aClassWiseSection.Select().Tables[0];
-            if (dtClassWiseSection == null)
+            if (!tvClassSection.Nodes.ContainsKey(aclass))
             {
-                MessageBox.Show(aClassWiseSection.Error);
-                return;
-            }
-            tvClassSection.Nodes.Add(aclass, "Class");
-            tvClassSection.ExpandAll();
-            foreach (DataRow row in dtClassWiseSection.Rows)
-            {
-                string id = row["ID"].ToString();
-                string section = row["SECTION_NAME"].ToString();
-                string className = row["CLASS_NAME"].ToString();
-                if (!tvClassSection.Nodes[aclass].Nodes.ContainsKey(className))
+                ClassSectionWiseTeacher aClassWiseSection = new ClassSectionWiseTeacher();
+                aClassWiseSection.ActiveStatus = 1;
+                DataTable dtClassWiseSection = aClassWiseSection.SelectNotAssignedClasses().Tables[0];
+                if (dtClassWiseSection == null)
                 {
-                    tvClassSection.Nodes[aclass].Nodes.Add(className, className);
-                    tvClassSection.Nodes[aclass].Nodes[className].ExpandAll();
+                    MessageBox.Show(aClassWiseSection.Error);
+                    return;
                 }
-                    
-                tvClassSection.Nodes[aclass].Nodes[className].Nodes.Add(id, section);
-                
-            }         
+                tvClassSection.Nodes.Add(aclass, "Class");
+                tvClassSection.ExpandAll();
+                foreach (DataRow row in dtClassWiseSection.Rows)
+                {
+                    string id = row["ID"].ToString();
+                    string section = row["SECTION_NAME"].ToString();
+                    string className = row["CLASS_NAME"].ToString();
+                    if (!tvClassSection.Nodes[aclass].Nodes.ContainsKey(className))
+                    {
+                        tvClassSection.Nodes[aclass].Nodes.Add(className, className);
+                        tvClassSection.Nodes[aclass].Nodes[className].ExpandAll();
+                    }
+
+                    tvClassSection.Nodes[aclass].Nodes[className].Nodes.Add(id, section);
+
+                }
+            }
         }
 
         private void uncheckTreeNode(TreeNodeCollection trNodeCollection, bool isCheck)
@@ -120,7 +109,7 @@ namespace SchoolManagementSystem.Presentation
         private void resetControls()
         {
             Utilities.EmptyAllControls(tabBasicInformation);
-            uncheckTreeNode(tvClassSection.Nodes, false);
+            
             btnSave.Text = "Save";
         }
 
@@ -226,7 +215,23 @@ namespace SchoolManagementSystem.Presentation
 
         private void tabAssignClassSection_Enter(object sender, EventArgs e)
         {
+            if(cmbTeacher.Items.Count<=0)
+            {
+                Teacher aTeacher = new Teacher();
+                aTeacher.ActiveStatus = 1;
+                DataSet dsStudent = aTeacher.Select();
+                if (dsStudent == null)
+                {
+                    MessageBox.Show(aTeacher.Error);
+                    return;
+                }
+                cmbTeacher.DataSource = dsStudent.Tables[0];
+                cmbTeacher.DisplayMember = "TEACHER_NAME";
+                cmbTeacher.ValueMember = "ID";
+            }
+            cmbTeacher.SelectedIndex = -1;
 
+            loadClassSectionTree();
         }
 
         private void btnSaveTeacherClassSection_Click(object sender, EventArgs e)
@@ -263,18 +268,52 @@ namespace SchoolManagementSystem.Presentation
             }
 
             MessageBox.Show(message);
-            ////resetClassInfoControls();
-            ////loadClassInfoDatagridview();
+            uncheckTreeNode(tvClassSection.Nodes, false);
+            loadTeacherClassSectionDatagridview();
         }
 
         private void btnTeacherClassInfoSearch_TextChanged(object sender, EventArgs e)
         {
-            
+            dtTeacherClassInfo.DefaultView.RowFilter = string.Format("TEACHER_NAME LIKE '%{0}%'", txtTeacherClassInfoSearch.Text);
         }
 
         private void btnTeacherClassInfoSearch_Click(object sender, EventArgs e)
         {
-            dtTeacherClassInfo.DefaultView.RowFilter = string.Format("TEACHER_NAME LIKE '%{0}%'", txtTeacherClassInfoSearch.Text);
+            
+        }
+
+        private void cmbTeacher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ClassWiseSection aClassWiseSection = new ClassWiseSection();
+            //aClassWiseSection.ActiveStatus = 1;
+            //try
+            //{
+            //    aClassWiseSection.ClassId = Convert.ToInt32(cmbTeacher.SelectedValue.ToString());
+            //}
+            //catch (Exception)
+            //{
+            //    return;
+            //}
+            //DataSet dsClassWiseSection = aClassWiseSection.SelectByClassId();
+            //if (dsClassWiseSection == null)
+            //{
+            //    MessageBox.Show(aClassWiseSection.Error);
+            //    return;
+            //}
+            //cmbClassWiseSection.DataSource = dsClassWiseSection.Tables[0];
+            //cmbClassWiseSection.DisplayMember = "SECTION_NAME";
+            //cmbClassWiseSection.ValueMember = "ID";
+            //cmbClassWiseSection.SelectedIndex = -1;
+        }
+
+        private void dgvTeacherClassInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex != dgvTeacherClassInfo.Columns["cswtColAction"].Index) return;
+                MessageBox.Show(dgvTeacherClassInfo.Rows[e.RowIndex].Cells["cswtColID"].Value.ToString());
+            ClassSectionWiseTeacher aClassSectionWiseTeacher = new ClassSectionWiseTeacher();
+            aClassSectionWiseTeacher.TeacherId = Convert.ToInt32(cmbTeacher.SelectedValue.ToString());
+            //aClassSectionWiseTeacher.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
+            aClassSectionWiseTeacher.ActiveStatus = 1;
         }
     }
 }
