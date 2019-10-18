@@ -45,6 +45,7 @@ namespace SchoolManagementSystem.Class
         {
             Command = CommandBuilder("update " + tblClassSectionWiseTeacher + " set ACTIVE_STATUS = @activeStatus where ID = @id");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
+            Command.Parameters.AddWithValue("@id", Id);
             return Execute(Command);
         }
 
@@ -75,7 +76,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet SelectNotAssignedClasses()
         {
-            Command = CommandBuilder("select ID, CLASS_NAME, SECTION_NAME from view_class_wise_section_tbl where ACTIVE_STATUS = @activeStatus and ID not in (select CLASSSECTION_ID from class_section_wise_teacher_tbl where TEACHER_ID != @teacherId)");
+            Command = CommandBuilder("select ID, CLASS_NAME, SECTION_NAME from view_class_wise_section_tbl where ACTIVE_STATUS = @activeStatus and ID not in (select CLASSSECTION_ID from class_section_wise_teacher_tbl cs where cs.TEACHER_ID != @teacherId and cs.ACTIVE_STATUS=1)");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             Command.Parameters.AddWithValue("@teacherId", TeacherId);
             //if (ClassName != null && !ClassName.Trim().Equals(""))

@@ -78,7 +78,7 @@ namespace SchoolManagementSystem.Presentation
                     return;
                 }
                 tvClassSection.Nodes.Add(aclass, "Class");
-                tvClassSection.ExpandAll();
+                //tvClassSection.ExpandAll();
                 foreach (DataRow row in dtClassWiseSection.Rows)
                 {
                     string id = row["ID"].ToString();
@@ -87,23 +87,14 @@ namespace SchoolManagementSystem.Presentation
                     if (!tvClassSection.Nodes[aclass].Nodes.ContainsKey(className))
                     {
                         tvClassSection.Nodes[aclass].Nodes.Add(className, className);
-                        tvClassSection.Nodes[aclass].Nodes[className].ExpandAll();
+                        //tvClassSection.Nodes[aclass].Nodes[className].ExpandAll();
                     }
 
                     tvClassSection.Nodes[aclass].Nodes[className].Nodes.Add(id, section);
 
                 }
             }
-        }
-
-        private void uncheckTreeNode(TreeNodeCollection trNodeCollection, bool isCheck)
-        {
-            foreach (TreeNode trNode in trNodeCollection)
-            {
-                trNode.Checked = isCheck;
-                if (trNode.Nodes.Count > 0)
-                    uncheckTreeNode(trNode.Nodes, isCheck);
-            }
+            tvClassSection.ExpandAll();
         }
 
         private void resetControls()
@@ -240,11 +231,12 @@ namespace SchoolManagementSystem.Presentation
             //if (Utilities.EmptyRequiredField(tabBasicInformation))
             //    return;
             ClassSectionWiseTeacher aClassSectionWiseTeacher = new ClassSectionWiseTeacher();
+            if (cmbTeacher.SelectedIndex < 0) return;
             aClassSectionWiseTeacher.TeacherId = Convert.ToInt32(cmbTeacher.SelectedValue.ToString());
             //aClassSectionWiseTeacher.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
             aClassSectionWiseTeacher.ActiveStatus = 1;
 
-            string message = "";
+            string message = "No class Selected";
             if (btnSaveTeacherClassSection.Text == "Confirm")
             {
                 foreach (TreeNode prNode in tvClassSection.Nodes["Class"].Nodes)
@@ -268,7 +260,8 @@ namespace SchoolManagementSystem.Presentation
             }
 
             MessageBox.Show(message);
-            uncheckTreeNode(tvClassSection.Nodes, false);
+            tvClassSection.Nodes.Clear();
+            loadClassSectionTree();
             loadTeacherClassSectionDatagridview();
         }
 
@@ -311,9 +304,14 @@ namespace SchoolManagementSystem.Presentation
             if (e.RowIndex < 0 || e.ColumnIndex != dgvTeacherClassInfo.Columns["cswtColAction"].Index) return;
                 MessageBox.Show(dgvTeacherClassInfo.Rows[e.RowIndex].Cells["cswtColID"].Value.ToString());
             ClassSectionWiseTeacher aClassSectionWiseTeacher = new ClassSectionWiseTeacher();
-            aClassSectionWiseTeacher.TeacherId = Convert.ToInt32(cmbTeacher.SelectedValue.ToString());
-            //aClassSectionWiseTeacher.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
-            aClassSectionWiseTeacher.ActiveStatus = 1;
+            aClassSectionWiseTeacher.Id = Convert.ToInt32(dgvTeacherClassInfo.Rows[e.RowIndex].Cells["cswtColID"].Value.ToString());
+            aClassSectionWiseTeacher.ActiveStatus = 0;
+            
+            String Message = aClassSectionWiseTeacherManager.DeleteClassSectionWiseTeacher(aClassSectionWiseTeacher);
+            MessageBox.Show(Message);
+            loadTeacherClassSectionDatagridview();
+            tvClassSection.Nodes.Clear();
+            loadClassSectionTree();
         }
     }
 }
