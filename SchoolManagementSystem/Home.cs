@@ -23,6 +23,7 @@ namespace SchoolManagementSystem
         frmAttedndance attendance = new frmAttedndance();
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
+        frmDatabase database = new frmDatabase();
 
         public frmHome()
         {
@@ -107,6 +108,13 @@ namespace SchoolManagementSystem
             if (student.IsDisposed)
                 student = new frmStudent();
             menuClick(student);
+        }
+
+        private void dBBackupRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (database.IsDisposed)
+                database = new frmDatabase();
+            menuClick(database);
         }
     }
 }

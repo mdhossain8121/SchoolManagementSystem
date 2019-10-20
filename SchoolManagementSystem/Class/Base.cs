@@ -17,6 +17,7 @@ namespace SchoolManagementSystem.Class
         private static readonly String dbname = "sas_db";
         private static readonly String connStr = "server=" + dbserver + ";user=" + dbuser + ";database=" + dbname + ";password= " + dbpassword + ";";
         private MySqlConnection cn = new MySqlConnection(connStr);
+        protected MySqlBackup mb; 
 
         public string Error { get; set; }
 
@@ -76,16 +77,13 @@ namespace SchoolManagementSystem.Class
             return cmd;
         }
 
-
-        protected MySqlBackup mySqlBackup { get; set; }
-        protected bool DBBackup(String file)
+        protected bool ReadyDBBackupOrRestore()
         {
             if (!databaseConnectionOpen())
                 return false;
             MySqlCommand cmd = new MySqlCommand();
-            MySqlBackup mb = new MySqlBackup(cmd);
+            mb = new MySqlBackup(cmd);
             cmd.Connection = cn;
-            mb.ImportFromFile(file);
             return true;
         }
 
