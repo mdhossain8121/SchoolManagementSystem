@@ -47,6 +47,7 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parentStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.fingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.parentStatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -127,49 +128,50 @@
             // classToolStripMenuItem
             // 
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.classToolStripMenuItem.Text = "&Class";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
             // subjectToolStripMenuItem
             // 
             this.subjectToolStripMenuItem.Name = "subjectToolStripMenuItem";
-            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.subjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.subjectToolStripMenuItem.Text = "&Subject";
             this.subjectToolStripMenuItem.Click += new System.EventHandler(this.subjectToolStripMenuItem_Click);
             // 
             // classWiseSubjectToolStripMenuItem
             // 
             this.classWiseSubjectToolStripMenuItem.Name = "classWiseSubjectToolStripMenuItem";
-            this.classWiseSubjectToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.classWiseSubjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.classWiseSubjectToolStripMenuItem.Text = "&Class Wise Subject";
             this.classWiseSubjectToolStripMenuItem.Click += new System.EventHandler(this.classWiseSubjectToolStripMenuItem_Click);
             // 
             // sectionToolStripMenuItem
             // 
             this.sectionToolStripMenuItem.Name = "sectionToolStripMenuItem";
-            this.sectionToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.sectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sectionToolStripMenuItem.Text = "&Section";
             this.sectionToolStripMenuItem.Click += new System.EventHandler(this.sectionToolStripMenuItem_Click);
             // 
             // classWiseSectionToolStripMenuItem
             // 
             this.classWiseSectionToolStripMenuItem.Name = "classWiseSectionToolStripMenuItem";
-            this.classWiseSectionToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.classWiseSectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.classWiseSectionToolStripMenuItem.Text = "&Class Wise Section";
             this.classWiseSectionToolStripMenuItem.Click += new System.EventHandler(this.classWiseSectionToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "&Others";
             // 
             // settingsToolStripMenuItem1
             // 
             this.settingsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.roleToolStripMenuItem,
-            this.usersToolStripMenuItem});
+            this.usersToolStripMenuItem,
+            this.fingerToolStripMenuItem});
             this.settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
             this.settingsToolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem1.Text = "&Settings";
@@ -177,14 +179,14 @@
             // roleToolStripMenuItem
             // 
             this.roleToolStripMenuItem.Name = "roleToolStripMenuItem";
-            this.roleToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.roleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.roleToolStripMenuItem.Text = "&Role";
             this.roleToolStripMenuItem.Click += new System.EventHandler(this.roleToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem.Text = "&Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
@@ -204,6 +206,13 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // fingerToolStripMenuItem
+            // 
+            this.fingerToolStripMenuItem.Name = "fingerToolStripMenuItem";
+            this.fingerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fingerToolStripMenuItem.Text = "&Finger";
+            this.fingerToolStripMenuItem.Click += new System.EventHandler(this.fingerToolStripMenuItem_Click);
             // 
             // frmHome
             // 
@@ -249,6 +258,7 @@
         private System.Windows.Forms.ToolStripMenuItem classWiseSectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem attendanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dBBackupRestoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fingerToolStripMenuItem;
     }
 }
 

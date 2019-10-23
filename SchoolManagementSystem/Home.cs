@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SchoolManagementSystem.Presentation;
+using sgdm;
 
 namespace SchoolManagementSystem
 {
@@ -24,6 +25,8 @@ namespace SchoolManagementSystem
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
         frmDatabase database = new frmDatabase();
+        MainForm mainForm = new MainForm();
+        
 
         public frmHome()
         {
@@ -115,6 +118,13 @@ namespace SchoolManagementSystem
             if (database.IsDisposed)
                 database = new frmDatabase();
             menuClick(database);
+        }
+
+        private void fingerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (mainForm.IsDisposed)
+                mainForm = new MainForm();
+            menuClick(mainForm);
         }
     }
 }
