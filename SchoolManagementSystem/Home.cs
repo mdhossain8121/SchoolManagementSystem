@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SchoolManagementSystem.Presentation;
 using sgdm;
+using MatchingAnsi;
 
 namespace SchoolManagementSystem
 {
@@ -26,6 +27,8 @@ namespace SchoolManagementSystem
         frmStudent student = new frmStudent();
         frmDatabase database = new frmDatabase();
         MainForm mainForm = new MainForm();
+        Form1 matchingAnsi = new Form1();
+        frmFingerRegister frmFingerRegister = new frmFingerRegister();
         
 
         public frmHome()
@@ -122,9 +125,18 @@ namespace SchoolManagementSystem
 
         private void fingerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (mainForm.IsDisposed)
-                mainForm = new MainForm();
-            menuClick(mainForm);
+            if (frmFingerRegister.IsDisposed)
+                frmFingerRegister = new frmFingerRegister();
+            menuClick(frmFingerRegister);
+
+
+            //if (matchingAnsi.IsDisposed)
+            //    matchingAnsi = new Form1();
+            //menuClick(matchingAnsi);
+
+            //if (mainForm.IsDisposed)
+            //    mainForm = new MainForm();
+            //menuClick(mainForm);
         }
     }
 }
