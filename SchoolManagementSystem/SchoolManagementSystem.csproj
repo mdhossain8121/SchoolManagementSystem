@@ -72,6 +72,7 @@
     <Compile Include="ClassManager\ClassSectionWiseTeacherManager.cs" />
     <Compile Include="ClassManager\ClassSectionWiseStudentManager.cs" />
     <Compile Include="ClassManager\ClassSetupManager.cs" />
+    <Compile Include="ClassManager\FingerRegisterManager.cs" />
     <Compile Include="ClassManager\RoleManager.cs" />
     <Compile Include="ClassManager\SectionManager.cs" />
     <Compile Include="ClassManager\StudentManager.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Class\ClassWiseSubject.cs" />
     <Compile Include="Class\DatabaseManager.cs" />
     <Compile Include="Class\FileImage.cs" />
+    <Compile Include="Class\FingerRegister.cs" />
     <Compile Include="Class\Role.cs" />
     <Compile Include="Class\ClassSetup.cs" />
     <Compile Include="Class\Section.cs" />
