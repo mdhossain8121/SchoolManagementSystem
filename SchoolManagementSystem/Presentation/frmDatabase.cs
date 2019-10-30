@@ -49,8 +49,10 @@ namespace SchoolManagementSystem.Presentation
             }
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 databaseManager.FilePath = path;
                 databaseManager.DatabaseBackup();
+                Cursor.Current = Cursors.Default;
             }
             catch(Exception ex)
             {
@@ -95,8 +97,10 @@ namespace SchoolManagementSystem.Presentation
             }
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 databaseManager.FilePath = path;
                 databaseManager.DatabaseRestore();
+                Cursor.Current = Cursors.WaitCursor;
             }
             catch (Exception ex)
             {
