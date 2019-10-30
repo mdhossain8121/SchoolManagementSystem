@@ -23,6 +23,7 @@ namespace SchoolManagementSystem
         frmSubject subject = new frmSubject();
         frmClassWiseSubjectList cwsl = new frmClassWiseSubjectList();
         frmClassWiseSection cws = new frmClassWiseSection();
+        frmClassWiseExam cwe = new frmClassWiseExam();
         frmAttedndance attendance = new frmAttedndance();
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
@@ -145,6 +146,13 @@ namespace SchoolManagementSystem
             if (exam.IsDisposed)
                 exam = new frmExam();
             menuClick(exam);
+        }
+
+        private void classWiseExamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (cwe.IsDisposed)
+                cwe = new frmClassWiseExam();
+            menuClick(cwe);
         }
     }
 }

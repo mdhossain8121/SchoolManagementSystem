@@ -48,6 +48,7 @@
             this.fingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parentStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.classWiseExamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.parentStatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +121,8 @@
             this.classWiseSubjectToolStripMenuItem,
             this.sectionToolStripMenuItem,
             this.classWiseSectionToolStripMenuItem,
-            this.examToolStripMenuItem});
+            this.examToolStripMenuItem,
+            this.classWiseExamToolStripMenuItem});
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             this.setupToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.setupToolStripMenuItem.Text = "&Setup";
@@ -215,6 +217,13 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // classWiseExamToolStripMenuItem
+            // 
+            this.classWiseExamToolStripMenuItem.Name = "classWiseExamToolStripMenuItem";
+            this.classWiseExamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.classWiseExamToolStripMenuItem.Text = "&Class Wise Exam";
+            this.classWiseExamToolStripMenuItem.Click += new System.EventHandler(this.classWiseExamToolStripMenuItem_Click);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +269,7 @@
         private System.Windows.Forms.ToolStripMenuItem attendanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dBBackupRestoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fingerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem classWiseExamToolStripMenuItem;
     }
 }
 
