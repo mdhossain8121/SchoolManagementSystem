@@ -41,13 +41,13 @@
             this.classWiseSubjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classWiseSectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.examToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.roleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parentStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.fingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.parentStatusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +120,7 @@
             this.classWiseSubjectToolStripMenuItem,
             this.sectionToolStripMenuItem,
             this.classWiseSectionToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.examToolStripMenuItem});
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             this.setupToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.setupToolStripMenuItem.Text = "&Setup";
@@ -160,11 +160,12 @@
             this.classWiseSectionToolStripMenuItem.Text = "&Class Wise Section";
             this.classWiseSectionToolStripMenuItem.Click += new System.EventHandler(this.classWiseSectionToolStripMenuItem_Click);
             // 
-            // settingsToolStripMenuItem
+            // examToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.settingsToolStripMenuItem.Text = "&Others";
+            this.examToolStripMenuItem.Name = "examToolStripMenuItem";
+            this.examToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.examToolStripMenuItem.Text = "&Exam";
+            this.examToolStripMenuItem.Click += new System.EventHandler(this.examToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem1
             // 
@@ -179,16 +180,23 @@
             // roleToolStripMenuItem
             // 
             this.roleToolStripMenuItem.Name = "roleToolStripMenuItem";
-            this.roleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.roleToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.roleToolStripMenuItem.Text = "&Role";
             this.roleToolStripMenuItem.Click += new System.EventHandler(this.roleToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.usersToolStripMenuItem.Text = "&Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
+            // fingerToolStripMenuItem
+            // 
+            this.fingerToolStripMenuItem.Name = "fingerToolStripMenuItem";
+            this.fingerToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.fingerToolStripMenuItem.Text = "&Finger";
+            this.fingerToolStripMenuItem.Click += new System.EventHandler(this.fingerToolStripMenuItem_Click);
             // 
             // parentStatusStrip
             // 
@@ -206,13 +214,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
-            // fingerToolStripMenuItem
-            // 
-            this.fingerToolStripMenuItem.Name = "fingerToolStripMenuItem";
-            this.fingerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fingerToolStripMenuItem.Text = "&Finger";
-            this.fingerToolStripMenuItem.Click += new System.EventHandler(this.fingerToolStripMenuItem_Click);
             // 
             // frmHome
             // 
@@ -247,7 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem setupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem classToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem examToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem roleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem classWiseSubjectToolStripMenuItem;

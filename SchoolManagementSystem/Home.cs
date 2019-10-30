@@ -17,6 +17,7 @@ namespace SchoolManagementSystem
     {
         frmClass cst = new frmClass();
         frmSection section = new frmSection();
+        frmExam exam = new frmExam();
         frmRole role = new frmRole();
         frmUser user = new frmUser();
         frmSubject subject = new frmSubject();
@@ -137,6 +138,13 @@ namespace SchoolManagementSystem
             //if (mainForm.IsDisposed)
             //    mainForm = new MainForm();
             //menuClick(mainForm);
+        }
+
+        private void examToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (exam.IsDisposed)
+                exam = new frmExam();
+            menuClick(exam);
         }
     }
 }
