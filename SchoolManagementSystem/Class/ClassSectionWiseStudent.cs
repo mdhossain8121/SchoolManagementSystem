@@ -78,5 +78,12 @@ namespace SchoolManagementSystem.Class
             //}
             return ExecuteDataSet(Command);
         }
+
+        public DataSet SelectBySection()
+        {
+            Command = CommandBuilder("select ID, STUDENT_NAME, ROLL from " + tblClassSectionWiseStudentView + " where ACTIVE_STATUS = @activeStatus");
+            Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
+            return ExecuteDataSet(Command);
+        }
     }
 }

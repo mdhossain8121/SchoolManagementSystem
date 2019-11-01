@@ -31,7 +31,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet SelectByClassId()
         {
-            Command = CommandBuilder("SELECT ce.ID,EXAM_ID,EXAM_NAME from " + tblClassWiseExam + " as ce LEFT JOIN EXAM_SETUP_TBL as e ON ce.EXAM_ID = e.ID WHERE CLASS_ID = @classId AND ce.ACTIVE_STATUS = 1");
+            Command = CommandBuilder("SELECT ce.ID,EXAM_ID,EXAM_NAME from " + tblClassWiseExam + " as ce LEFT JOIN EXAM_SETUP_TBL as e ON ce.EXAM_ID = e.ID WHERE CLASS_ID = @classId AND ce.ACTIVE_STATUS = 1 and e.ACTIVE_STATUS = 1");
             Command.Parameters.AddWithValue("@classId", ClassId);
             return ExecuteDataSet(Command);
         }

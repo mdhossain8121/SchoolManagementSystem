@@ -29,6 +29,14 @@ namespace SchoolManagementSystem.Class
             return Execute(Command);
         }
 
+
+        public DataSet SelectByClassId()
+        {
+            Command = CommandBuilder("SELECT cs.ID,SUBJECT_ID,SUBJECT_NAME from " + tblClassWiseSubject + " as cs LEFT JOIN SUBJECT_SETUP_TBL as s ON cs.SUBJECT_ID = s.ID WHERE CLASS_ID = @classId AND cs.ACTIVE_STATUS = 1 and s.ACTIVE_STATUS = 1");
+            Command.Parameters.AddWithValue("@classId", ClassId);
+            return ExecuteDataSet(Command);
+        }
+
         public DataSet SelectBySubjectId()
         {
             Command = CommandBuilder("SELECT SUBJECT_ID from " + tblClassWiseSubject + " as cws LEFT JOIN " + tblSubject + " as s ON cws.SUBJECT_ID = s.ID WHERE CLASS_ID = @classId AND cws.ACTIVE_STATUS = 1 and s.ACTIVE_STATUS = 1");

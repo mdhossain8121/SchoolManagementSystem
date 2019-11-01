@@ -27,6 +27,7 @@ namespace SchoolManagementSystem
         frmAttedndance attendance = new frmAttedndance();
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
+        frmResult result = new frmResult();
         frmDatabase database = new frmDatabase();
         MainForm mainForm = new MainForm();
         Form1 matchingAnsi = new Form1();
@@ -153,6 +154,13 @@ namespace SchoolManagementSystem
             if (cwe.IsDisposed)
                 cwe = new frmClassWiseExam();
             menuClick(cwe);
+        }
+
+        private void resultEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(result.IsDisposed)
+                result = new frmResult();
+            menuClick(result);
         }
     }
 }
