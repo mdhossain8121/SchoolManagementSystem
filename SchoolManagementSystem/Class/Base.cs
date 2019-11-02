@@ -121,6 +121,24 @@ namespace SchoolManagementSystem.Class
             MySqlDataAdapter da = new MySqlDataAdapter(Command);
             da.Fill(ds);
             return ds;
+
+
+            //try
+            //{
+            //    DataSet ds = new DataSet();
+            //    MySqlDataAdapter da = new MySqlDataAdapter(Command);
+            //    da.Fill(ds);
+            //    return ds;
+            //}
+            //catch (Exception ex)
+            //{
+            //    Error = ex.Message;
+            //    File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Execute Dataset in Base. " + Environment.NewLine);
+            //    File.AppendAllText("logs.txt", " ------------------------------------------ " + Environment.NewLine);
+            //    File.AppendAllText("logs.txt", ex.Message + Environment.NewLine);
+            //    File.AppendAllText("logs.txt", ex.StackTrace + Environment.NewLine);
+            //    return null;
+            //}
         }
     }
 }

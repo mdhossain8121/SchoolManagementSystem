@@ -90,14 +90,31 @@ namespace SchoolManagementSystem.Presentation
             ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
             aClassSectionWiseStudent.ActiveStatus = 1;
             aClassSectionWiseStudent.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString()); ;
-
+            
             DataTable dt = aClassSectionWiseStudent.SelectBySection().Tables[0];
+
+            dt.Columns.Add("SL", typeof(int)).AutoIncrement=true;
+            dt.Columns["SL"].SetOrdinal(0);
+            dt.Columns["SL"].AutoIncrementSeed = 1;
+            dt.Columns["SL"].AutoIncrementStep = 1;
+
+            foreach (DataRow item in dt.Rows)
+            {
+                Console.WriteLine("row" +item[0]);
+            }
+
             if (dt == null)
             {
                 MessageBox.Show(aClassSectionWiseStudent.Error);
                 return;
             }
             dgvResultEntry.DataSource = dt;
+
+        }
+
+        private void btmSubmit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

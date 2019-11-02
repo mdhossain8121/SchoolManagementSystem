@@ -54,7 +54,7 @@
       <HintPath>..\mysql reference\MySqlBackup.dll</HintPath>
     </Reference>
     <Reference Include="SecuGen.FDxSDKPro.Windows">
-      <HintPath>finger dll\i386\SecuGen.FDxSDKPro.Windows.dll</HintPath>
+      <HintPath>finger dll\p86\SecuGen.FDxSDKPro.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
