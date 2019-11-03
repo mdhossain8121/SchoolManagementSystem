@@ -93,23 +93,30 @@ namespace SchoolManagementSystem.Presentation
             
             DataTable dt = aClassSectionWiseStudent.SelectBySection().Tables[0];
 
-            dt.Columns.Add("SL", typeof(int)).AutoIncrement=true;
-            dt.Columns["SL"].SetOrdinal(0);
-            dt.Columns["SL"].AutoIncrementSeed = 1;
-            dt.Columns["SL"].AutoIncrementStep = 1;
+            //dt.Columns.Add("AAA", typeof(int)).AutoIncrement=true;
+            //dt.Columns["AAA"].SetOrdinal(0);
+            //dt.Columns["AAA"].AutoIncrementSeed = 1;
+            //dt.Columns["AAA"].AutoIncrementStep = 1;
+            DataColumn column = new DataColumn();
+            column.ColumnName = "SL";
+            column.DataType = System.Type.GetType("System.Int32");
+            column.AutoIncrement = true;
+            column.AutoIncrementSeed = 1;
+            column.AutoIncrementStep = 1;
+            column.ReadOnly = true;
 
-            foreach (DataRow item in dt.Rows)
-            {
-                Console.WriteLine("row" +item[0]);
-            }
+            // Add the column to a new DataTable.
+            DataTable table = new DataTable("table");
+            table.Columns.Add(column);
+            column.SetOrdinal(0);
 
+            table.Merge(dt);
             if (dt == null)
             {
                 MessageBox.Show(aClassSectionWiseStudent.Error);
                 return;
             }
-            dgvResultEntry.DataSource = dt;
-
+            dgvResultEntry.DataSource = table;
         }
 
         private void btmSubmit_Click(object sender, EventArgs e)

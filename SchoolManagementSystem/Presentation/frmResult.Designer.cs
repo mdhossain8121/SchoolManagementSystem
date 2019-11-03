@@ -65,10 +65,9 @@
             // 
             this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(105, 42);
-            this.cmbClass.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbClass.Location = new System.Drawing.Point(79, 34);
             this.cmbClass.Name = "cmbClass";
-            this.cmbClass.Size = new System.Drawing.Size(353, 30);
+            this.cmbClass.Size = new System.Drawing.Size(266, 26);
             this.cmbClass.TabIndex = 0;
             this.cmbClass.SelectionChangeCommitted += new System.EventHandler(this.cmbClass_SelectionChangeCommitted);
             // 
@@ -76,10 +75,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(11, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(8, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 24);
+            this.label1.Size = new System.Drawing.Size(58, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Class : ";
             // 
@@ -98,11 +96,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbClass);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1461, 160);
+            this.groupBox1.Size = new System.Drawing.Size(1096, 130);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select";
@@ -110,30 +106,27 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox1.Location = new System.Drawing.Point(607, 106);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Location = new System.Drawing.Point(455, 86);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(353, 28);
+            this.textBox1.Size = new System.Drawing.Size(266, 24);
             this.textBox1.TabIndex = 12;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(1099, 106);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(824, 86);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(353, 28);
+            this.dateTimePicker1.Size = new System.Drawing.Size(266, 24);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label6.Location = new System.Drawing.Point(1011, 110);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(758, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 24);
+            this.label6.Size = new System.Drawing.Size(51, 18);
             this.label6.TabIndex = 11;
             this.label6.Text = "Date : ";
             // 
@@ -141,10 +134,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(485, 110);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(364, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 24);
+            this.label5.Size = new System.Drawing.Size(95, 18);
             this.label5.TabIndex = 9;
             this.label5.Text = "Total Marks: ";
             // 
@@ -152,20 +144,18 @@
             // 
             this.cmbClassWiseExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cmbClassWiseExam.FormattingEnabled = true;
-            this.cmbClassWiseExam.Location = new System.Drawing.Point(104, 105);
-            this.cmbClassWiseExam.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbClassWiseExam.Location = new System.Drawing.Point(78, 85);
             this.cmbClassWiseExam.Name = "cmbClassWiseExam";
-            this.cmbClassWiseExam.Size = new System.Drawing.Size(353, 30);
+            this.cmbClassWiseExam.Size = new System.Drawing.Size(266, 26);
             this.cmbClassWiseExam.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(11, 110);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(8, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 24);
+            this.label4.Size = new System.Drawing.Size(58, 18);
             this.label4.TabIndex = 7;
             this.label4.Text = "Exam : ";
             // 
@@ -173,20 +163,18 @@
             // 
             this.cmbClassWiseSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cmbClassWiseSubject.FormattingEnabled = true;
-            this.cmbClassWiseSubject.Location = new System.Drawing.Point(1096, 42);
-            this.cmbClassWiseSubject.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbClassWiseSubject.Location = new System.Drawing.Point(822, 34);
             this.cmbClassWiseSubject.Name = "cmbClassWiseSubject";
-            this.cmbClassWiseSubject.Size = new System.Drawing.Size(353, 30);
+            this.cmbClassWiseSubject.Size = new System.Drawing.Size(266, 26);
             this.cmbClassWiseSubject.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(983, 47);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(737, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 24);
+            this.label3.Size = new System.Drawing.Size(69, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Subject : ";
             // 
@@ -194,26 +182,25 @@
             // 
             this.cmbClassWiseSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cmbClassWiseSection.FormattingEnabled = true;
-            this.cmbClassWiseSection.Location = new System.Drawing.Point(607, 42);
-            this.cmbClassWiseSection.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbClassWiseSection.Location = new System.Drawing.Point(455, 34);
             this.cmbClassWiseSection.Name = "cmbClassWiseSection";
-            this.cmbClassWiseSection.Size = new System.Drawing.Size(353, 30);
+            this.cmbClassWiseSection.Size = new System.Drawing.Size(266, 26);
             this.cmbClassWiseSection.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(485, 47);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(364, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 24);
+            this.label2.Size = new System.Drawing.Size(70, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "Section : ";
             // 
             // dgvResultEntry
             // 
             this.dgvResultEntry.AllowUserToAddRows = false;
+            this.dgvResultEntry.AllowUserToOrderColumns = true;
             this.dgvResultEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -244,8 +231,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvResultEntry.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvResultEntry.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.dgvResultEntry.Location = new System.Drawing.Point(16, 182);
-            this.dgvResultEntry.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvResultEntry.Location = new System.Drawing.Point(12, 148);
             this.dgvResultEntry.MultiSelect = false;
             this.dgvResultEntry.Name = "dgvResultEntry";
             this.dgvResultEntry.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -260,7 +246,7 @@
             this.dgvResultEntry.RowHeadersWidth = 4;
             this.dgvResultEntry.RowTemplate.Height = 30;
             this.dgvResultEntry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvResultEntry.Size = new System.Drawing.Size(1573, 582);
+            this.dgvResultEntry.Size = new System.Drawing.Size(1180, 473);
             this.dgvResultEntry.TabIndex = 66;
             // 
             // groupBox2
@@ -268,20 +254,17 @@
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox2.Controls.Add(this.btmSubmit);
             this.groupBox2.Controls.Add(this.btnSearch);
-            this.groupBox2.Location = new System.Drawing.Point(1485, 16);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(1114, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(99, 159);
+            this.groupBox2.Size = new System.Drawing.Size(74, 129);
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             // 
             // btmSubmit
             // 
-            this.btmSubmit.Location = new System.Drawing.Point(0, 64);
-            this.btmSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btmSubmit.Location = new System.Drawing.Point(0, 52);
             this.btmSubmit.Name = "btmSubmit";
-            this.btmSubmit.Size = new System.Drawing.Size(99, 31);
+            this.btmSubmit.Size = new System.Drawing.Size(74, 25);
             this.btmSubmit.TabIndex = 1;
             this.btmSubmit.Text = "Submit";
             this.btmSubmit.UseVisualStyleBackColor = true;
@@ -289,10 +272,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(0, 23);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Location = new System.Drawing.Point(0, 19);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(99, 31);
+            this.btnSearch.Size = new System.Drawing.Size(74, 25);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "Find";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -301,6 +283,7 @@
             // colSL
             // 
             this.colSL.DataPropertyName = "SL";
+            this.colSL.FillWeight = 80F;
             this.colSL.HeaderText = "SL";
             this.colSL.Name = "colSL";
             // 
@@ -309,7 +292,7 @@
             this.colStudentName.DataPropertyName = "STUDENT_NAME";
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colStudentName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colStudentName.FillWeight = 98.47716F;
+            this.colStudentName.FillWeight = 350F;
             this.colStudentName.HeaderText = "Student Name";
             this.colStudentName.Name = "colStudentName";
             this.colStudentName.ReadOnly = true;
@@ -320,7 +303,7 @@
             this.colRoll.DataPropertyName = "ROLL";
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colRoll.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colRoll.FillWeight = 101.5228F;
+            this.colRoll.FillWeight = 80F;
             this.colRoll.HeaderText = "Roll";
             this.colRoll.Name = "colRoll";
             this.colRoll.ReadOnly = true;
@@ -343,13 +326,12 @@
             // 
             // frmResult
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1605, 779);
+            this.ClientSize = new System.Drawing.Size(1197, 633);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvResultEntry);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmResult";
             this.Text = "frmResult";
             this.Load += new System.EventHandler(this.frmResult_Load);

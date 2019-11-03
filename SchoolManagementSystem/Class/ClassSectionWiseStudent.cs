@@ -81,7 +81,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet SelectBySection()
         {
-            Command = CommandBuilder("select ID, STUDENT_NAME, ROLL from " + tblClassSectionWiseStudentView + " where ACTIVE_STATUS = @activeStatus");
+            Command = CommandBuilder("select ID, STUDENT_NAME, ROLL from " + tblClassSectionWiseStudentView + " where ACTIVE_STATUS = @activeStatus ORDER BY ROLL");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             return ExecuteDataSet(Command);
         }
