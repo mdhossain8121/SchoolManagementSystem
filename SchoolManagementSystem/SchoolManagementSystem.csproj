@@ -90,6 +90,8 @@
     <Compile Include="Class\Exam.cs" />
     <Compile Include="Class\FileImage.cs" />
     <Compile Include="Class\FingerRegister.cs" />
+    <Compile Include="Class\ResultChild.cs" />
+    <Compile Include="Class\ResultMaster.cs" />
     <Compile Include="Class\Role.cs" />
     <Compile Include="Class\ClassSetup.cs" />
     <Compile Include="Class\Section.cs" />

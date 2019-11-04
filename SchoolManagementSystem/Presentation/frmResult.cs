@@ -97,31 +97,38 @@ namespace SchoolManagementSystem.Presentation
             //dt.Columns["AAA"].SetOrdinal(0);
             //dt.Columns["AAA"].AutoIncrementSeed = 1;
             //dt.Columns["AAA"].AutoIncrementStep = 1;
-            DataColumn column = new DataColumn();
-            column.ColumnName = "SL";
-            column.DataType = System.Type.GetType("System.Int32");
-            column.AutoIncrement = true;
-            column.AutoIncrementSeed = 1;
-            column.AutoIncrementStep = 1;
-            column.ReadOnly = true;
+            //DataColumn column = new DataColumn();
+            //column.ColumnName = "SL";
+            //column.DataType = System.Type.GetType("System.Int32");
+            //column.AutoIncrement = true;
+            //column.AutoIncrementSeed = 1;
+            //column.AutoIncrementStep = 1;
+            //column.ReadOnly = true;
 
-            // Add the column to a new DataTable.
-            DataTable table = new DataTable("table");
-            table.Columns.Add(column);
-            column.SetOrdinal(0);
+            //// Add the column to a new DataTable.
+            //DataTable table = new DataTable("table");
+            //table.Columns.Add(column);
+            //column.SetOrdinal(0);
 
-            table.Merge(dt);
+            //table.Merge(dt);
             if (dt == null)
             {
                 MessageBox.Show(aClassSectionWiseStudent.Error);
                 return;
             }
-            dgvResultEntry.DataSource = table;
+            dgvResultEntry.DataSource = dt;
         }
 
         private void btmSubmit_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvResultEntry_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Console.WriteLine("row post paint");
+            //this.dgvResultEntry.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+            this.dgvResultEntry.Rows[e.RowIndex].Cells["colSL"].Value = (e.RowIndex + 1).ToString();
         }
     }
 }
