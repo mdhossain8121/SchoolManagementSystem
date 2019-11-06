@@ -25,15 +25,17 @@ namespace SchoolManagementSystem.ClassManager
             }
         }
 
-        public byte[] GetAllFingerData(FingerRegister aFinger)
+        public byte[] GetFingerDataById(FingerRegister aFinger)
         {
             return aFinger.SelectById();
         }
 
-
-        public bool GetByFingerData(FingerRegister aFinger)
+        public DataTable GetAllFingerData(FingerRegister aFinger)
         {
-            return aFinger.SelectByFinger();
+            DataSet ds = aFinger.Select();
+            if (ds == null)
+                return null;
+            return ds.Tables[0];
         }
     }
 }

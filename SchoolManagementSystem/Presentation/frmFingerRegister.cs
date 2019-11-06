@@ -72,6 +72,7 @@ namespace MatchingAnsi
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Button button1;
+        private CheckBox CheckBoxAutoOn;
         private IContainer components;
 
         public frmFingerRegister()
@@ -160,6 +161,7 @@ namespace MatchingAnsi
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbStudent = new System.Windows.Forms.ComboBox();
+            this.CheckBoxAutoOn = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxV1)).BeginInit();
@@ -228,7 +230,7 @@ namespace MatchingAnsi
             this.groupBox1.Controls.Add(this.pictureBoxV1);
             this.groupBox1.Controls.Add(this.BtnCapture3);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(376, 197);
+            this.groupBox1.Location = new System.Drawing.Point(376, 146);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(136, 296);
             this.groupBox1.TabIndex = 36;
@@ -329,7 +331,7 @@ namespace MatchingAnsi
             this.groupBox3.Controls.Add(this.pictureBoxR1);
             this.groupBox3.Controls.Add(this.BtnCapture1);
             this.groupBox3.Controls.Add(this.BtnCapture2);
-            this.groupBox3.Location = new System.Drawing.Point(0, 197);
+            this.groupBox3.Location = new System.Drawing.Point(0, 146);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(368, 296);
             this.groupBox3.TabIndex = 35;
@@ -568,7 +570,7 @@ namespace MatchingAnsi
             this.StatusBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.StatusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.StatusBar.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.StatusBar.Location = new System.Drawing.Point(0, 496);
+            this.StatusBar.Location = new System.Drawing.Point(0, 468);
             this.StatusBar.Name = "StatusBar";
             this.StatusBar.Size = new System.Drawing.Size(512, 24);
             this.StatusBar.TabIndex = 38;
@@ -634,10 +636,21 @@ namespace MatchingAnsi
             this.cmbStudent.Size = new System.Drawing.Size(200, 21);
             this.cmbStudent.TabIndex = 6;
             // 
+            // CheckBoxAutoOn
+            // 
+            this.CheckBoxAutoOn.Enabled = false;
+            this.CheckBoxAutoOn.Location = new System.Drawing.Point(0, 448);
+            this.CheckBoxAutoOn.Name = "CheckBoxAutoOn";
+            this.CheckBoxAutoOn.Size = new System.Drawing.Size(282, 19);
+            this.CheckBoxAutoOn.TabIndex = 39;
+            this.CheckBoxAutoOn.Text = "Enable AutoOn Event (FDU03, FDU04, or higher)";
+            this.CheckBoxAutoOn.CheckedChanged += new System.EventHandler(this.CheckBoxAutoOn_CheckedChanged);
+            // 
             // frmFingerRegister
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(512, 520);
+            this.ClientSize = new System.Drawing.Size(512, 492);
+            this.Controls.Add(this.CheckBoxAutoOn);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.groupBox1);
@@ -766,11 +779,15 @@ namespace MatchingAnsi
          {
 			EnableButtons(true);
             StatusBar.Text = "Initialization Success";
-         }
+                if (device_name >= SGFPMDeviceName.DEV_FDU03)
+                    CheckBoxAutoOn.Enabled = true;
+            }
          else
          {
             EnableButtons(false);
-            StatusBar.Text = "Init() Error " + error;
+                CheckBoxAutoOn.Enabled = false;
+
+                StatusBar.Text = "Init() Error " + error;
             return;
          }
 
@@ -1166,25 +1183,35 @@ namespace MatchingAnsi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            //String message = "Finger Not Found";
+            //FingerRegister aFingerRegister = new FingerRegister();
+            //if (cmbStudent.SelectedIndex < 0)
+            //{
+            //    StatusBar.Text = "Please Select a student";
+            //    return;
+            //}
+                
+            //aFingerRegister.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
+
+            //m_StoredTemplate = aFingerRegisterManager.GetFingerDataById(aFingerRegister);
+
+
             String message = "Finger Not Found";
             FingerRegister aFingerRegister = new FingerRegister();
-            if (cmbStudent.SelectedIndex < 0)
+            DataTable finger = aFingerRegisterManager.GetAllFingerData(aFingerRegister);
+            foreach (DataRow dr in finger.Rows)
             {
-                StatusBar.Text = "Please Select a student";
-                return;
-            }
-                
-            aFingerRegister.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
-            m_StoredTemplate = aFingerRegisterManager.GetAllFingerData(aFingerRegister);
-            if (m_StoredTemplate == null)
-            {
-                StatusBar.Text = "No data to verify";
-                return;
-            }
+                foreach (DataColumn dc in finger.Columns)
+                {
+                    m_StoredTemplate = (Byte[]) dr[dc];
+                    if (m_StoredTemplate == null)
+                    {
+                        StatusBar.Text = "No data to verify";
+                        return;
+                    }
 
-            string[] fingerpos_str = new string[]
-                              {
+                    string[] fingerpos_str = new string[]
+                                      {
                               "Unknown finger",
                               "Right thumb",
                               "Right index finger",
@@ -1197,67 +1224,184 @@ namespace MatchingAnsi
                               "Left ring finger",
                               "Left little finger"};
 
-            Int32 err;
-            SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
-            bool finger_found = false;
+                    Int32 err;
+                    SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
+                    bool finger_found = false;
 
-            if (m_useAnsiTemplate)
-            {
-                SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
-                err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
-
-                for (int i = 0; i < sample_info.TotalSamples; i++)
-                {
-                    bool matched = false;
-                    err = m_FPM.MatchAnsiTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-                    if (matched)
+                    if (m_useAnsiTemplate)
                     {
-                        finger_found = true;
-                        finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-                        break;
+                        SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
+                        err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
+
+                        for (int i = 0; i < sample_info.TotalSamples; i++)
+                        {
+                            bool matched = false;
+                            err = m_FPM.MatchAnsiTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+                            if (matched)
+                            {
+                                finger_found = true;
+                                finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
+                        err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+
+                        for (int i = 0; i < sample_info.TotalSamples; i++)
+                        {
+                            bool matched = false;
+                            err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+                            if (matched)
+                            {
+                                finger_found = true;
+                                finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (err == (Int32)SGFPMError.ERROR_NONE)
+                    {
+                        if (finger_found)
+                        {
+                            StatusBar.Text = "The matched data found. Finger position: " + fingerpos_str[(Int32)finger_pos];
+                            message = "Finger Found";
+                            MessageBox.Show(message);
+                        }
+                        else
+                            StatusBar.Text = "Cannot find a matched data";
+                    }
+                    else
+                    {
+                        if (m_useAnsiTemplate)
+                        {
+                            StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+                        }
+                        else
+                        {
+                            StatusBar.Text = "MatchIsoTemplate() Error : " + err;
+                        }
                     }
                 }
+               
             }
-            else
-            {
-                SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
-                err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+            
 
-                for (int i = 0; i < sample_info.TotalSamples; i++)
-                {
-                    bool matched = false;
-                    err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-                    if (matched)
-                    {
-                        finger_found = true;
-                        finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-                        break;
-                    }
-                }
-            }
 
-            if (err == (Int32)SGFPMError.ERROR_NONE)
-            {
-                if (finger_found)
-                {
-                    StatusBar.Text = "The matched data found. Finger position: " + fingerpos_str[(Int32)finger_pos];
-                    message = "Finger Found";
-                    MessageBox.Show(message);
-                }                    
-                else
-                    StatusBar.Text = "Cannot find a matched data";
-            }
+
+
+
+
+            //if (m_StoredTemplate == null)
+            //{
+            //    StatusBar.Text = "No data to verify";
+            //    return;
+            //}
+
+            //string[] fingerpos_str = new string[]
+            //                  {
+            //                  "Unknown finger",
+            //                  "Right thumb",
+            //                  "Right index finger",
+            //                  "Right middle finger",
+            //                  "Right ring finger",
+            //                  "Right little finger",
+            //                  "Left thumb",
+            //                  "Left index finger",
+            //                  "Left middle finger",
+            //                  "Left ring finger",
+            //                  "Left little finger"};
+
+            //Int32 err;
+            //SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
+            //bool finger_found = false;
+
+            //if (m_useAnsiTemplate)
+            //{
+            //    SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
+            //    err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
+
+            //    for (int i = 0; i < sample_info.TotalSamples; i++)
+            //    {
+            //        bool matched = false;
+            //        err = m_FPM.MatchAnsiTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+            //        if (matched)
+            //        {
+            //            finger_found = true;
+            //            finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+            //            break;
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
+            //    err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+
+            //    for (int i = 0; i < sample_info.TotalSamples; i++)
+            //    {
+            //        bool matched = false;
+            //        err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+            //        if (matched)
+            //        {
+            //            finger_found = true;
+            //            finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+            //            break;
+            //        }
+            //    }
+            //}
+
+            //if (err == (Int32)SGFPMError.ERROR_NONE)
+            //{
+            //    if (finger_found)
+            //    {
+            //        StatusBar.Text = "The matched data found. Finger position: " + fingerpos_str[(Int32)finger_pos];
+            //        message = "Finger Found";
+            //        MessageBox.Show(message);
+            //    }                    
+            //    else
+            //        StatusBar.Text = "Cannot find a matched data";
+            //}
+            //else
+            //{
+            //    if (m_useAnsiTemplate)
+            //    {
+            //        StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+            //    }
+            //    else
+            //    {
+            //        StatusBar.Text = "MatchIsoTemplate() Error : " + err;
+            //    }
+            //}
+        }
+
+        private void CheckBoxAutoOn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBoxAutoOn.Checked)
+                m_FPM.EnableAutoOnEvent(true, (int)this.Handle);
             else
+                m_FPM.EnableAutoOnEvent(false, 0);
+        }
+
+        protected override void WndProc(ref Message message)
+        {
+            if (message.Msg == (int)SGFPMMessages.DEV_AUTOONEVENT)
             {
-                if (m_useAnsiTemplate)
+                if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_ON)
                 {
-                    StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+                    StatusBar.Text = "Device Message: Finger On";
+                    BtnCapture3.PerformClick();
+                    System.Threading.Thread.Sleep(2000);
+                    button1.PerformClick();
                 }
-                else
-                {
-                    StatusBar.Text = "MatchIsoTemplate() Error : " + err;
-                }
+                    
+                else if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_OFF)
+                    StatusBar.Text = "Device Message: Finger Off";
             }
+            base.WndProc(ref message);
         }
     }
 }

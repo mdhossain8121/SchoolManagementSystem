@@ -93,13 +93,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet Select()
         {
-            Command = CommandBuilder("select ID, STUDENT_NAME,IMAGE,MOBILE,ADDRESS,START_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");
-            Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
-            //if (StudentId != null && !StudentId.Trim().Equals(""))
-            //{
-            //    Command.CommandText += " AND STUDENT_NAME like @search";
-            //    Command.Parameters.AddWithValue("@search", "%" + StudentId + "%");
-            //}
+            Command = CommandBuilder("select FINGERSAMPLE1 from " + table);
             return ExecuteDataSet(Command);
         }
     }
