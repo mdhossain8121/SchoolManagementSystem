@@ -1,7 +1,7 @@
 -- MySqlBackup.NET 2.3.1
--- Dump Time: 2019-11-04 22:19:03
+-- Dump Time: 2019-11-07 00:27:55
 -- --------------------------------------
--- Server version 10.1.36-MariaDB mariadb.org binary distribution
+-- Server version 10.1.19-MariaDB mariadb.org binary distribution
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `exam_setup_tbl` (
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
   `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- 
 -- Dumping data for table exam_setup_tbl
@@ -240,7 +240,9 @@ CREATE TABLE IF NOT EXISTS `exam_setup_tbl` (
 /*!40000 ALTER TABLE `exam_setup_tbl` DISABLE KEYS */;
 INSERT INTO `exam_setup_tbl`(`ID`,`EXAM_NAME`,`ACTIVE_STATUS`,`CRT_BY`,`CRT_DATE`,`UPD_BY`,`UPD_DATE`) VALUES
 (1,'Mid term exam',1,0,'2019-10-30 21:49:59',0,'2019-10-30 21:49:59'),
-(2,'Final Exam',1,0,'2019-10-30 21:50:18',0,'2019-10-30 21:50:18');
+(2,'Final Exam',1,0,'2019-10-30 21:50:18',0,'2019-10-30 21:50:18'),
+(3,'Test',1,0,'2019-11-06 22:43:49',0,'2019-11-06 22:43:49'),
+(4,'Pre-test',1,0,'2019-11-06 22:44:06',0,'2019-11-06 22:44:06');
 /*!40000 ALTER TABLE `exam_setup_tbl` ENABLE KEYS */;
 
 -- 
@@ -251,6 +253,7 @@ DROP TABLE IF EXISTS `result_child_tbl`;
 CREATE TABLE IF NOT EXISTS `result_child_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASSSECTIONSTUDENT_ID` int(11) NOT NULL COMMENT 'Class section wise student id',
+  `RESULTMASTER_ID` int(11) NOT NULL,
   `MARKS` int(11) NOT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
   `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -292,6 +295,34 @@ CREATE TABLE IF NOT EXISTS `result_master_tbl` (
 /*!40000 ALTER TABLE `result_master_tbl` DISABLE KEYS */;
 
 /*!40000 ALTER TABLE `result_master_tbl` ENABLE KEYS */;
+
+-- 
+-- Definition of result_tbl
+-- 
+
+DROP TABLE IF EXISTS `result_tbl`;
+CREATE TABLE IF NOT EXISTS `result_tbl` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `EXAM_ID` int(11) NOT NULL,
+  `STUDENT_ID` int(11) NOT NULL,
+  `CLASSSECTION_ID` int(11) NOT NULL,
+  `CLASSSUBJECT_ID` int(11) NOT NULL,
+  `TOTAL_MARKS` int(11) NOT NULL,
+  `MARKS` int(11) NOT NULL,
+  `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
+  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
+  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- 
+-- Dumping data for table result_tbl
+-- 
+
+/*!40000 ALTER TABLE `result_tbl` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `result_tbl` ENABLE KEYS */;
 
 -- 
 -- Definition of role_setup_tbl
@@ -581,5 +612,5 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tb
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2019-11-04 22:19:03
--- Total time: 0:0:0:0:243 (d:h:m:s:ms)
+-- Dump completed on 2019-11-07 00:27:56
+-- Total time: 0:0:0:0:718 (d:h:m:s:ms)

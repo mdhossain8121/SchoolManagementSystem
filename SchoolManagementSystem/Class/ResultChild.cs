@@ -13,6 +13,8 @@ namespace SchoolManagementSystem.Class
 
         public int ClassSectionStudentId { get; set; }
 
+        public long ResultMasterId { get; set; }
+
         public int Marks { get; set; }
 
         private static readonly String tblResultChild = "result_child_tbl";
@@ -22,8 +24,9 @@ namespace SchoolManagementSystem.Class
 
         public bool Insert()
         {
-            Command = CommandBuilder("insert into " + tblResultChild + " (CLASSSECTIONSTUDENT_ID, STUDENT_ID, ROLL, YEAR) values(@classSectionId, @marks, @roll, @year)");
+            Command = CommandBuilder("insert into " + tblResultChild + " (CLASSSECTIONSTUDENT_ID,RESULTMASTER_ID, MARKS) values(@classSectionId,@resultMasterId, @marks)");
             Command.Parameters.AddWithValue("@classSectionId", ClassSectionStudentId);
+            Command.Parameters.AddWithValue("@resultMasterId", ResultMasterId);
             Command.Parameters.AddWithValue("@marks", Marks);
             return Execute(Command);
         }

@@ -74,6 +74,7 @@
     <Compile Include="ClassManager\ClassSetupManager.cs" />
     <Compile Include="ClassManager\ExamManager.cs" />
     <Compile Include="ClassManager\FingerRegisterManager.cs" />
+    <Compile Include="ClassManager\ResultManager.cs" />
     <Compile Include="ClassManager\RoleManager.cs" />
     <Compile Include="ClassManager\SectionManager.cs" />
     <Compile Include="ClassManager\StudentManager.cs" />

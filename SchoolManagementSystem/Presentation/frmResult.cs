@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using SchoolManagementSystem.Class;
+using SchoolManagementSystem.ClassManager;
 
 namespace SchoolManagementSystem.Presentation
 {
     public partial class frmResult : Form
     {
-        
+        ResultManager aResultManager = new ResultManager();
         public frmResult()
         {
             InitializeComponent();
@@ -89,28 +91,10 @@ namespace SchoolManagementSystem.Presentation
         {
             ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
             aClassSectionWiseStudent.ActiveStatus = 1;
-            aClassSectionWiseStudent.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString()); ;
+            aClassSectionWiseStudent.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString()); 
             
             DataTable dt = aClassSectionWiseStudent.SelectBySection().Tables[0];
 
-            //dt.Columns.Add("AAA", typeof(int)).AutoIncrement=true;
-            //dt.Columns["AAA"].SetOrdinal(0);
-            //dt.Columns["AAA"].AutoIncrementSeed = 1;
-            //dt.Columns["AAA"].AutoIncrementStep = 1;
-            //DataColumn column = new DataColumn();
-            //column.ColumnName = "SL";
-            //column.DataType = System.Type.GetType("System.Int32");
-            //column.AutoIncrement = true;
-            //column.AutoIncrementSeed = 1;
-            //column.AutoIncrementStep = 1;
-            //column.ReadOnly = true;
-
-            //// Add the column to a new DataTable.
-            //DataTable table = new DataTable("table");
-            //table.Columns.Add(column);
-            //column.SetOrdinal(0);
-
-            //table.Merge(dt);
             if (dt == null)
             {
                 MessageBox.Show(aClassSectionWiseStudent.Error);
@@ -121,7 +105,38 @@ namespace SchoolManagementSystem.Presentation
 
         private void btmSubmit_Click(object sender, EventArgs e)
         {
-
+            ResultMaster aResultMaster = new ResultMaster();
+            aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
+            aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
+            aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
+            aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
+            aResultMaster.Id = aResultMaster.Insert();
+            Console.WriteLine("id" + aResultMaster.Id);
+            if (aResultMaster.Id > 0)
+            {
+                ResultChild aResultChild;
+                foreach (DataGridViewRow row in dgvResultEntry.Rows)
+                {
+                    aResultChild = new ResultChild();
+                    aResultChild.ClassSectionStudentId = Convert.ToInt32(row.Cells["colid"].Value.ToString());
+                    aResultChild.Marks = Convert.ToInt32(row.Cells["colMarks"].Value.ToString());
+                    aResultChild.ResultMasterId = aResultMaster.Id;
+                    bool success = aResultChild.Insert();
+                    if (!success)
+                    {
+                        File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Marks Entry (Insert)" + Environment.NewLine);
+                        File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: " + aResultChild.Error + Environment.NewLine);
+                        MessageBox.Show(aResultChild.Error);
+                    }
+                }
+            }
+            else
+            {
+                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Result Submission (Insert)" + Environment.NewLine);
+                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: " + aResultMaster.Error + Environment.NewLine);
+                MessageBox.Show( aResultMaster.Error);
+            }
+            
         }
 
         private void dgvResultEntry_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

@@ -17,7 +17,8 @@ namespace SchoolManagementSystem.Class
         private static readonly String dbname = "sas_db";
         private static readonly String connStr = "server=" + dbserver + ";user=" + dbuser + ";database=" + dbname + ";password= " + dbpassword + ";";
         private MySqlConnection cn = new MySqlConnection(connStr);
-        protected MySqlBackup mb; 
+        protected MySqlBackup mb;
+        MySqlTransaction myTrans;
 
         public string Error { get; set; }
 
@@ -88,18 +89,43 @@ namespace SchoolManagementSystem.Class
         }
 
 
+        protected long ExecuteAndReturnId(MySqlCommand cmd)
+        {
+            if (!databaseConnectionOpen())
+                return 0;
+            try
+            {
+                myTrans = cn.BeginTransaction();
+                cmd.Transaction = myTrans;
+                cmd.ExecuteNonQuery();
+                myTrans.Commit();
+                return cmd.LastInsertedId; ;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                myTrans.Rollback();
+                return 0;
+            }
+        }
+
+
         protected bool Execute(MySqlCommand cmd)
         {
             if (!databaseConnectionOpen())
                 return false;
             try
             {
+                myTrans = cn.BeginTransaction();
+                cmd.Transaction = myTrans;
                 cmd.ExecuteNonQuery();
+                myTrans.Commit();
                 return true;
             }
             catch (Exception ex)
             {
                 Error = ex.Message;
+                myTrans.Rollback();
                 return false;
             }
         }

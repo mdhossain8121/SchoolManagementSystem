@@ -9,7 +9,7 @@ namespace SchoolManagementSystem.Class
 {
     class ResultMaster:Base
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public int ClassExamId { get; set; }
 
@@ -26,18 +26,20 @@ namespace SchoolManagementSystem.Class
         private static readonly String tblClassSectionWiseStudentView = "view_class_section_wise_student_tbl";
 
 
-        public bool Insert()
+        public long Insert()
         {
-            Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSSECTIONSTUDENT_ID, STUDENT_ID, ROLL, YEAR) values(@classSectionId, @marks, @roll, @year)");
-            Command.Parameters.AddWithValue("@classSectionId", ClassExamId);
-            Command.Parameters.AddWithValue("@marks", ClassSubjectId);
-            return Execute(Command);
+            Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSEXAM_ID, CLASSSUBJECT_ID, TOTAL_MARKS, EXAM_DATE) values(@classExamId, @classSubjectId, @totalMarks, @examDate)");
+            Command.Parameters.AddWithValue("@classExamId", ClassExamId);
+            Command.Parameters.AddWithValue("@classSubjectId", ClassSubjectId);
+            Command.Parameters.AddWithValue("@totalMarks", TotalMarks);
+            Command.Parameters.AddWithValue("@examDate", ExamDate);
+            return ExecuteAndReturnId(Command);
         }
 
         public bool Update()
         {
-            Command = CommandBuilder("update " + tblResultMaster + " set CLASSSECTIONSTUDENT_ID = @classSectionId, STUDENT_ID = @marks, ROLL = @roll, YEAR = @year where ID = @id");
-            Command.Parameters.AddWithValue("@classSectionId", ClassExamId);
+            Command = CommandBuilder("update " + tblResultMaster + " set CLASSEXAM_ID = @classExamId, STUDENT_ID = @marks, ROLL = @roll, YEAR = @year where ID = @id");
+            Command.Parameters.AddWithValue("@classExamId", ClassExamId);
             Command.Parameters.AddWithValue("@marks", ClassSubjectId);
             Command.Parameters.AddWithValue("@id", Id);
             return Execute(Command);
