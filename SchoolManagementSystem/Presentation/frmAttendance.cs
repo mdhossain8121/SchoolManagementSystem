@@ -163,6 +163,7 @@ namespace SchoolManagementSystem.Presentation
 
             foreach (DataRow dr in finger.Rows)
             {
+                Console.WriteLine(dr["FINGERSAMPLE1"].ToString());
                 foreach (DataColumn dc in finger.Columns)
                 {
                     m_StoredTemplate = (Byte[])dr[dc];
@@ -191,13 +192,9 @@ namespace SchoolManagementSystem.Presentation
                     {
                         if (finger_found)
                         {
-                            MessageBox.Show("Finger Found");
                             StatusBar.Text = "Welcome";
-                            System.Threading.Thread.Sleep(3000);
                             return;
                         }
-                        else
-                            StatusBar.Text = "Cannot find a matched data";
                     }
                     else
                     {
@@ -210,8 +207,11 @@ namespace SchoolManagementSystem.Presentation
                             StatusBar.Text = "MatchIsoTemplate() Error : " + err;
                         }
                     }
-                }
-
+                }   
+            }
+            if (!finger_found)
+            {
+                StatusBar.Text = "Cannot find a matched data";
             }
         }
 
@@ -235,7 +235,7 @@ namespace SchoolManagementSystem.Presentation
 
 
 
-        private void captureFinger()
+        private bool captureFinger()
         {
             Byte[] fp_image = new Byte[m_ImageWidth * m_ImageHeight];
             Int32 error = (Int32)SGFPMError.ERROR_NONE;
@@ -246,7 +246,7 @@ namespace SchoolManagementSystem.Presentation
             else
             {
                 DeviceDisconnected();
-                return;
+                return false;
             }
                 
 
@@ -267,12 +267,24 @@ namespace SchoolManagementSystem.Presentation
                 error = m_FPM.CreateTemplate(finger_info, fp_image, m_VrfMin);
 
                 if (error == (Int32)SGFPMError.ERROR_NONE)
-                    StatusBar.Text = "Verification image is captured";
+                {
+                    //StatusBar.Text = "Verification image is captured";
+                    return true;
+                }
+
                 else
-                    StatusBar.Text = "GetMinutiae() Error : " + error;
+                {
+                    //StatusBar.Text = "GetMinutiae() Error : " + error;
+                    return false;
+                }
+                    
             }
             else
-                StatusBar.Text = "GetImage() Error : " + error;
+            {
+                //StatusBar.Text = "GetImage() Error : " + error;
+                return false;
+            }
+                
         }
 
 
@@ -280,15 +292,19 @@ namespace SchoolManagementSystem.Presentation
         {
             if (message.Msg == (int)SGFPMMessages.DEV_AUTOONEVENT)
             {
-                StatusBar.Text = "Please place your finger on the device";
+             //   StatusBar.Text = "Please place your finger on the device";
                 if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_ON)
                 {
-                    captureFinger();
-                    checkFinger();
+                    StatusBar.Text = "";
+                    pictureBoxV1.Image = null;
+                    progressBar_V1.Value = 0;
+                    if (captureFinger())
+                    {
+                        checkFinger();
+                    }                    
                 }
-
-                else if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_OFF)
-                    StatusBar.Text = "Please place your finger on the device";
+                //else if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_OFF)
+                //    StatusBar.Text = "Please place your finger on the device";
             }
             base.WndProc(ref message);
         }
