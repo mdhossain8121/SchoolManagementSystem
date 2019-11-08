@@ -146,6 +146,7 @@ namespace SchoolManagementSystem.Class
             DataSet ds = new DataSet();
             MySqlDataAdapter da = new MySqlDataAdapter(Command);
             da.Fill(ds);
+            databaseConnectionClose();
             return ds;
 
 

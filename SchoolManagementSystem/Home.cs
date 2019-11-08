@@ -24,7 +24,7 @@ namespace SchoolManagementSystem
         frmClassWiseSubjectList cwsl = new frmClassWiseSubjectList();
         frmClassWiseSection cws = new frmClassWiseSection();
         frmClassWiseExam cwe = new frmClassWiseExam();
-        frmAttedndance attendance = new frmAttedndance();
+        frmAttendance attendance = new frmAttendance();
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
         frmResult result = new frmResult();
@@ -101,7 +101,7 @@ namespace SchoolManagementSystem
         private void attendanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (attendance.IsDisposed)
-                attendance = new frmAttedndance();
+                attendance = new frmAttendance();
             menuClick(attendance);
         }
 

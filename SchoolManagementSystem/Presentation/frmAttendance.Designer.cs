@@ -1,6 +1,6 @@
 ﻿namespace SchoolManagementSystem.Presentation
 {
-    partial class frmAttedndance
+    partial class frmAttendance
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblDeviceStatus = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
             this.progressBar_V1 = new System.Windows.Forms.ProgressBar();
             this.pictureBoxV1 = new System.Windows.Forms.PictureBox();
-            this.lblDeviceStatus = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.StatusBar = new System.Windows.Forms.Label();
@@ -52,6 +52,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Device";
             // 
+            // lblDeviceStatus
+            // 
+            this.lblDeviceStatus.AutoSize = true;
+            this.lblDeviceStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.lblDeviceStatus.Location = new System.Drawing.Point(191, 19);
+            this.lblDeviceStatus.Name = "lblDeviceStatus";
+            this.lblDeviceStatus.Size = new System.Drawing.Size(373, 25);
+            this.lblDeviceStatus.TabIndex = 1;
+            this.lblDeviceStatus.Text = "Please Connect the device and click on connect";
+            // 
             // btnConnect
             // 
             this.btnConnect.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -65,7 +75,7 @@
             // 
             // progressBar_V1
             // 
-            this.progressBar_V1.Location = new System.Drawing.Point(78, 230);
+            this.progressBar_V1.Location = new System.Drawing.Point(56, 229);
             this.progressBar_V1.Name = "progressBar_V1";
             this.progressBar_V1.Size = new System.Drawing.Size(143, 12);
             this.progressBar_V1.TabIndex = 60;
@@ -74,28 +84,18 @@
             // 
             this.pictureBoxV1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBoxV1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxV1.Location = new System.Drawing.Point(78, 80);
+            this.pictureBoxV1.Location = new System.Drawing.Point(56, 79);
             this.pictureBoxV1.Name = "pictureBoxV1";
             this.pictureBoxV1.Size = new System.Drawing.Size(143, 146);
             this.pictureBoxV1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxV1.TabIndex = 59;
             this.pictureBoxV1.TabStop = false;
             // 
-            // lblDeviceStatus
-            // 
-            this.lblDeviceStatus.AutoSize = true;
-            this.lblDeviceStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDeviceStatus.Location = new System.Drawing.Point(191, 19);
-            this.lblDeviceStatus.Name = "lblDeviceStatus";
-            this.lblDeviceStatus.Size = new System.Drawing.Size(373, 25);
-            this.lblDeviceStatus.TabIndex = 1;
-            this.lblDeviceStatus.Text = "Please Connect the device and click on connect";
-            // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Algerian", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(312, 123);
+            this.lblTime.Location = new System.Drawing.Point(239, 127);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(225, 54);
             this.lblTime.TabIndex = 61;
@@ -115,7 +115,7 @@
             this.StatusBar.Size = new System.Drawing.Size(588, 24);
             this.StatusBar.TabIndex = 62;
             // 
-            // frmAttedndance
+            // frmAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,7 +125,7 @@
             this.Controls.Add(this.progressBar_V1);
             this.Controls.Add(this.pictureBoxV1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "frmAttedndance";
+            this.Name = "frmAttendance";
             this.Text = "frmAttedndance";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

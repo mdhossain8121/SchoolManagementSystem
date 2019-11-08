@@ -1230,6 +1230,7 @@ namespace MatchingAnsi
 
                     if (m_useAnsiTemplate)
                     {
+                        
                         SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
                         err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
 

@@ -107,11 +107,11 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\frmAttedndance.cs">
+    <Compile Include="Presentation\frmAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\frmAttedndance.Designer.cs">
-      <DependentUpon>frmAttedndance.cs</DependentUpon>
+    <Compile Include="Presentation\frmAttendance.Designer.cs">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\frmClass.cs">
       <SubType>Form</SubType>
@@ -205,8 +205,8 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\frmAttedndance.resx">
-      <DependentUpon>frmAttedndance.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\frmAttendance.resx">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmClass.resx">
       <DependentUpon>frmClass.cs</DependentUpon>
