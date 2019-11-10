@@ -76,10 +76,13 @@ namespace SchoolManagementSystem.Class
             return ExecuteDataSet(Command);
         }
 
-        public DataSet SelectBySection()
+        public int CheckIfResultExist()
         {
-            Command = CommandBuilder("select ID, STUDENT_NAME, ROLL from " + tblClassSectionWiseStudentView + " where ACTIVE_STATUS = @activeStatus ORDER BY ROLL");
-            return ExecuteDataSet(Command);
+            Command = CommandBuilder("select count(*) from " + tblResultMaster + " where CLASSEXAM_ID = @classExamId and CLASSSUBJECT_ID = @classSubjectId and YEAR(EXAM_DATE) = @examDate");
+            Command.Parameters.AddWithValue("@classExamId", ClassExamId);
+            Command.Parameters.AddWithValue("@classSubjectId", ClassSubjectId);
+            Command.Parameters.AddWithValue("@examDate", ExamDate.Year);
+            return ExecuteCount(Command);
         }
     }
 }

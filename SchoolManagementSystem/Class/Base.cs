@@ -167,5 +167,13 @@ namespace SchoolManagementSystem.Class
             //    return null;
             //}
         }
+
+
+        protected int ExecuteCount(MySqlCommand cmd)
+        {
+            if (!databaseConnectionOpen())
+                return 0;
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
     }
 }

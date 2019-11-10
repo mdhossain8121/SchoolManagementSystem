@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using SchoolManagementSystem.Class;
 using SchoolManagementSystem.ClassManager;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace SchoolManagementSystem.Presentation
 {
@@ -89,6 +90,25 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (Utilities.EmptyRequiredField(groupBox1))
+                return;
+
+            // CHECK IF RESULT ALREADY SUBMITTED
+
+            ResultMaster aResultMaster = new ResultMaster();
+            aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
+            aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
+            aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
+            aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
+
+            if (aResultMaster.CheckIfResultExist() > 0)
+            {
+                string s = "You already submitted result of Class: ({0}) Section: ({1}) Exam :({2}) for Year :({3})";
+                string msg = string.Format(s, cmbClass.Text, cmbClassWiseSection.Text, cmbClassWiseExam.Text, DateTime.Parse(dtpExamDate.Value.ToString()).Year.ToString());
+                MessageBox.Show(msg);
+                return;
+            }
+
             ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
             aClassSectionWiseStudent.ActiveStatus = 1;
             aClassSectionWiseStudent.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString()); 
@@ -105,13 +125,16 @@ namespace SchoolManagementSystem.Presentation
 
         private void btmSubmit_Click(object sender, EventArgs e)
         {
+            if (Utilities.EmptyRequiredField(this))
+                return;
+            //if (Utilities.EmptyDataGridViewRequiredCell(dgvResultEntry))
+            //    return;
             ResultMaster aResultMaster = new ResultMaster();
             aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
             aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
             aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
             aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
             aResultMaster.Id = aResultMaster.Insert();
-            Console.WriteLine("id" + aResultMaster.Id);
             if (aResultMaster.Id > 0)
             {
                 ResultChild aResultChild;
@@ -129,6 +152,8 @@ namespace SchoolManagementSystem.Presentation
                         MessageBox.Show(aResultChild.Error);
                     }
                 }
+
+                Utilities.EmptyAllControls(this);
             }
             else
             {
@@ -144,6 +169,68 @@ namespace SchoolManagementSystem.Presentation
             Console.WriteLine("row post paint");
             //this.dgvResultEntry.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
             this.dgvResultEntry.Rows[e.RowIndex].Cells["colSL"].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void dgvResultEntry_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            dgvResultEntry.CurrentCell.Style.BackColor = Color.White;
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlApp = new Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            int i = 0;
+            int j = 0;
+
+            for (i = 0; i <= dgvResultEntry.RowCount - 1; i++)
+            {
+                for (j = 0; j <= dgvResultEntry.ColumnCount - 1; j++)
+                {
+                    DataGridViewCell cell = dgvResultEntry[j, i];
+                    xlWorkSheet.Cells[i + 1, j + 1] = cell.Value;
+                }
+            }
+
+            xlWorkBook.SaveAs("D:\\csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+
+            MessageBox.Show("Excel file created , you can find the file D:\\csharp.net-informations.xls");
         }
     }
 }
