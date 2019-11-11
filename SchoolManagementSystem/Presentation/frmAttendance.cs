@@ -163,7 +163,7 @@ namespace SchoolManagementSystem.Presentation
 
             foreach (DataRow dr in finger.Rows)
             {
-                Console.WriteLine(dr["FINGERSAMPLE1"].ToString());
+                Console.WriteLine("FINGERSAMPLE1" + dr["FINGERSAMPLE1"].ToString());
                 foreach (DataColumn dc in finger.Columns)
                 {
                     m_StoredTemplate = (Byte[])dr[dc];
@@ -186,13 +186,24 @@ namespace SchoolManagementSystem.Presentation
                             break;
                         }
                     }
-                    
-
+                   
                     if (err == (Int32)SGFPMError.ERROR_NONE)
                     {
                         if (finger_found)
                         {
-                            StatusBar.Text = "Welcome";
+                            Attendance attendance = new Attendance();
+                            attendance.StudentId = 1;
+                            attendance.TodayDate = DateTime.Now;
+                            if (attendance.Insert())
+                            {
+                                StatusBar.Text = "Welcome";
+                            }
+                            else
+                            {
+                                StatusBar.Text = "Error";
+                            }
+                            
+                            
                             return;
                         }
                     }

@@ -81,6 +81,7 @@
     <Compile Include="ClassManager\SubjectManager.cs" />
     <Compile Include="ClassManager\TeacherManager.cs" />
     <Compile Include="ClassManager\UserManager.cs" />
+    <Compile Include="Class\Attendance.cs" />
     <Compile Include="Class\Base.cs" />
     <Compile Include="Class\ClassSectionWiseTeacher.cs" />
     <Compile Include="Class\ClassSectionWiseStudent.cs" />
