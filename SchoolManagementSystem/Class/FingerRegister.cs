@@ -93,7 +93,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet Select()
         {
-            Command = CommandBuilder("select FINGERSAMPLE1 from " + table);
+            Command = CommandBuilder("select FINGERSAMPLE1,STUDENT_ID from " + table);
             return ExecuteDataSet(Command);
         }
     }

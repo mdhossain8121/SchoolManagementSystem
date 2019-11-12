@@ -163,62 +163,114 @@ namespace SchoolManagementSystem.Presentation
 
             foreach (DataRow dr in finger.Rows)
             {
-                Console.WriteLine("FINGERSAMPLE1" + dr["FINGERSAMPLE1"].ToString());
-                foreach (DataColumn dc in finger.Columns)
+                m_StoredTemplate = (Byte[])dr["FINGERSAMPLE1"];
+                if (m_StoredTemplate == null)
                 {
-                    m_StoredTemplate = (Byte[])dr[dc];
-                    if (m_StoredTemplate == null)
-                    {
-                        StatusBar.Text = "No data to verify";
-                        return;
-                    }
-                    
-                    err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+                    StatusBar.Text = "No data to verify";
+                    return;
+                }
 
-                    for (int i = 0; i < sample_info.TotalSamples; i++)
+                err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+
+                for (int i = 0; i < sample_info.TotalSamples; i++)
+                {
+                    bool matched = false;
+                    err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+                    if (matched)
                     {
-                        bool matched = false;
-                        err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-                        if (matched)
-                        {
-                            finger_found = true;
-                            //finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-                            break;
-                        }
+                        finger_found = true;
+                        finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+                        break;
                     }
-                   
-                    if (err == (Int32)SGFPMError.ERROR_NONE)
+                }
+
+                if (err == (Int32)SGFPMError.ERROR_NONE)
+                {
+                    if (finger_found)
                     {
-                        if (finger_found)
+                        Attendance attendance = new Attendance();
+                        attendance.StudentId = Convert.ToInt32(dr["STUDENT_ID"].ToString());
+                        attendance.TodayDate = DateTime.Now;
+                        if (attendance.Insert())
                         {
-                            Attendance attendance = new Attendance();
-                            attendance.StudentId = 1;
-                            attendance.TodayDate = DateTime.Now;
-                            if (attendance.Insert())
-                            {
-                                StatusBar.Text = "Welcome";
-                            }
-                            else
-                            {
-                                StatusBar.Text = "Error";
-                            }
-                            
-                            
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        if (m_useAnsiTemplate)
-                        {
-                            StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+                            StatusBar.Text = "Welcome";
                         }
                         else
                         {
-                            StatusBar.Text = "MatchIsoTemplate() Error : " + err;
+                            StatusBar.Text = "Error";
                         }
+                        return;
                     }
-                }   
+                }
+                else
+                {
+                    if (m_useAnsiTemplate)
+                    {
+                        StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+                    }
+                    else
+                    {
+                        StatusBar.Text = "MatchIsoTemplate() Error : " + err;
+                    }
+                }
+
+
+
+                //foreach (DataColumn dc in finger.Columns)
+                //{
+                //    m_StoredTemplate = (Byte[])dr[dc];
+                //    if (m_StoredTemplate == null)
+                //    {
+                //        StatusBar.Text = "No data to verify";
+                //        return;
+                //    }
+
+                //    err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+
+                //    for (int i = 0; i < sample_info.TotalSamples; i++)
+                //    {
+                //        bool matched = false;
+                //        err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+                //        if (matched)
+                //        {
+                //            finger_found = true;
+                //            //finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+                //            break;
+                //        }
+                //    }
+
+                //    if (err == (Int32)SGFPMError.ERROR_NONE)
+                //    {
+                //        if (finger_found)
+                //        {
+                //            Attendance attendance = new Attendance();
+                //            attendance.StudentId = 1;
+                //            attendance.TodayDate = DateTime.Now;
+                //            if (attendance.Insert())
+                //            {
+                //                StatusBar.Text = "Welcome";
+                //            }
+                //            else
+                //            {
+                //                StatusBar.Text = "Error";
+                //            }
+
+
+                //            return;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        if (m_useAnsiTemplate)
+                //        {
+                //            StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+                //        }
+                //        else
+                //        {
+                //            StatusBar.Text = "MatchIsoTemplate() Error : " + err;
+                //        }
+                //    }
+                //}   
             }
             if (!finger_found)
             {

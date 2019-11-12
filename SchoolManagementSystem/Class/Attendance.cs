@@ -29,29 +29,6 @@ namespace SchoolManagementSystem.Class
             return Execute(Command);
         }
 
-        //public bool Update()
-        //{
-        //    Command = CommandBuilder("update " + table + " set IMAGE = @image, STUDENT_NAME = @studentId, MOBILE = @mobile, ADDRESS = @address, START_DATE = @startDate, END_DATE = @endDate  where ID = @id");
-        //    Command.Parameters.AddWithValue("@id", Id);
-        //    Command.Parameters.AddWithValue("@studentId", StudentName);
-        //    Command.Parameters.AddWithValue("@mobile", Mobile);
-        //    Command.Parameters.AddWithValue("@address", Address);
-        //    Command.Parameters.AddWithValue("@startDate", StartDate);
-        //    Command.Parameters.AddWithValue("@endDate", EndDate);
-        //    Command.Parameters.AddWithValue("@image", Image);
-        //    return Execute(Command);
-        //}
-
-        //public bool Delete()
-        //{
-        //    Command = CommandBuilder("update " + table + " set ACTIVE_STATUS = @activeStatus and END_DATE = @endDate where ID = @id");
-        //    //Command = CommandBuilder("delete from " + table + " where ID = @id");
-        //    Command.Parameters.AddWithValue("@id", Id);
-        //    Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
-        //    Command.Parameters.AddWithValue("@endDate", EndDate);
-        //    return Execute(Command);
-        //}
-
         public byte[] SelectById()
         {
             Command = CommandBuilder("select FINGERSAMPLE1 from " + table + " where STUDENT_ID = @id");
