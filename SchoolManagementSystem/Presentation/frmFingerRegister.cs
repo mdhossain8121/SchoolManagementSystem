@@ -29,7 +29,8 @@ namespace MatchingAnsi
       private Byte[] m_VrfMin;
       private Byte[] m_StoredTemplate;
       private bool   m_DeviceOpened;
-        FingerRegisterManager aFingerRegisterManager = new FingerRegisterManager();
+        //FingerRegisterManager aFingerRegisterManager = new FingerRegisterManager();
+        StudentManager aStudentManager = new StudentManager();
 
       private System.Windows.Forms.RadioButton[] m_RadioButton;
       private System.Windows.Forms.GroupBox groupBox2;
@@ -47,32 +48,12 @@ namespace MatchingAnsi
       private System.Windows.Forms.ProgressBar progressBar_R1;
       private System.Windows.Forms.ProgressBar progressBar_R2;
       private System.Windows.Forms.Button BtnRegister;
-      private System.Windows.Forms.Button BtnVerify;
       private System.Windows.Forms.ProgressBar progressBar_V1;
       private System.Windows.Forms.PictureBox pictureBoxV1;
       private System.Windows.Forms.Button BtnCapture3;
-      private System.Windows.Forms.ComboBox comboBoxSelFinger;
       private System.Windows.Forms.Label label2;
-      private System.Windows.Forms.GroupBox groupBox4;
-      private System.Windows.Forms.RadioButton FPPosLeftLittle;
-      private System.Windows.Forms.RadioButton FPPosLeftRing;
-      private System.Windows.Forms.RadioButton FPPosLeftMiddle;
-      private System.Windows.Forms.RadioButton FPPosLeftIndex;
-      private System.Windows.Forms.RadioButton FPPosLeftThumb;
-      private System.Windows.Forms.RadioButton FPPosRightLittle;
-      private System.Windows.Forms.RadioButton FPPosRightRing;
-      private System.Windows.Forms.RadioButton FPPosRightMiddle;
-      private System.Windows.Forms.RadioButton FPPosRightIndex;
-      private System.Windows.Forms.RadioButton FPPosRightThumb;
-      private System.Windows.Forms.RadioButton FPPosUnknown;
-      private System.Windows.Forms.Label label3;
-        private GroupBox groupBox5;
-        private Label label4;
         private ComboBox cmbStudent;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private Button button1;
-        private CheckBox CheckBoxAutoOn;
+        private Button BtnVerify;
         private IContainer components;
 
         public frmFingerRegister()
@@ -126,28 +107,13 @@ namespace MatchingAnsi
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxDeviceName = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.BtnVerify = new System.Windows.Forms.Button();
             this.progressBar_V1 = new System.Windows.Forms.ProgressBar();
             this.pictureBoxV1 = new System.Windows.Forms.PictureBox();
             this.BtnCapture3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.FPPosLeftLittle = new System.Windows.Forms.RadioButton();
-            this.FPPosLeftRing = new System.Windows.Forms.RadioButton();
-            this.FPPosLeftMiddle = new System.Windows.Forms.RadioButton();
-            this.FPPosLeftIndex = new System.Windows.Forms.RadioButton();
-            this.FPPosLeftThumb = new System.Windows.Forms.RadioButton();
-            this.FPPosRightLittle = new System.Windows.Forms.RadioButton();
-            this.FPPosRightRing = new System.Windows.Forms.RadioButton();
-            this.FPPosRightMiddle = new System.Windows.Forms.RadioButton();
-            this.FPPosRightIndex = new System.Windows.Forms.RadioButton();
-            this.FPPosRightThumb = new System.Windows.Forms.RadioButton();
-            this.FPPosUnknown = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxSelFinger = new System.Windows.Forms.ComboBox();
             this.BtnRegister = new System.Windows.Forms.Button();
             this.progressBar_R2 = new System.Windows.Forms.ProgressBar();
             this.progressBar_R1 = new System.Windows.Forms.ProgressBar();
@@ -156,20 +122,13 @@ namespace MatchingAnsi
             this.BtnCapture1 = new System.Windows.Forms.Button();
             this.BtnCapture2 = new System.Windows.Forms.Button();
             this.StatusBar = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
             this.cmbStudent = new System.Windows.Forms.ComboBox();
-            this.CheckBoxAutoOn = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxV1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxR2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxR1)).BeginInit();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -177,9 +136,9 @@ namespace MatchingAnsi
             this.groupBox2.Controls.Add(this.OpenDeviceBtn);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.comboBoxDeviceName);
-            this.groupBox2.Location = new System.Drawing.Point(0, 8);
+            this.groupBox2.Location = new System.Drawing.Point(1, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(512, 56);
+            this.groupBox2.Size = new System.Drawing.Size(424, 56);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Initialization";
@@ -187,7 +146,7 @@ namespace MatchingAnsi
             // OpenDeviceBtn
             // 
             this.OpenDeviceBtn.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.OpenDeviceBtn.Location = new System.Drawing.Point(264, 24);
+            this.OpenDeviceBtn.Location = new System.Drawing.Point(287, 18);
             this.OpenDeviceBtn.Name = "OpenDeviceBtn";
             this.OpenDeviceBtn.Size = new System.Drawing.Size(104, 24);
             this.OpenDeviceBtn.TabIndex = 8;
@@ -197,76 +156,46 @@ namespace MatchingAnsi
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(16, 24);
+            this.label1.Location = new System.Drawing.Point(24, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 24);
+            this.label1.Size = new System.Drawing.Size(72, 21);
             this.label1.TabIndex = 7;
             this.label1.Text = "Device Name";
             // 
             // comboBoxDeviceName
             // 
             this.comboBoxDeviceName.Items.AddRange(new object[] {
-            "Auto Selection",
-            "USB FDU08P(U20AP)",
-            "USB FDU08(U20A)",
-            "USB FDU07A(U10A)",
-            "USB FDU07(U10)",
             "USB FDU05",
-            "USB FDU04",
-            "USB FDU03",
-            "USB FDU02",
+            "Auto Selection",
             "No device"});
-            this.comboBoxDeviceName.Location = new System.Drawing.Point(104, 24);
+            this.comboBoxDeviceName.Location = new System.Drawing.Point(114, 18);
             this.comboBoxDeviceName.Name = "comboBoxDeviceName";
             this.comboBoxDeviceName.Size = new System.Drawing.Size(152, 21);
             this.comboBoxDeviceName.TabIndex = 6;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.BtnVerify);
             this.groupBox1.Controls.Add(this.progressBar_V1);
             this.groupBox1.Controls.Add(this.pictureBoxV1);
             this.groupBox1.Controls.Add(this.BtnCapture3);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(376, 146);
+            this.groupBox1.Location = new System.Drawing.Point(288, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(136, 296);
+            this.groupBox1.Size = new System.Drawing.Size(136, 270);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Verification";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Desktop;
-            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(16, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 23);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Verify";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(16, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 24);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Any finger to verify";
             // 
             // BtnVerify
             // 
             this.BtnVerify.BackColor = System.Drawing.SystemColors.Desktop;
             this.BtnVerify.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.BtnVerify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnVerify.Location = new System.Drawing.Point(16, 240);
+            this.BtnVerify.Location = new System.Drawing.Point(16, 231);
             this.BtnVerify.Name = "BtnVerify";
             this.BtnVerify.Size = new System.Drawing.Size(104, 23);
-            this.BtnVerify.TabIndex = 56;
+            this.BtnVerify.TabIndex = 58;
             this.BtnVerify.Text = "Verify";
             this.BtnVerify.UseVisualStyleBackColor = false;
             this.BtnVerify.Click += new System.EventHandler(this.BtnVerify_Click);
@@ -321,185 +250,35 @@ namespace MatchingAnsi
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.comboBoxSelFinger);
             this.groupBox3.Controls.Add(this.BtnRegister);
             this.groupBox3.Controls.Add(this.progressBar_R2);
+            this.groupBox3.Controls.Add(this.cmbStudent);
             this.groupBox3.Controls.Add(this.progressBar_R1);
             this.groupBox3.Controls.Add(this.pictureBoxR2);
             this.groupBox3.Controls.Add(this.pictureBoxR1);
             this.groupBox3.Controls.Add(this.BtnCapture1);
             this.groupBox3.Controls.Add(this.BtnCapture2);
-            this.groupBox3.Location = new System.Drawing.Point(0, 146);
+            this.groupBox3.Location = new System.Drawing.Point(0, 67);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(368, 296);
+            this.groupBox3.Size = new System.Drawing.Size(282, 270);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Registration";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.FPPosLeftLittle);
-            this.groupBox4.Controls.Add(this.FPPosLeftRing);
-            this.groupBox4.Controls.Add(this.FPPosLeftMiddle);
-            this.groupBox4.Controls.Add(this.FPPosLeftIndex);
-            this.groupBox4.Controls.Add(this.FPPosLeftThumb);
-            this.groupBox4.Controls.Add(this.FPPosRightLittle);
-            this.groupBox4.Controls.Add(this.FPPosRightRing);
-            this.groupBox4.Controls.Add(this.FPPosRightMiddle);
-            this.groupBox4.Controls.Add(this.FPPosRightIndex);
-            this.groupBox4.Controls.Add(this.FPPosRightThumb);
-            this.groupBox4.Controls.Add(this.FPPosUnknown);
-            this.groupBox4.Location = new System.Drawing.Point(240, 16);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(112, 272);
-            this.groupBox4.TabIndex = 51;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Template Info";
-            // 
-            // FPPosLeftLittle
-            // 
-            this.FPPosLeftLittle.AutoCheck = false;
-            this.FPPosLeftLittle.Enabled = false;
-            this.FPPosLeftLittle.Location = new System.Drawing.Point(8, 243);
-            this.FPPosLeftLittle.Name = "FPPosLeftLittle";
-            this.FPPosLeftLittle.Size = new System.Drawing.Size(92, 24);
-            this.FPPosLeftLittle.TabIndex = 22;
-            this.FPPosLeftLittle.Text = "Left Little";
-            // 
-            // FPPosLeftRing
-            // 
-            this.FPPosLeftRing.AutoCheck = false;
-            this.FPPosLeftRing.Enabled = false;
-            this.FPPosLeftRing.Location = new System.Drawing.Point(8, 221);
-            this.FPPosLeftRing.Name = "FPPosLeftRing";
-            this.FPPosLeftRing.Size = new System.Drawing.Size(92, 24);
-            this.FPPosLeftRing.TabIndex = 21;
-            this.FPPosLeftRing.Text = "Left Ring";
-            // 
-            // FPPosLeftMiddle
-            // 
-            this.FPPosLeftMiddle.AutoCheck = false;
-            this.FPPosLeftMiddle.Enabled = false;
-            this.FPPosLeftMiddle.Location = new System.Drawing.Point(8, 198);
-            this.FPPosLeftMiddle.Name = "FPPosLeftMiddle";
-            this.FPPosLeftMiddle.Size = new System.Drawing.Size(92, 24);
-            this.FPPosLeftMiddle.TabIndex = 20;
-            this.FPPosLeftMiddle.Text = "Left Middle";
-            // 
-            // FPPosLeftIndex
-            // 
-            this.FPPosLeftIndex.AutoCheck = false;
-            this.FPPosLeftIndex.Enabled = false;
-            this.FPPosLeftIndex.Location = new System.Drawing.Point(8, 175);
-            this.FPPosLeftIndex.Name = "FPPosLeftIndex";
-            this.FPPosLeftIndex.Size = new System.Drawing.Size(92, 24);
-            this.FPPosLeftIndex.TabIndex = 19;
-            this.FPPosLeftIndex.Text = "Left Index";
-            // 
-            // FPPosLeftThumb
-            // 
-            this.FPPosLeftThumb.AutoCheck = false;
-            this.FPPosLeftThumb.Enabled = false;
-            this.FPPosLeftThumb.Location = new System.Drawing.Point(8, 152);
-            this.FPPosLeftThumb.Name = "FPPosLeftThumb";
-            this.FPPosLeftThumb.Size = new System.Drawing.Size(92, 24);
-            this.FPPosLeftThumb.TabIndex = 18;
-            this.FPPosLeftThumb.Text = "Left Thumb";
-            // 
-            // FPPosRightLittle
-            // 
-            this.FPPosRightLittle.AutoCheck = false;
-            this.FPPosRightLittle.Enabled = false;
-            this.FPPosRightLittle.Location = new System.Drawing.Point(8, 128);
-            this.FPPosRightLittle.Name = "FPPosRightLittle";
-            this.FPPosRightLittle.Size = new System.Drawing.Size(92, 24);
-            this.FPPosRightLittle.TabIndex = 17;
-            this.FPPosRightLittle.Text = "Right Little";
-            // 
-            // FPPosRightRing
-            // 
-            this.FPPosRightRing.AutoCheck = false;
-            this.FPPosRightRing.Enabled = false;
-            this.FPPosRightRing.Location = new System.Drawing.Point(8, 105);
-            this.FPPosRightRing.Name = "FPPosRightRing";
-            this.FPPosRightRing.Size = new System.Drawing.Size(92, 24);
-            this.FPPosRightRing.TabIndex = 16;
-            this.FPPosRightRing.Text = "Right Ring";
-            // 
-            // FPPosRightMiddle
-            // 
-            this.FPPosRightMiddle.AutoCheck = false;
-            this.FPPosRightMiddle.Enabled = false;
-            this.FPPosRightMiddle.Location = new System.Drawing.Point(8, 82);
-            this.FPPosRightMiddle.Name = "FPPosRightMiddle";
-            this.FPPosRightMiddle.Size = new System.Drawing.Size(92, 24);
-            this.FPPosRightMiddle.TabIndex = 15;
-            this.FPPosRightMiddle.Text = "Right Middle";
-            // 
-            // FPPosRightIndex
-            // 
-            this.FPPosRightIndex.AutoCheck = false;
-            this.FPPosRightIndex.Enabled = false;
-            this.FPPosRightIndex.Location = new System.Drawing.Point(8, 59);
-            this.FPPosRightIndex.Name = "FPPosRightIndex";
-            this.FPPosRightIndex.Size = new System.Drawing.Size(92, 24);
-            this.FPPosRightIndex.TabIndex = 14;
-            this.FPPosRightIndex.Text = "Right Index";
-            // 
-            // FPPosRightThumb
-            // 
-            this.FPPosRightThumb.AutoCheck = false;
-            this.FPPosRightThumb.Enabled = false;
-            this.FPPosRightThumb.Location = new System.Drawing.Point(8, 36);
-            this.FPPosRightThumb.Name = "FPPosRightThumb";
-            this.FPPosRightThumb.Size = new System.Drawing.Size(92, 24);
-            this.FPPosRightThumb.TabIndex = 13;
-            this.FPPosRightThumb.Text = "Right Thumb";
-            // 
-            // FPPosUnknown
-            // 
-            this.FPPosUnknown.AutoCheck = false;
-            this.FPPosUnknown.Enabled = false;
-            this.FPPosUnknown.Location = new System.Drawing.Point(8, 15);
-            this.FPPosUnknown.Name = "FPPosUnknown";
-            this.FPPosUnknown.Size = new System.Drawing.Size(92, 24);
-            this.FPPosUnknown.TabIndex = 12;
-            this.FPPosUnknown.Text = "Unknown";
-            // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(16, 24);
+            this.label2.Location = new System.Drawing.Point(14, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 24);
+            this.label2.Size = new System.Drawing.Size(47, 24);
             this.label2.TabIndex = 50;
-            this.label2.Text = "Select Finger";
-            // 
-            // comboBoxSelFinger
-            // 
-            this.comboBoxSelFinger.Items.AddRange(new object[] {
-            "Unknown finger",
-            "Right thumb",
-            "Right index finger",
-            "Right middle finger",
-            "Right ring finger",
-            "Right little finger",
-            "Left thumb",
-            "Left index finger",
-            "Left middle finger",
-            "Left ring finger",
-            "Left little finger"});
-            this.comboBoxSelFinger.Location = new System.Drawing.Point(104, 24);
-            this.comboBoxSelFinger.Name = "comboBoxSelFinger";
-            this.comboBoxSelFinger.Size = new System.Drawing.Size(128, 21);
-            this.comboBoxSelFinger.TabIndex = 49;
+            this.label2.Text = "Name";
             // 
             // BtnRegister
             // 
             this.BtnRegister.BackColor = System.Drawing.SystemColors.Desktop;
             this.BtnRegister.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.BtnRegister.Location = new System.Drawing.Point(32, 240);
+            this.BtnRegister.Location = new System.Drawing.Point(67, 231);
             this.BtnRegister.Name = "BtnRegister";
             this.BtnRegister.Size = new System.Drawing.Size(152, 23);
             this.BtnRegister.TabIndex = 48;
@@ -509,14 +288,14 @@ namespace MatchingAnsi
             // 
             // progressBar_R2
             // 
-            this.progressBar_R2.Location = new System.Drawing.Point(128, 176);
+            this.progressBar_R2.Location = new System.Drawing.Point(163, 176);
             this.progressBar_R2.Name = "progressBar_R2";
             this.progressBar_R2.Size = new System.Drawing.Size(104, 12);
             this.progressBar_R2.TabIndex = 44;
             // 
             // progressBar_R1
             // 
-            this.progressBar_R1.Location = new System.Drawing.Point(16, 176);
+            this.progressBar_R1.Location = new System.Drawing.Point(15, 176);
             this.progressBar_R1.Name = "progressBar_R1";
             this.progressBar_R1.Size = new System.Drawing.Size(104, 12);
             this.progressBar_R1.TabIndex = 43;
@@ -525,7 +304,7 @@ namespace MatchingAnsi
             // 
             this.pictureBoxR2.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBoxR2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxR2.Location = new System.Drawing.Point(128, 56);
+            this.pictureBoxR2.Location = new System.Drawing.Point(163, 56);
             this.pictureBoxR2.Name = "pictureBoxR2";
             this.pictureBoxR2.Size = new System.Drawing.Size(104, 120);
             this.pictureBoxR2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -536,7 +315,7 @@ namespace MatchingAnsi
             // 
             this.pictureBoxR1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBoxR1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxR1.Location = new System.Drawing.Point(16, 56);
+            this.pictureBoxR1.Location = new System.Drawing.Point(15, 56);
             this.pictureBoxR1.Name = "pictureBoxR1";
             this.pictureBoxR1.Size = new System.Drawing.Size(104, 120);
             this.pictureBoxR1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -546,7 +325,7 @@ namespace MatchingAnsi
             // BtnCapture1
             // 
             this.BtnCapture1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.BtnCapture1.Location = new System.Drawing.Point(16, 192);
+            this.BtnCapture1.Location = new System.Drawing.Point(15, 192);
             this.BtnCapture1.Name = "BtnCapture1";
             this.BtnCapture1.Size = new System.Drawing.Size(104, 23);
             this.BtnCapture1.TabIndex = 23;
@@ -557,7 +336,7 @@ namespace MatchingAnsi
             // BtnCapture2
             // 
             this.BtnCapture2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.BtnCapture2.Location = new System.Drawing.Point(128, 192);
+            this.BtnCapture2.Location = new System.Drawing.Point(163, 192);
             this.BtnCapture2.Name = "BtnCapture2";
             this.BtnCapture2.Size = new System.Drawing.Size(104, 23);
             this.BtnCapture2.TabIndex = 24;
@@ -570,53 +349,10 @@ namespace MatchingAnsi
             this.StatusBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.StatusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.StatusBar.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.StatusBar.Location = new System.Drawing.Point(0, 468);
+            this.StatusBar.Location = new System.Drawing.Point(0, 339);
             this.StatusBar.Name = "StatusBar";
-            this.StatusBar.Size = new System.Drawing.Size(512, 24);
+            this.StatusBar.Size = new System.Drawing.Size(425, 24);
             this.StatusBar.TabIndex = 38;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.radioButton2);
-            this.groupBox5.Controls.Add(this.radioButton1);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.cmbStudent);
-            this.groupBox5.Location = new System.Drawing.Point(0, 70);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(512, 70);
-            this.groupBox5.TabIndex = 22;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "User";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(26, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 17);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Teacher";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(26, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(62, 17);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Student";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(125, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Name :";
             // 
             // cmbStudent
             // 
@@ -631,43 +367,28 @@ namespace MatchingAnsi
             "USB FDU03",
             "USB FDU02",
             "No device"});
-            this.cmbStudent.Location = new System.Drawing.Point(181, 19);
+            this.cmbStudent.Location = new System.Drawing.Point(67, 21);
             this.cmbStudent.Name = "cmbStudent";
             this.cmbStudent.Size = new System.Drawing.Size(200, 21);
             this.cmbStudent.TabIndex = 6;
             // 
-            // CheckBoxAutoOn
-            // 
-            this.CheckBoxAutoOn.Enabled = false;
-            this.CheckBoxAutoOn.Location = new System.Drawing.Point(0, 448);
-            this.CheckBoxAutoOn.Name = "CheckBoxAutoOn";
-            this.CheckBoxAutoOn.Size = new System.Drawing.Size(282, 19);
-            this.CheckBoxAutoOn.TabIndex = 39;
-            this.CheckBoxAutoOn.Text = "Enable AutoOn Event (FDU03, FDU04, or higher)";
-            this.CheckBoxAutoOn.CheckedChanged += new System.EventHandler(this.CheckBoxAutoOn_CheckedChanged);
-            // 
             // frmFingerRegister
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(512, 492);
-            this.Controls.Add(this.CheckBoxAutoOn);
-            this.Controls.Add(this.groupBox5);
+            this.ClientSize = new System.Drawing.Size(425, 363);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "frmFingerRegister";
-            this.Text = "Matching Test: ANSI 378 Format";
+            this.Text = "Finger Registration";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxV1)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxR2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxR1)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
 	  }
@@ -686,22 +407,23 @@ namespace MatchingAnsi
       private void Form1_Load(object sender, System.EventArgs e)
       {
          EnableButtons(false);
-         // Init Button
-         m_RadioButton = new RadioButton[11];
-         m_RadioButton[0] = FPPosUnknown;
-         m_RadioButton[1] = FPPosRightThumb;
-         m_RadioButton[2] = FPPosRightIndex;
-         m_RadioButton[3] = FPPosRightMiddle;
-         m_RadioButton[4] = FPPosRightRing;
-         m_RadioButton[5] = FPPosRightLittle;
-         m_RadioButton[6] = FPPosLeftThumb;
-         m_RadioButton[7] = FPPosLeftIndex;
-         m_RadioButton[8] = FPPosLeftMiddle;
-         m_RadioButton[9] = FPPosLeftRing;
-         m_RadioButton[10] = FPPosLeftLittle;
+            // Init Button
+            //m_RadioButton = new RadioButton[11];
+            //m_RadioButton[0] = FPPosUnknown;
+            //m_RadioButton[1] = FPPosRightThumb;
+            //m_RadioButton[2] = FPPosRightIndex;
+            //m_RadioButton[3] = FPPosRightMiddle;
+            //m_RadioButton[4] = FPPosRightRing;
+            //m_RadioButton[5] = FPPosRightLittle;
+            //m_RadioButton[6] = FPPosLeftThumb;
+            //m_RadioButton[7] = FPPosLeftIndex;
+            //m_RadioButton[8] = FPPosLeftMiddle;
+            //m_RadioButton[9] = FPPosLeftRing;
+            //m_RadioButton[10] = FPPosLeftLittle;
 
-         comboBoxDeviceName.SelectedIndex = 0;
-         comboBoxSelFinger.SelectedIndex = 0;
+            comboBoxDeviceName.SelectedIndex = 0;
+            //comboBoxSelFinger.SelectedIndex = 0;
+ 
 
          m_SecurityLevel = SGFPMSecurityLevel.NORMAL;
          m_StoredTemplate = null;
@@ -732,25 +454,8 @@ namespace MatchingAnsi
          m_DeviceOpened = false;
 
          // Get device name
-         if (comboBoxDeviceName.Text == "USB FDU02")
-             device_name = SGFPMDeviceName.DEV_FDU02;
-         else if (comboBoxDeviceName.Text == "USB FDU03")
-             device_name = SGFPMDeviceName.DEV_FDU03;
-         else if (comboBoxDeviceName.Text == "USB FDU04")
-             device_name = SGFPMDeviceName.DEV_FDU04;
-         else if (comboBoxDeviceName.Text == "USB FDU05")
+         if (comboBoxDeviceName.Text == "USB FDU05")
              device_name = SGFPMDeviceName.DEV_FDU05;
-
-         else if (comboBoxDeviceName.Text == "USB FDU07(U10)")
-             device_name = SGFPMDeviceName.DEV_FDU07;
-         else if (comboBoxDeviceName.Text == "USB FDU07A(U10A)")
-             device_name = SGFPMDeviceName.DEV_FDU07A;
-
-         else if (comboBoxDeviceName.Text == "USB FDU08(U20A)")
-             device_name = SGFPMDeviceName.DEV_FDU08;
-         else if (comboBoxDeviceName.Text == "USB FDU08P(U20AP)")
-             device_name = SGFPMDeviceName.DEV_FDU08P;
-
          else if (comboBoxDeviceName.Text == "Auto Selection")
              device_name = SGFPMDeviceName.DEV_AUTO;
 
@@ -779,15 +484,11 @@ namespace MatchingAnsi
          {
 			EnableButtons(true);
             StatusBar.Text = "Initialization Success";
-                if (device_name >= SGFPMDeviceName.DEV_FDU03)
-                    CheckBoxAutoOn.Enabled = true;
-            }
+         }
          else
          {
             EnableButtons(false);
-                CheckBoxAutoOn.Enabled = false;
-
-                StatusBar.Text = "Init() Error " + error;
+            StatusBar.Text = "Init() Error " + error;
             return;
          }
 
@@ -834,10 +535,7 @@ namespace MatchingAnsi
          Int32 error = (Int32)SGFPMError.ERROR_NONE;
          Int32 img_qlty = 0;
          
-         if (m_DeviceOpened)
-            error = m_FPM.GetImage(fp_image);
-         else
-            error = GetImageFromFile(fp_image);
+         if (m_DeviceOpened) error = m_FPM.GetImage(fp_image);
 
          if (error == (Int32)SGFPMError.ERROR_NONE)
          {
@@ -847,7 +545,7 @@ namespace MatchingAnsi
             DrawImage(fp_image, pictureBoxR1);
 
             SGFPMFingerInfo finger_info = new SGFPMFingerInfo();
-            finger_info.FingerNumber = (SGFPMFingerPosition)comboBoxSelFinger.SelectedIndex;
+            finger_info.FingerNumber = SGFPMFingerPosition.FINGPOS_UK;
             finger_info.ImageQuality = (Int16)img_qlty;
             finger_info.ImpressionType = (Int16)SGFPMImpressionType.IMPTYPE_LP;
             finger_info.ViewNumber = 1;
@@ -862,7 +560,6 @@ namespace MatchingAnsi
          }
          else
             StatusBar.Text = "GetImage() Error : " + error;
-      
       }
 
       /////////////////////////////////////
@@ -872,11 +569,8 @@ namespace MatchingAnsi
          Int32 error = (Int32)SGFPMError.ERROR_NONE;
          Int32 img_qlty = 0;
 
-         if (m_DeviceOpened)
-            error = m_FPM.GetImage(fp_image);
-         else
-            error = GetImageFromFile(fp_image);
-
+         if (m_DeviceOpened) error = m_FPM.GetImage(fp_image);
+         
          m_FPM.GetImageQuality(m_ImageWidth, m_ImageHeight, fp_image, ref img_qlty);
          progressBar_R2.Value = img_qlty;
 
@@ -885,7 +579,7 @@ namespace MatchingAnsi
             DrawImage(fp_image, pictureBoxR2);
 
             SGFPMFingerInfo finger_info = new SGFPMFingerInfo();
-            finger_info.FingerNumber = (SGFPMFingerPosition)comboBoxSelFinger.SelectedIndex;
+            finger_info.FingerNumber = SGFPMFingerPosition.FINGPOS_UK;
             finger_info.ImageQuality = (Int16)img_qlty;
             finger_info.ImpressionType = (Int16)SGFPMImpressionType.IMPTYPE_LP;
             finger_info.ViewNumber = 1;
@@ -909,10 +603,7 @@ namespace MatchingAnsi
          Int32 error = (Int32)SGFPMError.ERROR_NONE;
          Int32 img_qlty = 0;
 
-         if (m_DeviceOpened)
-            error = m_FPM.GetImage(fp_image);
-         else
-            error = GetImageFromFile(fp_image);
+         if (m_DeviceOpened) error = m_FPM.GetImage(fp_image);
 
          m_FPM.GetImageQuality(m_ImageWidth, m_ImageHeight, fp_image, ref img_qlty);
          progressBar_V1.Value = img_qlty;
@@ -922,7 +613,7 @@ namespace MatchingAnsi
             DrawImage(fp_image, pictureBoxV1);
 
             SGFPMFingerInfo finger_info = new SGFPMFingerInfo();
-            finger_info.FingerNumber = (SGFPMFingerPosition)comboBoxSelFinger.SelectedIndex;
+            finger_info.FingerNumber = SGFPMFingerPosition.FINGPOS_UK; 
             finger_info.ImageQuality = (Int16)img_qlty;
             finger_info.ImpressionType = (Int16)SGFPMImpressionType.IMPTYPE_LP;
             finger_info.ViewNumber = 1;
@@ -938,7 +629,6 @@ namespace MatchingAnsi
          else
             StatusBar.Text = "GetImage() Error : " + error;
       }
-
 
       /////////////////////////////////////
       private void BtnRegister_Click(object sender, System.EventArgs e)
@@ -1008,27 +698,27 @@ namespace MatchingAnsi
                }
 
                // Let's display ANSI/ISO template Info
-               for (int i = 0; i < m_RadioButton.Length; i++)
-                  m_RadioButton[i].Checked = false;
+              // for (int i = 0; i < m_RadioButton.Length; i++)
+              //    m_RadioButton[i].Checked = false;
 
-               if (m_useAnsiTemplate)
-               {
-                  SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
-                  err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
-                  for (int i = 0; i < sample_info.TotalSamples; i++)
-                      m_RadioButton[(Int32)sample_info.SampleInfo[i].FingerNumber].Checked = true;
-              }
-               else
-               {
-                   SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
-                   err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
-                   for (int i = 0; i < sample_info.TotalSamples; i++)
-                       m_RadioButton[(Int32)sample_info.SampleInfo[i].FingerNumber].Checked = true;
-               }
-               FingerRegister aFingerRegister = new FingerRegister();
-                    aFingerRegister.FingerSample1 = m_StoredTemplate;
-                    aFingerRegister.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
-                    String message = aFingerRegisterManager.SaveFingerInfo(aFingerRegister);
+              // if (m_useAnsiTemplate)
+              // {
+              //    SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
+              //    err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
+              //    for (int i = 0; i < sample_info.TotalSamples; i++)
+              //        m_RadioButton[(Int32)sample_info.SampleInfo[i].FingerNumber].Checked = true;
+              //}
+              // else
+              // {
+              //     SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
+              //     err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+              //     for (int i = 0; i < sample_info.TotalSamples; i++)
+              //         m_RadioButton[(Int32)sample_info.SampleInfo[i].FingerNumber].Checked = true;
+              // }
+               Student aStudent = new Student();
+                    aStudent.Finger = m_StoredTemplate;
+                    aStudent.Id = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
+                    String message = aStudentManager.SaveFingerInfo(aStudent);
                     MessageBox.Show(message);
                     StatusBar.Text = "Template registration success";
                     m_StoredTemplate = null;
@@ -1045,7 +735,7 @@ namespace MatchingAnsi
       }
 
       /////////////////////////////////////
-      private void BtnVerify_Click(object sender, System.EventArgs e)
+      private void BtnVerify_Clickbak(object sender, System.EventArgs e)
       {
          if (m_StoredTemplate == null)
          {
@@ -1181,129 +871,37 @@ namespace MatchingAnsi
          return (Int32)SGFPMError.ERROR_FUNCTION_FAILED;
       }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //String message = "Finger Not Found";
-            //FingerRegister aFingerRegister = new FingerRegister();
-            //if (cmbStudent.SelectedIndex < 0)
-            //{
-            //    StatusBar.Text = "Please Select a student";
-            //    return;
-            //}
-                
-            //aFingerRegister.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
-
-            //m_StoredTemplate = aFingerRegisterManager.GetFingerDataById(aFingerRegister);
-
-
+       private void BtnVerify_Click(object sender, EventArgs e)
+       {
             String message = "Finger Not Found";
-            FingerRegister aFingerRegister = new FingerRegister();
-            DataTable finger = aFingerRegisterManager.GetAllFingerData(aFingerRegister);
-            foreach (DataRow dr in finger.Rows)
+            Student aStudent = new Student();
+            if (cmbStudent.SelectedIndex < 0)
             {
-                foreach (DataColumn dc in finger.Columns)
-                {
-                    m_StoredTemplate = (Byte[]) dr[dc];
-                    if (m_StoredTemplate == null)
-                    {
-                        StatusBar.Text = "No data to verify";
-                        return;
-                    }
-
-                    string[] fingerpos_str = new string[]
-                                      {
-                              "Unknown finger",
-                              "Right thumb",
-                              "Right index finger",
-                              "Right middle finger",
-                              "Right ring finger",
-                              "Right little finger",
-                              "Left thumb",
-                              "Left index finger",
-                              "Left middle finger",
-                              "Left ring finger",
-                              "Left little finger"};
-
-                    Int32 err;
-                    SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
-                    bool finger_found = false;
-
-                    if (m_useAnsiTemplate)
-                    {
-                        
-                        SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
-                        err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
-
-                        for (int i = 0; i < sample_info.TotalSamples; i++)
-                        {
-                            bool matched = false;
-                            err = m_FPM.MatchAnsiTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-                            if (matched)
-                            {
-                                finger_found = true;
-                                finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
-                        err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
-
-                        for (int i = 0; i < sample_info.TotalSamples; i++)
-                        {
-                            bool matched = false;
-                            err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-                            if (matched)
-                            {
-                                finger_found = true;
-                                finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (err == (Int32)SGFPMError.ERROR_NONE)
-                    {
-                        if (finger_found)
-                        {
-                            StatusBar.Text = "The matched data found. Finger position: " + fingerpos_str[(Int32)finger_pos];
-                            message = "Finger Found";
-                            MessageBox.Show(message);
-                        }
-                        else
-                            StatusBar.Text = "Cannot find a matched data";
-                    }
-                    else
-                    {
-                        if (m_useAnsiTemplate)
-                        {
-                            StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
-                        }
-                        else
-                        {
-                            StatusBar.Text = "MatchIsoTemplate() Error : " + err;
-                        }
-                    }
-                }
-               
+                StatusBar.Text = "Please Select a student";
+                return;
             }
-            
+
+            aStudent.Id = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
+
+            m_StoredTemplate = aStudentManager.GetFingerDataById(aStudent);
 
 
-
-
-
-
-            //if (m_StoredTemplate == null)
+            //String message = "Finger Not Found";
+            //Student aStudent = new Student();
+            //DataTable finger = aStudentManager.GetAllFingerData(aStudent);
+            //foreach (DataRow dr in finger.Rows)
             //{
-            //    StatusBar.Text = "No data to verify";
-            //    return;
-            //}
+            //    foreach (DataColumn dc in finger.Columns)
+            //    {
+            //        m_StoredTemplate = (Byte[])dr[dc];
+            //        if (m_StoredTemplate == null)
+            //        {
+            //            StatusBar.Text = "No data to verify";
+            //            return;
+            //        }
 
-            //string[] fingerpos_str = new string[]
-            //                  {
+            //        string[] fingerpos_str = new string[]
+            //                          {
             //                  "Unknown finger",
             //                  "Right thumb",
             //                  "Right index finger",
@@ -1316,93 +914,138 @@ namespace MatchingAnsi
             //                  "Left ring finger",
             //                  "Left little finger"};
 
-            //Int32 err;
-            //SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
-            //bool finger_found = false;
+            //        Int32 err;
+            //        SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
+            //        bool finger_found = false;
 
-            //if (m_useAnsiTemplate)
-            //{
-            //    SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
-            //    err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
-
-            //    for (int i = 0; i < sample_info.TotalSamples; i++)
-            //    {
-            //        bool matched = false;
-            //        err = m_FPM.MatchAnsiTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-            //        if (matched)
+            //        if (m_useAnsiTemplate)
             //        {
-            //            finger_found = true;
-            //            finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-            //            break;
+
+            //            SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
+            //            err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
+
+            //            for (int i = 0; i < sample_info.TotalSamples; i++)
+            //            {
+            //                bool matched = false;
+            //                err = m_FPM.MatchAnsiTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+            //                if (matched)
+            //                {
+            //                    finger_found = true;
+            //                    finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+            //                    break;
+            //                }
+            //            }
+            //        }
+            //        else
+            //        {
+            //            SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
+            //            err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+
+            //            for (int i = 0; i < sample_info.TotalSamples; i++)
+            //            {
+            //                bool matched = false;
+            //                err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+            //                if (matched)
+            //                {
+            //                    finger_found = true;
+            //                    finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+            //                    break;
+            //                }
+            //            }
+            //        }
+
+            //        if (err == (Int32)SGFPMError.ERROR_NONE)
+            //        {
+            //            if (finger_found)
+            //            {
+            //                StatusBar.Text = "The matched data found. Finger position: " + fingerpos_str[(Int32)finger_pos];
+            //                message = "Finger Found";
+            //                MessageBox.Show(message);
+            //            }
+            //            else
+            //                StatusBar.Text = "Cannot find a matched data";
+            //        }
+            //        else
+            //        {
+            //            if (m_useAnsiTemplate)
+            //            {
+            //                StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+            //            }
+            //            else
+            //            {
+            //                StatusBar.Text = "MatchIsoTemplate() Error : " + err;
+            //            }
             //        }
             //    }
-            //}
-            //else
-            //{
-            //    SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
-            //    err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
 
-            //    for (int i = 0; i < sample_info.TotalSamples; i++)
-            //    {
-            //        bool matched = false;
-            //        err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-            //        if (matched)
-            //        {
-            //            finger_found = true;
-            //            finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-            //            break;
-            //        }
-            //    }
             //}
 
-            //if (err == (Int32)SGFPMError.ERROR_NONE)
-            //{
-            //    if (finger_found)
-            //    {
-            //        StatusBar.Text = "The matched data found. Finger position: " + fingerpos_str[(Int32)finger_pos];
-            //        message = "Finger Found";
-            //        MessageBox.Show(message);
-            //    }                    
-            //    else
-            //        StatusBar.Text = "Cannot find a matched data";
-            //}
-            //else
-            //{
-            //    if (m_useAnsiTemplate)
-            //    {
-            //        StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
-            //    }
-            //    else
-            //    {
-            //        StatusBar.Text = "MatchIsoTemplate() Error : " + err;
-            //    }
-            //}
-        }
-
-        private void CheckBoxAutoOn_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CheckBoxAutoOn.Checked)
-                m_FPM.EnableAutoOnEvent(true, (int)this.Handle);
-            else
-                m_FPM.EnableAutoOnEvent(false, 0);
-        }
-
-        protected override void WndProc(ref Message message)
-        {
-            if (message.Msg == (int)SGFPMMessages.DEV_AUTOONEVENT)
+            if (m_StoredTemplate == null)
             {
-                if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_ON)
-                {
-                    StatusBar.Text = "Device Message: Finger On";
-                    BtnCapture3.PerformClick();
-                    System.Threading.Thread.Sleep(2000);
-                    button1.PerformClick();
-                }
-                    
-                else if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_OFF)
-                    StatusBar.Text = "Device Message: Finger Off";
+                StatusBar.Text = "No data to verify";
+                return;
             }
-            base.WndProc(ref message);
+
+            Int32 err;
+            SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
+            bool finger_found = false;
+
+            if (m_useAnsiTemplate)
+            {
+                SGFPMANSITemplateInfo sample_info = new SGFPMANSITemplateInfo();
+                err = m_FPM.GetAnsiTemplateInfo(m_StoredTemplate, sample_info);
+
+                for (int i = 0; i < sample_info.TotalSamples; i++)
+                {
+                    bool matched = false;
+                    err = m_FPM.MatchAnsiTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+                    if (matched)
+                    {
+                        finger_found = true;
+                        finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
+                err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
+
+                for (int i = 0; i < sample_info.TotalSamples; i++)
+                {
+                    bool matched = false;
+                    err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
+                    if (matched)
+                    {
+                        finger_found = true;
+                        finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
+                        break;
+                    }
+                }
+            }
+
+            if (err == (Int32)SGFPMError.ERROR_NONE)
+            {
+                if (finger_found)
+                {
+                    message = "Finger Found";
+                    MessageBox.Show(message);
+                }
+                else
+                    StatusBar.Text = "Cannot find a matched data";
+            }
+            else
+            {
+                if (m_useAnsiTemplate)
+                {
+                    StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
+                }
+                else
+                {
+                    StatusBar.Text = "MatchIsoTemplate() Error : " + err;
+                }
+            }
         }
     }
 }

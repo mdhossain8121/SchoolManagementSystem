@@ -13,6 +13,8 @@ namespace SchoolManagementSystem.Class
 
         public byte[] Image { get; set; }
 
+        public byte[] Finger { get; set; }
+
         public string StudentName { get; set; }
 
         public string Mobile { get; set; }
@@ -52,6 +54,16 @@ namespace SchoolManagementSystem.Class
             return Execute(Command);
         }
 
+
+        public bool InsertFinger()
+        {
+            Command = CommandBuilder("update " + table + " set FINGER = @finger where ID = @id");
+            //Command = CommandBuilder("insert into " + table + " (STUDENT_ID,FINGERSAMPLE1) values(@studentId,@fingerSample1) ON DUPLICATE KEY UPDATE fingerSample1 = @fingerSample1");
+            Command.Parameters.AddWithValue("@id", Id);
+            Command.Parameters.AddWithValue("@finger", Finger);
+            return Execute(Command);
+        }
+
         public bool Delete()
         {
             Command = CommandBuilder("update " + table + " set ACTIVE_STATUS = @activeStatus and END_DATE = @endDate where ID = @id");
@@ -62,21 +74,40 @@ namespace SchoolManagementSystem.Class
             return Execute(Command);
         }
 
-        public bool SelectById()
+        //public bool SelectById()
+        //{
+        //    Command = CommandBuilder("select ID, STUDENT_NAME,MOBILE,ADDRESS,START_DATE,END_DATE from " + table + " where ID = @id");
+        //    Command.Parameters.AddWithValue("@id", Id);
+        //    Reader = ExecuteReader(Command);
+        //    while (Reader.Read())
+        //    {
+        //        StudentName = Reader["STUDENT_NAME"].ToString();
+        //        Mobile = Reader["MOBILE"].ToString();
+        //        Address = Reader["ADDRESS"].ToString();
+        //        StartDate = (DateTime)Reader["START_DATE"];
+        //        EndDate = (DateTime)Reader["END_DATE"];
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
+        public byte[] SelectFingerById()
         {
-            Command = CommandBuilder("select ID, STUDENT_NAME,MOBILE,ADDRESS,START_DATE,END_DATE from " + table + " where ID = @id");
+            Command = CommandBuilder("select FINGER from " + table + " where ID = @id");
             Command.Parameters.AddWithValue("@id", Id);
             Reader = ExecuteReader(Command);
             while (Reader.Read())
             {
-                StudentName = Reader["STUDENT_NAME"].ToString();
-                Mobile = Reader["MOBILE"].ToString();
-                Address = Reader["ADDRESS"].ToString();
-                StartDate = (DateTime)Reader["START_DATE"];
-                EndDate = (DateTime)Reader["END_DATE"];
-                return true;
+                Finger = (Byte[])Reader["FINGER"];
+                return Finger;
             }
-            return false;
+            return null;
+        }
+
+        public DataSet SelectAllFinger()
+        {
+            Command = CommandBuilder("select FINGER,STUDENT_NAME,ID from " + table);
+            return ExecuteDataSet(Command);
         }
 
         public DataSet Select()

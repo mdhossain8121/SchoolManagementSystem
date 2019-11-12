@@ -27,7 +27,8 @@ namespace SchoolManagementSystem.Presentation
         private Byte[] m_VrfMin;
         public Byte[] m_StoredTemplate;
         private bool m_DeviceOpened;
-        FingerRegisterManager aFingerRegisterManager = new FingerRegisterManager();
+
+        StudentManager aStudentManager = new StudentManager();
         public frmAttendance()
         {
             InitializeComponent();
@@ -117,8 +118,8 @@ namespace SchoolManagementSystem.Presentation
             Int32 max_template_size = 0;
             error = m_FPM.GetMaxTemplateSize(ref max_template_size);
 
-            m_RegMin1 = new Byte[max_template_size];
-            m_RegMin2 = new Byte[max_template_size];
+            //m_RegMin1 = new Byte[max_template_size];
+            //m_RegMin2 = new Byte[max_template_size];
             m_VrfMin = new Byte[max_template_size];
 
             // OpenDevice if device is selected
@@ -141,29 +142,18 @@ namespace SchoolManagementSystem.Presentation
 
         private void checkFinger()
         {
-            string[] fingerpos_str = new string[]
-                                      {
-                              "Unknown finger",
-                              "Right thumb",
-                              "Right index finger",
-                              "Right middle finger",
-                              "Right ring finger",
-                              "Right little finger",
-                              "Left thumb",
-                              "Left index finger",
-                              "Left middle finger",
-                              "Left ring finger",
-                              "Left little finger"};
             Int32 err;
-            SGFPMFingerPosition finger_pos = SGFPMFingerPosition.FINGPOS_UK;
             SGFPMISOTemplateInfo sample_info = new SGFPMISOTemplateInfo();
             bool finger_found = false;
-            FingerRegister aFingerRegister = new FingerRegister();
-            DataTable finger = aFingerRegisterManager.GetAllFingerData(aFingerRegister);
+            //FingerRegister aFingerRegister = new FingerRegister();
+            //DataTable finger = aFingerRegisterManager.GetAllFingerData(aFingerRegister);
+
+            Student aStudent = new Student();
+            DataTable finger = aStudentManager.GetAllFingerData(aStudent);
 
             foreach (DataRow dr in finger.Rows)
             {
-                m_StoredTemplate = (Byte[])dr["FINGERSAMPLE1"];
+                m_StoredTemplate = (Byte[])dr["FINGER"];
                 if (m_StoredTemplate == null)
                 {
                     StatusBar.Text = "No data to verify";
@@ -179,7 +169,6 @@ namespace SchoolManagementSystem.Presentation
                     if (matched)
                     {
                         finger_found = true;
-                        finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
                         break;
                     }
                 }
@@ -189,11 +178,11 @@ namespace SchoolManagementSystem.Presentation
                     if (finger_found)
                     {
                         Attendance attendance = new Attendance();
-                        attendance.StudentId = Convert.ToInt32(dr["STUDENT_ID"].ToString());
+                        attendance.StudentId = Convert.ToInt32(dr["ID"].ToString());
                         attendance.TodayDate = DateTime.Now;
                         if (attendance.Insert())
                         {
-                            StatusBar.Text = "Welcome";
+                            StatusBar.Text = "Welcome "+ dr["STUDENT_NAME"].ToString();
                         }
                         else
                         {
@@ -212,65 +201,7 @@ namespace SchoolManagementSystem.Presentation
                     {
                         StatusBar.Text = "MatchIsoTemplate() Error : " + err;
                     }
-                }
-
-
-
-                //foreach (DataColumn dc in finger.Columns)
-                //{
-                //    m_StoredTemplate = (Byte[])dr[dc];
-                //    if (m_StoredTemplate == null)
-                //    {
-                //        StatusBar.Text = "No data to verify";
-                //        return;
-                //    }
-
-                //    err = m_FPM.GetIsoTemplateInfo(m_StoredTemplate, sample_info);
-
-                //    for (int i = 0; i < sample_info.TotalSamples; i++)
-                //    {
-                //        bool matched = false;
-                //        err = m_FPM.MatchIsoTemplate(m_StoredTemplate, i, m_VrfMin, 0, m_SecurityLevel, ref matched);
-                //        if (matched)
-                //        {
-                //            finger_found = true;
-                //            //finger_pos = (SGFPMFingerPosition)sample_info.SampleInfo[i].FingerNumber;
-                //            break;
-                //        }
-                //    }
-
-                //    if (err == (Int32)SGFPMError.ERROR_NONE)
-                //    {
-                //        if (finger_found)
-                //        {
-                //            Attendance attendance = new Attendance();
-                //            attendance.StudentId = 1;
-                //            attendance.TodayDate = DateTime.Now;
-                //            if (attendance.Insert())
-                //            {
-                //                StatusBar.Text = "Welcome";
-                //            }
-                //            else
-                //            {
-                //                StatusBar.Text = "Error";
-                //            }
-
-
-                //            return;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        if (m_useAnsiTemplate)
-                //        {
-                //            StatusBar.Text = "MatchAnsiTemplate() Error : " + err;
-                //        }
-                //        else
-                //        {
-                //            StatusBar.Text = "MatchIsoTemplate() Error : " + err;
-                //        }
-                //    }
-                //}   
+                } 
             }
             if (!finger_found)
             {
