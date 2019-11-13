@@ -73,7 +73,6 @@
     <Compile Include="ClassManager\ClassSectionWiseStudentManager.cs" />
     <Compile Include="ClassManager\ClassSetupManager.cs" />
     <Compile Include="ClassManager\ExamManager.cs" />
-    <Compile Include="ClassManager\FingerRegisterManager.cs" />
     <Compile Include="ClassManager\ResultManager.cs" />
     <Compile Include="ClassManager\RoleManager.cs" />
     <Compile Include="ClassManager\SectionManager.cs" />
@@ -91,7 +90,6 @@
     <Compile Include="Class\DatabaseManager.cs" />
     <Compile Include="Class\Exam.cs" />
     <Compile Include="Class\FileImage.cs" />
-    <Compile Include="Class\FingerRegister.cs" />
     <Compile Include="Class\ResultChild.cs" />
     <Compile Include="Class\ResultMaster.cs" />
     <Compile Include="Class\Role.cs" />
@@ -192,9 +190,6 @@
     <Compile Include="Presentation\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\mainform.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Presentation\frmFingerRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,9 +242,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\mainform.resx">
-      <DependentUpon>mainform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmFingerRegister.resx">
       <DependentUpon>frmFingerRegister.cs</DependentUpon>

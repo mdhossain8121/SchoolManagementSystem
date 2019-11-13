@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SchoolManagementSystem.Presentation;
-using sgdm;
 using MatchingAnsi;
 
 namespace SchoolManagementSystem
@@ -29,7 +28,6 @@ namespace SchoolManagementSystem
         frmStudent student = new frmStudent();
         frmResult result = new frmResult();
         frmDatabase database = new frmDatabase();
-        MainForm mainForm = new MainForm();
         Form1 matchingAnsi = new Form1();
         frmFingerRegister frmFingerRegister = new frmFingerRegister();
         
@@ -136,10 +134,6 @@ namespace SchoolManagementSystem
             //if (matchingAnsi.IsDisposed)
             //    matchingAnsi = new Form1();
             //menuClick(matchingAnsi);
-
-            //if (mainForm.IsDisposed)
-            //    mainForm = new MainForm();
-            //menuClick(mainForm);
         }
 
         private void examToolStripMenuItem_Click(object sender, EventArgs e)
