@@ -14,6 +14,7 @@ namespace SchoolManagementSystem
 {
     public partial class frmHome : Form
     {
+        DashBoard dashBoard = new DashBoard();
         frmClass cst = new frmClass();
         frmSection section = new frmSection();
         frmExam exam = new frmExam();
@@ -35,6 +36,7 @@ namespace SchoolManagementSystem
         public frmHome()
         {
             InitializeComponent();
+            //Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.White;
         }
 
 
@@ -155,6 +157,16 @@ namespace SchoolManagementSystem
             if(result.IsDisposed)
                 result = new frmResult();
             menuClick(result);
+        }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+            
+            dashBoard = new DashBoard();
+            
+            menuClick(dashBoard);
+            dashBoard.WindowState = FormWindowState.Maximized;
+
         }
     }
 }
