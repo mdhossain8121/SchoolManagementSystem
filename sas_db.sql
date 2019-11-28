@@ -1,7 +1,7 @@
 -- MySqlBackup.NET 2.3.1
--- Dump Time: 2019-11-13 00:56:18
+-- Dump Time: 2019-11-28 01:08:21
 -- --------------------------------------
--- Server version 10.1.19-MariaDB mariadb.org binary distribution
+-- Server version 10.1.36-MariaDB mariadb.org binary distribution
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `exam_setup_tbl` (
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
   `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- 
 -- Dumping data for table exam_setup_tbl
@@ -386,6 +386,32 @@ INSERT INTO `section_setup_tbl`(`ID`,`SECTION_NAME`,`ACTIVE_STATUS`,`CRT_BY`,`CR
 (5,'Section-E',1,0,'2019-06-23 12:26:00',0,'2019-06-23 12:26:00'),
 (6,'test',1,0,'2019-07-06 16:53:38',0,'2019-07-06 16:53:38');
 /*!40000 ALTER TABLE `section_setup_tbl` ENABLE KEYS */;
+
+-- 
+-- Definition of session_setup_tbl
+-- 
+
+DROP TABLE IF EXISTS `session_setup_tbl`;
+CREATE TABLE IF NOT EXISTS `session_setup_tbl` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SESSION_YEAR` varchar(50) NOT NULL DEFAULT '0',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
+  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
+  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- 
+-- Dumping data for table session_setup_tbl
+-- 
+
+/*!40000 ALTER TABLE `session_setup_tbl` DISABLE KEYS */;
+INSERT INTO `session_setup_tbl`(`ID`,`SESSION_YEAR`,`ACTIVE_STATUS`,`CRT_BY`,`CRT_DATE`,`UPD_BY`,`UPD_DATE`) VALUES
+(6,'2018 - 2019',1,0,'2019-11-28 00:56:56',0,'2019-11-28 00:56:56'),
+(7,'2019 - 2020',1,0,'2019-11-28 00:57:10',0,'2019-11-28 00:57:10');
+/*!40000 ALTER TABLE `session_setup_tbl` ENABLE KEYS */;
 
 -- 
 -- Definition of setup_child_tbl
@@ -614,5 +640,5 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tb
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2019-11-13 00:56:19
--- Total time: 0:0:0:0:803 (d:h:m:s:ms)
+-- Dump completed on 2019-11-28 01:08:22
+-- Total time: 0:0:0:0:278 (d:h:m:s:ms)

@@ -18,6 +18,7 @@ namespace SchoolManagementSystem
         frmClass cst = new frmClass();
         frmSection section = new frmSection();
         frmExam exam = new frmExam();
+        frmSession session = new frmSession();
         frmRole role = new frmRole();
         frmUser user = new frmUser();
         frmSubject subject = new frmSubject();
@@ -167,6 +168,13 @@ namespace SchoolManagementSystem
             menuClick(dashBoard);
             dashBoard.WindowState = FormWindowState.Maximized;
 
+        }
+
+        private void sessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (session.IsDisposed)
+                session = new frmSession();
+            menuClick(session);
         }
     }
 }

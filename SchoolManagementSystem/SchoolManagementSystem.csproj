@@ -72,6 +72,7 @@
     <Compile Include="ClassManager\ClassSectionWiseTeacherManager.cs" />
     <Compile Include="ClassManager\ClassSectionWiseStudentManager.cs" />
     <Compile Include="ClassManager\ClassSetupManager.cs" />
+    <Compile Include="ClassManager\SessionManager.cs" />
     <Compile Include="ClassManager\ExamManager.cs" />
     <Compile Include="ClassManager\ResultManager.cs" />
     <Compile Include="ClassManager\RoleManager.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Class\ClassWiseSection.cs" />
     <Compile Include="Class\ClassWiseSubject.cs" />
     <Compile Include="Class\DatabaseManager.cs" />
+    <Compile Include="Class\Session.cs" />
     <Compile Include="Class\Exam.cs" />
     <Compile Include="Class\FileImage.cs" />
     <Compile Include="Class\ResultChild.cs" />
@@ -147,6 +149,12 @@
     </Compile>
     <Compile Include="Presentation\frmDatabase.Designer.cs">
       <DependentUpon>frmDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmSession.Designer.cs">
+      <DependentUpon>frmSession.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\frmResult.cs">
       <SubType>Form</SubType>
@@ -228,6 +236,9 @@
     <EmbeddedResource Include="Presentation\frmDatabase.resx">
       <DependentUpon>frmDatabase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmSession.resx">
+      <DependentUpon>frmSession.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmResult.resx">
       <DependentUpon>frmResult.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,18 +271,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>

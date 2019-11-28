@@ -59,26 +59,5 @@ namespace SchoolManagementSystem.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap child_book_illustration_textbook_children_study_cartoon_poster_promotional_material {
-            get {
-                object obj = ResourceManager.GetObject("child-book-illustration-textbook-children-study-cartoon-poster-promotional-materi" +
-                        "al", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Midtown_High_School {
-            get {
-                object obj = ResourceManager.GetObject("Midtown_High_School", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
