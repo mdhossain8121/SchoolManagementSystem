@@ -37,6 +37,8 @@ namespace SchoolManagementSystem.Presentation
             }
             try
             {
+                //dgvStudentBasicInfo.DataSource = null;
+                dgvStudentBasicInfo.AutoGenerateColumns = false;
                 dgvStudentBasicInfo.DataSource = dt;
             }
             catch (Exception ex)
@@ -68,7 +70,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void resetStudentBasicInfoControls()
         {
-            Utilities.EmptyAllControls(tabBasicInformation);
+            Utilities.EmptyAllControls(pnlStudentBasicInfo);
             btnDelete.Enabled = false;
             btnSave.Text = "Save";
         }
@@ -76,7 +78,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void resetClassInfoControls()
         {
-            Utilities.EmptyAllControls(tabClassInfo);
+            Utilities.EmptyAllControls(splitContainer2.Panel1);
             Utilities.ResetComboBox(cmbClassWiseSection);
             btnDeleteClassInfo.Enabled = false;
             btnSaveClassInfo.Text = "Save";
@@ -121,7 +123,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Utilities.EmptyRequiredField(tabBasicInformation))
+            if (Utilities.EmptyRequiredField(pnlStudentBasicInfo))
                 return;
             Student aStudent = new Student();
             aStudent.Image = FileImage.ImageToByte(pbImage.BackgroundImage);
@@ -184,7 +186,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnSaveClassInfo_Click(object sender, EventArgs e)
         {
-            if (Utilities.EmptyRequiredField(tabBasicInformation))
+            if (Utilities.EmptyRequiredField(splitContainer2.Panel1))
                 return;
             ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
             aClassSectionWiseStudent.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());

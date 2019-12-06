@@ -166,7 +166,8 @@ namespace SchoolManagementSystem
             dashBoard = new DashBoard();
             
             menuClick(dashBoard);
-            dashBoard.WindowState = FormWindowState.Maximized;
+            //dashBoard.WindowState = FormWindowState.Maximized;
+            dashBoard.Dock = DockStyle.Fill;
 
         }
 

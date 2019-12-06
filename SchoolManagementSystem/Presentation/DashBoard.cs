@@ -16,5 +16,11 @@ namespace SchoolManagementSystem.Presentation
         {
             InitializeComponent();
         }
+
+        private void DashBoard_Load(object sender, EventArgs e)
+        {
+            //this.WindowState = FormWindowState.Maximized;
+            
+        }
     }
 }

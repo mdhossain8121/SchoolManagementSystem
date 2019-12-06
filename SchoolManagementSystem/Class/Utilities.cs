@@ -17,10 +17,10 @@ namespace SchoolManagementSystem.Class
         {
             foreach (Control control in form.Controls)
             {
-                if (control.HasChildren)
-                {
-                    EmptyAllControls(control);
-                }
+                //if (control.HasChildren)
+                //{
+                //    EmptyAllControls(control);
+                //}
                 if (control is TextBox)
                 {
                     TextBox textBox = (TextBox)control;
@@ -54,7 +54,7 @@ namespace SchoolManagementSystem.Class
                 else if (control is PictureBox)
                 {
                     PictureBox pictureBox = (PictureBox)control;
-                    pictureBox.BackgroundImage = null;
+                    pictureBox.BackgroundImage = pictureBox.InitialImage;
                 }
                 else if (control is DateTimePicker)
                 {

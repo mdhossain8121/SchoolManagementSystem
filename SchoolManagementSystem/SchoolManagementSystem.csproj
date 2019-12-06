@@ -328,7 +328,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\reading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\professor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
