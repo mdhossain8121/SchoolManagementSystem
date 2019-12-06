@@ -167,7 +167,7 @@
             this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvData.RowTemplate.Height = 60;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(1153, 303);
+            this.dgvData.Size = new System.Drawing.Size(1153, 305);
             this.dgvData.TabIndex = 16;
             this.dgvData.Tag = "Required";
             this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
@@ -489,6 +489,7 @@
             // 
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Name = "splitContainer2";
             // 
@@ -511,6 +512,7 @@
             // 
             // btnSaveTeacherClassSection
             // 
+            this.btnSaveTeacherClassSection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveTeacherClassSection.Location = new System.Drawing.Point(338, 11);
             this.btnSaveTeacherClassSection.Name = "btnSaveTeacherClassSection";
             this.btnSaveTeacherClassSection.Size = new System.Drawing.Size(66, 29);
@@ -521,16 +523,17 @@
             // 
             // tvClassSection
             // 
+            this.tvClassSection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tvClassSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tvClassSection.CheckBoxes = true;
-            this.tvClassSection.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tvClassSection.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tvClassSection.FullRowSelect = true;
             this.tvClassSection.ItemHeight = 20;
             this.tvClassSection.LineColor = System.Drawing.Color.DarkGreen;
-            this.tvClassSection.Location = new System.Drawing.Point(0, 46);
+            this.tvClassSection.Location = new System.Drawing.Point(4, 46);
             this.tvClassSection.Name = "tvClassSection";
-            this.tvClassSection.Size = new System.Drawing.Size(414, 535);
+            this.tvClassSection.Size = new System.Drawing.Size(407, 535);
             this.tvClassSection.TabIndex = 49;
             // 
             // cmbTeacher
@@ -560,7 +563,7 @@
             // 
             this.txtTeacherClassInfoSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTeacherClassInfoSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTeacherClassInfoSearch.Location = new System.Drawing.Point(491, 14);
+            this.txtTeacherClassInfoSearch.Location = new System.Drawing.Point(484, 13);
             this.txtTeacherClassInfoSearch.Name = "txtTeacherClassInfoSearch";
             this.txtTeacherClassInfoSearch.Size = new System.Drawing.Size(194, 26);
             this.txtTeacherClassInfoSearch.TabIndex = 18;
@@ -570,7 +573,7 @@
             // 
             this.btnTeacherClassInfoSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTeacherClassInfoSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTeacherClassInfoSearch.Location = new System.Drawing.Point(691, 13);
+            this.btnTeacherClassInfoSearch.Location = new System.Drawing.Point(684, 12);
             this.btnTeacherClassInfoSearch.Name = "btnTeacherClassInfoSearch";
             this.btnTeacherClassInfoSearch.Size = new System.Drawing.Size(74, 27);
             this.btnTeacherClassInfoSearch.TabIndex = 19;
@@ -581,6 +584,9 @@
             // dgvTeacherClassInfo
             // 
             this.dgvTeacherClassInfo.AllowUserToAddRows = false;
+            this.dgvTeacherClassInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTeacherClassInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTeacherClassInfo.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvTeacherClassInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -607,9 +613,8 @@
             dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTeacherClassInfo.DefaultCellStyle = dataGridViewCellStyle21;
-            this.dgvTeacherClassInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvTeacherClassInfo.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvTeacherClassInfo.Location = new System.Drawing.Point(0, 46);
+            this.dgvTeacherClassInfo.Location = new System.Drawing.Point(0, 45);
             this.dgvTeacherClassInfo.MultiSelect = false;
             this.dgvTeacherClassInfo.Name = "dgvTeacherClassInfo";
             this.dgvTeacherClassInfo.ReadOnly = true;
@@ -624,7 +629,7 @@
             this.dgvTeacherClassInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvTeacherClassInfo.RowTemplate.Height = 60;
             this.dgvTeacherClassInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTeacherClassInfo.Size = new System.Drawing.Size(762, 535);
+            this.dgvTeacherClassInfo.Size = new System.Drawing.Size(762, 536);
             this.dgvTeacherClassInfo.TabIndex = 17;
             this.dgvTeacherClassInfo.Tag = "Required";
             this.dgvTeacherClassInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeacherClassInfo_CellContentClick);
