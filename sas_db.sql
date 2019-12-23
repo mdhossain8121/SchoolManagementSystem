@@ -1,5 +1,5 @@
 -- MySqlBackup.NET 2.3.1
--- Dump Time: 2019-12-06 12:57:25
+-- Dump Time: 2019-12-24 03:50:16
 -- --------------------------------------
 -- Server version 10.1.36-MariaDB mariadb.org binary distribution
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `class_section_wise_student_tbl` (
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
   `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- 
 -- Dumping data for table class_section_wise_student_tbl
@@ -169,9 +169,10 @@ CREATE TABLE IF NOT EXISTS `class_wise_section_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASS_ID` int(11) NOT NULL,
   `SECTION_ID` int(11) NOT NULL,
+  `SESSION_ID` int(11) NOT NULL,
   `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `CLASS_ID_SECTION_ID` (`CLASS_ID`,`SECTION_ID`)
+  UNIQUE KEY `CLASS_ID_SECTION_ID_SESSION_ID` (`CLASS_ID`,`SECTION_ID`,`SESSION_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- 
@@ -179,13 +180,13 @@ CREATE TABLE IF NOT EXISTS `class_wise_section_tbl` (
 -- 
 
 /*!40000 ALTER TABLE `class_wise_section_tbl` DISABLE KEYS */;
-INSERT INTO `class_wise_section_tbl`(`ID`,`CLASS_ID`,`SECTION_ID`,`ACTIVE_STATUS`) VALUES
-(1,1,1,1),
-(2,1,2,1),
-(3,1,3,1),
-(4,2,2,1),
-(5,2,3,1),
-(6,3,5,1);
+INSERT INTO `class_wise_section_tbl`(`ID`,`CLASS_ID`,`SECTION_ID`,`SESSION_ID`,`ACTIVE_STATUS`) VALUES
+(1,1,1,7,1),
+(2,1,2,7,1),
+(3,1,3,7,1),
+(4,2,2,7,1),
+(5,2,3,7,1),
+(6,3,5,7,1);
 /*!40000 ALTER TABLE `class_wise_section_tbl` ENABLE KEYS */;
 
 -- 
@@ -285,6 +286,7 @@ CREATE TABLE IF NOT EXISTS `result_master_tbl` (
   `CLASSEXAM_ID` int(11) NOT NULL,
   `CLASSSUBJECT_ID` int(11) NOT NULL,
   `TOTAL_MARKS` int(11) NOT NULL,
+  `SESSION_ID` int(11) DEFAULT NULL,
   `EXAM_DATE` datetime NOT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
   `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -629,7 +631,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_exam_tbl` 
 
 DROP TABLE IF EXISTS `view_class_wise_section_tbl`;
 DROP VIEW IF EXISTS `view_class_wise_section_tbl`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tbl` AS select `cws`.`ID` AS `ID`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`cws`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from ((`class_wise_section_tbl` `cws` left join `class_setup_tbl` `cs` on((`cs`.`ID` = `cws`.`CLASS_ID`))) left join `section_setup_tbl` `ss` on((`ss`.`ID` = `cws`.`SECTION_ID`)));
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tbl` AS select `cws`.`ID` AS `ID`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`cs`.`ID` AS `CLASS_ID`,`cs`.`ACTIVE_STATUS` AS `CLASS_ACTIVE`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`ss`.`ID` AS `SECTION_ID`,`ss`.`ACTIVE_STATUS` AS `SECTION_ACTIVE`,`sns`.`SESSION_YEAR` AS `SESSION_YEAR`,`sns`.`ID` AS `SESSION_ID`,`sns`.`ACTIVE_STATUS` AS `SESSION_ACTIVE`,`cws`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from (((`class_wise_section_tbl` `cws` join `class_setup_tbl` `cs`) join `section_setup_tbl` `ss`) join `session_setup_tbl` `sns`) where ((`cs`.`ID` = `cws`.`CLASS_ID`) and (`ss`.`ID` = `cws`.`SECTION_ID`) and (`sns`.`ID` = `cws`.`SESSION_ID`));
 
 
 
@@ -642,5 +644,5 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tb
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2019-12-06 12:57:25
--- Total time: 0:0:0:0:277 (d:h:m:s:ms)
+-- Dump completed on 2019-12-24 03:50:17
+-- Total time: 0:0:0:0:253 (d:h:m:s:ms)

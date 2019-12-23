@@ -33,6 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbClass = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmbSession = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnFind = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,9 +43,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssMessage});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 324);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 408);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(687, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(797, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -53,11 +56,9 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(168, 9);
+            this.label1.Location = new System.Drawing.Point(22, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 20);
             this.label1.TabIndex = 6;
@@ -65,11 +66,9 @@
             // 
             // cmbClass
             // 
-            this.cmbClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(236, 6);
+            this.cmbClass.Location = new System.Drawing.Point(90, 6);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.Size = new System.Drawing.Size(234, 28);
             this.cmbClass.TabIndex = 5;
@@ -82,14 +81,47 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.Location = new System.Drawing.Point(12, 40);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(663, 272);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(773, 356);
             this.flowLayoutPanel.TabIndex = 4;
+            // 
+            // cmbSession
+            // 
+            this.cmbSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cmbSession.FormattingEnabled = true;
+            this.cmbSession.Location = new System.Drawing.Point(431, 6);
+            this.cmbSession.Name = "cmbSession";
+            this.cmbSession.Size = new System.Drawing.Size(235, 28);
+            this.cmbSession.TabIndex = 15;
+            this.cmbSession.Tag = "Required";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.Location = new System.Drawing.Point(347, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Session : ";
+            // 
+            // btnFind
+            // 
+            this.btnFind.Location = new System.Drawing.Point(694, 6);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(75, 28);
+            this.btnFind.TabIndex = 16;
+            this.btnFind.Text = "Find";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // frmClassWiseSection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 346);
+            this.ClientSize = new System.Drawing.Size(797, 430);
+            this.Controls.Add(this.btnFind);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cmbSession);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbClass);
@@ -111,5 +143,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbClass;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        private System.Windows.Forms.ComboBox cmbSession;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnFind;
     }
 }

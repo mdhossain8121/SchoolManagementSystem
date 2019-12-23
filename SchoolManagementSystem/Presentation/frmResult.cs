@@ -24,7 +24,6 @@ namespace SchoolManagementSystem.Presentation
 
         private void frmResult_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(cmbClass.SelectedIndex);
             // Load Class
             Class.ClassSetup cs = new Class.ClassSetup();
             cs.ActiveStatus = 1;
@@ -38,26 +37,24 @@ namespace SchoolManagementSystem.Presentation
             cmbClass.DisplayMember = "CLASS_NAME";
             cmbClass.ValueMember = "ID";
             cmbClass.SelectedIndex = -1;
+
+            // Load Session
+            Class.Session s = new Class.Session();
+            s.ActiveStatus = 1;
+            DataSet dsSession = s.Select();
+            if (dsSession == null)
+            {
+                MessageBox.Show(s.Error);
+                return;
+            }
+            cmbSession.DataSource = dsSession.Tables[0];
+            cmbSession.DisplayMember = "SESSION_YEAR";
+            cmbSession.ValueMember = "ID";
+            cmbSession.SelectedIndex = -1;
         }
 
         private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cmbClass.SelectedIndex < 0) return;
-            ClassWiseSection aClassWiseSection = new ClassWiseSection();
-            aClassWiseSection.ActiveStatus = 1;
-            aClassWiseSection.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
-            DataSet dsClassWiseSection = aClassWiseSection.SelectByClassId();
-            if (dsClassWiseSection == null)
-            {
-                MessageBox.Show(aClassWiseSection.Error);
-                return;
-            }
-            cmbClassWiseSection.DataSource = dsClassWiseSection.Tables[0];
-            cmbClassWiseSection.DisplayMember = "SECTION_NAME";
-            cmbClassWiseSection.ValueMember = "ID";
-            cmbClassWiseSection.SelectedIndex = -1;
-
-
             ClassWiseSubject aClassWiseSubject = new ClassWiseSubject();
             aClassWiseSubject.ActiveStatus = 1;
             aClassWiseSubject.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
@@ -99,12 +96,15 @@ namespace SchoolManagementSystem.Presentation
             aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
             aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
             aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
-            aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
+            //aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
+            aResultMaster.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString());
 
             if (aResultMaster.CheckIfResultExist() > 0)
             {
-                string s = "You already submitted result of Class: ({0}) Section: ({1}) Exam :({2}) for Year :({3})";
-                string msg = string.Format(s, cmbClass.Text, cmbClassWiseSection.Text, cmbClassWiseExam.Text, DateTime.Parse(dtpExamDate.Value.ToString()).Year.ToString());
+                //string s = "You already submitted result of Class: ({0}) Section: ({1}) Exam :({2}) for Year :({3})";
+                string s = "You already submitted result of Class: ({0}) Section: ({1}) Exam :({2}) for Session :({3})";
+                //string msg = string.Format(s, cmbClass.Text, cmbClassWiseSection.Text, cmbClassWiseExam.Text, DateTime.Parse(dtpExamDate.Value.ToString()).Year.ToString());
+                string msg = string.Format(s, cmbClass.Text, cmbClassWiseSection.Text, cmbClassWiseExam.Text, cmbSession.Text);
                 MessageBox.Show(msg);
                 return;
             }
@@ -133,7 +133,8 @@ namespace SchoolManagementSystem.Presentation
             aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
             aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
             aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
-            aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
+            //aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
+            aResultMaster.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString());
             aResultMaster.Id = aResultMaster.Insert();
             if (aResultMaster.Id > 0)
             {
@@ -231,6 +232,25 @@ namespace SchoolManagementSystem.Presentation
             releaseObject(xlApp);
 
             MessageBox.Show("Excel file created , you can find the file D:\\csharp.net-informations.xls");
+        }
+
+        private void cmbSession_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmbClass.SelectedIndex < 0 || cmbSession.SelectedIndex < 0) return;
+            ClassWiseSection aClassWiseSection = new ClassWiseSection();
+            aClassWiseSection.ActiveStatus = 1;
+            aClassWiseSection.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
+            aClassWiseSection.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString());
+            DataSet dsClassWiseSection = aClassWiseSection.SelectByClassSessionId();
+            if (dsClassWiseSection == null)
+            {
+                MessageBox.Show(aClassWiseSection.Error);
+                return;
+            }
+            cmbClassWiseSection.DataSource = dsClassWiseSection.Tables[0];
+            cmbClassWiseSection.DisplayMember = "SECTION_NAME";
+            cmbClassWiseSection.ValueMember = "ID";
+            cmbClassWiseSection.SelectedIndex = -1;
         }
     }
 }

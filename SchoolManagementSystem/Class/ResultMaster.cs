@@ -19,6 +19,8 @@ namespace SchoolManagementSystem.Class
 
         public DateTime ExamDate { get; set; }
 
+        public int SessionId { get; set; }
+
         public List<ResultChild> ResultChild { get; set; }
 
         private static readonly String tblResultMaster = "result_master_tbl";
@@ -28,11 +30,13 @@ namespace SchoolManagementSystem.Class
 
         public long Insert()
         {
-            Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSEXAM_ID, CLASSSUBJECT_ID, TOTAL_MARKS, EXAM_DATE) values(@classExamId, @classSubjectId, @totalMarks, @examDate)");
+            Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSEXAM_ID, CLASSSUBJECT_ID, TOTAL_MARKS, SESSION_ID) values(@classExamId, @classSubjectId, @totalMarks, @session)");
+            //Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSEXAM_ID, CLASSSUBJECT_ID, TOTAL_MARKS, EXAM_DATE) values(@classExamId, @classSubjectId, @totalMarks, @examDate)");
             Command.Parameters.AddWithValue("@classExamId", ClassExamId);
             Command.Parameters.AddWithValue("@classSubjectId", ClassSubjectId);
             Command.Parameters.AddWithValue("@totalMarks", TotalMarks);
-            Command.Parameters.AddWithValue("@examDate", ExamDate);
+            //Command.Parameters.AddWithValue("@examDate", ExamDate);
+            Command.Parameters.AddWithValue("@session", SessionId);
             return ExecuteAndReturnId(Command);
         }
 
@@ -78,10 +82,12 @@ namespace SchoolManagementSystem.Class
 
         public int CheckIfResultExist()
         {
-            Command = CommandBuilder("select count(*) from " + tblResultMaster + " where CLASSEXAM_ID = @classExamId and CLASSSUBJECT_ID = @classSubjectId and YEAR(EXAM_DATE) = @examDate");
+            //Command = CommandBuilder("select count(*) from " + tblResultMaster + " where CLASSEXAM_ID = @classExamId and CLASSSUBJECT_ID = @classSubjectId and YEAR(EXAM_DATE) = @examDate");
+            Command = CommandBuilder("select count(*) from " + tblResultMaster + " where CLASSEXAM_ID = @classExamId and CLASSSUBJECT_ID = @classSubjectId and SESSION_ID = @session");
             Command.Parameters.AddWithValue("@classExamId", ClassExamId);
             Command.Parameters.AddWithValue("@classSubjectId", ClassSubjectId);
-            Command.Parameters.AddWithValue("@examDate", ExamDate.Year);
+            //Command.Parameters.AddWithValue("@examDate", ExamDate.Year);
+            Command.Parameters.AddWithValue("@session", SessionId);
             return ExecuteCount(Command);
         }
     }

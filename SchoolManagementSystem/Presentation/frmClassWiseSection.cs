@@ -29,7 +29,15 @@ namespace SchoolManagementSystem.Presentation
                 cb.Checked = false;
                 return;
             }
+
+            if (cmbSession.SelectedIndex < 0)
+            {
+                ep.SetError(cmbSession, "Please select a session");
+                cb.Checked = false;
+                return;
+            }
             cws.ClassId = (int)cmbClass.SelectedValue;
+            cws.SectionId = (int)cmbSession.SelectedValue;
             cws.SectionId = (int)cb.Tag;
 
             if (cws.Insert())
@@ -57,6 +65,20 @@ namespace SchoolManagementSystem.Presentation
             cmbClass.ValueMember = "ID";
             cmbClass.SelectedIndex = -1;
 
+            // Load Session
+            Class.Session s = new Class.Session();
+            s.ActiveStatus = 1;
+            DataSet dsSession = s.Select();
+            if (dsSession == null)
+            {
+                MessageBox.Show(s.Error);
+                return;
+            }
+            cmbSession.DataSource = dsSession.Tables[0];
+            cmbSession.DisplayMember = "SESSION_YEAR";
+            cmbSession.ValueMember = "ID";
+            cmbSession.SelectedIndex = -1;
+
             //---------------- Load subject --------------//
             CheckBox cb;
             Class.Section section = new Class.Section();
@@ -80,13 +102,19 @@ namespace SchoolManagementSystem.Presentation
 
         private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
             ep.Clear();
             Class.Utilities.EmptyAllControls(flowLayoutPanel);
-            if (cmbClass.SelectedIndex > -1)
+            if (cmbClass.SelectedIndex > -1 && cmbSession.SelectedIndex > -1)
             {
                 Class.ClassWiseSection cws = new Class.ClassWiseSection();
                 cws.ClassId = (int)cmbClass.SelectedValue;
-                DataTable dt = cws.SelectByClassId().Tables[0];
+                cws.SessionId = (int)cmbSession.SelectedValue;
+                DataTable dt = cws.SelectByClassSessionId().Tables[0];
                 if (dt == null)
                 {
                     MessageBox.Show(cws.Error);

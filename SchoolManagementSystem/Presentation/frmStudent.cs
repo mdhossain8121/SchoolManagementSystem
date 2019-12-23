@@ -265,13 +265,27 @@ namespace SchoolManagementSystem.Presentation
             cmbClass.ValueMember = "ID";
             cmbClass.SelectedIndex = -1;
 
+            // Load Session
+            Class.Session s = new Class.Session();
+            s.ActiveStatus = 1;
+            DataSet dsSession = s.Select();
+            if (dsSession == null)
+            {
+                MessageBox.Show(s.Error);
+                return;
+            }
+            cmbSession.DataSource = dsSession.Tables[0];
+            cmbSession.DisplayMember = "SESSION_YEAR";
+            cmbSession.ValueMember = "ID";
+            cmbSession.SelectedIndex = -1;
 
-            Student aStudet = new Student();
-            aStudet.ActiveStatus = 1;
-            DataSet dsStudent = aStudet.Select();
+
+            Student aStudent = new Student();
+            aStudent.ActiveStatus = 1;
+            DataSet dsStudent = aStudent.Select();
             if (dsStudent == null)
             {
-                MessageBox.Show(aStudet.Error);
+                MessageBox.Show(aStudent.Error);
                 return;
             }
             cmbStudent.DataSource = dsStudent.Tables[0];
@@ -284,22 +298,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            cmbClassWiseSection.DataSource = null;
-            cmbClassWiseSection.Items.Clear();
-            cmbClassWiseSection.IntegralHeight = false;
-            ClassWiseSection aClassWiseSection = new ClassWiseSection();
-            aClassWiseSection.ActiveStatus = 1;
-            aClassWiseSection.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
-            DataSet dsClassWiseSection = aClassWiseSection.SelectByClassId();
-            if (dsClassWiseSection == null)
-            {
-                MessageBox.Show(aClassWiseSection.Error);
-                return;
-            }
-            cmbClassWiseSection.DataSource = dsClassWiseSection.Tables[0];
-            cmbClassWiseSection.DisplayMember = "SECTION_NAME";
-            cmbClassWiseSection.ValueMember = "ID";
-            cmbClassWiseSection.SelectedIndex = -1;
+            loadAllSection();
         }
 
         private void dgvClassInfo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -319,6 +318,11 @@ namespace SchoolManagementSystem.Presentation
 
         private void cmbClass_SelectedIndexChanged(object sender, EventArgs e)
         {
+            loadAllSection();
+        }
+
+        public void loadAllSection()
+        {
             cmbClassWiseSection.DataSource = null;
             cmbClassWiseSection.Items.Clear();
             cmbClassWiseSection.IntegralHeight = false;
@@ -327,12 +331,13 @@ namespace SchoolManagementSystem.Presentation
             try
             {
                 aClassWiseSection.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
+                aClassWiseSection.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString());
             }
             catch (Exception)
             {
                 return;
             }
-            DataSet dsClassWiseSection = aClassWiseSection.SelectByClassId();
+            DataSet dsClassWiseSection = aClassWiseSection.SelectByClassSessionId();
             if (dsClassWiseSection == null)
             {
                 MessageBox.Show(aClassWiseSection.Error);
@@ -342,6 +347,11 @@ namespace SchoolManagementSystem.Presentation
             cmbClassWiseSection.DisplayMember = "SECTION_NAME";
             cmbClassWiseSection.ValueMember = "ID";
             cmbClassWiseSection.SelectedIndex = -1;
+        }
+
+        private void cmbSession_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadAllSection();
         }
     }
 }
