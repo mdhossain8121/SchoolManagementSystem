@@ -116,13 +116,13 @@ namespace MatchingAnsi
             this.label2 = new System.Windows.Forms.Label();
             this.BtnRegister = new System.Windows.Forms.Button();
             this.progressBar_R2 = new System.Windows.Forms.ProgressBar();
+            this.cmbStudent = new System.Windows.Forms.ComboBox();
             this.progressBar_R1 = new System.Windows.Forms.ProgressBar();
             this.pictureBoxR2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxR1 = new System.Windows.Forms.PictureBox();
             this.BtnCapture1 = new System.Windows.Forms.Button();
             this.BtnCapture2 = new System.Windows.Forms.Button();
             this.StatusBar = new System.Windows.Forms.Label();
-            this.cmbStudent = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxV1)).BeginInit();
@@ -150,7 +150,7 @@ namespace MatchingAnsi
             this.OpenDeviceBtn.Name = "OpenDeviceBtn";
             this.OpenDeviceBtn.Size = new System.Drawing.Size(104, 24);
             this.OpenDeviceBtn.TabIndex = 8;
-            this.OpenDeviceBtn.Text = "Init";
+            this.OpenDeviceBtn.Text = "Connect";
             this.OpenDeviceBtn.UseVisualStyleBackColor = false;
             this.OpenDeviceBtn.Click += new System.EventHandler(this.InitBtn_Click);
             // 
@@ -293,6 +293,24 @@ namespace MatchingAnsi
             this.progressBar_R2.Size = new System.Drawing.Size(104, 12);
             this.progressBar_R2.TabIndex = 44;
             // 
+            // cmbStudent
+            // 
+            this.cmbStudent.Items.AddRange(new object[] {
+            "Auto Selection",
+            "USB FDU08P(U20AP)",
+            "USB FDU08(U20A)",
+            "USB FDU07A(U10A)",
+            "USB FDU07(U10)",
+            "USB FDU05",
+            "USB FDU04",
+            "USB FDU03",
+            "USB FDU02",
+            "No device"});
+            this.cmbStudent.Location = new System.Drawing.Point(67, 21);
+            this.cmbStudent.Name = "cmbStudent";
+            this.cmbStudent.Size = new System.Drawing.Size(200, 21);
+            this.cmbStudent.TabIndex = 6;
+            // 
             // progressBar_R1
             // 
             this.progressBar_R1.Location = new System.Drawing.Point(15, 176);
@@ -353,24 +371,6 @@ namespace MatchingAnsi
             this.StatusBar.Name = "StatusBar";
             this.StatusBar.Size = new System.Drawing.Size(425, 24);
             this.StatusBar.TabIndex = 38;
-            // 
-            // cmbStudent
-            // 
-            this.cmbStudent.Items.AddRange(new object[] {
-            "Auto Selection",
-            "USB FDU08P(U20AP)",
-            "USB FDU08(U20A)",
-            "USB FDU07A(U10A)",
-            "USB FDU07(U10)",
-            "USB FDU05",
-            "USB FDU04",
-            "USB FDU03",
-            "USB FDU02",
-            "No device"});
-            this.cmbStudent.Location = new System.Drawing.Point(67, 21);
-            this.cmbStudent.Name = "cmbStudent";
-            this.cmbStudent.Size = new System.Drawing.Size(200, 21);
-            this.cmbStudent.TabIndex = 6;
             // 
             // frmFingerRegister
             // 
