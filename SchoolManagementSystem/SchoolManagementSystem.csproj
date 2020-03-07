@@ -217,11 +217,23 @@
     <Compile Include="Presentation\MatchingAnsiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Student\frmStudentMenu.cs">
+    <Compile Include="Presentation\StudentForms\frmStudentAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Student\frmStudentMenu.Designer.cs">
+    <Compile Include="Presentation\StudentForms\frmStudentAttendance.Designer.cs">
+      <DependentUpon>frmStudentAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\StudentForms\frmStudentMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\StudentForms\frmStudentMenu.Designer.cs">
       <DependentUpon>frmStudentMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\StudentForms\frmStudentResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\StudentForms\frmStudentResult.Designer.cs">
+      <DependentUpon>frmStudentResult.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -282,8 +294,14 @@
     <EmbeddedResource Include="Presentation\MatchingAnsiForm.resx">
       <DependentUpon>MatchingAnsiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Student\frmStudentMenu.resx">
+    <EmbeddedResource Include="Presentation\StudentForms\frmStudentAttendance.resx">
+      <DependentUpon>frmStudentAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\StudentForms\frmStudentMenu.resx">
       <DependentUpon>frmStudentMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\StudentForms\frmStudentResult.resx">
+      <DependentUpon>frmStudentResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

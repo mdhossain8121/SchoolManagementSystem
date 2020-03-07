@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SchoolManagementSystem.Presentation.Student
+namespace SchoolManagementSystem.Presentation.StudentForms
 {
-    public partial class frmStudentMenu : Form
+    public partial class frmStudentAttendance : Form
     {
-        public frmStudentMenu()
+        public frmStudentAttendance()
         {
             InitializeComponent();
         }
