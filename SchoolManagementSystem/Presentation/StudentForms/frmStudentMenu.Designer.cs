@@ -32,14 +32,14 @@
             this.btnResult = new FontAwesome.Sharp.IconButton();
             this.btnAttendance = new FontAwesome.Sharp.IconButton();
             this.pnlSideBarLogo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlTitleBar = new System.Windows.Forms.Panel();
             this.btnAppMinimize = new FontAwesome.Sharp.IconButton();
             this.btnAppMaximize = new FontAwesome.Sharp.IconButton();
             this.btnAppClose = new FontAwesome.Sharp.IconButton();
+            this.btnCloseChildForm = new FontAwesome.Sharp.IconButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlChildForm = new System.Windows.Forms.Panel();
-            this.btnCloseChildForm = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlSideBar.SuspendLayout();
             this.pnlSideBarLogo.SuspendLayout();
             this.pnlTitleBar.SuspendLayout();
@@ -47,6 +47,7 @@
             // 
             // pnlSideBar
             // 
+            this.pnlSideBar.AutoScroll = true;
             this.pnlSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(70)))));
             this.pnlSideBar.Controls.Add(this.btnResult);
             this.pnlSideBar.Controls.Add(this.btnAttendance);
@@ -73,6 +74,7 @@
             this.btnResult.Location = new System.Drawing.Point(0, 126);
             this.btnResult.Margin = new System.Windows.Forms.Padding(4);
             this.btnResult.Name = "btnResult";
+            this.btnResult.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnResult.Rotation = 0D;
             this.btnResult.Size = new System.Drawing.Size(248, 55);
             this.btnResult.TabIndex = 3;
@@ -96,6 +98,7 @@
             this.btnAttendance.Location = new System.Drawing.Point(0, 71);
             this.btnAttendance.Margin = new System.Windows.Forms.Padding(4);
             this.btnAttendance.Name = "btnAttendance";
+            this.btnAttendance.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAttendance.Rotation = 0D;
             this.btnAttendance.Size = new System.Drawing.Size(248, 55);
             this.btnAttendance.TabIndex = 2;
@@ -114,6 +117,19 @@
             this.pnlSideBarLogo.Name = "pnlSideBarLogo";
             this.pnlSideBarLogo.Size = new System.Drawing.Size(248, 71);
             this.pnlSideBarLogo.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.Location = new System.Drawing.Point(32, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(186, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Student Portal";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlTitleBar
             // 
@@ -176,6 +192,7 @@
             // btnAppClose
             // 
             this.btnAppClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAppClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAppClose.FlatAppearance.BorderSize = 0;
             this.btnAppClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAppClose.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -194,27 +211,6 @@
             this.btnAppClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAppClose.UseVisualStyleBackColor = true;
             this.btnAppClose.Click += new System.EventHandler(this.btnAppClose_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lblTitle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitle.Location = new System.Drawing.Point(423, 22);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(95, 31);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "HOME";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlChildForm
-            // 
-            this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChildForm.Location = new System.Drawing.Point(248, 71);
-            this.pnlChildForm.Name = "pnlChildForm";
-            this.pnlChildForm.Size = new System.Drawing.Size(961, 613);
-            this.pnlChildForm.TabIndex = 2;
             // 
             // btnCloseChildForm
             // 
@@ -237,31 +233,41 @@
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
             this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click);
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(32, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Student Portal";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblTitle.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTitle.Location = new System.Drawing.Point(423, 22);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(95, 31);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "HOME";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlChildForm
+            // 
+            this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlChildForm.Location = new System.Drawing.Point(248, 71);
+            this.pnlChildForm.Name = "pnlChildForm";
+            this.pnlChildForm.Size = new System.Drawing.Size(961, 613);
+            this.pnlChildForm.TabIndex = 2;
             // 
             // frmStudentMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 684);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlChildForm);
             this.Controls.Add(this.pnlTitleBar);
             this.Controls.Add(this.pnlSideBar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1000, 650);
             this.Name = "frmStudentMenu";
-            this.Text = "frmStudentMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Resize += new System.EventHandler(this.frmStudentMenu_Resize);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBarLogo.ResumeLayout(false);

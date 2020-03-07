@@ -26,7 +26,6 @@ namespace SchoolManagementSystem.Presentation.StudentForms
             pnlSideBar.Controls.Add(leftBorderBtn);
             btnCloseChildForm.Visible = false;
             this.Text = String.Empty;
-            this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
