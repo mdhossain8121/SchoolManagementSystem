@@ -1,5 +1,5 @@
 -- MySqlBackup.NET 2.3.1
--- Dump Time: 2019-12-24 03:50:16
+-- Dump Time: 2020-03-09 00:38:38
 -- --------------------------------------
 -- Server version 10.1.36-MariaDB mariadb.org binary distribution
 
@@ -355,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `role_setup_tbl` (
 /*!40000 ALTER TABLE `role_setup_tbl` DISABLE KEYS */;
 INSERT INTO `role_setup_tbl`(`ID`,`ROLE_NAME`,`DESCRIPTION`,`ACTIVE_STATUS`,`CRT_BY`,`CRT_DATE`,`UPD_BY`,`UPD_DATE`) VALUES
 (1,'Admin','admin',1,0,'2019-06-26 10:45:21',0,'2019-06-26 10:45:21'),
-(2,'User','user',1,0,'2019-06-26 10:51:47',0,'2019-06-26 10:51:47');
+(2,'Student','student',1,0,'2019-06-26 10:51:47',0,'2019-06-26 10:51:47');
 /*!40000 ALTER TABLE `role_setup_tbl` ENABLE KEYS */;
 
 -- 
@@ -599,7 +599,7 @@ CREATE TABLE IF NOT EXISTS `user_tbl` (
   `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `USER_NAME` (`USER_NAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- 
 -- Dumping data for table user_tbl
@@ -607,10 +607,8 @@ CREATE TABLE IF NOT EXISTS `user_tbl` (
 
 /*!40000 ALTER TABLE `user_tbl` DISABLE KEYS */;
 INSERT INTO `user_tbl`(`ID`,`USER_NAME`,`PASSWORD`,`ROLE_ID`,`ACTIVE_STATUS`,`CRT_BY`,`CRT_DATE`,`UPD_BY`,`UPD_DATE`) VALUES
-(1,'Hossain','a9a4185682da9cf23dc5824f71ac38b0',1,1,0,'2019-06-29 10:24:35',0,'2019-06-29 10:24:35'),
-(2,'User1','ee11cbb19052e40b07aac0ca060c23ee',1,0,0,'2019-06-29 10:38:29',0,'2019-06-29 10:38:29'),
-(3,'User','e10adc3949ba59abbe56e057f20f883e',2,1,0,'2019-06-29 15:09:40',0,'2019-06-29 15:09:40'),
-(4,'dead1','f58e6a506c76fc2c90a7d29cbc631c2f',1,0,0,'2019-06-29 15:12:41',0,'2019-06-29 15:12:41');
+(6,'Hossain','e10adc3949ba59abbe56e057f20f883e',1,1,0,'2020-03-09 00:17:04',0,'2020-03-09 00:17:04'),
+(7,'Student','e10adc3949ba59abbe56e057f20f883e',2,1,0,'2020-03-09 00:17:25',0,'2020-03-09 00:17:25');
 /*!40000 ALTER TABLE `user_tbl` ENABLE KEYS */;
 
 -- 
@@ -644,5 +642,5 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tb
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2019-12-24 03:50:17
--- Total time: 0:0:0:0:253 (d:h:m:s:ms)
+-- Dump completed on 2020-03-09 00:38:38
+-- Total time: 0:0:0:0:312 (d:h:m:s:ms)
