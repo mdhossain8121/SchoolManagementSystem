@@ -22,7 +22,7 @@ namespace SchoolManagementSystem.Presentation.StudentForms
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(5, 55);
+            leftBorderBtn.Size = new Size(5, 45);
             pnlSideBar.Controls.Add(leftBorderBtn);
             btnCloseChildForm.Visible = false;
             this.Text = String.Empty;

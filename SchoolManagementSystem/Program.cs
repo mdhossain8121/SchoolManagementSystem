@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SchoolManagementSystem.Presentation.StudentForms;
+using SchoolManagementSystem.Presentation;
 
 namespace SchoolManagementSystem
 {
@@ -18,8 +19,9 @@ namespace SchoolManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmStudentMenu());
+            //Application.Run(new frmStudentMenu());
             //Application.Run(new frmHome());
+            Application.Run(new frmLogin());
         }
     }
 }
