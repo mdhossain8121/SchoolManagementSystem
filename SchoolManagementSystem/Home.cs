@@ -32,6 +32,7 @@ namespace SchoolManagementSystem
         frmDatabase database = new frmDatabase();
         Form1 matchingAnsi = new Form1();
         frmFingerRegister frmFingerRegister = new frmFingerRegister();
+        frmLogin login = new frmLogin();
         
 
         public frmHome()
@@ -176,6 +177,12 @@ namespace SchoolManagementSystem
             if (session.IsDisposed)
                 session = new frmSession();
             menuClick(session);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            login.Show();
         }
     }
 }

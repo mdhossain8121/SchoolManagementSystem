@@ -125,7 +125,7 @@ namespace SchoolManagementSystem.Class
                         EmptyInputField = true;
                     }
                 }
-                else if (c is DataGridView && c.Tag.ToString() == "Required")
+                else if (c is DataGridView && c.Tag.ToString()!=null && c.Tag.ToString() == "Required")
                 {
                     if (((DataGridView)c).Rows.Count <= 0)
                     {

@@ -169,7 +169,9 @@ namespace SchoolManagementSystem.Presentation.StudentForms
             DialogResult dialogResult = MessageBox.Show("Do you really want to close", "Exit", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Application.Exit();
+                //Application.Exit();
+                this.Hide();
+                new frmLogin().Show();
             }
         }
 

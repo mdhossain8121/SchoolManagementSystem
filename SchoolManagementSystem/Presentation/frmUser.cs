@@ -72,7 +72,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnRoleSave_Click(object sender, EventArgs e)
         {
-            if (Utilities.EmptyRequiredField(this))
+            if (Utilities.EmptyRequiredField(this.groupBox1))
                 return;
 
             User aUser = new User();

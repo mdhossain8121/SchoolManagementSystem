@@ -18,7 +18,6 @@ namespace SchoolManagementSystem.Class
 
         public int RoleId { get; set; }
 
-
         public int ActiveStatus { get; set; }
 
         private static readonly String tblUser = "user_tbl";
@@ -99,18 +98,21 @@ namespace SchoolManagementSystem.Class
             return Execute(Command);
         }
 
-        public bool SelectById()
+        public int CheckUserRole()
         {
-            Command = CommandBuilder("select ID, USER_NAME, ROLE_ID from " + tblUser + " where ID = @id");
+            Command = CommandBuilder("select * from " + tblUser + " where USER_NAME = @userName and ID <> @id and ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@id", Id);
+            Command.Parameters.AddWithValue("@userName", UserName);
+            Command.Parameters.AddWithValue("@activeStatus", 1);
             Reader = ExecuteReader(Command); 
-            while (Reader.Read())
+            if (Reader.Read())
             {
-                UserName = Reader["USER_NAME"].ToString();
-                RoleId = (int)Reader["ROLE_ID"];
-                return true;
+                if(VerifyMd5Hash(md5Hash, Password, Reader["PASSWORD"].ToString().Trim()))
+                {
+                    return (int)Reader["ROLE_ID"];
+                }
             }
-            return false;
+            return 0;
         }
 
 
@@ -121,6 +123,10 @@ namespace SchoolManagementSystem.Class
             Command.Parameters.AddWithValue("@userName", UserName);
             Command.Parameters.AddWithValue("@activeStatus", 1);
             Reader = ExecuteReader(Command);
+            if (Reader.HasRows)
+            {
+
+            }
             return Reader.HasRows;
         }
 
