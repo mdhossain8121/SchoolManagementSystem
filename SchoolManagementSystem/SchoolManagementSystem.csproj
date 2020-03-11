@@ -108,6 +108,7 @@
     <Compile Include="Class\Subject.cs" />
     <Compile Include="Class\Teacher.cs" />
     <Compile Include="Class\User.cs" />
+    <Compile Include="Class\UserSession.cs" />
     <Compile Include="Class\Utilities.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -211,14 +212,14 @@
     <Compile Include="Presentation\frmTeacher.Designer.cs">
       <DependentUpon>frmTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\frmFingerRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentation\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\frmUser.Designer.cs">
+    <Compile Include="Presentation\frmUser.designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\frmFingerRegister.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\MatchingAnsiForm.cs">
       <SubType>Form</SubType>
@@ -226,7 +227,7 @@
     <Compile Include="Presentation\StudentForms\frmStudentAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\StudentForms\frmStudentAttendance.Designer.cs">
+    <Compile Include="Presentation\StudentForms\frmStudentAttendance.designer.cs">
       <DependentUpon>frmStudentAttendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\StudentForms\frmStudentMenu.cs">
@@ -294,11 +295,11 @@
     <EmbeddedResource Include="Presentation\frmTeacher.resx">
       <DependentUpon>frmTeacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\frmUser.resx">
-      <DependentUpon>frmUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmFingerRegister.resx">
       <DependentUpon>frmFingerRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MatchingAnsiForm.resx">
       <DependentUpon>MatchingAnsiForm.cs</DependentUpon>
