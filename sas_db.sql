@@ -1,5 +1,5 @@
 -- MySqlBackup.NET 2.3.1
--- Dump Time: 2020-03-09 00:38:38
+-- Dump Time: 2020-03-25 01:36:31
 -- --------------------------------------
 -- Server version 10.1.36-MariaDB mariadb.org binary distribution
 
@@ -590,6 +590,7 @@ DROP TABLE IF EXISTS `user_tbl`;
 CREATE TABLE IF NOT EXISTS `user_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_NAME` varchar(50) NOT NULL,
+  `USER_ID` int(11) NOT NULL DEFAULT '0',
   `PASSWORD` varchar(200) NOT NULL,
   `ROLE_ID` int(11) NOT NULL,
   `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
@@ -606,9 +607,9 @@ CREATE TABLE IF NOT EXISTS `user_tbl` (
 -- 
 
 /*!40000 ALTER TABLE `user_tbl` DISABLE KEYS */;
-INSERT INTO `user_tbl`(`ID`,`USER_NAME`,`PASSWORD`,`ROLE_ID`,`ACTIVE_STATUS`,`CRT_BY`,`CRT_DATE`,`UPD_BY`,`UPD_DATE`) VALUES
-(6,'Hossain','e10adc3949ba59abbe56e057f20f883e',1,1,0,'2020-03-09 00:17:04',0,'2020-03-09 00:17:04'),
-(7,'Student','e10adc3949ba59abbe56e057f20f883e',2,1,0,'2020-03-09 00:17:25',0,'2020-03-09 00:17:25');
+INSERT INTO `user_tbl`(`ID`,`USER_NAME`,`USER_ID`,`PASSWORD`,`ROLE_ID`,`ACTIVE_STATUS`,`CRT_BY`,`CRT_DATE`,`UPD_BY`,`UPD_DATE`) VALUES
+(6,'Hossain',0,'e10adc3949ba59abbe56e057f20f883e',1,1,0,'2020-03-09 00:17:04',0,'2020-03-09 00:17:04'),
+(7,'Student',0,'e10adc3949ba59abbe56e057f20f883e',2,1,0,'2020-03-09 00:17:25',0,'2020-03-09 00:17:25');
 /*!40000 ALTER TABLE `user_tbl` ENABLE KEYS */;
 
 -- 
@@ -642,5 +643,5 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tb
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2020-03-09 00:38:38
--- Total time: 0:0:0:0:312 (d:h:m:s:ms)
+-- Dump completed on 2020-03-25 01:36:31
+-- Total time: 0:0:0:0:425 (d:h:m:s:ms)
