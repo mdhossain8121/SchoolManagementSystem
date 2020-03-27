@@ -131,6 +131,7 @@ namespace SchoolManagementSystem.Presentation
             cmbUser.DataSource = null;
             cmbUser.Items.Clear();
             cmbUser.IntegralHeight = false;
+            cmbUser.Tag = "Required";
             int userType = 0;
             try
             {
@@ -170,6 +171,10 @@ namespace SchoolManagementSystem.Presentation
                 cmbUser.DataSource = dsStudent.Tables[0];
                 cmbUser.DisplayMember = "TEACHER_NAME";
                 cmbUser.ValueMember = "ID";
+            }
+            else if (userType == 1)
+            {
+                cmbUser.Tag = "";
             }
             cmbUser.SelectedIndex = -1;
         }
