@@ -20,6 +20,7 @@ namespace SchoolManagementSystem.Presentation
         public frmLogin()
         {
             InitializeComponent();
+            this.ActiveControl = txtUserName;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -49,6 +50,8 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (Utilities.EmptyRequiredField(this))
+                return;
             User aUser = new User();
             aUser.UserName = txtUserName.Text.ToString().Trim();
             aUser.Password = txtPassword.Text.ToString().Trim();

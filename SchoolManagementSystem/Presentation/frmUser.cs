@@ -99,7 +99,7 @@ namespace SchoolManagementSystem.Presentation
         {
             loadDatagridview();
             dgvData.Columns[1].Width = 350;
-
+            Console.WriteLine();
             Class.Role role = new Class.Role();
             role.ActiveStatus = 1;
             cmbRole.DataSource = role.Select().Tables[0];
@@ -124,6 +124,59 @@ namespace SchoolManagementSystem.Presentation
             btnDelete.Tag = dgvData.SelectedRows[0].Cells["colid"].Value;
             btnSave.Text = "Update";
             btnDelete.Enabled = true;
+        }
+
+        private void cmbRole_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cmbUser.DataSource = null;
+            cmbUser.Items.Clear();
+            cmbUser.IntegralHeight = false;
+            cmbUser.Tag = "Required";
+            int userType = 0;
+            try
+            {
+                userType = Convert.ToInt32(cmbRole.SelectedValue.ToString());
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
+            if (userType == 2)
+            {
+                Student student = new Student();
+                student.ActiveStatus = 1;
+
+                DataSet dsStudent = student.Select();
+                if (dsStudent == null)
+                {
+                    MessageBox.Show(student.Error);
+                    return;
+                }
+                cmbUser.DataSource = dsStudent.Tables[0];
+                cmbUser.DisplayMember = "STUDENT_NAME";
+                cmbUser.ValueMember = "ID";
+            }
+            else if (userType == 3)
+            {
+                Teacher student = new Teacher();
+                student.ActiveStatus = 1;
+
+                DataSet dsStudent = student.Select();
+                if (dsStudent == null)
+                {
+                    MessageBox.Show(student.Error);
+                    return;
+                }
+                cmbUser.DataSource = dsStudent.Tables[0];
+                cmbUser.DisplayMember = "TEACHER_NAME";
+                cmbUser.ValueMember = "ID";
+            }
+            else if (userType == 1)
+            {
+                cmbUser.Tag = "";
+            }
+            cmbUser.SelectedIndex = -1;
         }
     }
 }
