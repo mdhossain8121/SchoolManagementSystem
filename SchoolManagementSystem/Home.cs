@@ -30,6 +30,7 @@ namespace SchoolManagementSystem
         frmStudent student = new frmStudent();
         frmResult result = new frmResult();
         frmDatabase database = new frmDatabase();
+        frmAttendanceReport attendanceReport = new frmAttendanceReport();
         Form1 matchingAnsi = new Form1();
         frmFingerRegister frmFingerRegister = new frmFingerRegister();
         frmLogin login = new frmLogin();
@@ -183,6 +184,13 @@ namespace SchoolManagementSystem
         {
             this.Hide();
             login.Show();
+        }
+
+        private void attendanceToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (attendanceReport.IsDisposed)
+                attendanceReport = new frmAttendanceReport();
+            menuClick(attendanceReport);
         }
     }
 }
