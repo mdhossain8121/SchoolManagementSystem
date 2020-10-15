@@ -1,13 +1,13 @@
 -- MySqlBackup.NET 2.3.1
--- Dump Time: 2020-03-29 01:26:14
+-- Dump Time: 2020-10-16 00:12:37
 -- --------------------------------------
--- Server version 10.1.36-MariaDB mariadb.org binary distribution
+-- Server version 10.4.11-MariaDB mariadb.org binary distribution
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES latin1 */;
+/*!40101 SET NAMES utf8 */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
@@ -21,16 +21,16 @@
 DROP TABLE IF EXISTS `attendance_tbl`;
 CREATE TABLE IF NOT EXISTS `attendance_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `IN_TIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `OUT_TIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `IN_TIME` datetime NOT NULL DEFAULT current_timestamp(),
+  `OUT_TIME` datetime NOT NULL DEFAULT current_timestamp(),
   `DATE` date NOT NULL,
   `STATUS` char(1) NOT NULL DEFAULT 'P',
   `PERSON_ID` int(11) NOT NULL,
-  `PERSON_TYPE` int(11) NOT NULL,
+  `PERSON_TYPE` int(11) NOT NULL DEFAULT 1 COMMENT 'student=1, teacher=2',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`),
   UNIQUE KEY `DATE_PERSON_ID_PERSON_TYPE` (`DATE`,`PERSON_ID`,`PERSON_TYPE`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
@@ -41,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `attendance_tbl` (
 
 /*!40000 ALTER TABLE `attendance_tbl` DISABLE KEYS */;
 INSERT INTO `attendance_tbl`(`ID`,`IN_TIME`,`OUT_TIME`,`DATE`,`STATUS`,`PERSON_ID`,`PERSON_TYPE`,`CRT_BY`,`CRT_DATE`,`UPD_BY`,`UPD_DATE`) VALUES
-(1,'2019-11-11 23:38:59','2020-03-28 21:29:21','2019-11-11 00:00:00','P',1,0,0,'2019-11-11 23:38:59',0,'2019-11-11 23:38:59'),
-(16,'2019-11-13 00:47:03','2020-03-28 21:29:21','2019-11-13 00:00:00','P',1,0,0,'2019-11-13 00:47:03',0,'2019-11-13 00:47:03'),
-(17,'2019-11-13 00:47:06','2020-03-28 21:29:21','2019-11-13 00:00:00','P',2,0,0,'2019-11-13 00:47:06',0,'2019-11-13 00:47:06'),
-(18,'2019-11-13 00:47:08','2020-03-28 21:29:21','2019-11-13 00:00:00','P',3,0,0,'2019-11-13 00:47:08',0,'2019-11-13 00:47:08');
+(1,'2019-11-11 23:38:59','2020-03-28 21:29:21','2019-11-11 00:00:00','P',1,1,0,'2019-11-11 23:38:59',0,'2019-11-11 23:38:59'),
+(16,'2019-11-13 00:47:03','2020-03-28 21:29:21','2019-11-13 00:00:00','P',1,1,0,'2019-11-13 00:47:03',0,'2019-11-13 00:47:03'),
+(17,'2019-11-13 00:47:06','2020-03-28 21:29:21','2019-11-13 00:00:00','P',2,1,0,'2019-11-13 00:47:06',0,'2019-11-13 00:47:06'),
+(18,'2019-11-13 00:47:08','2020-03-28 21:29:21','2019-11-13 00:00:00','P',3,1,0,'2019-11-13 00:47:08',0,'2019-11-13 00:47:08');
 /*!40000 ALTER TABLE `attendance_tbl` ENABLE KEYS */;
 
 -- 
@@ -58,11 +58,11 @@ CREATE TABLE IF NOT EXISTS `class_section_wise_student_tbl` (
   `STUDENT_ID` int(11) NOT NULL,
   `ROLL` int(11) NOT NULL,
   `YEAR` year(4) NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -84,11 +84,11 @@ CREATE TABLE IF NOT EXISTS `class_section_wise_teacher_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASSSECTION_ID` int(11) NOT NULL,
   `TEACHER_ID` int(11) NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`),
   UNIQUE KEY `CLASSSECTION_ID_TEACHER_ID_ACTIVE_STATUS` (`CLASSSECTION_ID`,`TEACHER_ID`,`ACTIVE_STATUS`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -111,11 +111,11 @@ DROP TABLE IF EXISTS `class_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `class_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASS_NAME` varchar(50) NOT NULL DEFAULT '0',
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `class_wise_exam_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASS_ID` int(11) NOT NULL,
   `EXAM_ID` int(11) NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `CLASS_ID_SECTION_ID` (`CLASS_ID`,`EXAM_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `class_wise_section_tbl` (
   `CLASS_ID` int(11) NOT NULL,
   `SECTION_ID` int(11) NOT NULL,
   `SESSION_ID` int(11) NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `CLASS_ID_SECTION_ID_SESSION_ID` (`CLASS_ID`,`SECTION_ID`,`SESSION_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `class_wise_subject_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `CLASS_ID` int(11) NOT NULL,
   `SUBJECT_ID` int(11) NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `CLASS_ID_SUBJECT_ID` (`CLASS_ID`,`SUBJECT_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
@@ -233,11 +233,11 @@ DROP TABLE IF EXISTS `exam_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `exam_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `EXAM_NAME` varchar(50) NOT NULL DEFAULT '0',
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
@@ -264,9 +264,9 @@ CREATE TABLE IF NOT EXISTS `result_child_tbl` (
   `RESULTMASTER_ID` int(11) NOT NULL,
   `MARKS` int(11) NOT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -291,9 +291,9 @@ CREATE TABLE IF NOT EXISTS `result_master_tbl` (
   `SESSION_ID` int(11) DEFAULT NULL,
   `EXAM_DATE` datetime NOT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -319,9 +319,9 @@ CREATE TABLE IF NOT EXISTS `result_tbl` (
   `TOTAL_MARKS` int(11) NOT NULL,
   `MARKS` int(11) NOT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -342,11 +342,11 @@ CREATE TABLE IF NOT EXISTS `role_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ROLE_NAME` varchar(50) NOT NULL,
   `DESCRIPTION` varchar(50) DEFAULT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -369,11 +369,11 @@ DROP TABLE IF EXISTS `section_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `section_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `SECTION_NAME` varchar(100) NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
@@ -399,11 +399,11 @@ DROP TABLE IF EXISTS `session_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `session_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `SESSION_YEAR` varchar(50) NOT NULL DEFAULT '0',
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -445,7 +445,7 @@ DROP TABLE IF EXISTS `setup_master_tbl`;
 CREATE TABLE IF NOT EXISTS `setup_master_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(50) NOT NULL,
-  `STATUS` int(11) NOT NULL DEFAULT '1',
+  `STATUS` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -465,17 +465,17 @@ DROP TABLE IF EXISTS `student_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `student_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `STUDENT_NAME` varchar(150) NOT NULL,
-  `IMAGE` mediumblob,
-  `FINGER` mediumblob,
+  `IMAGE` mediumblob DEFAULT NULL,
+  `FINGER` mediumblob DEFAULT NULL,
   `MOBILE` varchar(150) NOT NULL,
   `ADDRESS` varchar(250) NOT NULL,
   `START_DATE` datetime NOT NULL,
   `END_DATE` datetime DEFAULT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
@@ -502,10 +502,10 @@ CREATE TABLE IF NOT EXISTS `subject_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `SUBJECT_NAME` varchar(150) NOT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
@@ -537,16 +537,16 @@ DROP TABLE IF EXISTS `teacher_setup_tbl`;
 CREATE TABLE IF NOT EXISTS `teacher_setup_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `TEACHER_NAME` varchar(150) NOT NULL,
-  `IMAGE` mediumblob,
+  `IMAGE` mediumblob DEFAULT NULL,
   `MOBILE` varchar(150) NOT NULL,
   `ADDRESS` varchar(250) NOT NULL,
   `JOINING_DATE` date NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `END_DATE` date DEFAULT NULL,
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
@@ -593,14 +593,14 @@ DROP TABLE IF EXISTS `user_tbl`;
 CREATE TABLE IF NOT EXISTS `user_tbl` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_NAME` varchar(50) NOT NULL,
-  `USER_ID` int(11) NOT NULL DEFAULT '0',
+  `USER_ID` int(11) NOT NULL DEFAULT 0,
   `PASSWORD` varchar(200) NOT NULL,
   `ROLE_ID` int(11) NOT NULL,
-  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '0 = INACTIVE, 1 = ACTIVE',
+  `ACTIVE_STATUS` int(1) NOT NULL DEFAULT 1 COMMENT '0 = INACTIVE, 1 = ACTIVE',
   `CRT_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `CRT_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CRT_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `UPD_BY` int(11) NOT NULL COMMENT 'USER ID',
-  `UPD_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPD_DATE` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`ID`),
   UNIQUE KEY `USER_NAME` (`USER_NAME`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -621,19 +621,19 @@ INSERT INTO `user_tbl`(`ID`,`USER_NAME`,`USER_ID`,`PASSWORD`,`ROLE_ID`,`ACTIVE_S
 
 DROP TABLE IF EXISTS `view_class_section_wise_student_tbl`;
 DROP VIEW IF EXISTS `view_class_section_wise_student_tbl`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_section_wise_student_tbl` AS select `csws`.`ID` AS `ID`,`sts`.`STUDENT_NAME` AS `STUDENT_NAME`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`csws`.`ROLL` AS `ROLL`,`csws`.`YEAR` AS `YEAR`,`csws`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from ((((`class_section_wise_student_tbl` `csws` left join `student_setup_tbl` `sts` on((`sts`.`ID` = `csws`.`STUDENT_ID`))) left join `class_wise_section_tbl` `cws` on((`cws`.`ID` = `csws`.`CLASSSECTION_ID`))) left join `class_setup_tbl` `cs` on((`cs`.`ID` = `cws`.`CLASS_ID`))) left join `section_setup_tbl` `ss` on((`ss`.`ID` = `cws`.`SECTION_ID`)));
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_section_wise_student_tbl` AS (select `csws`.`ID` AS `ID`,`csws`.`ROLL` AS `ROLL`,`csws`.`YEAR` AS `YEAR`,`csws`.`ACTIVE_STATUS` AS `ACTIVE_STATUS`,`sts`.`STUDENT_NAME` AS `STUDENT_NAME`,`sts`.`ID` AS `STUDENT_ID`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`cs`.`ID` AS `CLASS_ID`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`ss`.`ID` AS `SECTION_ID` from ((((`class_section_wise_student_tbl` `csws` left join `student_setup_tbl` `sts` on(`sts`.`ID` = `csws`.`STUDENT_ID`)) left join `class_wise_section_tbl` `cws` on(`cws`.`ID` = `csws`.`CLASSSECTION_ID`)) left join `class_setup_tbl` `cs` on(`cs`.`ID` = `cws`.`CLASS_ID`)) left join `section_setup_tbl` `ss` on(`ss`.`ID` = `cws`.`SECTION_ID`)));
 
 DROP TABLE IF EXISTS `view_class_section_wise_teacher_tbl`;
 DROP VIEW IF EXISTS `view_class_section_wise_teacher_tbl`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_section_wise_teacher_tbl` AS select `cswt`.`ID` AS `ID`,`tst`.`TEACHER_NAME` AS `TEACHER_NAME`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`cswt`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from ((((`class_section_wise_teacher_tbl` `cswt` left join `teacher_setup_tbl` `tst` on((`tst`.`ID` = `cswt`.`TEACHER_ID`))) left join `class_wise_section_tbl` `cws` on((`cws`.`ID` = `cswt`.`CLASSSECTION_ID`))) left join `class_setup_tbl` `cs` on((`cs`.`ID` = `cws`.`CLASS_ID`))) left join `section_setup_tbl` `ss` on((`ss`.`ID` = `cws`.`SECTION_ID`)));
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_section_wise_teacher_tbl` AS select `cswt`.`ID` AS `ID`,`tst`.`TEACHER_NAME` AS `TEACHER_NAME`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`cswt`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from ((((`class_section_wise_teacher_tbl` `cswt` left join `teacher_setup_tbl` `tst` on(`tst`.`ID` = `cswt`.`TEACHER_ID`)) left join `class_wise_section_tbl` `cws` on(`cws`.`ID` = `cswt`.`CLASSSECTION_ID`)) left join `class_setup_tbl` `cs` on(`cs`.`ID` = `cws`.`CLASS_ID`)) left join `section_setup_tbl` `ss` on(`ss`.`ID` = `cws`.`SECTION_ID`));
 
 DROP TABLE IF EXISTS `view_class_wise_exam_tbl`;
 DROP VIEW IF EXISTS `view_class_wise_exam_tbl`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_exam_tbl` AS select `cwe`.`ID` AS `ID`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`es`.`EXAM_NAME` AS `EXAM_NAME`,`cwe`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from ((`class_wise_exam_tbl` `cwe` left join `class_setup_tbl` `cs` on((`cs`.`ID` = `cwe`.`CLASS_ID`))) left join `exam_setup_tbl` `es` on((`es`.`ID` = `cwe`.`EXAM_ID`)));
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_exam_tbl` AS select `cwe`.`ID` AS `ID`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`es`.`EXAM_NAME` AS `EXAM_NAME`,`cwe`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from ((`class_wise_exam_tbl` `cwe` left join `class_setup_tbl` `cs` on(`cs`.`ID` = `cwe`.`CLASS_ID`)) left join `exam_setup_tbl` `es` on(`es`.`ID` = `cwe`.`EXAM_ID`));
 
 DROP TABLE IF EXISTS `view_class_wise_section_tbl`;
 DROP VIEW IF EXISTS `view_class_wise_section_tbl`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tbl` AS select `cws`.`ID` AS `ID`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`cs`.`ID` AS `CLASS_ID`,`cs`.`ACTIVE_STATUS` AS `CLASS_ACTIVE`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`ss`.`ID` AS `SECTION_ID`,`ss`.`ACTIVE_STATUS` AS `SECTION_ACTIVE`,`sns`.`SESSION_YEAR` AS `SESSION_YEAR`,`sns`.`ID` AS `SESSION_ID`,`sns`.`ACTIVE_STATUS` AS `SESSION_ACTIVE`,`cws`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from (((`class_wise_section_tbl` `cws` join `class_setup_tbl` `cs`) join `section_setup_tbl` `ss`) join `session_setup_tbl` `sns`) where ((`cs`.`ID` = `cws`.`CLASS_ID`) and (`ss`.`ID` = `cws`.`SECTION_ID`) and (`sns`.`ID` = `cws`.`SESSION_ID`));
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tbl` AS select `cws`.`ID` AS `ID`,`cs`.`CLASS_NAME` AS `CLASS_NAME`,`cs`.`ID` AS `CLASS_ID`,`cs`.`ACTIVE_STATUS` AS `CLASS_ACTIVE`,`ss`.`SECTION_NAME` AS `SECTION_NAME`,`ss`.`ID` AS `SECTION_ID`,`ss`.`ACTIVE_STATUS` AS `SECTION_ACTIVE`,`sns`.`SESSION_YEAR` AS `SESSION_YEAR`,`sns`.`ID` AS `SESSION_ID`,`sns`.`ACTIVE_STATUS` AS `SESSION_ACTIVE`,`cws`.`ACTIVE_STATUS` AS `ACTIVE_STATUS` from (((`class_wise_section_tbl` `cws` join `class_setup_tbl` `cs`) join `section_setup_tbl` `ss`) join `session_setup_tbl` `sns`) where `cs`.`ID` = `cws`.`CLASS_ID` and `ss`.`ID` = `cws`.`SECTION_ID` and `sns`.`ID` = `cws`.`SESSION_ID`;
 
 
 
@@ -646,5 +646,5 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_class_wise_section_tb
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2020-03-29 01:26:14
--- Total time: 0:0:0:0:364 (d:h:m:s:ms)
+-- Dump completed on 2020-10-16 00:12:38
+-- Total time: 0:0:0:0:976 (d:h:m:s:ms)
