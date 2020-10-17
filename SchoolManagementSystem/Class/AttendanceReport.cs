@@ -23,6 +23,12 @@ namespace SchoolManagementSystem.Class
 
         public int PersonId { get; set; }
 
+        public int ClassId { get; set; }
+
+        public int SectionId { get; set; }
+
+        public int StudentId { get; set; }
+
         public int PersonType { get; set; }
 
         public char Status { get; set; }
@@ -32,10 +38,44 @@ namespace SchoolManagementSystem.Class
         public DataSet Select()
         {
             //Command = CommandBuilder("select DATE, IN_TIME from " + table + " where DATE between @fromDate and @toDate ORDER BY DATE");
-            Command = CommandBuilder("SELECT vcsws.*,aat.* FROM attendance_tbl aat LEFT JOIN view_class_section_wise_student_tbl vcsws ON(vcsws.STUDENT_ID = aat.PERSON_ID AND aat.PERSON_TYPE = 1) WHERE vcsws.CLASS_ID IS NOT null");
-            //Command.Parameters.AddWithValue("@studentId", StudentId);
-            //Command.Parameters.AddWithValue("@fromDate", FromDate.Date);
-            //Command.Parameters.AddWithValue("@toDate", ToDate.Date);
+            String queryString = "SELECT vcsws.*,aat.* FROM attendance_tbl aat LEFT JOIN view_class_section_wise_student_tbl vcsws ON(vcsws.STUDENT_ID = aat.PERSON_ID AND aat.PERSON_TYPE = 1) " +
+                "WHERE vcsws.CLASS_ID IS NOT null and DATE between @fromDate and @toDate ";
+
+            if (ClassId != 0)
+            {
+                Console.WriteLine("class"+ ClassId);
+                queryString += " and CLASS_ID = @classId ";
+            }
+
+            if (SectionId != 0)
+            {
+                Console.WriteLine("section " + SectionId);
+                queryString += " and SECTION_ID = @sectionId ";
+            }
+
+            if (StudentId != 0)
+            {
+                Console.WriteLine("student" + StudentId);
+                queryString += " and STUDENT_ID = @studentId ";
+            }
+
+            queryString += " ORDER BY DATE";
+            Command = CommandBuilder(queryString);
+            
+            Command.Parameters.AddWithValue("@fromDate", FromDate.Date);
+            Command.Parameters.AddWithValue("@toDate", ToDate.Date);
+            if (ClassId != 0)
+            {
+                Command.Parameters.AddWithValue("@classId", ClassId);
+            }
+            if (SectionId != 0)
+            {
+                Command.Parameters.AddWithValue("@sectionId", SectionId);
+            }
+            if (StudentId != 0)
+            {
+                Command.Parameters.AddWithValue("@studentId", StudentId);
+            }
             return ExecuteDataSet(Command);
         }
     }
