@@ -35,7 +35,7 @@ namespace SchoolManagementSystem.Class
             Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
             Command.Parameters.AddWithValue("@studentId", PersonId);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);
-            Command.Parameters.AddWithValue("@date", DateTime.Now);
+            //Command.Parameters.AddWithValue("@date", DateTime.Now);
             return Execute(Command);
         }
 
@@ -47,7 +47,7 @@ namespace SchoolManagementSystem.Class
             Command = CommandBuilder("UPDATE " + table + " SET OUT_TIME = @outTime WHERE STUDENT_ID = ,DATE");
             Command.Parameters.AddWithValue("@studentId", PersonId);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);
-            Command.Parameters.AddWithValue("@date", DateTime.Now);
+            //Command.Parameters.AddWithValue("@date", DateTime.Now);
             return Execute(Command);
         }
 

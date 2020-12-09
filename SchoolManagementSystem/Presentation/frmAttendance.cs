@@ -180,11 +180,12 @@ namespace SchoolManagementSystem.Presentation
                         Attendance attendance = new Attendance();
                         attendance.PersonId = Convert.ToInt32(dr["ID"].ToString());
                         attendance.TodayDate = DateTime.Now;
-                        if (attendance.Insert())
+                        try
                         {
+                            attendance.Insert();
                             StatusBar.Text = "Welcome "+ dr["STUDENT_NAME"].ToString();
                         }
-                        else
+                        catch (Exception e)
                         {
                             StatusBar.Text = "Error";
                         }
