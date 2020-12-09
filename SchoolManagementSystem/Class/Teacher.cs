@@ -79,6 +79,17 @@ namespace SchoolManagementSystem.Class
             return false;
         }
 
+        public int countTeacher()
+        {
+            Command = CommandBuilder("select count(*) as TOTAL from " + table + " where ACTIVE_STATUS = 1");
+            Reader = ExecuteReader(Command);
+            if (Reader.Read())
+            {
+                return Convert.ToInt32(Reader["TOTAL"].ToString());
+            }
+            return 0;
+        }
+
         public DataSet Select()
         {
             Command = CommandBuilder("select ID, TEACHER_NAME,IMAGE,MOBILE,ADDRESS,JOINING_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");

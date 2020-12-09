@@ -162,7 +162,7 @@ namespace MatchingAnsi
             this.OpenDeviceBtn.Name = "OpenDeviceBtn";
             this.OpenDeviceBtn.Size = new System.Drawing.Size(104, 24);
             this.OpenDeviceBtn.TabIndex = 8;
-            this.OpenDeviceBtn.Text = "Init";
+            this.OpenDeviceBtn.Text = "Connect";
             this.OpenDeviceBtn.UseVisualStyleBackColor = false;
             this.OpenDeviceBtn.Click += new System.EventHandler(this.InitBtn_Click);
             // 

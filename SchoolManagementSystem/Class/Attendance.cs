@@ -22,7 +22,7 @@ namespace SchoolManagementSystem.Class
 
         public Boolean Insert()
         {
-            //Command = CommandBuilder("insert into " + table + " (STUDENT_ID,FINGERSAMPLE1) values(@studentId,@fingerSample1)");
+            
             Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
             Command.Parameters.AddWithValue("@studentId", StudentId);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);
@@ -50,28 +50,17 @@ namespace SchoolManagementSystem.Class
 
         public bool SelectByFinger()
         {
-            //Command = CommandBuilder("select COUNT(*) from " + table + " where FINGERSAMPLE1 = @id");
             Command = CommandBuilder("select * from " + table + " where STUDENT_ID = @studentId");
             Command.Parameters.AddWithValue("@studentId", StudentId);
             Reader = ExecuteReader(Command);
 
             while (Reader.Read())
             {
-                //StudentId = Reader["STUDENT_NAME"];
-               //FingerSample1 = (Byte[])Reader["FINGERSAMPLE1"];
                 Id = Convert.ToInt32(Reader["ID"]);
-                //Address = Reader["ADDRESS"].ToString();
-                //StartDate = (DateTime)Reader["START_DATE"];
-                //EndDate = (DateTime)Reader["END_DATE"];
                 return true;
             }
             return false;
         }
 
-        //public DataSet Select()
-        //{
-        //    Command = CommandBuilder("select FINGERSAMPLE1 from " + table);
-        //    return ExecuteDataSet(Command);
-        //}
     }
 }
