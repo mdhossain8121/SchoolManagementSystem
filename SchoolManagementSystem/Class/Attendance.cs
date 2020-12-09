@@ -31,7 +31,7 @@ namespace SchoolManagementSystem.Class
 
         public Boolean Insert()
         {
-            //Command = CommandBuilder("insert into " + table + " (STUDENT_ID,FINGERSAMPLE1) values(@studentId,@fingerSample1)");
+            
             Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
             Command.Parameters.AddWithValue("@studentId", PersonId);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);

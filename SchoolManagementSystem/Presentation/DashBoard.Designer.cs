@@ -173,9 +173,9 @@
             this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label12.Location = new System.Drawing.Point(14, 14);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 15);
+            this.label12.Size = new System.Drawing.Size(54, 15);
             this.label12.TabIndex = 0;
-            this.label12.Text = "USERS";
+            this.label12.Text = "Teachers";
             // 
             // panel5
             // 
@@ -236,6 +236,7 @@
             this.Name = "DashBoard";
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.DashBoard_Load);
+            this.Enter += new System.EventHandler(this.DashBoard_Enter);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();

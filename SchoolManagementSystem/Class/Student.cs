@@ -91,6 +91,17 @@ namespace SchoolManagementSystem.Class
         //    return false;
         //}
 
+        public int countStudent()
+        {
+            Command = CommandBuilder("select count(*) as TOTAL from " + table + " where ACTIVE_STATUS = 1");
+            Reader = ExecuteReader(Command);
+            if (Reader.Read())
+            {
+                return Convert.ToInt32( Reader["TOTAL"].ToString());
+            }
+            return 0;
+        }
+
         public byte[] SelectFingerById()
         {
             Command = CommandBuilder("select FINGER from " + table + " where ID = @id");

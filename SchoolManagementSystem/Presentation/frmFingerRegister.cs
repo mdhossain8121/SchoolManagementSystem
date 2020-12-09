@@ -165,9 +165,7 @@ namespace MatchingAnsi
             // comboBoxDeviceName
             // 
             this.comboBoxDeviceName.Items.AddRange(new object[] {
-            "USB FDU05",
-            "Auto Selection",
-            "No device"});
+            "USB FDU05"});
             this.comboBoxDeviceName.Location = new System.Drawing.Point(114, 18);
             this.comboBoxDeviceName.Name = "comboBoxDeviceName";
             this.comboBoxDeviceName.Size = new System.Drawing.Size(152, 21);
@@ -225,7 +223,7 @@ namespace MatchingAnsi
             this.BtnCapture3.Name = "BtnCapture3";
             this.BtnCapture3.Size = new System.Drawing.Size(104, 23);
             this.BtnCapture3.TabIndex = 53;
-            this.BtnCapture3.Text = "Capture V1";
+            this.BtnCapture3.Text = "Capture 3";
             this.BtnCapture3.UseVisualStyleBackColor = false;
             this.BtnCapture3.Click += new System.EventHandler(this.BtnCapture3_Click);
             // 
@@ -347,7 +345,7 @@ namespace MatchingAnsi
             this.BtnCapture1.Name = "BtnCapture1";
             this.BtnCapture1.Size = new System.Drawing.Size(104, 23);
             this.BtnCapture1.TabIndex = 23;
-            this.BtnCapture1.Text = "Capture R1";
+            this.BtnCapture1.Text = "Capture 1";
             this.BtnCapture1.UseVisualStyleBackColor = false;
             this.BtnCapture1.Click += new System.EventHandler(this.BtnCapture1_Click);
             // 
@@ -358,7 +356,7 @@ namespace MatchingAnsi
             this.BtnCapture2.Name = "BtnCapture2";
             this.BtnCapture2.Size = new System.Drawing.Size(104, 23);
             this.BtnCapture2.TabIndex = 24;
-            this.BtnCapture2.Text = "Capture R2";
+            this.BtnCapture2.Text = "Capture 2";
             this.BtnCapture2.UseVisualStyleBackColor = false;
             this.BtnCapture2.Click += new System.EventHandler(this.BtnCapture2_Click);
             // 
