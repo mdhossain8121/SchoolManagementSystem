@@ -37,12 +37,12 @@ namespace SchoolManagementSystem.Presentation
                 return;
             }
             cws.ClassId = (int)cmbClass.SelectedValue;
-            cws.SectionId = (int)cmbSession.SelectedValue;
+            cws.SessionId = (int)cmbSession.SelectedValue;
             cws.SectionId = (int)cb.Tag;
 
             if (cws.Insert())
             {
-                tssMessage.Text = "Action completed.........";
+                tssMessage.Text = "Saved.........";
             }
             else
             {

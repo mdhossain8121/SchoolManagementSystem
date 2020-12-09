@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace SchoolManagementSystem.Class
 {
-    class Attendance:Base
+    class Attendance : Base
     {
         public int Id { get; set; }
 
         public DateTime InTime { get; set; }
 
+        public DateTime OutTime { get; set; }
+
         public DateTime TodayDate { get; set; }
 
-        public int StudentId { get; set; }
+        public DateTime FromDate { get; set; }
+
+        public DateTime ToDate { get; set; }
+
+        public int PersonId { get; set; }
+
+        public int PersonType { get; set; }
 
         public char Status { get; set; }
 
@@ -24,43 +33,31 @@ namespace SchoolManagementSystem.Class
         {
             
             Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
-            Command.Parameters.AddWithValue("@studentId", StudentId);
+            Command.Parameters.AddWithValue("@studentId", PersonId);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);
+            Command.Parameters.AddWithValue("@date", DateTime.Now);
             return Execute(Command);
         }
 
-        public byte[] SelectById()
-        {
-            Command = CommandBuilder("select FINGERSAMPLE1 from " + table + " where STUDENT_ID = @id");
-            Command.Parameters.AddWithValue("@id", StudentId);
-            Reader = ExecuteReader(Command);
-            Console.WriteLine("Student ID " + StudentId);
-            while (Reader.Read())
-            {
-                //StudentId = Reader["STUDENT_NAME"];
-               // FingerSample1 = (Byte[])Reader["FINGERSAMPLE1"];
-                //Address = Reader["ADDRESS"].ToString();
-                //StartDate = (DateTime)Reader["START_DATE"];
-                //EndDate = (DateTime)Reader["END_DATE"];
-                //return FingerSample1;
-            }
-            return null;
+        public Boolean update()
+        { 
+            //Command = CommandBuilder("insert into " + table + " (STUDENT_ID,FINGERSAMPLE1) values(@studentId,@fingerSample1)");
+            //Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
+            Command = CommandBuilder("insert into " + table + " (STUDENT_ID,DATE,OUT_TIME) values(@studentId,@date) ON DUPLICATE KEY UPDATE OUT_TIME = @outTime");
+            Command = CommandBuilder("UPDATE " + table + " SET OUT_TIME = @outTime WHERE STUDENT_ID = ,DATE");
+            Command.Parameters.AddWithValue("@studentId", PersonId);
+            Command.Parameters.AddWithValue("@date", TodayDate.Date);
+            Command.Parameters.AddWithValue("@date", DateTime.Now);
+            return Execute(Command);
         }
 
-
-        public bool SelectByFinger()
+        public DataSet Select()
         {
-            Command = CommandBuilder("select * from " + table + " where STUDENT_ID = @studentId");
-            Command.Parameters.AddWithValue("@studentId", StudentId);
-            Reader = ExecuteReader(Command);
-
-            while (Reader.Read())
-            {
-                Id = Convert.ToInt32(Reader["ID"]);
-                return true;
-            }
-            return false;
+            Command = CommandBuilder("select DATE, IN_TIME from " + table + " where DATE between @fromDate and @toDate ORDER BY DATE");
+            //Command.Parameters.AddWithValue("@studentId", StudentId);
+            Command.Parameters.AddWithValue("@fromDate", FromDate.Date);
+            Command.Parameters.AddWithValue("@toDate", ToDate.Date);
+            return ExecuteDataSet(Command);
         }
-
     }
 }

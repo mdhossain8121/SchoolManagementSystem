@@ -89,10 +89,10 @@ namespace SchoolManagementSystem.Class
 
             foreach (Control c in form.Controls)
             {
-                if (c.HasChildren)
-                {
-                    EmptyRequiredField(c);
-                }
+                //if (c.HasChildren)
+                //{
+                //    EmptyRequiredField(c);
+                //}
                 if (c is TextBox)
                 {
                     if (c.Text.Trim().Equals("") && c.Tag != null && c.Tag.ToString().Trim().Equals("Required"))
@@ -111,7 +111,7 @@ namespace SchoolManagementSystem.Class
                 }
                 else if (c is ComboBox)
                 {
-                    if (((ComboBox)c).SelectedIndex < 0)
+                    if (((ComboBox)c).SelectedIndex < 0 && c.Tag != null && c.Tag.ToString().Trim().Equals("Required"))
                     {
                         ep.SetError(c, "Required");
                         EmptyInputField = true;
@@ -125,7 +125,7 @@ namespace SchoolManagementSystem.Class
                         EmptyInputField = true;
                     }
                 }
-                else if (c is DataGridView && c.Tag.ToString() == "Required")
+                else if (c is DataGridView && c.Tag.ToString()!=null && c.Tag.ToString() == "Required")
                 {
                     if (((DataGridView)c).Rows.Count <= 0)
                     {

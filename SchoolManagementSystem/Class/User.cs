@@ -18,6 +18,7 @@ namespace SchoolManagementSystem.Class
 
         public int RoleId { get; set; }
 
+        public int UserId { get; set; }
 
         public int ActiveStatus { get; set; }
 
@@ -69,9 +70,11 @@ namespace SchoolManagementSystem.Class
 
         public bool Insert()
         {
-            Command = CommandBuilder("insert into " + tblUser + " (USER_NAME, Password, ROLE_ID) values(@userName, @password, @roleId)");
+            Command = CommandBuilder("insert into " + tblUser + " (USER_NAME, Password, ROLE_ID, USER_ID) values(@userName, @password, @roleId, @userId)");
+            //Command = CommandBuilder("insert into " + tblUser + " (USER_NAME, Password, ROLE_ID) values(@userName, @password, @roleId)");
             Command.Parameters.AddWithValue("@userName", UserName);
             Command.Parameters.AddWithValue("@roleId", RoleId);
+            Command.Parameters.AddWithValue("@userId", UserId);
             Command.Parameters.AddWithValue("@password", GetMd5Hash(md5Hash, Password));
             return Execute(Command);
         }
@@ -82,10 +85,7 @@ namespace SchoolManagementSystem.Class
             Command.Parameters.AddWithValue("@id", Id);
             Command.Parameters.AddWithValue("@userName", UserName);
             Command.Parameters.AddWithValue("@roleId", RoleId);
-            //Console.WriteLine(Command.CommandText.ToString());
-            //Console.WriteLine(Id);
-            //Console.WriteLine(UserName);
-            //Console.WriteLine(RoleId);
+            Command.Parameters.AddWithValue("@userId", UserId);
             return Execute(Command);
         }
 
@@ -99,18 +99,24 @@ namespace SchoolManagementSystem.Class
             return Execute(Command);
         }
 
-        public bool SelectById()
+        public int CheckUserRole()
         {
-            Command = CommandBuilder("select ID, USER_NAME, ROLE_ID from " + tblUser + " where ID = @id");
+            Command = CommandBuilder("select * from " + tblUser + " where USER_NAME = @userName and ID <> @id and ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@id", Id);
+            Command.Parameters.AddWithValue("@userName", UserName);
+            Command.Parameters.AddWithValue("@activeStatus", 1);
             Reader = ExecuteReader(Command); 
-            while (Reader.Read())
+            if (Reader.Read())
             {
-                UserName = Reader["USER_NAME"].ToString();
-                RoleId = (int)Reader["ROLE_ID"];
-                return true;
+                if(VerifyMd5Hash(md5Hash, Password, Reader["PASSWORD"].ToString().Trim()))
+                {
+                    UserSession.Role = Convert.ToInt32(Reader["ROLE_ID"].ToString().Trim());
+                    UserSession.UserId = Convert.ToInt32(Reader["USER_ID"].ToString().Trim());
+                    UserSession.UserName = Reader["USER_NAME"].ToString().Trim();
+                    return (int)Reader["ROLE_ID"];
+                }
             }
-            return false;
+            return 0;
         }
 
 
@@ -121,6 +127,10 @@ namespace SchoolManagementSystem.Class
             Command.Parameters.AddWithValue("@userName", UserName);
             Command.Parameters.AddWithValue("@activeStatus", 1);
             Reader = ExecuteReader(Command);
+            if (Reader.HasRows)
+            {
+
+            }
             return Reader.HasRows;
         }
 

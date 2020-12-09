@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using SchoolManagementSystem.Class;
 using SchoolManagementSystem.ClassManager;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 
 namespace SchoolManagementSystem.Presentation
 {
@@ -203,35 +203,35 @@ namespace SchoolManagementSystem.Presentation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Excel.Application xlApp;
-            Excel.Workbook xlWorkBook;
-            Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
+            //Excel.Application xlApp;
+            //Excel.Workbook xlWorkBook;
+            //Excel.Worksheet xlWorkSheet;
+            //object misValue = System.Reflection.Missing.Value;
 
-            xlApp = new Excel.Application();
-            xlWorkBook = xlApp.Workbooks.Add(misValue);
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            int i = 0;
-            int j = 0;
+            //xlApp = new Excel.Application();
+            //xlWorkBook = xlApp.Workbooks.Add(misValue);
+            //xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            //int i = 0;
+            //int j = 0;
 
-            for (i = 0; i <= dgvResultEntry.RowCount - 1; i++)
-            {
-                for (j = 0; j <= dgvResultEntry.ColumnCount - 1; j++)
-                {
-                    DataGridViewCell cell = dgvResultEntry[j, i];
-                    xlWorkSheet.Cells[i + 1, j + 1] = cell.Value;
-                }
-            }
+            //for (i = 0; i <= dgvResultEntry.RowCount - 1; i++)
+            //{
+            //    for (j = 0; j <= dgvResultEntry.ColumnCount - 1; j++)
+            //    {
+            //        DataGridViewCell cell = dgvResultEntry[j, i];
+            //        xlWorkSheet.Cells[i + 1, j + 1] = cell.Value;
+            //    }
+            //}
 
-            xlWorkBook.SaveAs("D:\\csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            xlWorkBook.Close(true, misValue, misValue);
-            xlApp.Quit();
+            //xlWorkBook.SaveAs("D:\\csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            //xlWorkBook.Close(true, misValue, misValue);
+            //xlApp.Quit();
 
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
+            //releaseObject(xlWorkSheet);
+            //releaseObject(xlWorkBook);
+            //releaseObject(xlApp);
 
-            MessageBox.Show("Excel file created , you can find the file D:\\csharp.net-informations.xls");
+            //MessageBox.Show("Excel file created , you can find the file D:\\csharp.net-informations.xls");
         }
 
         private void cmbSession_SelectionChangeCommitted(object sender, EventArgs e)

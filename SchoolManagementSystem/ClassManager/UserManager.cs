@@ -45,6 +45,12 @@ namespace SchoolManagementSystem.ClassManager
             }
         }
 
+
+        public int CheckCredentials(User aUser)
+        {
+            return aUser.CheckUserRole();
+        }
+
         public string DeleteUser(User aUser)
         {
             if (aUser.Delete())
