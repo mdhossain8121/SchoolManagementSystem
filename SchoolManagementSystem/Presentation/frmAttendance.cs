@@ -183,7 +183,7 @@ namespace SchoolManagementSystem.Presentation
                         {
                             Attendance attendance = new Attendance();
                             attendance.PersonId = Convert.ToInt32(dr["ID"].ToString());
-                            attendance.PersonType = 1; //1 for studebt 2 for teacher
+                            attendance.PersonType = 1; //1 for student 2 for teacher
                             attendance.TodayDate = DateTime.Now;
                             if (attendance.Insert())
                             {

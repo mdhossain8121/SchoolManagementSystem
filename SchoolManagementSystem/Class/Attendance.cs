@@ -32,10 +32,18 @@ namespace SchoolManagementSystem.Class
         public Boolean Insert()
         {
             
-            Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
+            //Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
+            //Command.Parameters.AddWithValue("@studentId", PersonId);
+            //Command.Parameters.AddWithValue("@date", TodayDate.Date);
+            ////Command.Parameters.AddWithValue("@date", DateTime.Now);
+            //return Execute(Command);
+
+            Command = CommandBuilder("insert into " + table + " (STUDENT_ID,DATE,IN_TIME,OUT_TIME) values(@studentId,@date,@inTime,@outTime) ON DUPLICATE KEY UPDATE OUT_TIME = @outTime");
+            //Command = CommandBuilder("UPDATE " + table + " SET OUT_TIME = @outTime WHERE STUDENT_ID = ,DATE");
             Command.Parameters.AddWithValue("@studentId", PersonId);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);
-            //Command.Parameters.AddWithValue("@date", DateTime.Now);
+            Command.Parameters.AddWithValue("@inTime", DateTime.Now);
+            Command.Parameters.AddWithValue("@outTime", DateTime.Now);
             return Execute(Command);
         }
 
@@ -44,10 +52,10 @@ namespace SchoolManagementSystem.Class
             //Command = CommandBuilder("insert into " + table + " (STUDENT_ID,FINGERSAMPLE1) values(@studentId,@fingerSample1)");
             //Command = CommandBuilder("insert IGNORE into " + table + " (STUDENT_ID,DATE) values(@studentId,@date)");
             Command = CommandBuilder("insert into " + table + " (STUDENT_ID,DATE,OUT_TIME) values(@studentId,@date) ON DUPLICATE KEY UPDATE OUT_TIME = @outTime");
-            Command = CommandBuilder("UPDATE " + table + " SET OUT_TIME = @outTime WHERE STUDENT_ID = ,DATE");
+            //Command = CommandBuilder("UPDATE " + table + " SET OUT_TIME = @outTime WHERE STUDENT_ID = ,DATE");
             Command.Parameters.AddWithValue("@studentId", PersonId);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);
-            //Command.Parameters.AddWithValue("@date", DateTime.Now);
+            Command.Parameters.AddWithValue("@outTime", DateTime.Now);
             return Execute(Command);
         }
 
