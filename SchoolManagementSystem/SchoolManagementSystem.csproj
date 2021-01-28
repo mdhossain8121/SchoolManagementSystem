@@ -59,6 +59,9 @@
     <Reference Include="MySql.Data">
       <HintPath>..\mysql reference\MySql.Data.dll</HintPath>
     </Reference>
+	  <Reference Include="MySqlBackup">
+		  <HintPath>..\mysql reference\MySqlBackup.dll</HintPath>
+	  </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SecuGen.FDxSDKPro.Windows">
