@@ -258,6 +258,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Teacher_Attendance_Rep.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\StudentForms\frmStudentAttendance.designer.cs">
       <DependentUpon>frmStudentAttendance.cs</DependentUpon>
     </Compile>
@@ -363,6 +364,7 @@
     <EmbeddedResource Include="Presentation\Teacher_Attendance_Rep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Teacher_Attendance_Rep.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\StudentForms\frmStudentAttendance.resx">
       <DependentUpon>frmStudentAttendance.cs</DependentUpon>
     </EmbeddedResource>

@@ -123,7 +123,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet Select()
         {
-            Command = CommandBuilder("select ID, STUDENT_NAME,IMAGE,MOBILE,ADDRESS,START_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");
+            Command = CommandBuilder("select ID,STUDENT_NAME, CONCAT( ID,'-',STUDENT_NAME) AS UNIQUE_NAME,IMAGE,MOBILE,ADDRESS,START_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             if (StudentName != null && !StudentName.Trim().Equals(""))
             {

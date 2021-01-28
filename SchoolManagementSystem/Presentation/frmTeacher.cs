@@ -210,14 +210,14 @@ namespace SchoolManagementSystem.Presentation
             {
                 Teacher aTeacher = new Teacher();
                 aTeacher.ActiveStatus = 1;
-                DataSet dsStudent = aTeacher.Select();
-                if (dsStudent == null)
+                DataSet dsTeacher = aTeacher.Select();
+                if (dsTeacher == null)
                 {
                     MessageBox.Show(aTeacher.Error);
                     return;
                 }
-                cmbTeacher.DataSource = dsStudent.Tables[0];
-                cmbTeacher.DisplayMember = "TEACHER_NAME";
+                cmbTeacher.DataSource = dsTeacher.Tables[0];
+                cmbTeacher.DisplayMember = "UNIQUE_TEACHER_NAME";
                 cmbTeacher.ValueMember = "ID";
             }
             cmbTeacher.SelectedIndex = -1;

@@ -15,6 +15,8 @@ namespace SchoolManagementSystem.Class
 
         public int StudentId { get; set; }
 
+        public string StudentName { get; set; }
+
         public int Roll { get; set; }
 
         public int Year { get; set; }
@@ -76,6 +78,12 @@ namespace SchoolManagementSystem.Class
             //    Command.CommandText += " Where CLASS_NAME like @search";
             //    Command.Parameters.AddWithValue("@search", "%" + ClassName + "%");
             //}
+            Console.WriteLine(StudentName);
+            if (StudentName != null && !StudentName.Trim().Equals(""))
+            {
+                Command.CommandText += " AND STUDENT_NAME like @search";
+                Command.Parameters.AddWithValue("@search", "%" + StudentName + "%");
+            }
             return ExecuteDataSet(Command);
         }
 
