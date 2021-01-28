@@ -182,7 +182,8 @@ namespace SchoolManagementSystem.Presentation
                         if (finger_found)
                         {
                             Attendance attendance = new Attendance();
-                            attendance.StudentId = Convert.ToInt32(dr["ID"].ToString());
+                            attendance.PersonId = Convert.ToInt32(dr["ID"].ToString());
+                            attendance.PersonType = 1; //1 for studebt 2 for teacher
                             attendance.TodayDate = DateTime.Now;
                             if (attendance.Insert())
                             {

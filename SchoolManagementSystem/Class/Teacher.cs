@@ -92,7 +92,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet Select()
         {
-            Command = CommandBuilder("select ID, TEACHER_NAME,IMAGE,MOBILE,ADDRESS,JOINING_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");
+            Command = CommandBuilder("select ID, TEACHER_NAME,CONCAT( ID,'-',TEACHER_NAME) AS UNIQUE_TEACHER_NAME,IMAGE,MOBILE,ADDRESS,JOINING_DATE,END_DATE from " + table + " where ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
             if (TeacherName != null && !TeacherName.Trim().Equals(""))
             {

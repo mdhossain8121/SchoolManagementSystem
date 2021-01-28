@@ -51,7 +51,7 @@ namespace SchoolManagementSystem.Presentation
         {
             ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
             aClassSectionWiseStudent.ActiveStatus = 1;
-            //aStudent.StudentName = txtSearch.Text;
+            aClassSectionWiseStudent.StudentName = txtStudentCLassSearch.Text;
             DataTable dt = aClassSectionWiseStudentManager.GetAllClassSectionWiseStudentData(aClassSectionWiseStudent);
             if (dt == null)
             {
@@ -228,7 +228,7 @@ namespace SchoolManagementSystem.Presentation
 
         private void btnSearchClassInfo_Click(object sender, EventArgs e)
         {
-            loadStudentBasicInfoDatagridview();
+            loadClassInfoDatagridview();
         }
 
         private void btnDeleteClassInfo_Click(object sender, EventArgs e)
@@ -289,7 +289,7 @@ namespace SchoolManagementSystem.Presentation
                 return;
             }
             cmbStudent.DataSource = dsStudent.Tables[0];
-            cmbStudent.DisplayMember = "STUDENT_NAME";
+            cmbStudent.DisplayMember = "UNIQUE_NAME";
             cmbStudent.ValueMember = "ID";
             cmbStudent.SelectedIndex = -1;
             loadClassInfoDatagridview();
