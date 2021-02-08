@@ -214,7 +214,8 @@ namespace SchoolManagementSystem.Presentation
                 }
             }catch(Exception e)
             {
-                Console.WriteLine(e.StackTrace);
+                StatusBar.Text = "Device Scan Error : " + e;
+                Console.WriteLine("DeviceError : "+e.StackTrace);
             }
         }
 

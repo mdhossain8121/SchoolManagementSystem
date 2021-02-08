@@ -28,8 +28,8 @@ namespace SchoolManagementSystem.Presentation
             if (cmbClass.SelectedIndex >= 0) attendanceReportClass.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
             if (cmbSection.SelectedIndex >= 0) attendanceReportClass.SectionId = Convert.ToInt32(cmbSection.SelectedValue.ToString());
             if (cmbStudent.SelectedIndex >= 0) attendanceReportClass.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
-            DataSet ds = attendanceReportClass.Select();
-            DataTable dt = ds.Tables[0];
+            DataTable dt = attendanceReportClass.Select().Tables[0];
+            //DataTable dt = ds.Tables[0];
             Reports.AttendanceReport attendanceReport = new Reports.AttendanceReport();
             attendanceReport.Database.Tables["dtAttendance"].SetDataSource(dt);
             crvAttendanceReport.ReportSource = null;

@@ -117,7 +117,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet SelectAllFinger()
         {
-            Command = CommandBuilder("select FINGER,STUDENT_NAME,ID from " + table);
+            Command = CommandBuilder("select FINGER,STUDENT_NAME,ID from " + table + " where FINGER is not null");
             return ExecuteDataSet(Command);
         }
 

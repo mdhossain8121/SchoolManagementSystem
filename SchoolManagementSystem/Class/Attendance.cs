@@ -38,12 +38,14 @@ namespace SchoolManagementSystem.Class
             ////Command.Parameters.AddWithValue("@date", DateTime.Now);
             //return Execute(Command);
 
-            Command = CommandBuilder("insert into " + table + " (STUDENT_ID,DATE,IN_TIME,OUT_TIME) values(@studentId,@date,@inTime,@outTime) ON DUPLICATE KEY UPDATE OUT_TIME = @outTime");
+            Command = CommandBuilder("insert into " + table + " (PERSON_ID,PERSON_TYPE,DATE,IN_TIME,OUT_TIME) values(@personId,@personType,@date,@inTime,@outTime) ON DUPLICATE KEY UPDATE OUT_TIME = @outTime");
             //Command = CommandBuilder("UPDATE " + table + " SET OUT_TIME = @outTime WHERE STUDENT_ID = ,DATE");
-            Command.Parameters.AddWithValue("@studentId", PersonId);
+            Command.Parameters.AddWithValue("@personId", PersonId);
+            Command.Parameters.AddWithValue("@personType", PersonType);
             Command.Parameters.AddWithValue("@date", TodayDate.Date);
             Command.Parameters.AddWithValue("@inTime", DateTime.Now);
             Command.Parameters.AddWithValue("@outTime", DateTime.Now);
+            Console.WriteLine("sd : "+Command.ToString());
             return Execute(Command);
         }
 
