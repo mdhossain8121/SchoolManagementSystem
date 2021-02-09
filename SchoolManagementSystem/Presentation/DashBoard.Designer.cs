@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.lblTotalTeacher = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -64,7 +63,6 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
             this.panel6.Controls.Add(this.pictureBox10);
-            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.lblTotalTeacher);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Location = new System.Drawing.Point(320, 41);
@@ -81,17 +79,6 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 6;
             this.pictureBox10.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label10.Location = new System.Drawing.Point(14, 80);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 15);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "25 New Users";
             // 
             // lblTotalTeacher
             // 
@@ -111,7 +98,7 @@
             this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label12.Location = new System.Drawing.Point(14, 14);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 15);
+            this.label12.Size = new System.Drawing.Size(53, 15);
             this.label12.TabIndex = 0;
             this.label12.Text = "Teachers";
             // 
@@ -189,7 +176,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblTotalTeacher;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel5;

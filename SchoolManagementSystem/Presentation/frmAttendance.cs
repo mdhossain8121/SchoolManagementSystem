@@ -187,7 +187,7 @@ namespace SchoolManagementSystem.Presentation
                             attendance.TodayDate = DateTime.Now;
                             if (attendance.Insert())
                             {
-                                StatusBar.Text = "Welcome " + dr["STUDENT_NAME"].ToString();
+                                StatusBar.Text = "Data Matched - " + dr["STUDENT_NAME"].ToString();
                             }
                             else
                             {
