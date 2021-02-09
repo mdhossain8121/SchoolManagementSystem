@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTeacherAttendanceReport" targetNamespace="http://tempuri.org/dsTeacherAttendanceReport.xsd" xmlns:mstns="http://tempuri.org/dsTeacherAttendanceReport.xsd" xmlns="http://tempuri.org/dsTeacherAttendanceReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTeacherAttendanceReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsTeacherAttendanceReport" msprop:Generator_UserDSName="dsTeacherAttendanceReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtTeacherAttendance" msprop:Generator_TableClassName="dtTeacherAttendanceDataTable" msprop:Generator_TableVarName="tabledtTeacherAttendance" msprop:Generator_TablePropName="dtTeacherAttendance" msprop:Generator_RowDeletingName="dtTeacherAttendanceRowDeleting" msprop:Generator_RowChangingName="dtTeacherAttendanceRowChanging" msprop:Generator_RowEvHandlerName="dtTeacherAttendanceRowChangeEventHandler" msprop:Generator_RowDeletedName="dtTeacherAttendanceRowDeleted" msprop:Generator_UserTableName="dtTeacherAttendance" msprop:Generator_RowChangedName="dtTeacherAttendanceRowChanged" msprop:Generator_RowEvArgName="dtTeacherAttendanceRowChangeEvent" msprop:Generator_RowClassName="dtTeacherAttendanceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TEACHER_NAME" msprop:Generator_ColumnVarNameInTable="columnTEACHER_NAME" msprop:Generator_ColumnPropNameInRow="TEACHER_NAME" msprop:Generator_ColumnPropNameInTable="TEACHER_NAMEColumn" msprop:Generator_UserColumnName="TEACHER_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="IN_TIME" msprop:Generator_ColumnVarNameInTable="columnIN_TIME" msprop:Generator_ColumnPropNameInRow="IN_TIME" msprop:Generator_ColumnPropNameInTable="IN_TIMEColumn" msprop:Generator_UserColumnName="IN_TIME" type="xs:string" minOccurs="0" />
+              <xs:element name="OUT_TIME" msprop:Generator_ColumnVarNameInTable="columnOUT_TIME" msprop:Generator_ColumnPropNameInRow="OUT_TIME" msprop:Generator_ColumnPropNameInTable="OUT_TIMEColumn" msprop:Generator_UserColumnName="OUT_TIME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

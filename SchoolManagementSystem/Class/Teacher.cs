@@ -13,6 +13,8 @@ namespace SchoolManagementSystem.Class
 
         public byte[] Image { get; set; }
 
+        public byte[] Finger { get; set; }
+
         public string TeacherName { get; set; }
 
         public string Mobile { get; set; }
@@ -99,6 +101,33 @@ namespace SchoolManagementSystem.Class
                 Command.CommandText += " AND TEACHER_NAME like @search";
                 Command.Parameters.AddWithValue("@search", "%" + TeacherName + "%");
             }
+            return ExecuteDataSet(Command);
+        }
+
+        public bool InsertFinger()
+        {
+            Command = CommandBuilder("update " + table + " set FINGER = @finger where ID = @id");
+            Command.Parameters.AddWithValue("@id", Id);
+            Command.Parameters.AddWithValue("@finger", Finger);
+            return Execute(Command);
+        }
+
+        public byte[] SelectFingerById()
+        {
+            Command = CommandBuilder("select FINGER from " + table + " where ID = @id");
+            Command.Parameters.AddWithValue("@id", Id);
+            Reader = ExecuteReader(Command);
+            while (Reader.Read())
+            {
+                Finger = (Byte[])Reader["FINGER"];
+                return Finger;
+            }
+            return null;
+        }
+
+        public DataSet SelectAllFinger()
+        {
+            Command = CommandBuilder("select FINGER,TEACHER_NAME,ID from " + table + " where FINGER is not null");
             return ExecuteDataSet(Command);
         }
     }

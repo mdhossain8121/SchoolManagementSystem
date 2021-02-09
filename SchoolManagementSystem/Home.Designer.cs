@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teacherAttendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentAttendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dBBackupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resultEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +53,9 @@
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.attendanceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentAttendanceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teacherAttendanceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,10 +92,27 @@
             // 
             // attendanceToolStripMenuItem
             // 
+            this.attendanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.teacherAttendanceToolStripMenuItem,
+            this.studentAttendanceToolStripMenuItem});
             this.attendanceToolStripMenuItem.Name = "attendanceToolStripMenuItem";
             this.attendanceToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.attendanceToolStripMenuItem.Text = "&Attendance";
             this.attendanceToolStripMenuItem.Click += new System.EventHandler(this.attendanceToolStripMenuItem_Click);
+            // 
+            // teacherAttendanceToolStripMenuItem
+            // 
+            this.teacherAttendanceToolStripMenuItem.Name = "teacherAttendanceToolStripMenuItem";
+            this.teacherAttendanceToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.teacherAttendanceToolStripMenuItem.Text = "&Teacher Attendance";
+            this.teacherAttendanceToolStripMenuItem.Click += new System.EventHandler(this.teacherAttendanceToolStripMenuItem_Click);
+            // 
+            // studentAttendanceToolStripMenuItem
+            // 
+            this.studentAttendanceToolStripMenuItem.Name = "studentAttendanceToolStripMenuItem";
+            this.studentAttendanceToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.studentAttendanceToolStripMenuItem.Text = "&Student Attendance";
+            this.studentAttendanceToolStripMenuItem.Click += new System.EventHandler(this.studentAttendanceToolStripMenuItem_Click);
             // 
             // dBBackupRestoreToolStripMenuItem
             // 
@@ -244,25 +264,33 @@
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.attendanceToolStripMenuItem1,
-            this.resultToolStripMenuItem});
+            this.studentAttendanceToolStripMenuItem1,
+            this.resultToolStripMenuItem,
+            this.teacherAttendanceReportToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "&Report";
             // 
-            // attendanceToolStripMenuItem1
+            // studentAttendanceToolStripMenuItem1
             // 
-            this.attendanceToolStripMenuItem1.Name = "attendanceToolStripMenuItem1";
-            this.attendanceToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.attendanceToolStripMenuItem1.Text = "&Attendance";
-            this.attendanceToolStripMenuItem1.Click += new System.EventHandler(this.attendanceToolStripMenuItem1_Click);
+            this.studentAttendanceToolStripMenuItem1.Name = "studentAttendanceToolStripMenuItem1";
+            this.studentAttendanceToolStripMenuItem1.Size = new System.Drawing.Size(217, 22);
+            this.studentAttendanceToolStripMenuItem1.Text = "&Student Attendance Report";
+            this.studentAttendanceToolStripMenuItem1.Click += new System.EventHandler(this.attendanceToolStripMenuItem1_Click);
             // 
             // resultToolStripMenuItem
             // 
             this.resultToolStripMenuItem.Name = "resultToolStripMenuItem";
-            this.resultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resultToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.resultToolStripMenuItem.Text = "&Result";
             this.resultToolStripMenuItem.Visible = false;
+            // 
+            // teacherAttendanceReportToolStripMenuItem
+            // 
+            this.teacherAttendanceReportToolStripMenuItem.Name = "teacherAttendanceReportToolStripMenuItem";
+            this.teacherAttendanceReportToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.teacherAttendanceReportToolStripMenuItem.Text = "&Teacher Attendance Report";
+            this.teacherAttendanceReportToolStripMenuItem.Click += new System.EventHandler(this.teacherAttendanceReportToolStripMenuItem_Click);
             // 
             // frmHome
             // 
@@ -311,8 +339,11 @@
         private System.Windows.Forms.ToolStripMenuItem sessionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem attendanceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem studentAttendanceToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem resultToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teacherAttendanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentAttendanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teacherAttendanceReportToolStripMenuItem;
     }
 }
 

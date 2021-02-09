@@ -1,6 +1,6 @@
 ﻿namespace SchoolManagementSystem.Presentation
 {
-    partial class frmAttendance
+    partial class frmTeacherAttendance
     {
         /// <summary>
         /// Required designer variable.
@@ -115,7 +115,7 @@
             this.StatusBar.Size = new System.Drawing.Size(590, 24);
             this.StatusBar.TabIndex = 62;
             // 
-            // frmAttendance
+            // frmTeacherAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,9 +126,9 @@
             this.Controls.Add(this.pictureBoxV1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmAttendance";
+            this.Name = "frmTeacherAttendance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Student Attendance";
+            this.Text = "Teacher Attendance";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxV1)).EndInit();

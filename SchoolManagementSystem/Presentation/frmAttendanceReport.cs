@@ -25,10 +25,12 @@ namespace SchoolManagementSystem.Presentation
             Class.AttendanceReport attendanceReportClass = new Class.AttendanceReport();
             attendanceReportClass.FromDate = DateTime.Parse(dtpFrom.Value.ToShortDateString());
             attendanceReportClass.ToDate = DateTime.Parse(dtpTo.Value.ToShortDateString());
+            attendanceReportClass.PersonType = 1;
             if (cmbClass.SelectedIndex >= 0) attendanceReportClass.ClassId = Convert.ToInt32(cmbClass.SelectedValue.ToString());
             if (cmbSection.SelectedIndex >= 0) attendanceReportClass.SectionId = Convert.ToInt32(cmbSection.SelectedValue.ToString());
-            if (cmbStudent.SelectedIndex >= 0) attendanceReportClass.StudentId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
-            DataTable dt = attendanceReportClass.Select().Tables[0];
+            if (cmbStudent.SelectedIndex >= 0) attendanceReportClass.PersonId = Convert.ToInt32(cmbStudent.SelectedValue.ToString());
+            
+            DataTable dt = attendanceReportClass.SelectStudentAttendance().Tables[0];
             //DataTable dt = ds.Tables[0];
             Reports.AttendanceReport attendanceReport = new Reports.AttendanceReport();
             attendanceReport.Database.Tables["dtAttendance"].SetDataSource(dt);

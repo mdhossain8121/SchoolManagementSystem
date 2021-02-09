@@ -26,11 +26,13 @@ namespace SchoolManagementSystem
         frmClassWiseSection cws = new frmClassWiseSection();
         frmClassWiseExam cwe = new frmClassWiseExam();
         frmAttendance attendance = new frmAttendance();
+        frmTeacherAttendance teacherAttendance = new frmTeacherAttendance();
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
         frmResult result = new frmResult();
         frmDatabase database = new frmDatabase();
         frmAttendanceReport attendanceReport = new frmAttendanceReport();
+        frmTeacherAttendanceReport teacherAttendanceReport = new frmTeacherAttendanceReport();
         Form1 matchingAnsi = new Form1();
         frmFingerRegister frmFingerRegister = new frmFingerRegister();
         frmLogin login = new frmLogin();
@@ -103,9 +105,9 @@ namespace SchoolManagementSystem
 
         private void attendanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (attendance.IsDisposed)
-                attendance = new frmAttendance();
-            menuClick(attendance);
+            //if (attendance.IsDisposed)
+            //    attendance = new frmAttendance();
+            //menuClick(attendance);
         }
 
         private void teacherToolStripMenuItem_Click(object sender, EventArgs e)
@@ -191,6 +193,27 @@ namespace SchoolManagementSystem
             if (attendanceReport.IsDisposed)
                 attendanceReport = new frmAttendanceReport();
             menuClick(attendanceReport);
+        }
+
+        private void studentAttendanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (attendance.IsDisposed)
+                attendance = new frmAttendance();
+            menuClick(attendance);
+        }
+
+        private void teacherAttendanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (teacherAttendance.IsDisposed)
+                teacherAttendance = new frmTeacherAttendance();
+            menuClick(teacherAttendance);
+        }
+
+        private void teacherAttendanceReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (teacherAttendanceReport.IsDisposed)
+                teacherAttendanceReport = new frmTeacherAttendanceReport();
+            menuClick(teacherAttendanceReport);
         }
     }
 }

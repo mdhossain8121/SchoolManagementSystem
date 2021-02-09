@@ -58,7 +58,6 @@ namespace SchoolManagementSystem.Class
         public bool InsertFinger()
         {
             Command = CommandBuilder("update " + table + " set FINGER = @finger where ID = @id");
-            //Command = CommandBuilder("insert into " + table + " (STUDENT_ID,FINGERSAMPLE1) values(@studentId,@fingerSample1) ON DUPLICATE KEY UPDATE fingerSample1 = @fingerSample1");
             Command.Parameters.AddWithValue("@id", Id);
             Command.Parameters.AddWithValue("@finger", Finger);
             return Execute(Command);

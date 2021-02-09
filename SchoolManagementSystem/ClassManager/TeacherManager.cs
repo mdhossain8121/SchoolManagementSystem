@@ -53,9 +53,36 @@ namespace SchoolManagementSystem.ClassManager
             }
         }
 
+        public byte[] GetFingerDataById(Teacher aTeacher)
+        {
+            return aTeacher.SelectFingerById();
+        }
+
         public DataTable GetAllTeacherData(Teacher aTeacher)
         {
             DataSet ds = aTeacher.Select();
+            if (ds == null)
+                return null;
+            return ds.Tables[0];
+        }
+
+        public string SaveFingerInfo(Teacher aTeacher)
+        {
+            if (aTeacher.InsertFinger())
+            {
+                return "New Finger information has been inserted";
+            }
+            else
+            {
+                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Inserting Teacher " + Environment.NewLine);
+                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: " + aTeacher.Error + Environment.NewLine);
+                return aTeacher.Error;
+            }
+        }
+
+        public DataTable GetAllFingerData(Teacher aTeacher)
+        {
+            DataSet ds = aTeacher.SelectAllFinger();
             if (ds == null)
                 return null;
             return ds.Tables[0];

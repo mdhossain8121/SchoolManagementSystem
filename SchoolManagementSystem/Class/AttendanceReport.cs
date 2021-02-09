@@ -35,11 +35,11 @@ namespace SchoolManagementSystem.Class
 
         private static readonly String table = "attendance_tbl";
 
-        public DataSet Select()
+        public DataSet SelectStudentAttendance()
         {
             //Command = CommandBuilder("select DATE, IN_TIME from " + table + " where DATE between @fromDate and @toDate ORDER BY DATE");
-            String queryString = "SELECT vcsws.*,aat.* FROM attendance_tbl aat LEFT JOIN view_class_section_wise_student_tbl vcsws ON(vcsws.STUDENT_ID = aat.PERSON_ID AND aat.PERSON_TYPE = 1) " +
-                "WHERE vcsws.CLASS_ID IS NOT null and DATE between @fromDate and @toDate ";
+            String queryString = "SELECT vcsws.*,aat.* FROM attendance_tbl aat LEFT JOIN view_class_section_wise_student_tbl vcsws ON vcsws.STUDENT_ID = aat.PERSON_ID " +
+                "WHERE vcsws.CLASS_ID IS NOT null and DATE between @fromDate and @toDate and PERSON_TYPE = @personType";
 
             if (ClassId != 0)
             {
@@ -53,10 +53,10 @@ namespace SchoolManagementSystem.Class
                 queryString += " and SECTION_ID = @sectionId ";
             }
 
-            if (StudentId != 0)
+            if (PersonId != 0)
             {
-                Console.WriteLine("student" + StudentId);
-                queryString += " and STUDENT_ID = @studentId ";
+                Console.WriteLine("student" + PersonId);
+                queryString += " and PERSON_ID = @personId ";
             }
 
             queryString += " ORDER BY DATE";
@@ -64,6 +64,8 @@ namespace SchoolManagementSystem.Class
             
             Command.Parameters.AddWithValue("@fromDate", FromDate.Date);
             Command.Parameters.AddWithValue("@toDate", ToDate.Date);
+            Command.Parameters.AddWithValue("@personType", PersonType);
+
             if (ClassId != 0)
             {
                 Command.Parameters.AddWithValue("@classId", ClassId);
@@ -72,11 +74,39 @@ namespace SchoolManagementSystem.Class
             {
                 Command.Parameters.AddWithValue("@sectionId", SectionId);
             }
-            if (StudentId != 0)
+            if (PersonId != 0)
             {
-                Command.Parameters.AddWithValue("@studentId", StudentId);
+                Command.Parameters.AddWithValue("@personId", PersonId);
             }
             return ExecuteDataSet(Command);
         }
+
+        public DataSet SelectTeacherAttendance()
+        {
+            //Command = CommandBuilder("select DATE, IN_TIME from " + table + " where DATE between @fromDate and @toDate ORDER BY DATE");
+            String queryString = "SELECT tst.*,aat.* FROM attendance_tbl aat LEFT JOIN teacher_setup_tbl tst ON tst.ID = aat.PERSON_ID " +
+                "WHERE DATE between @fromDate and @toDate AND aat.PERSON_TYPE = 2";
+
+            if (PersonId != 0)
+            {
+                Console.WriteLine("student" + PersonId);
+                queryString += " and PERSON_ID = @personId";
+            }
+
+            queryString += " ORDER BY DATE";
+            Command = CommandBuilder(queryString);
+
+            Command.Parameters.AddWithValue("@fromDate", FromDate.Date);
+            Command.Parameters.AddWithValue("@toDate", ToDate.Date);
+            Command.Parameters.AddWithValue("@personType", PersonType);
+
+            if (PersonId != 0)
+            {
+                Command.Parameters.AddWithValue("@personId", PersonId);
+            }
+            return ExecuteDataSet(Command);
+        }
+
+
     }
 }
