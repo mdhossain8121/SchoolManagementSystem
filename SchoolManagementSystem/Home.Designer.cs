@@ -126,7 +126,6 @@
             this.resultEntryToolStripMenuItem.Name = "resultEntryToolStripMenuItem";
             this.resultEntryToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.resultEntryToolStripMenuItem.Text = "&Result Entry";
-            this.resultEntryToolStripMenuItem.Visible = false;
             this.resultEntryToolStripMenuItem.Click += new System.EventHandler(this.resultEntryToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
@@ -283,7 +282,7 @@
             this.resultToolStripMenuItem.Name = "resultToolStripMenuItem";
             this.resultToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.resultToolStripMenuItem.Text = "&Result";
-            this.resultToolStripMenuItem.Visible = false;
+            this.resultToolStripMenuItem.Click += new System.EventHandler(this.resultToolStripMenuItem_Click);
             // 
             // teacherAttendanceReportToolStripMenuItem
             // 

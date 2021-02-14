@@ -16,7 +16,8 @@ namespace SchoolManagementSystem.Class
         public int ActiveStatus { get; set; }
 
         private static readonly String table = "class_setup_tbl";
-        
+        private static readonly String tblClassSectionWiseStudentView = "view_class_section_wise_student_tbl";
+
         public Boolean Insert()
         {
             Command = CommandBuilder("insert into "+ table + " (CLASS_NAME) values(@name)");
@@ -61,6 +62,13 @@ namespace SchoolManagementSystem.Class
                 return true;
             }
             return false;
+        }
+
+        public DataSet SelectStudentByClassId()
+        {
+            Command = CommandBuilder("select ID, CONCAT( STUDENT_ID,'-',STUDENT_NAME) AS UNIQUE_NAME from " + tblClassSectionWiseStudentView + " where CLASS_ID = @classId");
+            Command.Parameters.AddWithValue("@classId", Id);
+            return ExecuteDataSet(Command);
         }
 
         public DataSet Select()

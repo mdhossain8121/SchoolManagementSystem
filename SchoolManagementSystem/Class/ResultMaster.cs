@@ -30,12 +30,12 @@ namespace SchoolManagementSystem.Class
 
         public long Insert()
         {
-            Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSEXAM_ID, CLASSSUBJECT_ID, TOTAL_MARKS, SESSION_ID) values(@classExamId, @classSubjectId, @totalMarks, @session)");
+            Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSEXAM_ID, CLASSSUBJECT_ID, TOTAL_MARKS, SESSION_ID,EXAM_DATE) values(@classExamId, @classSubjectId, @totalMarks, @session,  @examDate)");
             //Command = CommandBuilder("insert into " + tblResultMaster + " (CLASSEXAM_ID, CLASSSUBJECT_ID, TOTAL_MARKS, EXAM_DATE) values(@classExamId, @classSubjectId, @totalMarks, @examDate)");
             Command.Parameters.AddWithValue("@classExamId", ClassExamId);
             Command.Parameters.AddWithValue("@classSubjectId", ClassSubjectId);
             Command.Parameters.AddWithValue("@totalMarks", TotalMarks);
-            //Command.Parameters.AddWithValue("@examDate", ExamDate);
+            Command.Parameters.AddWithValue("@examDate", ExamDate);
             Command.Parameters.AddWithValue("@session", SessionId);
             return ExecuteAndReturnId(Command);
         }

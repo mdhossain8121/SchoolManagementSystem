@@ -96,6 +96,7 @@
     <Compile Include="ClassManager\SubjectManager.cs" />
     <Compile Include="ClassManager\TeacherManager.cs" />
     <Compile Include="ClassManager\UserManager.cs" />
+    <Compile Include="Class\ResultReport.cs" />
     <Compile Include="Class\AttendanceReport.cs" />
     <Compile Include="Class\Attendance.cs" />
     <Compile Include="Class\Base.cs" />
@@ -119,10 +120,18 @@
     <Compile Include="Class\User.cs" />
     <Compile Include="Class\UserSession.cs" />
     <Compile Include="Class\Utilities.cs" />
+    <Compile Include="Dataset\dsAttendanceReport.cs">
+      <DependentUpon>dsAttendanceReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\dsAttendanceReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAttendanceReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\dsClassSectionWiseResult.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsClassSectionWiseResult.xsd</DependentUpon>
     </Compile>
     <Compile Include="Dataset\dsTeacherAttendanceReport.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -134,6 +143,12 @@
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmResultReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmResultReport.Designer.cs">
+      <DependentUpon>frmResultReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\frmTeacherAttendanceReport.cs">
       <SubType>Form</SubType>
@@ -320,6 +335,9 @@
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmResultReport.resx">
+      <DependentUpon>frmResultReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmTeacherAttendanceReport.resx">
       <DependentUpon>frmTeacherAttendanceReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +453,17 @@
     <None Include="Dataset\dsAttendanceReport.xss">
       <DependentUpon>dsAttendanceReport.xsd</DependentUpon>
     </None>
+    <None Include="Dataset\dsClassSectionWiseResult.xsc">
+      <DependentUpon>dsClassSectionWiseResult.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\dsClassSectionWiseResult.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsClassSectionWiseResult.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\dsClassSectionWiseResult.xss">
+      <DependentUpon>dsClassSectionWiseResult.xsd</DependentUpon>
+    </None>
     <None Include="Dataset\dsTeacherAttendanceReport.xsc">
       <DependentUpon>dsTeacherAttendanceReport.xsd</DependentUpon>
     </None>
@@ -447,6 +476,7 @@
       <DependentUpon>dsTeacherAttendanceReport.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SchoolManagementSystem.Class.ResultReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -13,6 +13,8 @@ namespace SchoolManagementSystem.Class
 
         public int ClassSectionId { get; set; }
 
+        public int ClassId { get; set; }
+
         public int StudentId { get; set; }
 
         public string StudentName { get; set; }
@@ -73,12 +75,11 @@ namespace SchoolManagementSystem.Class
         {
             Command = CommandBuilder("select ID, STUDENT_NAME, CLASS_NAME, SECTION_NAME,ROLL,YEAR from " + tblClassSectionWiseStudentView + " where ACTIVE_STATUS = @activeStatus");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
-            //if (ClassName != null && !ClassName.Trim().Equals(""))
-            //{
-            //    Command.CommandText += " Where CLASS_NAME like @search";
-            //    Command.Parameters.AddWithValue("@search", "%" + ClassName + "%");
-            //}
-            Console.WriteLine(StudentName);
+            if (ClassId > 0)
+            {
+                Command.CommandText += " AND CLASS_ID = @classId";
+                Command.Parameters.AddWithValue("@classId", ClassId);
+            }
             if (StudentName != null && !StudentName.Trim().Equals(""))
             {
                 Command.CommandText += " AND STUDENT_NAME like @search";

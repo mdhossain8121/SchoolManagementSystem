@@ -14,10 +14,10 @@ using SchoolManagementSystem.ClassManager;
 
 namespace SchoolManagementSystem.Presentation
 {
-    public partial class frmResult : Form
+    public partial class frmResultReport : Form
     {
         ResultManager aResultManager = new ResultManager();
-        public frmResult()
+        public frmResultReport()
         {
             InitializeComponent();
         }
@@ -95,19 +95,9 @@ namespace SchoolManagementSystem.Presentation
             ResultMaster aResultMaster = new ResultMaster();
             aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
             aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
-            aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
             //aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
             aResultMaster.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString());
-
-            if (aResultMaster.CheckIfResultExist() > 0)
-            {
-                //string s = "You already submitted result of Class: ({0}) Section: ({1}) Exam :({2}) for Year :({3})";
-                string s = "You already submitted result of Class: ({0}) Section: ({1}) Exam :({2}) for Session :({3})";
-                //string msg = string.Format(s, cmbClass.Text, cmbClassWiseSection.Text, cmbClassWiseExam.Text, DateTime.Parse(dtpExamDate.Value.ToString()).Year.ToString());
-                string msg = string.Format(s, cmbClass.Text, cmbClassWiseSection.Text, cmbClassWiseExam.Text, cmbSession.Text);
-                MessageBox.Show(msg);
-                return;
-            }
+            
 
             ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
             aClassSectionWiseStudent.ActiveStatus = 1;
@@ -120,68 +110,7 @@ namespace SchoolManagementSystem.Presentation
                 MessageBox.Show(aClassSectionWiseStudent.Error);
                 return;
             }
-            dgvResultEntry.DataSource = dt;
-        }
-
-        private void btmSubmit_Click(object sender, EventArgs e)
-        {
-            if (Utilities.EmptyRequiredField(this))
-                return;
-            //if (Utilities.EmptyDataGridViewRequiredCell(dgvResultEntry))
-            //    return;
-            ResultMaster aResultMaster = new ResultMaster();
-            aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
-            aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
-            aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
-            aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
-            //aResultMaster.ExamDate = DateTime.Now;
-            aResultMaster.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString());
-            aResultMaster.Id = aResultMaster.Insert();
-            if (aResultMaster.Id > 0)
-            {
-                ResultChild aResultChild;
-                foreach (DataGridViewRow row in dgvResultEntry.Rows)
-                {
-                    aResultChild = new ResultChild();
-                    aResultChild.ClassSectionStudentId = Convert.ToInt32(row.Cells["colid"].Value.ToString());
-                    aResultChild.Marks = Convert.ToInt32(row.Cells["colMarks"].Value.ToString());
-                    aResultChild.ResultMasterId = aResultMaster.Id;
-                    bool success = aResultChild.Insert();
-                    if (!success)
-                    {
-                        File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Marks Entry (Insert)" + Environment.NewLine);
-                        File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: " + aResultChild.Error + Environment.NewLine);
-                        MessageBox.Show(aResultChild.Error);
-                    }
-                }
-
-                Utilities.EmptyAllControls(this);
-            }
-            else
-            {
-                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: Result Submission (Insert)" + Environment.NewLine);
-                File.AppendAllText("logs.txt", DateTime.Now.ToString() + " :: " + aResultMaster.Error + Environment.NewLine);
-                MessageBox.Show( aResultMaster.Error);
-            }
-            
-        }
-
-        private void dgvResultEntry_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            Console.WriteLine("row post paint");
-            //this.dgvResultEntry.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
-            this.dgvResultEntry.Rows[e.RowIndex].Cells["colSL"].Value = (e.RowIndex + 1).ToString();
-        }
-
-        private void dgvResultEntry_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            dgvResultEntry.CurrentCell.Style.BackColor = Color.White;
-        }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
+            //dgvResultEntry.DataSource = dt;
         }
 
         private void releaseObject(object obj)
@@ -200,39 +129,6 @@ namespace SchoolManagementSystem.Presentation
             {
                 GC.Collect();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Excel.Application xlApp;
-            //Excel.Workbook xlWorkBook;
-            //Excel.Worksheet xlWorkSheet;
-            //object misValue = System.Reflection.Missing.Value;
-
-            //xlApp = new Excel.Application();
-            //xlWorkBook = xlApp.Workbooks.Add(misValue);
-            //xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            //int i = 0;
-            //int j = 0;
-
-            //for (i = 0; i <= dgvResultEntry.RowCount - 1; i++)
-            //{
-            //    for (j = 0; j <= dgvResultEntry.ColumnCount - 1; j++)
-            //    {
-            //        DataGridViewCell cell = dgvResultEntry[j, i];
-            //        xlWorkSheet.Cells[i + 1, j + 1] = cell.Value;
-            //    }
-            //}
-
-            //xlWorkBook.SaveAs("D:\\csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            //xlWorkBook.Close(true, misValue, misValue);
-            //xlApp.Quit();
-
-            //releaseObject(xlWorkSheet);
-            //releaseObject(xlWorkBook);
-            //releaseObject(xlApp);
-
-            //MessageBox.Show("Excel file created , you can find the file D:\\csharp.net-informations.xls");
         }
 
         private void cmbSession_SelectionChangeCommitted(object sender, EventArgs e)

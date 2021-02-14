@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsClassSectionWiseResult" targetNamespace="http://tempuri.org/dsClassSectionWiseResult.xsd" xmlns:mstns="http://tempuri.org/dsClassSectionWiseResult.xsd" xmlns="http://tempuri.org/dsClassSectionWiseResult.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsClassSectionWiseResult" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsClassSectionWiseResult" msprop:Generator_UserDSName="dsClassSectionWiseResult">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtResult" msprop:Generator_TableClassName="dtResultDataTable" msprop:Generator_TableVarName="tabledtResult" msprop:Generator_RowChangedName="dtResultRowChanged" msprop:Generator_TablePropName="dtResult" msprop:Generator_RowDeletingName="dtResultRowDeleting" msprop:Generator_RowChangingName="dtResultRowChanging" msprop:Generator_RowEvHandlerName="dtResultRowChangeEventHandler" msprop:Generator_RowDeletedName="dtResultRowDeleted" msprop:Generator_RowClassName="dtResultRow" msprop:Generator_UserTableName="dtResult" msprop:Generator_RowEvArgName="dtResultRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="STUDENT_NAME" msprop:Generator_ColumnVarNameInTable="columnSTUDENT_NAME" msprop:Generator_ColumnPropNameInRow="STUDENT_NAME" msprop:Generator_ColumnPropNameInTable="STUDENT_NAMEColumn" msprop:Generator_UserColumnName="STUDENT_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="ROLL" msprop:Generator_ColumnVarNameInTable="columnROLL" msprop:Generator_ColumnPropNameInRow="ROLL" msprop:Generator_ColumnPropNameInTable="ROLLColumn" msprop:Generator_UserColumnName="ROLL" type="xs:string" minOccurs="0" />
+              <xs:element name="MARKS" msprop:Generator_ColumnVarNameInTable="columnMARKS" msprop:Generator_ColumnPropNameInRow="MARKS" msprop:Generator_ColumnPropNameInTable="MARKSColumn" msprop:Generator_UserColumnName="MARKS" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

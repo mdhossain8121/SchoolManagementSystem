@@ -30,6 +30,7 @@ namespace SchoolManagementSystem
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
         frmResult result = new frmResult();
+        frmResultReport resultReport = new frmResultReport();
         frmDatabase database = new frmDatabase();
         frmAttendanceReport attendanceReport = new frmAttendanceReport();
         frmTeacherAttendanceReport teacherAttendanceReport = new frmTeacherAttendanceReport();
@@ -214,6 +215,13 @@ namespace SchoolManagementSystem
             if (teacherAttendanceReport.IsDisposed)
                 teacherAttendanceReport = new frmTeacherAttendanceReport();
             menuClick(teacherAttendanceReport);
+        }
+
+        private void resultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (resultReport.IsDisposed)
+                resultReport = new frmResultReport();
+            menuClick(resultReport);
         }
     }
 }

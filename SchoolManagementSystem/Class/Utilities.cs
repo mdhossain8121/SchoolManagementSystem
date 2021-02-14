@@ -75,6 +75,7 @@ namespace SchoolManagementSystem.Class
 
         public static void ResetComboBox(ComboBox cmb)
         {
+            cmb.DataBindings.Clear();
             cmb.DataSource = null;
             cmb.Items.Clear();
             cmb.IntegralHeight = false;

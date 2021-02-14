@@ -58,30 +58,13 @@ namespace MatchingAnsi
         private GroupBox groupBox4;
         private RadioButton rbStudent;
         private RadioButton rbTeacher;
+        private Label label3;
+        private ComboBox cmbClass;
         private IContainer components;
 
         public frmFingerRegister()
-      {
-         //
-         // Required for Windows Form Designer support
-         //
-         InitializeComponent();
-
-            //
-            // TODO: Add any constructor code after InitializeComponent call
-            //
-            Student aStudet = new Student();
-            aStudet.ActiveStatus = 1;
-            DataSet dsStudent = aStudet.Select();
-            if (dsStudent == null)
-            {
-                MessageBox.Show(aStudet.Error);
-                return;
-            }
-            cmbPerson.DataSource = dsStudent.Tables[0];
-            cmbPerson.DisplayMember = "UNIQUE_NAME";
-            cmbPerson.ValueMember = "ID";
-            cmbPerson.SelectedIndex = -1;
+        {
+            InitializeComponent();
         }
 
       /// <summary>
@@ -117,19 +100,21 @@ namespace MatchingAnsi
             this.BtnCapture3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnRegister = new System.Windows.Forms.Button();
             this.progressBar_R2 = new System.Windows.Forms.ProgressBar();
-            this.cmbPerson = new System.Windows.Forms.ComboBox();
             this.progressBar_R1 = new System.Windows.Forms.ProgressBar();
             this.pictureBoxR2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxR1 = new System.Windows.Forms.PictureBox();
             this.BtnCapture1 = new System.Windows.Forms.Button();
             this.BtnCapture2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbPerson = new System.Windows.Forms.ComboBox();
             this.StatusBar = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.rbStudent = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbClass = new System.Windows.Forms.ComboBox();
             this.rbTeacher = new System.Windows.Forms.RadioButton();
+            this.rbStudent = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxV1)).BeginInit();
@@ -186,7 +171,7 @@ namespace MatchingAnsi
             this.groupBox1.Controls.Add(this.pictureBoxV1);
             this.groupBox1.Controls.Add(this.BtnCapture3);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(288, 130);
+            this.groupBox1.Location = new System.Drawing.Point(292, 178);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(136, 237);
             this.groupBox1.TabIndex = 36;
@@ -263,21 +248,12 @@ namespace MatchingAnsi
             this.groupBox3.Controls.Add(this.pictureBoxR1);
             this.groupBox3.Controls.Add(this.BtnCapture1);
             this.groupBox3.Controls.Add(this.BtnCapture2);
-            this.groupBox3.Location = new System.Drawing.Point(0, 130);
+            this.groupBox3.Location = new System.Drawing.Point(4, 178);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(282, 237);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Registration";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(21, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 19);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "Name";
             // 
             // BtnRegister
             // 
@@ -297,25 +273,6 @@ namespace MatchingAnsi
             this.progressBar_R2.Name = "progressBar_R2";
             this.progressBar_R2.Size = new System.Drawing.Size(104, 12);
             this.progressBar_R2.TabIndex = 44;
-            // 
-            // cmbPerson
-            // 
-            this.cmbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cmbPerson.Items.AddRange(new object[] {
-            "Auto Selection",
-            "USB FDU08P(U20AP)",
-            "USB FDU08(U20A)",
-            "USB FDU07A(U10A)",
-            "USB FDU07(U10)",
-            "USB FDU05",
-            "USB FDU04",
-            "USB FDU03",
-            "USB FDU02",
-            "No device"});
-            this.cmbPerson.Location = new System.Drawing.Point(81, 30);
-            this.cmbPerson.Name = "cmbPerson";
-            this.cmbPerson.Size = new System.Drawing.Size(326, 26);
-            this.cmbPerson.TabIndex = 6;
             // 
             // progressBar_R1
             // 
@@ -368,28 +325,87 @@ namespace MatchingAnsi
             this.BtnCapture2.UseVisualStyleBackColor = false;
             this.BtnCapture2.Click += new System.EventHandler(this.BtnCapture2_Click);
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label2.Location = new System.Drawing.Point(21, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 19);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Name: ";
+            // 
+            // cmbPerson
+            // 
+            this.cmbPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cmbPerson.Location = new System.Drawing.Point(81, 71);
+            this.cmbPerson.Name = "cmbPerson";
+            this.cmbPerson.Size = new System.Drawing.Size(326, 26);
+            this.cmbPerson.TabIndex = 6;
+            // 
             // StatusBar
             // 
             this.StatusBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.StatusBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.StatusBar.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.StatusBar.Location = new System.Drawing.Point(0, 370);
+            this.StatusBar.Location = new System.Drawing.Point(0, 420);
             this.StatusBar.Name = "StatusBar";
             this.StatusBar.Size = new System.Drawing.Size(432, 24);
             this.StatusBar.TabIndex = 38;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.cmbClass);
             this.groupBox4.Controls.Add(this.rbTeacher);
             this.groupBox4.Controls.Add(this.rbStudent);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.cmbPerson);
-            this.groupBox4.Location = new System.Drawing.Point(1, 62);
+            this.groupBox4.Location = new System.Drawing.Point(3, 62);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(423, 63);
+            this.groupBox4.Size = new System.Drawing.Size(423, 110);
             this.groupBox4.TabIndex = 39;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Person";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(20, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 19);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Class :";
+            // 
+            // cmbClass
+            // 
+            this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cmbClass.Items.AddRange(new object[] {
+            "Auto Selection",
+            "USB FDU08P(U20AP)",
+            "USB FDU08(U20A)",
+            "USB FDU07A(U10A)",
+            "USB FDU07(U10)",
+            "USB FDU05",
+            "USB FDU04",
+            "USB FDU03",
+            "USB FDU02",
+            "No device"});
+            this.cmbClass.Location = new System.Drawing.Point(80, 34);
+            this.cmbClass.Name = "cmbClass";
+            this.cmbClass.Size = new System.Drawing.Size(326, 26);
+            this.cmbClass.TabIndex = 53;
+            this.cmbClass.SelectedIndexChanged += new System.EventHandler(this.cmbClass_SelectedIndexChanged);
+            this.cmbClass.SelectionChangeCommitted += new System.EventHandler(this.cmbClass_SelectionChangeCommitted);
+            // 
+            // rbTeacher
+            // 
+            this.rbTeacher.AutoSize = true;
+            this.rbTeacher.Location = new System.Drawing.Point(339, 12);
+            this.rbTeacher.Name = "rbTeacher";
+            this.rbTeacher.Size = new System.Drawing.Size(65, 17);
+            this.rbTeacher.TabIndex = 52;
+            this.rbTeacher.Text = "Teacher";
+            this.rbTeacher.UseVisualStyleBackColor = true;
             // 
             // rbStudent
             // 
@@ -404,20 +420,10 @@ namespace MatchingAnsi
             this.rbStudent.UseVisualStyleBackColor = true;
             this.rbStudent.CheckedChanged += new System.EventHandler(this.rbStudent_CheckedChanged);
             // 
-            // rbTeacher
-            // 
-            this.rbTeacher.AutoSize = true;
-            this.rbTeacher.Location = new System.Drawing.Point(339, 12);
-            this.rbTeacher.Name = "rbTeacher";
-            this.rbTeacher.Size = new System.Drawing.Size(65, 17);
-            this.rbTeacher.TabIndex = 52;
-            this.rbTeacher.Text = "Teacher";
-            this.rbTeacher.UseVisualStyleBackColor = true;
-            // 
             // frmFingerRegister
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(432, 394);
+            this.ClientSize = new System.Drawing.Size(432, 444);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.groupBox1);
@@ -487,7 +493,10 @@ namespace MatchingAnsi
          {
              this.Text = "Matching Test: ISO 19794-2 Format";
          }
-      }
+
+            //load classes
+            loadClass();
+        }
 
       /////////////////////////////////////
       private void InitBtn_Click(object sender, System.EventArgs e)
@@ -1004,22 +1013,16 @@ namespace MatchingAnsi
 
         private void rbStudent_CheckedChanged(object sender, EventArgs e)
         {
+            Utilities.ResetComboBox(cmbClass);
+            Utilities.ResetComboBox(cmbPerson);
             if (rbStudent.Checked)
             {
-                Student aStudent = new Student();
-                aStudent.ActiveStatus = 1;
-                DataSet dsStudent = aStudent.Select();
-                if (dsStudent == null)
-                {
-                    MessageBox.Show(aStudent.Error);
-                    return;
-                }
-                cmbPerson.DataSource = dsStudent.Tables[0];
-                cmbPerson.DisplayMember = "UNIQUE_NAME";
-                cmbPerson.ValueMember = "ID";   
+                cmbClass.Enabled = true;
+                loadClass();
             }
             else
             {
+                cmbClass.Enabled = false;
                 Teacher aTeacher = new Teacher();
                 aTeacher.ActiveStatus = 1;
                 DataSet dsTeacher = aTeacher.Select();
@@ -1028,11 +1031,61 @@ namespace MatchingAnsi
                     MessageBox.Show(aTeacher.Error);
                     return;
                 }
+                cmbPerson.BindingContext = new BindingContext();
                 cmbPerson.DataSource = dsTeacher.Tables[0];
                 cmbPerson.DisplayMember = "UNIQUE_TEACHER_NAME";
                 cmbPerson.ValueMember = "ID";
             }
             cmbPerson.SelectedIndex = -1;
+        }
+
+        private void loadClass()
+        {
+            ClassSetup cs = new ClassSetup();
+            cs.ActiveStatus = 1;
+            DataSet dsClass = cs.Select();
+            if (dsClass == null)
+            {
+                MessageBox.Show(cs.Error);
+                return;
+            }
+            cmbClass.BindingContext = new BindingContext();
+            cmbClass.DataSource = dsClass.Tables[0];
+            cmbClass.DisplayMember = "CLASS_NAME";
+            cmbClass.ValueMember = "ID";
+            cmbClass.SelectedIndex = -1;
+        }
+
+        private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Utilities.ResetComboBox(cmbPerson);
+            loadClassWiseStudent();
+        }
+
+        private void loadClassWiseStudent()
+        {
+            ClassSetup cs = new ClassSetup();
+            cs.ActiveStatus = 1;
+            
+            Console.WriteLine(cmbClass.SelectedValue.ToString().Trim());
+            if (cmbClass.SelectedIndex>-1 && cmbClass.SelectedItem.ToString().Trim()!="") cs.Id = Convert.ToInt32(cmbClass.SelectedValue.ToString());
+            DataSet dsStudent = cs.SelectStudentByClassId();
+            if (dsStudent == null)
+            {
+                MessageBox.Show(cs.Error);
+                return;
+            }
+            cmbPerson.BindingContext = new BindingContext();
+            cmbPerson.DataSource = dsStudent.Tables[0];
+            cmbPerson.DisplayMember = "UNIQUE_NAME";
+            cmbPerson.ValueMember = "ID";
+            cmbPerson.SelectedIndex = -1;
+        }
+
+        private void cmbClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Console.WriteLine("index");
+            //loadClassWiseStudent();
         }
     }
 }

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.gpAttendance = new System.Windows.Forms.GroupBox();
+            this.cmbStudent = new System.Windows.Forms.ComboBox();
+            this.Student = new System.Windows.Forms.Label();
+            this.cmbSection = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbClass = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAttendanceSearch = new System.Windows.Forms.Button();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.crvAttendanceReport = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.cmbSection = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbClass = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbStudent = new System.Windows.Forms.ComboBox();
-            this.Student = new System.Windows.Forms.Label();
             this.gpAttendance.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,15 +60,75 @@
             this.gpAttendance.Dock = System.Windows.Forms.DockStyle.Top;
             this.gpAttendance.Location = new System.Drawing.Point(0, 0);
             this.gpAttendance.Name = "gpAttendance";
-            this.gpAttendance.Size = new System.Drawing.Size(1379, 48);
+            this.gpAttendance.Size = new System.Drawing.Size(1356, 48);
             this.gpAttendance.TabIndex = 69;
             this.gpAttendance.TabStop = false;
+            // 
+            // cmbStudent
+            // 
+            this.cmbStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cmbStudent.FormattingEnabled = true;
+            this.cmbStudent.Location = new System.Drawing.Point(1031, 15);
+            this.cmbStudent.Name = "cmbStudent";
+            this.cmbStudent.Size = new System.Drawing.Size(227, 26);
+            this.cmbStudent.TabIndex = 19;
+            this.cmbStudent.Tag = "Required";
+            // 
+            // Student
+            // 
+            this.Student.AutoSize = true;
+            this.Student.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Student.Location = new System.Drawing.Point(959, 19);
+            this.Student.Name = "Student";
+            this.Student.Size = new System.Drawing.Size(70, 18);
+            this.Student.TabIndex = 18;
+            this.Student.Text = "Student : ";
+            // 
+            // cmbSection
+            // 
+            this.cmbSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cmbSection.FormattingEnabled = true;
+            this.cmbSection.Location = new System.Drawing.Point(799, 15);
+            this.cmbSection.Name = "cmbSection";
+            this.cmbSection.Size = new System.Drawing.Size(143, 26);
+            this.cmbSection.TabIndex = 17;
+            this.cmbSection.Tag = "Required";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.Location = new System.Drawing.Point(730, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 18);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Section : ";
+            // 
+            // cmbClass
+            // 
+            this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cmbClass.FormattingEnabled = true;
+            this.cmbClass.Location = new System.Drawing.Point(562, 15);
+            this.cmbClass.Name = "cmbClass";
+            this.cmbClass.Size = new System.Drawing.Size(149, 26);
+            this.cmbClass.TabIndex = 14;
+            this.cmbClass.Tag = "Required";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(498, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 18);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Class : ";
             // 
             // dtpFrom
             // 
             this.dtpFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(115, 16);
+            this.dtpFrom.Location = new System.Drawing.Point(107, 16);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(135, 24);
             this.dtpFrom.TabIndex = 0;
@@ -77,7 +137,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 19);
+            this.label1.Location = new System.Drawing.Point(12, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 18);
             this.label1.TabIndex = 1;
@@ -87,7 +147,7 @@
             // 
             this.btnAttendanceSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAttendanceSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttendanceSearch.Location = new System.Drawing.Point(1293, 16);
+            this.btnAttendanceSearch.Location = new System.Drawing.Point(1275, 16);
             this.btnAttendanceSearch.Name = "btnAttendanceSearch";
             this.btnAttendanceSearch.Size = new System.Drawing.Size(75, 24);
             this.btnAttendanceSearch.TabIndex = 4;
@@ -99,7 +159,7 @@
             // 
             this.dtpTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(349, 16);
+            this.dtpTo.Location = new System.Drawing.Point(343, 16);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(135, 24);
             this.dtpTo.TabIndex = 2;
@@ -108,7 +168,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(270, 19);
+            this.label2.Location = new System.Drawing.Point(264, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 3;
@@ -122,75 +182,15 @@
             this.crvAttendanceReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crvAttendanceReport.Location = new System.Drawing.Point(0, 48);
             this.crvAttendanceReport.Name = "crvAttendanceReport";
-            this.crvAttendanceReport.Size = new System.Drawing.Size(1379, 566);
+            this.crvAttendanceReport.Size = new System.Drawing.Size(1356, 566);
             this.crvAttendanceReport.TabIndex = 70;
             this.crvAttendanceReport.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // cmbSection
-            // 
-            this.cmbSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cmbSection.FormattingEnabled = true;
-            this.cmbSection.Location = new System.Drawing.Point(815, 15);
-            this.cmbSection.Name = "cmbSection";
-            this.cmbSection.Size = new System.Drawing.Size(143, 26);
-            this.cmbSection.TabIndex = 17;
-            this.cmbSection.Tag = "Required";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label6.Location = new System.Drawing.Point(746, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 18);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Section : ";
-            // 
-            // cmbClass
-            // 
-            this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(574, 15);
-            this.cmbClass.Name = "cmbClass";
-            this.cmbClass.Size = new System.Drawing.Size(149, 26);
-            this.cmbClass.TabIndex = 14;
-            this.cmbClass.Tag = "Required";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(510, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 18);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Class : ";
-            // 
-            // cmbStudent
-            // 
-            this.cmbStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cmbStudent.FormattingEnabled = true;
-            this.cmbStudent.Location = new System.Drawing.Point(1049, 15);
-            this.cmbStudent.Name = "cmbStudent";
-            this.cmbStudent.Size = new System.Drawing.Size(227, 26);
-            this.cmbStudent.TabIndex = 19;
-            this.cmbStudent.Tag = "Required";
-            // 
-            // Student
-            // 
-            this.Student.AutoSize = true;
-            this.Student.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Student.Location = new System.Drawing.Point(980, 19);
-            this.Student.Name = "Student";
-            this.Student.Size = new System.Drawing.Size(70, 18);
-            this.Student.TabIndex = 18;
-            this.Student.Text = "Student : ";
             // 
             // frmAttendanceReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 614);
+            this.ClientSize = new System.Drawing.Size(1356, 614);
             this.Controls.Add(this.crvAttendanceReport);
             this.Controls.Add(this.gpAttendance);
             this.Name = "frmAttendanceReport";

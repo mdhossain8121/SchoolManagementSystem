@@ -52,6 +52,7 @@ namespace SchoolManagementSystem.Presentation
             ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
             aClassSectionWiseStudent.ActiveStatus = 1;
             aClassSectionWiseStudent.StudentName = txtStudentCLassSearch.Text;
+            if (cmbSearchClass.SelectedIndex > -1) aClassSectionWiseStudent.ClassId = Convert.ToInt32(cmbSearchClass.SelectedValue.ToString());
             DataTable dt = aClassSectionWiseStudentManager.GetAllClassSectionWiseStudentData(aClassSectionWiseStudent);
             if (dt == null)
             {
@@ -260,10 +261,17 @@ namespace SchoolManagementSystem.Presentation
                 MessageBox.Show(cs.Error);
                 return;
             }
+            cmbClass.BindingContext = new BindingContext();
             cmbClass.DataSource = dsClass.Tables[0];
             cmbClass.DisplayMember = "CLASS_NAME";
             cmbClass.ValueMember = "ID";
             cmbClass.SelectedIndex = -1;
+
+            cmbSearchClass.BindingContext = new BindingContext();
+            cmbSearchClass.DataSource = dsClass.Tables[0];
+            cmbSearchClass.DisplayMember = "CLASS_NAME";
+            cmbSearchClass.ValueMember = "ID";
+            cmbSearchClass.SelectedIndex = -1;
 
             // Load Session
             Class.Session s = new Class.Session();
@@ -279,7 +287,6 @@ namespace SchoolManagementSystem.Presentation
             cmbSession.ValueMember = "ID";
             cmbSession.SelectedIndex = -1;
 
-
             Student aStudent = new Student();
             aStudent.ActiveStatus = 1;
             DataSet dsStudent = aStudent.Select();
@@ -293,7 +300,6 @@ namespace SchoolManagementSystem.Presentation
             cmbStudent.ValueMember = "ID";
             cmbStudent.SelectedIndex = -1;
             loadClassInfoDatagridview();
-            
         }
 
         private void cmbClass_SelectionChangeCommitted(object sender, EventArgs e)
@@ -352,6 +358,18 @@ namespace SchoolManagementSystem.Presentation
         private void cmbSession_SelectionChangeCommitted(object sender, EventArgs e)
         {
             loadAllSection();
+        }
+
+        private void cmbSearchClass_TextChanged(object sender, EventArgs e)
+        {
+            if (cmbSearchClass.SelectedIndex < 0)
+            {
+                cmbSearchClass.Text = "Select any Class";
+            }
+            else
+            {
+                cmbSearchClass.Text = cmbSearchClass.SelectedText;
+            }
         }
     }
 }
