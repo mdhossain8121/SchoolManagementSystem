@@ -91,26 +91,22 @@ namespace SchoolManagementSystem.Presentation
                 return;
 
             // CHECK IF RESULT ALREADY SUBMITTED
-
-            ResultMaster aResultMaster = new ResultMaster();
-            aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
-            aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
+            ResultReport aResultReport = new ResultReport();
+            //aResultReport.ClassId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
+            aResultReport.ClassWiseSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
+            aResultReport.ClassWiseSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
+            aResultReport.ClassWiseExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
             //aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
-            aResultMaster.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString());
+            //aResultReport.SessionId = Convert.ToInt32(cmbSession.SelectedValue.ToString()); 
             
+            DataTable dt = aResultReport.Select().Tables[0];
 
-            ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
-            aClassSectionWiseStudent.ActiveStatus = 1;
-            aClassSectionWiseStudent.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString()); 
-            
-            DataTable dt = aClassSectionWiseStudent.SelectBySection().Tables[0];
+            Console.WriteLine("count"+dt.Rows.Count);
 
-            if (dt == null)
-            {
-                MessageBox.Show(aClassSectionWiseStudent.Error);
-                return;
-            }
-            //dgvResultEntry.DataSource = dt;
+            Reports.ResultReport resultReport = new Reports.ResultReport();
+            resultReport.Database.Tables["dtResult"].SetDataSource(dt);
+            crvResultReport.ReportSource = null;
+            crvResultReport.ReportSource = resultReport;
         }
 
         private void releaseObject(object obj)
