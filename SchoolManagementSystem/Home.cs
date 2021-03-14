@@ -29,6 +29,7 @@ namespace SchoolManagementSystem
         frmTeacherAttendance teacherAttendance = new frmTeacherAttendance();
         frmTeacher teacher = new frmTeacher();
         frmStudent student = new frmStudent();
+        frmMultipleStudents students = new frmMultipleStudents();
         frmResult result = new frmResult();
         frmResultReport resultReport = new frmResultReport();
         frmDatabase database = new frmDatabase();
@@ -222,6 +223,13 @@ namespace SchoolManagementSystem
             if (resultReport.IsDisposed)
                 resultReport = new frmResultReport();
             menuClick(resultReport);
+        }
+
+        private void multipeStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (students.IsDisposed)
+                students = new frmMultipleStudents();
+            menuClick(students);
         }
     }
 }

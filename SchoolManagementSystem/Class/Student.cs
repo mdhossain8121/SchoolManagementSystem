@@ -101,6 +101,17 @@ namespace SchoolManagementSystem.Class
             return 0;
         }
 
+        public int maxId()
+        {
+            Command = CommandBuilder("select max(id) as max_student_id from " + table );
+            Reader = ExecuteReader(Command);
+            if (Reader.Read())
+            {
+                return Convert.ToInt32(Reader["max_student_id"].ToString());
+            }
+            return 0;
+        }
+
         public byte[] SelectFingerById()
         {
             Command = CommandBuilder("select FINGER from " + table + " where ID = @id");
