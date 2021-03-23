@@ -77,6 +77,7 @@ namespace SchoolManagementSystem.Presentation
 
             User aUser = new User();
             aUser.UserName = txtUserName.Text;
+            aUser.UserId = (int)cmbUser.SelectedValue;
             aUser.Password = txtPassword.Text;
             aUser.RoleId = (int)cmbRole.SelectedValue;
             string message = "";

@@ -54,9 +54,8 @@
             this.pnlSideBar.Controls.Add(this.pnlSideBarLogo);
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(248, 684);
+            this.pnlSideBar.Size = new System.Drawing.Size(186, 660);
             this.pnlSideBar.TabIndex = 0;
             // 
             // btnResult
@@ -71,12 +70,11 @@
             this.btnResult.IconColor = System.Drawing.Color.Gainsboro;
             this.btnResult.IconSize = 35;
             this.btnResult.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnResult.Location = new System.Drawing.Point(0, 126);
-            this.btnResult.Margin = new System.Windows.Forms.Padding(4);
+            this.btnResult.Location = new System.Drawing.Point(0, 103);
             this.btnResult.Name = "btnResult";
-            this.btnResult.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnResult.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btnResult.Rotation = 0D;
-            this.btnResult.Size = new System.Drawing.Size(248, 55);
+            this.btnResult.Size = new System.Drawing.Size(186, 45);
             this.btnResult.TabIndex = 3;
             this.btnResult.Text = "   Result";
             this.btnResult.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -95,12 +93,11 @@
             this.btnAttendance.IconColor = System.Drawing.Color.Gainsboro;
             this.btnAttendance.IconSize = 32;
             this.btnAttendance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAttendance.Location = new System.Drawing.Point(0, 71);
-            this.btnAttendance.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAttendance.Location = new System.Drawing.Point(0, 58);
             this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnAttendance.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.btnAttendance.Rotation = 0D;
-            this.btnAttendance.Size = new System.Drawing.Size(248, 55);
+            this.btnAttendance.Size = new System.Drawing.Size(186, 45);
             this.btnAttendance.TabIndex = 2;
             this.btnAttendance.Text = "   Attendance";
             this.btnAttendance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -113,9 +110,8 @@
             this.pnlSideBarLogo.Controls.Add(this.label1);
             this.pnlSideBarLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSideBarLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlSideBarLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSideBarLogo.Name = "pnlSideBarLogo";
-            this.pnlSideBarLogo.Size = new System.Drawing.Size(248, 71);
+            this.pnlSideBarLogo.Size = new System.Drawing.Size(186, 58);
             this.pnlSideBarLogo.TabIndex = 1;
             // 
             // label1
@@ -124,9 +120,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(32, 22);
+            this.label1.Location = new System.Drawing.Point(24, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 31);
+            this.label1.Size = new System.Drawing.Size(150, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Student Portal";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -140,9 +137,10 @@
             this.pnlTitleBar.Controls.Add(this.btnCloseChildForm);
             this.pnlTitleBar.Controls.Add(this.lblTitle);
             this.pnlTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitleBar.Location = new System.Drawing.Point(248, 0);
+            this.pnlTitleBar.Location = new System.Drawing.Point(186, 0);
+            this.pnlTitleBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(961, 71);
+            this.pnlTitleBar.Size = new System.Drawing.Size(904, 58);
             this.pnlTitleBar.TabIndex = 1;
             this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitleBar_MouseDown);
             // 
@@ -157,12 +155,11 @@
             this.btnAppMinimize.IconChar = FontAwesome.Sharp.IconChar.Minus;
             this.btnAppMinimize.IconColor = System.Drawing.Color.Gainsboro;
             this.btnAppMinimize.IconSize = 20;
-            this.btnAppMinimize.Location = new System.Drawing.Point(883, 4);
-            this.btnAppMinimize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAppMinimize.Location = new System.Drawing.Point(845, 3);
             this.btnAppMinimize.Name = "btnAppMinimize";
-            this.btnAppMinimize.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.btnAppMinimize.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.btnAppMinimize.Rotation = 0D;
-            this.btnAppMinimize.Size = new System.Drawing.Size(27, 22);
+            this.btnAppMinimize.Size = new System.Drawing.Size(20, 18);
             this.btnAppMinimize.TabIndex = 7;
             this.btnAppMinimize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAppMinimize.UseVisualStyleBackColor = true;
@@ -179,11 +176,10 @@
             this.btnAppMaximize.IconChar = FontAwesome.Sharp.IconChar.Square;
             this.btnAppMaximize.IconColor = System.Drawing.Color.Gainsboro;
             this.btnAppMaximize.IconSize = 15;
-            this.btnAppMaximize.Location = new System.Drawing.Point(909, 4);
-            this.btnAppMaximize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAppMaximize.Location = new System.Drawing.Point(865, 3);
             this.btnAppMaximize.Name = "btnAppMaximize";
             this.btnAppMaximize.Rotation = 0D;
-            this.btnAppMaximize.Size = new System.Drawing.Size(27, 22);
+            this.btnAppMaximize.Size = new System.Drawing.Size(20, 18);
             this.btnAppMaximize.TabIndex = 6;
             this.btnAppMaximize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAppMaximize.UseVisualStyleBackColor = true;
@@ -201,12 +197,11 @@
             this.btnAppClose.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnAppClose.IconColor = System.Drawing.Color.Gainsboro;
             this.btnAppClose.IconSize = 20;
-            this.btnAppClose.Location = new System.Drawing.Point(930, 4);
-            this.btnAppClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAppClose.Location = new System.Drawing.Point(881, 3);
             this.btnAppClose.Name = "btnAppClose";
-            this.btnAppClose.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.btnAppClose.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.btnAppClose.Rotation = 0D;
-            this.btnAppClose.Size = new System.Drawing.Size(27, 22);
+            this.btnAppClose.Size = new System.Drawing.Size(20, 18);
             this.btnAppClose.TabIndex = 5;
             this.btnAppClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAppClose.UseVisualStyleBackColor = true;
@@ -224,10 +219,9 @@
             this.btnCloseChildForm.IconColor = System.Drawing.Color.Gainsboro;
             this.btnCloseChildForm.IconSize = 35;
             this.btnCloseChildForm.Location = new System.Drawing.Point(0, 0);
-            this.btnCloseChildForm.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseChildForm.Name = "btnCloseChildForm";
             this.btnCloseChildForm.Rotation = 0D;
-            this.btnCloseChildForm.Size = new System.Drawing.Size(66, 71);
+            this.btnCloseChildForm.Size = new System.Drawing.Size(50, 58);
             this.btnCloseChildForm.TabIndex = 4;
             this.btnCloseChildForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCloseChildForm.UseVisualStyleBackColor = true;
@@ -239,9 +233,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblTitle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitle.Location = new System.Drawing.Point(423, 22);
+            this.lblTitle.Location = new System.Drawing.Point(409, 18);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(95, 31);
+            this.lblTitle.Size = new System.Drawing.Size(78, 26);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HOME";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -249,23 +244,23 @@
             // pnlChildForm
             // 
             this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChildForm.Location = new System.Drawing.Point(248, 71);
+            this.pnlChildForm.Location = new System.Drawing.Point(186, 58);
+            this.pnlChildForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlChildForm.Name = "pnlChildForm";
-            this.pnlChildForm.Size = new System.Drawing.Size(961, 613);
+            this.pnlChildForm.Size = new System.Drawing.Size(904, 602);
             this.pnlChildForm.TabIndex = 2;
             // 
             // frmStudentMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 684);
+            this.ClientSize = new System.Drawing.Size(1090, 660);
             this.ControlBox = false;
             this.Controls.Add(this.pnlChildForm);
             this.Controls.Add(this.pnlTitleBar);
             this.Controls.Add(this.pnlSideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1000, 650);
+            this.MinimumSize = new System.Drawing.Size(750, 528);
             this.Name = "frmStudentMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Resize += new System.EventHandler(this.frmStudentMenu_Resize);

@@ -101,8 +101,6 @@ namespace SchoolManagementSystem.Presentation
             
             DataTable dt = aResultReport.Select().Tables[0];
 
-            Console.WriteLine("count"+dt.Rows.Count);
-
             Reports.ResultReport resultReport = new Reports.ResultReport();
             resultReport.Database.Tables["dtResult"].SetDataSource(dt);
             crvResultReport.ReportSource = null;

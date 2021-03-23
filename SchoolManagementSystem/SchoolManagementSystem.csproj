@@ -11,6 +11,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,10 +25,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -132,6 +132,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsClassSectionWiseResult.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\dsStudentResultReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsStudentResultReport.xsd</DependentUpon>
     </Compile>
     <Compile Include="Dataset\dsTeacherAttendanceReport.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -288,6 +293,12 @@
     <Compile Include="Presentation\MatchingAnsiForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentation\StudentForms\frmStudentResultReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\StudentForms\frmStudentResultReport.Designer.cs">
+      <DependentUpon>frmStudentResultReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\StudentForms\frmStudentAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +325,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Student\StudentResultReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentResultReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\TeacherAttendanceReport.cs">
       <DependentUpon>TeacherAttendanceReport.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -417,6 +434,9 @@
     <EmbeddedResource Include="Presentation\MatchingAnsiForm.resx">
       <DependentUpon>MatchingAnsiForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\StudentForms\frmStudentResultReport.resx">
+      <DependentUpon>frmStudentResultReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Teacher_Attendance_Rep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Teacher_Attendance_Rep.cs</LastGenOutput>
@@ -434,6 +454,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Student\StudentResultReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentResultReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\TeacherAttendanceReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -472,6 +496,17 @@
     </None>
     <None Include="Dataset\dsClassSectionWiseResult.xss">
       <DependentUpon>dsClassSectionWiseResult.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\dsStudentResultReport.xsc">
+      <DependentUpon>dsStudentResultReport.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\dsStudentResultReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsStudentResultReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\dsStudentResultReport.xss">
+      <DependentUpon>dsStudentResultReport.xsd</DependentUpon>
     </None>
     <None Include="Dataset\dsTeacherAttendanceReport.xsc">
       <DependentUpon>dsTeacherAttendanceReport.xsd</DependentUpon>

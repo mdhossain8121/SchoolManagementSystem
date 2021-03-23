@@ -43,19 +43,16 @@ namespace SchoolManagementSystem.Class
 
             if (ClassId != 0)
             {
-                Console.WriteLine("class"+ ClassId);
                 queryString += " and CLASS_ID = @classId ";
             }
 
             if (SectionId != 0)
             {
-                Console.WriteLine("section " + SectionId);
                 queryString += " and SECTION_ID = @sectionId ";
             }
 
             if (PersonId != 0)
             {
-                Console.WriteLine("student" + PersonId);
                 queryString += " and PERSON_ID = @personId ";
             }
 

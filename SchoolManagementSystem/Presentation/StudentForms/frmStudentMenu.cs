@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
+using SchoolManagementSystem.Class;
 
 namespace SchoolManagementSystem.Presentation.StudentForms
 {
@@ -137,7 +138,7 @@ namespace SchoolManagementSystem.Presentation.StudentForms
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmStudentResult(), sender);
+            OpenChildForm(new frmStudentResultReport(), sender);
         }
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)

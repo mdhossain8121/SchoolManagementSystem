@@ -26,6 +26,8 @@ namespace SchoolManagementSystem.Class
 
         private static readonly String tblRole = "role_setup_tbl";
 
+        private static readonly String vwUser = "view_user_tbl";
+
         MD5 md5Hash = MD5.Create();
 
 

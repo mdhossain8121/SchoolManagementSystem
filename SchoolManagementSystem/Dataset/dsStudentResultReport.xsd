@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsStudentResultReport" targetNamespace="http://tempuri.org/dsStudentResultReport.xsd" xmlns:mstns="http://tempuri.org/dsStudentResultReport.xsd" xmlns="http://tempuri.org/dsStudentResultReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsStudentResultReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsStudentResultReport" msprop:Generator_UserDSName="dsStudentResultReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtStudentResultReport" msprop:Generator_TableClassName="dtStudentResultReportDataTable" msprop:Generator_TableVarName="tabledtStudentResultReport" msprop:Generator_TablePropName="dtStudentResultReport" msprop:Generator_RowDeletingName="dtStudentResultReportRowDeleting" msprop:Generator_RowChangingName="dtStudentResultReportRowChanging" msprop:Generator_RowEvHandlerName="dtStudentResultReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dtStudentResultReportRowDeleted" msprop:Generator_UserTableName="dtStudentResultReport" msprop:Generator_RowChangedName="dtStudentResultReportRowChanged" msprop:Generator_RowEvArgName="dtStudentResultReportRowChangeEvent" msprop:Generator_RowClassName="dtStudentResultReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SL" msprop:Generator_ColumnVarNameInTable="columnSL" msprop:Generator_ColumnPropNameInRow="SL" msprop:Generator_ColumnPropNameInTable="SLColumn" msprop:Generator_UserColumnName="SL" type="xs:string" minOccurs="0" />
+              <xs:element name="SUBJECT_NAME" msprop:Generator_ColumnVarNameInTable="columnSUBJECT_NAME" msprop:Generator_ColumnPropNameInRow="SUBJECT_NAME" msprop:Generator_ColumnPropNameInTable="SUBJECT_NAMEColumn" msprop:Generator_UserColumnName="SUBJECT_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="MARKS" msprop:Generator_ColumnVarNameInTable="columnMARKS" msprop:Generator_ColumnPropNameInRow="MARKS" msprop:Generator_ColumnPropNameInTable="MARKSColumn" msprop:Generator_UserColumnName="MARKS" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
