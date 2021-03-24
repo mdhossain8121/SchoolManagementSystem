@@ -91,9 +91,10 @@ namespace SchoolManagementSystem.Presentation
                 return;
 
             // CHECK IF RESULT ALREADY SUBMITTED
-
+            
             ResultMaster aResultMaster = new ResultMaster();
             aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
+            aResultMaster.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
             aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
             aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
             //aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
@@ -132,6 +133,7 @@ namespace SchoolManagementSystem.Presentation
             ResultMaster aResultMaster = new ResultMaster();
             aResultMaster.ClassExamId = Convert.ToInt32(cmbClassWiseExam.SelectedValue.ToString());
             aResultMaster.ClassSubjectId = Convert.ToInt32(cmbClassWiseSubject.SelectedValue.ToString());
+            aResultMaster.ClassSectionId = Convert.ToInt32(cmbClassWiseSection.SelectedValue.ToString());
             aResultMaster.TotalMarks = Convert.ToInt32(txtMarks.Text.ToString());
             aResultMaster.ExamDate = DateTime.Parse(dtpExamDate.Value.ToShortDateString());
             //aResultMaster.ExamDate = DateTime.Now;

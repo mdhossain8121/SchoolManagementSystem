@@ -90,8 +90,9 @@ namespace SchoolManagementSystem.Class
 
         public DataSet SelectBySection()
         {
-            Command = CommandBuilder("select ID, STUDENT_NAME, ROLL from " + tblClassSectionWiseStudentView + " where ACTIVE_STATUS = @activeStatus ORDER BY ROLL");
+            Command = CommandBuilder("select ID, STUDENT_NAME, ROLL from " + tblClassSectionWiseStudentView + " where CLASSSECTION_ID = @classSectionId AND ACTIVE_STATUS = @activeStatus ORDER BY ROLL");
             Command.Parameters.AddWithValue("@activeStatus", ActiveStatus);
+            Command.Parameters.AddWithValue("@classSectionId", ClassSectionId);
             return ExecuteDataSet(Command);
         }
     }
