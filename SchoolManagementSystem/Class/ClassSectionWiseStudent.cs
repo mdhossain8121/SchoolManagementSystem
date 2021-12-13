@@ -88,6 +88,13 @@ namespace SchoolManagementSystem.Class
             return ExecuteDataSet(Command);
         }
 
+        public DataSet CurrentYearStudentSummary()
+        {
+            Command = CommandBuilder("SELECT CLASS_NAME, SECTION_NAME, COUNT(STUDENT_ID) as TOTAL_STUDENT FROM " + tblClassSectionWiseStudentView + " WHERE YEAR = @year GROUP BY STUDENT_ID");
+            Command.Parameters.AddWithValue("@year", Year);
+            return ExecuteDataSet(Command);
+        }
+
         public DataSet SelectBySection()
         {
             Command = CommandBuilder("select ID, STUDENT_NAME, ROLL from " + tblClassSectionWiseStudentView + " where CLASSSECTION_ID = @classSectionId AND ACTIVE_STATUS = @activeStatus ORDER BY ROLL");

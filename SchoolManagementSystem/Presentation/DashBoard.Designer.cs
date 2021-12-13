@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -38,10 +42,15 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblTotalStudent = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.dgvDashboardSummary = new System.Windows.Forms.DataGridView();
+            this.dcolClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dcolSection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dcolStudentCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDashboardSummary)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -98,7 +107,7 @@
             this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label12.Location = new System.Drawing.Point(14, 14);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 15);
+            this.label12.Size = new System.Drawing.Size(52, 15);
             this.label12.TabIndex = 0;
             this.label12.Text = "Teachers";
             // 
@@ -145,6 +154,80 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Students";
             // 
+            // dgvDashboardSummary
+            // 
+            this.dgvDashboardSummary.AllowUserToAddRows = false;
+            this.dgvDashboardSummary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDashboardSummary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDashboardSummary.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvDashboardSummary.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDashboardSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDashboardSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDashboardSummary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dcolClass,
+            this.dcolSection,
+            this.dcolStudentCount});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDashboardSummary.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDashboardSummary.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvDashboardSummary.Location = new System.Drawing.Point(22, 185);
+            this.dgvDashboardSummary.MultiSelect = false;
+            this.dgvDashboardSummary.Name = "dgvDashboardSummary";
+            this.dgvDashboardSummary.ReadOnly = true;
+            this.dgvDashboardSummary.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDashboardSummary.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDashboardSummary.RowTemplate.Height = 60;
+            this.dgvDashboardSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDashboardSummary.Size = new System.Drawing.Size(1090, 306);
+            this.dgvDashboardSummary.TabIndex = 24;
+            // 
+            // dcolClass
+            // 
+            this.dcolClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dcolClass.DataPropertyName = "CLASS_NAME";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcolClass.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dcolClass.FillWeight = 101.5228F;
+            this.dcolClass.HeaderText = "Class";
+            this.dcolClass.Name = "dcolClass";
+            this.dcolClass.ReadOnly = true;
+            // 
+            // dcolSection
+            // 
+            this.dcolSection.DataPropertyName = "SECTION_NAME";
+            this.dcolSection.HeaderText = "Section";
+            this.dcolSection.Name = "dcolSection";
+            this.dcolSection.ReadOnly = true;
+            // 
+            // dcolStudentCount
+            // 
+            this.dcolStudentCount.DataPropertyName = "TOTAL_STUDENT";
+            this.dcolStudentCount.HeaderText = "Total Student";
+            this.dcolStudentCount.Name = "dcolStudentCount";
+            this.dcolStudentCount.ReadOnly = true;
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +235,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1137, 611);
             this.ControlBox = false;
+            this.Controls.Add(this.dgvDashboardSummary);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label1);
@@ -167,6 +251,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDashboardSummary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -182,5 +267,9 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label lblTotalStudent;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvDashboardSummary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dcolClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dcolSection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dcolStudentCount;
     }
 }
