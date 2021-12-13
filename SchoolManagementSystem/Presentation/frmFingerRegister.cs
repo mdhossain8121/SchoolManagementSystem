@@ -485,14 +485,14 @@ namespace MatchingAnsi
 
          StatusBar.Text = "Click Init Button";
 
-         if (m_useAnsiTemplate)
-         {
-             this.Text = "Matching Test: ANSI 378 Format";
-         }
-         else
-         {
-             this.Text = "Matching Test: ISO 19794-2 Format";
-         }
+         //if (m_useAnsiTemplate)
+         //{
+         //    this.Text = "Matching Test: ANSI 378 Format";
+         //}
+         //else
+         //{
+         //    this.Text = "Matching Test: ISO 19794-2 Format";
+         //}
 
             //load classes
             loadClass();
@@ -1078,7 +1078,7 @@ namespace MatchingAnsi
             cmbPerson.BindingContext = new BindingContext();
             cmbPerson.DataSource = dsStudent.Tables[0];
             cmbPerson.DisplayMember = "UNIQUE_NAME";
-            cmbPerson.ValueMember = "ID";
+            cmbPerson.ValueMember = "STUDENT_ID";
             cmbPerson.SelectedIndex = -1;
         }
 

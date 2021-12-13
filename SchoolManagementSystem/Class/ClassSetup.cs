@@ -66,7 +66,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet SelectStudentByClassId()
         {
-            Command = CommandBuilder("select ID, CONCAT( STUDENT_ID,'-',STUDENT_NAME) AS UNIQUE_NAME from " + tblClassSectionWiseStudentView + " where CLASS_ID = @classId");
+            Command = CommandBuilder("select ID, STUDENT_ID, CONCAT( STUDENT_ID,'-',STUDENT_NAME) AS UNIQUE_NAME from " + tblClassSectionWiseStudentView + " where CLASS_ID = @classId");
             Command.Parameters.AddWithValue("@classId", Id);
             return ExecuteDataSet(Command);
         }

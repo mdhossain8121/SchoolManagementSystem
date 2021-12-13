@@ -90,7 +90,7 @@ namespace SchoolManagementSystem.Class
 
         public DataSet CurrentYearStudentSummary()
         {
-            Command = CommandBuilder("SELECT CLASS_NAME, SECTION_NAME, COUNT(STUDENT_ID) as TOTAL_STUDENT FROM " + tblClassSectionWiseStudentView + " WHERE YEAR = @year GROUP BY STUDENT_ID");
+            Command = CommandBuilder("SELECT CLASS_NAME, SECTION_NAME, COUNT(STUDENT_ID) as TOTAL_STUDENT FROM " + tblClassSectionWiseStudentView + " WHERE YEAR = @year GROUP BY SECTION_ID");
             Command.Parameters.AddWithValue("@year", Year);
             return ExecuteDataSet(Command);
         }

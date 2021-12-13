@@ -135,9 +135,16 @@ namespace SchoolManagementSystem
 
         private void fingerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmFingerRegister.IsDisposed)
-                frmFingerRegister = new frmFingerRegister();
-            menuClick(frmFingerRegister);
+            try
+            {
+                if (frmFingerRegister.IsDisposed)
+                    frmFingerRegister = new frmFingerRegister();
+                menuClick(frmFingerRegister);
+            }catch(Exception ex)
+            {
+
+            }
+            
 
 
             //if (matchingAnsi.IsDisposed)

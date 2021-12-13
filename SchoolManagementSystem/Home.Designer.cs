@@ -221,15 +221,17 @@
             // examToolStripMenuItem
             // 
             this.examToolStripMenuItem.Name = "examToolStripMenuItem";
-            this.examToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.examToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.examToolStripMenuItem.Text = "&Exam";
+            this.examToolStripMenuItem.Visible = false;
             this.examToolStripMenuItem.Click += new System.EventHandler(this.examToolStripMenuItem_Click);
             // 
             // classWiseExamToolStripMenuItem
             // 
             this.classWiseExamToolStripMenuItem.Name = "classWiseExamToolStripMenuItem";
-            this.classWiseExamToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.classWiseExamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.classWiseExamToolStripMenuItem.Text = "&Class Wise Exam";
+            this.classWiseExamToolStripMenuItem.Visible = false;
             this.classWiseExamToolStripMenuItem.Click += new System.EventHandler(this.classWiseExamToolStripMenuItem_Click);
             // 
             // sessionToolStripMenuItem
@@ -292,6 +294,7 @@
             this.resultToolStripMenuItem.Name = "resultToolStripMenuItem";
             this.resultToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.resultToolStripMenuItem.Text = "&Result";
+            this.resultToolStripMenuItem.Visible = false;
             this.resultToolStripMenuItem.Click += new System.EventHandler(this.resultToolStripMenuItem_Click);
             // 
             // teacherAttendanceReportToolStripMenuItem
