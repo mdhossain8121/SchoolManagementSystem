@@ -15,6 +15,7 @@ namespace SchoolManagementSystem.Presentation
     {
         Student aStudent = new Student();
         Teacher aTeacher = new Teacher();
+        ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
         public DashBoard()
         {
             InitializeComponent();
@@ -32,6 +33,27 @@ namespace SchoolManagementSystem.Presentation
         {
             lblTotalStudent.Text = aStudent.countStudent().ToString();
             lblTotalTeacher.Text = aTeacher.countTeacher().ToString();
+            loadDashBoardDatagridview();
+        }
+
+        private void loadDashBoardDatagridview()
+        {
+            ClassSectionWiseStudent aClassSectionWiseStudent = new ClassSectionWiseStudent();
+            aClassSectionWiseStudent.Year = Convert.ToInt32(DateTime.Now.Year.ToString()); ;
+            DataTable dt = aClassSectionWiseStudent.CurrentYearStudentSummary().Tables[0];
+            if (dt == null)
+            {
+                MessageBox.Show(aClassSectionWiseStudent.Error);
+                return;
+            }
+            try
+            {
+                dgvDashboardSummary.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Catch = " + ex.Message);
+            }
         }
     }
 }
