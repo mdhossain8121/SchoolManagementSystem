@@ -39,6 +39,7 @@
             this.registrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.multipeStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.studentAttendanceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teacherAttendanceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.multipeStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,6 +127,7 @@
             this.resultEntryToolStripMenuItem.Name = "resultEntryToolStripMenuItem";
             this.resultEntryToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.resultEntryToolStripMenuItem.Text = "&Result Entry";
+            this.resultEntryToolStripMenuItem.Visible = false;
             this.resultEntryToolStripMenuItem.Click += new System.EventHandler(this.resultEntryToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
@@ -149,16 +150,23 @@
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.studentToolStripMenuItem.Text = "&Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.teacherToolStripMenuItem.Text = "&Teacher";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherToolStripMenuItem_Click);
+            // 
+            // multipeStudentsToolStripMenuItem
+            // 
+            this.multipeStudentsToolStripMenuItem.Name = "multipeStudentsToolStripMenuItem";
+            this.multipeStudentsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.multipeStudentsToolStripMenuItem.Text = "&Multipe Students";
+            this.multipeStudentsToolStripMenuItem.Click += new System.EventHandler(this.multipeStudentsToolStripMenuItem_Click);
             // 
             // setupToolStripMenuItem
             // 
@@ -292,13 +300,6 @@
             this.teacherAttendanceReportToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.teacherAttendanceReportToolStripMenuItem.Text = "&Teacher Attendance Report";
             this.teacherAttendanceReportToolStripMenuItem.Click += new System.EventHandler(this.teacherAttendanceReportToolStripMenuItem_Click);
-            // 
-            // multipeStudentsToolStripMenuItem
-            // 
-            this.multipeStudentsToolStripMenuItem.Name = "multipeStudentsToolStripMenuItem";
-            this.multipeStudentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.multipeStudentsToolStripMenuItem.Text = "&Multipe Students";
-            this.multipeStudentsToolStripMenuItem.Click += new System.EventHandler(this.multipeStudentsToolStripMenuItem_Click);
             // 
             // frmHome
             // 
