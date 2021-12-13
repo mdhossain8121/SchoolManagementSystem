@@ -155,8 +155,9 @@ namespace SchoolManagementSystem.Presentation
                     return;
                 }
                 cmbUser.DataSource = dsStudent.Tables[0];
-                cmbUser.DisplayMember = "STUDENT_NAME";
+                cmbUser.DisplayMember = "UNIQUE_NAME";
                 cmbUser.ValueMember = "ID";
+                cmbUser.SelectedIndex = -1;
             }
             else if (userType == 3)
             {
